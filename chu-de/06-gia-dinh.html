@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi" data-root="../"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Family – Gia đình</title>
+<meta name="theme-color" content="#ff8a65">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="English Kids">
+<style>:root{--c:#ff8a65}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Segoe UI','Nunito',system-ui,Arial,sans-serif;background:#fffaf2;color:#333;overflow-x:hidden}
+header{padding:calc(24px + env(safe-area-inset-top)) 16px 22px;text-align:center;color:#fff;background:var(--c);border-radius:0 0 32px 32px;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+header .big{font-size:60px;line-height:1}
+header h1{margin:8px 0 4px;font-size:clamp(26px,6vw,34px)}
+header p{margin:0;font-size:17px;opacity:.95}
+.badge{display:inline-block;background:#fff;color:var(--c);font-weight:700;border-radius:20px;padding:3px 12px;font-size:14px;margin-top:8px}
+main{max-width:1150px;margin:0 auto;padding:20px 16px calc(60px + env(safe-area-inset-bottom))}
+h2{font-size:23px;margin:28px 0 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+h2 small{font-size:15px;font-weight:600;color:#888}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.btn{border:none;background:#fff;color:var(--c);font-weight:700;padding:8px 16px;border-radius:20px;cursor:pointer;font-size:15px;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,.12);font-family:inherit}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:16px}
+.card{background:#fff;border-radius:20px;padding:16px 12px 14px;text-align:center;border:3px solid var(--c);box-shadow:0 4px 10px rgba(0,0,0,.06);position:relative;transition:transform .15s}
+.card:hover{transform:translateY(-4px) rotate(-1deg)}
+.card .ico{font-size:52px;line-height:1.1}
+.card .w{font-size:21px;font-weight:800;color:var(--c);margin:6px 0 4px;overflow-wrap:anywhere}
+.card .ipa{font-family:'Lucida Sans Unicode','Arial Unicode MS',sans-serif;color:#555;font-size:15px;overflow-wrap:anywhere}
+.card .vn{color:#e65100;font-size:15px;margin-top:2px}
+.card .vn::before{content:'🗣️ '}
+.card .m{margin-top:8px;background:#f3f3f3;border-radius:12px;padding:6px;font-weight:700;font-size:16px}
+.say{position:absolute;top:8px;right:8px;border:none;background:none;font-size:20px;cursor:pointer;padding:4px}
+.hide .m{color:transparent;background:repeating-linear-gradient(45deg,#ddd,#ddd 6px,#eee 6px,#eee 12px)}
+.hide .card:hover .m,.hide .card.show .m{color:#333;background:#f3f3f3}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.cols>section>h2{margin-top:28px}
+.pat{background:#fff;border-left:8px solid var(--c);border-radius:16px;padding:14px 18px;margin-bottom:12px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.pat .en{font-size:18px;font-weight:700}
+.pat .en .q{color:var(--c)}
+.pat .vi{color:#666;margin-top:4px;font-style:italic}
+.pat .say,.gram .say{position:static;font-size:17px}
+.gram{background:#fff;border:3px solid var(--c);border-radius:20px;padding:16px 18px;margin-bottom:14px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.gram h3{margin:0 0 10px;color:var(--c);font-size:19px}
+.gram h3 a{color:inherit}
+.gram .tag{display:inline-block;font-size:13px;font-weight:700;background:var(--c);color:#fff;border-radius:10px;padding:2px 8px;margin-right:6px;vertical-align:middle}
+.f{font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;background:#fff6e0;border:1.5px dashed #f0c060;border-radius:10px;padding:7px 10px;margin:6px 0;font-size:15px;font-weight:600;overflow-wrap:anywhere}
+.gram ul{margin:8px 0;padding-left:20px;color:#555;line-height:1.55}
+.ex{border-top:1px dashed #ddd;padding:7px 0}
+.ex .en{font-weight:700}
+.ex .vi{color:#666;font-style:italic;font-size:15px}
+.legend{background:#fff;border:2px dashed var(--c);border-radius:16px;padding:10px 16px;font-size:15px}
+nav.pn{display:flex;justify-content:space-between;margin-top:30px;gap:10px}
+nav.pn a{background:var(--c);color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none;font-weight:700}
+.chips{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:5;background:#fffaf2;padding:10px 0;margin:0 -2px}
+.chip{border:2px solid #ff7aa2;background:#fff;color:#d6336c;border-radius:20px;padding:6px 13px;font-weight:700;cursor:pointer;font-size:15px;font-family:inherit}
+.chip.on{background:#ff7aa2;color:#fff}
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.topic{display:block;text-decoration:none;color:#fff;border-radius:24px;padding:18px;box-shadow:0 6px 14px rgba(0,0,0,.12);transition:transform .15s;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.topic:hover{transform:scale(1.04)}
+.topic .ico{font-size:48px}
+.topic .t{font-size:20px;font-weight:800;margin-top:6px}
+.topic .s{font-size:16px;opacity:.95}
+.topic .n{margin-top:10px;font-size:14px;background:rgba(255,255,255,.25);display:inline-block;padding:3px 10px;border-radius:12px}
+.special{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#7c4dff,#ff7aa2);color:#fff;text-decoration:none;border-radius:24px;padding:18px 22px;box-shadow:0 6px 14px rgba(0,0,0,.12)}
+.special .ico{font-size:46px}
+.special b{font-size:21px;display:block}
+.tips{background:#fff;border-radius:20px;padding:16px 22px;box-shadow:0 3px 8px rgba(0,0,0,.06);line-height:1.7}
+.install{display:none}
+.ioshint{display:none;background:#fff;color:#333;border-radius:16px;padding:10px 14px;margin:12px auto 0;max-width:420px;font-size:15px;text-shadow:none}
+[hidden]{display:none!important}
+@media (max-width:860px){.cols{grid-template-columns:1fr;gap:0}}
+@media (max-width:480px){.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:12px 6px 10px;border-radius:16px}.card .ico{font-size:40px}.card .w{font-size:17px}.card .ipa,.card .vn,.card .m{font-size:13px}.say{top:2px;right:2px;font-size:17px}.topics{grid-template-columns:1fr 1fr;gap:10px}.topic{padding:14px;border-radius:18px}.topic .ico{font-size:38px}.topic .t{font-size:16px}.topic .s{font-size:14px}.topic .n{font-size:12px}nav.pn a{padding:9px 12px;font-size:14px}}
+@media print{.say,.toolbar,nav.pn,.chips{display:none}header{border-radius:0}.card,.gram{break-inside:avoid}.cols{grid-template-columns:1fr}}
+</style><script>
+function say(t){if(!('speechSynthesis' in window))return alert('Trình duyệt không hỗ trợ đọc.');
+speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/→/g,'.').replace(/\//g,' or '));
+u.lang='en-GB';u.rate=0.8;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));if(v)u.voice=v;speechSynthesis.speak(u);}
+function toggleHide(b){document.body.classList.toggle('hide');b.textContent=document.body.classList.contains('hide')?'👁️ Hiện nghĩa':'🙈 Ẩn nghĩa (tự kiểm tra)';}
+document.addEventListener('click',ev=>{const c=ev.target.closest('.card');if(c&&!ev.target.closest('.say'))c.classList.toggle('show');});
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register(document.documentElement.dataset.root+'sw.js').catch(()=>{}));
+let deferredPrompt;
+addEventListener('beforeinstallprompt',ev=>{ev.preventDefault();deferredPrompt=ev;document.querySelectorAll('.install').forEach(b=>b.style.display='inline-block');});
+function installApp(){if(!deferredPrompt)return;deferredPrompt.prompt();deferredPrompt.userChoice.finally(()=>{deferredPrompt=null;document.querySelectorAll('.install').forEach(b=>b.style.display='none');});}
+addEventListener('DOMContentLoaded',()=>{const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const standalone=navigator.standalone||matchMedia('(display-mode: standalone)').matches;const h=document.querySelector('.ioshint');if(h&&ios&&!standalone)h.style.display='block';});
+function filterGrade(btn){document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===btn));const g=btn.dataset.g;
+document.querySelectorAll('[data-g]').forEach(el=>{if(el.classList.contains('chip'))return;el.hidden=g!=='all'&&!(' '+el.dataset.g+' ').includes(' '+g+' ');});
+document.querySelectorAll('[data-sec]').forEach(s=>{s.hidden=!s.querySelector('[data-g]:not([hidden])');});}
+</script></head>
+<body><header><div class="big">👨‍👩‍👧‍👦</div><h1>Family</h1><p>Chủ đề 6: Gia đình</p>
+<span class="badge">📘 Lớp 1-3 · 14 từ · 5 mẫu câu · ngữ pháp</span>
+<div class="toolbar"><a class="btn" href="../index.html#tieu-hoc">🏠 Trang chủ</a>
+<a class="btn" href="../ngu-phap.html">📐 Ngữ pháp</a>
+<button class="btn" onclick="toggleHide(this)">🙈 Ẩn nghĩa (tự kiểm tra)</button>
+<button class="btn" onclick="window.print()">🖨️ In</button></div></header>
+<main><div class="legend">🔊 Bấm loa để nghe &nbsp;|&nbsp; <b>/IPA/</b> = phiên âm quốc tế &nbsp;|&nbsp; 🗣️ = phiên âm tiếng Việt (gần đúng) &nbsp;|&nbsp; ô xám = nghĩa</div>
+<h2>📖 Từ vựng (Vocabulary)</h2><div class="grid"><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="family">🔊</button><div class="ico">👨‍👩‍👧</div><div class="w">family</div><div class="ipa">/ˈfæməli/</div><div class="vn">phe-mơ-li</div><div class="m">gia đình</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="father / dad">🔊</button><div class="ico">👨</div><div class="w">father / dad</div><div class="ipa">/ˈfɑːðə/ /dæd/</div><div class="vn">pha-đơ / đét</div><div class="m">bố</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="mother / mum">🔊</button><div class="ico">👩</div><div class="w">mother / mum</div><div class="ipa">/ˈmʌðə/ /mʌm/</div><div class="vn">ma-đơ / mam</div><div class="m">mẹ</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="brother">🔊</button><div class="ico">👦</div><div class="w">brother</div><div class="ipa">/ˈbrʌðə/</div><div class="vn">bra-đơ</div><div class="m">anh / em trai</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="sister">🔊</button><div class="ico">👧</div><div class="w">sister</div><div class="ipa">/ˈsɪstə/</div><div class="vn">xít-x-tơ</div><div class="m">chị / em gái</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="grandfather">🔊</button><div class="ico">👴</div><div class="w">grandfather</div><div class="ipa">/ˈɡrænfɑːðə/</div><div class="vn">gren-pha-đơ</div><div class="m">ông</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="grandmother">🔊</button><div class="ico">👵</div><div class="w">grandmother</div><div class="ipa">/ˈɡrænmʌðə/</div><div class="vn">gren-ma-đơ</div><div class="m">bà</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="baby">🔊</button><div class="ico">👶</div><div class="w">baby</div><div class="ipa">/ˈbeɪbi/</div><div class="vn">bây-bi</div><div class="m">em bé</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="uncle">🔊</button><div class="ico">👨‍🦱</div><div class="w">uncle</div><div class="ipa">/ˈʌŋkl/</div><div class="vn">ăng-cồ</div><div class="m">chú, bác, cậu</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="aunt">🔊</button><div class="ico">👩‍🦱</div><div class="w">aunt</div><div class="ipa">/ɑːnt/</div><div class="vn">an-t</div><div class="m">cô, dì, bác gái</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="cousin">🔊</button><div class="ico">🧒</div><div class="w">cousin</div><div class="ipa">/ˈkʌzn/</div><div class="vn">ca-dần</div><div class="m">anh chị em họ</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="parents">🔊</button><div class="ico">👪</div><div class="w">parents</div><div class="ipa">/ˈpeərənts/</div><div class="vn">pe-rần-x</div><div class="m">bố mẹ</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="son">🔊</button><div class="ico">🧑</div><div class="w">son</div><div class="ipa">/sʌn/</div><div class="vn">xăn</div><div class="m">con trai</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="daughter">🔊</button><div class="ico">👧</div><div class="w">daughter</div><div class="ipa">/ˈdɔːtə/</div><div class="vn">đo-tơ</div><div class="m">con gái</div></div></div>
+<div class="cols"><section><h2>💬 Mẫu câu (Sentence patterns)</h2><div class="pat"><div class="en"><span class="q">❓ Who&#x27;s that?</span><br>💬 It&#x27;s my father. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Who&#x27;s that? → It&#x27;s my father.">🔊</button></div><div class="vi">🇻🇳 Đó là ai? → Đó là bố mình.</div></div><div class="pat"><div class="en"><span class="q">❓ Who&#x27;s this woman?</span><br>💬 She&#x27;s my mother. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Who&#x27;s this woman? → She&#x27;s my mother.">🔊</button></div><div class="vi">🇻🇳 Người phụ nữ này là ai? → Cô ấy là mẹ mình.</div></div><div class="pat"><div class="en"><span class="q">❓ How many people are there in your family?</span><br>💬 There are four. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="How many people are there in your family? → There are four.">🔊</button></div><div class="vi">🇻🇳 Gia đình bạn có mấy người? → Có 4 người.</div></div><div class="pat"><div class="en"><span class="q">❓ How old is your brother?</span><br>💬 He&#x27;s twelve years old. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="How old is your brother? → He&#x27;s twelve years old.">🔊</button></div><div class="vi">🇻🇳 Anh trai bạn bao nhiêu tuổi? → Anh ấy 12 tuổi.</div></div><div class="pat"><div class="en"><span class="q">❓ Do you have a sister?</span><br>💬 Yes, I do. / No, I don&#x27;t. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Do you have a sister? → Yes, I do. / No, I don&#x27;t.">🔊</button></div><div class="vi">🇻🇳 Bạn có chị/em gái không? → Có. / Không.</div></div></section>
+<section><h2>📐 Ngữ pháp (Grammar)</h2><div class="gram"><h3>📐 Tính từ sở hữu &amp; sở hữu cách &#x27;s</h3><div class="f">my (của tôi), your (của bạn), his (của anh ấy), her (của cô ấy), our (của chúng tôi), their (của họ)</div><div class="f">Tên người + &#x27;s + danh từ</div><ul><li>Tính từ sở hữu đứng trước danh từ: my mother, her brother.</li></ul><div class="ex"><div class="en">This is my father. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="This is my father.">🔊</button></div><div class="vi">🇻🇳 Đây là bố của mình.</div></div><div class="ex"><div class="en">His name is Minh. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="His name is Minh.">🔊</button></div><div class="vi">🇻🇳 Tên cậu ấy là Minh.</div></div><div class="ex"><div class="en">This is Lan&#x27;s sister. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="This is Lan&#x27;s sister.">🔊</button></div><div class="vi">🇻🇳 Đây là chị gái của Lan.</div></div></div></section></div>
+<nav class="pn"><a href="05-truong-lop-mon-hoc.html">⬅️ Trường lớp &amp; Môn học</a><a href="07-co-the-khuon-mat.html">Cơ thể &amp; Khuôn mặt ➡️</a></nav></main></body></html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi" data-root="../"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Global Warming – Sự nóng lên toàn cầu</title>
+<meta name="theme-color" content="#d84315">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="English Kids">
+<style>:root{--c:#d84315}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Segoe UI','Nunito',system-ui,Arial,sans-serif;background:#fffaf2;color:#333;overflow-x:hidden}
+header{padding:calc(24px + env(safe-area-inset-top)) 16px 22px;text-align:center;color:#fff;background:var(--c);border-radius:0 0 32px 32px;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+header .big{font-size:60px;line-height:1}
+header h1{margin:8px 0 4px;font-size:clamp(26px,6vw,34px)}
+header p{margin:0;font-size:17px;opacity:.95}
+.badge{display:inline-block;background:#fff;color:var(--c);font-weight:700;border-radius:20px;padding:3px 12px;font-size:14px;margin-top:8px}
+main{max-width:1150px;margin:0 auto;padding:20px 16px calc(60px + env(safe-area-inset-bottom))}
+h2{font-size:23px;margin:28px 0 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+h2 small{font-size:15px;font-weight:600;color:#888}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.btn{border:none;background:#fff;color:var(--c);font-weight:700;padding:8px 16px;border-radius:20px;cursor:pointer;font-size:15px;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,.12);font-family:inherit}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:16px}
+.card{background:#fff;border-radius:20px;padding:16px 12px 14px;text-align:center;border:3px solid var(--c);box-shadow:0 4px 10px rgba(0,0,0,.06);position:relative;transition:transform .15s}
+.card:hover{transform:translateY(-4px) rotate(-1deg)}
+.card .ico{font-size:52px;line-height:1.1}
+.card .w{font-size:21px;font-weight:800;color:var(--c);margin:6px 0 4px;overflow-wrap:anywhere}
+.card .ipa{font-family:'Lucida Sans Unicode','Arial Unicode MS',sans-serif;color:#555;font-size:15px;overflow-wrap:anywhere}
+.card .vn{color:#e65100;font-size:15px;margin-top:2px}
+.card .vn::before{content:'🗣️ '}
+.card .m{margin-top:8px;background:#f3f3f3;border-radius:12px;padding:6px;font-weight:700;font-size:16px}
+.say{position:absolute;top:8px;right:8px;border:none;background:none;font-size:20px;cursor:pointer;padding:4px}
+.hide .m{color:transparent;background:repeating-linear-gradient(45deg,#ddd,#ddd 6px,#eee 6px,#eee 12px)}
+.hide .card:hover .m,.hide .card.show .m{color:#333;background:#f3f3f3}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.cols>section>h2{margin-top:28px}
+.pat{background:#fff;border-left:8px solid var(--c);border-radius:16px;padding:14px 18px;margin-bottom:12px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.pat .en{font-size:18px;font-weight:700}
+.pat .en .q{color:var(--c)}
+.pat .vi{color:#666;margin-top:4px;font-style:italic}
+.pat .say,.gram .say{position:static;font-size:17px}
+.gram{background:#fff;border:3px solid var(--c);border-radius:20px;padding:16px 18px;margin-bottom:14px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.gram h3{margin:0 0 10px;color:var(--c);font-size:19px}
+.gram h3 a{color:inherit}
+.gram .tag{display:inline-block;font-size:13px;font-weight:700;background:var(--c);color:#fff;border-radius:10px;padding:2px 8px;margin-right:6px;vertical-align:middle}
+.f{font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;background:#fff6e0;border:1.5px dashed #f0c060;border-radius:10px;padding:7px 10px;margin:6px 0;font-size:15px;font-weight:600;overflow-wrap:anywhere}
+.gram ul{margin:8px 0;padding-left:20px;color:#555;line-height:1.55}
+.ex{border-top:1px dashed #ddd;padding:7px 0}
+.ex .en{font-weight:700}
+.ex .vi{color:#666;font-style:italic;font-size:15px}
+.legend{background:#fff;border:2px dashed var(--c);border-radius:16px;padding:10px 16px;font-size:15px}
+nav.pn{display:flex;justify-content:space-between;margin-top:30px;gap:10px}
+nav.pn a{background:var(--c);color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none;font-weight:700}
+.chips{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:5;background:#fffaf2;padding:10px 0;margin:0 -2px}
+.chip{border:2px solid #ff7aa2;background:#fff;color:#d6336c;border-radius:20px;padding:6px 13px;font-weight:700;cursor:pointer;font-size:15px;font-family:inherit}
+.chip.on{background:#ff7aa2;color:#fff}
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.topic{display:block;text-decoration:none;color:#fff;border-radius:24px;padding:18px;box-shadow:0 6px 14px rgba(0,0,0,.12);transition:transform .15s;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.topic:hover{transform:scale(1.04)}
+.topic .ico{font-size:48px}
+.topic .t{font-size:20px;font-weight:800;margin-top:6px}
+.topic .s{font-size:16px;opacity:.95}
+.topic .n{margin-top:10px;font-size:14px;background:rgba(255,255,255,.25);display:inline-block;padding:3px 10px;border-radius:12px}
+.special{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#7c4dff,#ff7aa2);color:#fff;text-decoration:none;border-radius:24px;padding:18px 22px;box-shadow:0 6px 14px rgba(0,0,0,.12)}
+.special .ico{font-size:46px}
+.special b{font-size:21px;display:block}
+.tips{background:#fff;border-radius:20px;padding:16px 22px;box-shadow:0 3px 8px rgba(0,0,0,.06);line-height:1.7}
+.install{display:none}
+.ioshint{display:none;background:#fff;color:#333;border-radius:16px;padding:10px 14px;margin:12px auto 0;max-width:420px;font-size:15px;text-shadow:none}
+[hidden]{display:none!important}
+@media (max-width:860px){.cols{grid-template-columns:1fr;gap:0}}
+@media (max-width:480px){.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:12px 6px 10px;border-radius:16px}.card .ico{font-size:40px}.card .w{font-size:17px}.card .ipa,.card .vn,.card .m{font-size:13px}.say{top:2px;right:2px;font-size:17px}.topics{grid-template-columns:1fr 1fr;gap:10px}.topic{padding:14px;border-radius:18px}.topic .ico{font-size:38px}.topic .t{font-size:16px}.topic .s{font-size:14px}.topic .n{font-size:12px}nav.pn a{padding:9px 12px;font-size:14px}}
+@media print{.say,.toolbar,nav.pn,.chips{display:none}header{border-radius:0}.card,.gram{break-inside:avoid}.cols{grid-template-columns:1fr}}
+</style><script>
+function say(t){if(!('speechSynthesis' in window))return alert('Trình duyệt không hỗ trợ đọc.');
+speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/→/g,'.').replace(/\//g,' or '));
+u.lang='en-GB';u.rate=0.8;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));if(v)u.voice=v;speechSynthesis.speak(u);}
+function toggleHide(b){document.body.classList.toggle('hide');b.textContent=document.body.classList.contains('hide')?'👁️ Hiện nghĩa':'🙈 Ẩn nghĩa (tự kiểm tra)';}
+document.addEventListener('click',ev=>{const c=ev.target.closest('.card');if(c&&!ev.target.closest('.say'))c.classList.toggle('show');});
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register(document.documentElement.dataset.root+'sw.js').catch(()=>{}));
+let deferredPrompt;
+addEventListener('beforeinstallprompt',ev=>{ev.preventDefault();deferredPrompt=ev;document.querySelectorAll('.install').forEach(b=>b.style.display='inline-block');});
+function installApp(){if(!deferredPrompt)return;deferredPrompt.prompt();deferredPrompt.userChoice.finally(()=>{deferredPrompt=null;document.querySelectorAll('.install').forEach(b=>b.style.display='none');});}
+addEventListener('DOMContentLoaded',()=>{const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const standalone=navigator.standalone||matchMedia('(display-mode: standalone)').matches;const h=document.querySelector('.ioshint');if(h&&ios&&!standalone)h.style.display='block';});
+function filterGrade(btn){document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===btn));const g=btn.dataset.g;
+document.querySelectorAll('[data-g]').forEach(el=>{if(el.classList.contains('chip'))return;el.hidden=g!=='all'&&!(' '+el.dataset.g+' ').includes(' '+g+' ');});
+document.querySelectorAll('[data-sec]').forEach(s=>{s.hidden=!s.querySelector('[data-g]:not([hidden])');});}
+</script></head>
+<body><header><div class="big">🌡️</div><h1>Global Warming</h1><p>Chủ đề 47: Sự nóng lên toàn cầu</p>
+<span class="badge">📘 Lớp 11 · 16 từ · 5 mẫu câu · ngữ pháp</span>
+<div class="toolbar"><a class="btn" href="../index.html#thpt">🏠 Trang chủ</a>
+<a class="btn" href="../ngu-phap.html">📐 Ngữ pháp</a>
+<button class="btn" onclick="toggleHide(this)">🙈 Ẩn nghĩa (tự kiểm tra)</button>
+<button class="btn" onclick="window.print()">🖨️ In</button></div></header>
+<main><div class="legend">🔊 Bấm loa để nghe &nbsp;|&nbsp; <b>/IPA/</b> = phiên âm quốc tế &nbsp;|&nbsp; (n) danh từ · (v) động từ · (adj) tính từ &nbsp;|&nbsp; ô xám = nghĩa</div>
+<h2>📖 Từ vựng (Vocabulary)</h2><div class="grid"><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="global warming">🔊</button><div class="ico">🌡️</div><div class="w">global warming</div><div class="ipa">/ˌɡləʊbl ˈwɔːmɪŋ/</div><div class="m">(n) sự nóng lên toàn cầu</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="greenhouse gas">🔊</button><div class="ico">🏭</div><div class="w">greenhouse gas</div><div class="ipa">/ˈɡriːnhaʊs ɡæs/</div><div class="m">(n) khí nhà kính</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="carbon dioxide">🔊</button><div class="ico">💨</div><div class="w">carbon dioxide</div><div class="ipa">/ˌkɑːbən daɪˈɒksaɪd/</div><div class="m">(n) khí CO₂</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="carbon footprint">🔊</button><div class="ico">👣</div><div class="w">carbon footprint</div><div class="ipa">/ˌkɑːbən ˈfʊtprɪnt/</div><div class="m">(n) lượng khí thải carbon</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="melt">🔊</button><div class="ico">🧊</div><div class="w">melt</div><div class="ipa">/melt/</div><div class="m">(v) tan chảy</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="sea level">🔊</button><div class="ico">🌊</div><div class="w">sea level</div><div class="ipa">/siː ˈlevl/</div><div class="m">(n) mực nước biển</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="deforestation">🔊</button><div class="ico">🪓</div><div class="w">deforestation</div><div class="ipa">/ˌdiːˌfɒrɪˈsteɪʃn/</div><div class="m">(n) nạn phá rừng</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="fossil fuel">🔊</button><div class="ico">🛢️</div><div class="w">fossil fuel</div><div class="ipa">/ˈfɒsl ˈfjuːəl/</div><div class="m">(n) nhiên liệu hóa thạch</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="extreme weather">🔊</button><div class="ico">⛈️</div><div class="w">extreme weather</div><div class="ipa">/ɪkˈstriːm ˈweðə/</div><div class="m">(n) thời tiết cực đoan</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="heatwave">🔊</button><div class="ico">🔥</div><div class="w">heatwave</div><div class="ipa">/ˈhiːtweɪv/</div><div class="m">(n) đợt nắng nóng</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="emission">🔊</button><div class="ico">📉</div><div class="w">emission</div><div class="ipa">/iˈmɪʃn/</div><div class="m">(n) sự phát thải</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="climate change">🔊</button><div class="ico">🌍</div><div class="w">climate change</div><div class="ipa">/ˈklaɪmət tʃeɪndʒ/</div><div class="m">(n) biến đổi khí hậu</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="cut down on">🔊</button><div class="ico">✂️</div><div class="w">cut down on</div><div class="ipa">/kʌt daʊn ɒn/</div><div class="m">(v) cắt giảm</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="consequence">🔊</button><div class="ico">⚠️</div><div class="w">consequence</div><div class="ipa">/ˈkɒnsɪkwəns/</div><div class="m">(n) hậu quả</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="absorb">🔊</button><div class="ico">🌿</div><div class="w">absorb</div><div class="ipa">/əbˈzɔːb/</div><div class="m">(v) hấp thụ</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="threaten">🔊</button><div class="ico">😰</div><div class="w">threaten</div><div class="ipa">/ˈθretn/</div><div class="m">(v) đe dọa</div></div></div>
+<div class="cols"><section><h2>💬 Mẫu câu (Sentence patterns)</h2><div class="pat"><div class="en">Having cut down so many trees, we now face more floods. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Having cut down so many trees, we now face more floods.">🔊</button></div><div class="vi">🇻🇳 Vì đã chặt quá nhiều cây, giờ chúng ta phải đối mặt với nhiều lũ lụt hơn.</div></div><div class="pat"><div class="en">Burning fossil fuels releases greenhouse gases into the air. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Burning fossil fuels releases greenhouse gases into the air.">🔊</button></div><div class="vi">🇻🇳 Đốt nhiên liệu hóa thạch thải khí nhà kính vào không khí.</div></div><div class="pat"><div class="en">Rising sea levels threaten coastal cities. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Rising sea levels threaten coastal cities.">🔊</button></div><div class="vi">🇻🇳 Mực nước biển dâng cao đe dọa các thành phố ven biển.</div></div><div class="pat"><div class="en">We should cut down on energy use to reduce our carbon footprint. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="We should cut down on energy use to reduce our carbon footprint.">🔊</button></div><div class="vi">🇻🇳 Chúng ta nên cắt giảm sử dụng năng lượng để giảm lượng khí thải carbon.</div></div><div class="pat"><div class="en">Global warming is one of the biggest problems of our time. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Global warming is one of the biggest problems of our time.">🔊</button></div><div class="vi">🇻🇳 Sự nóng lên toàn cầu là một trong những vấn đề lớn nhất của thời đại.</div></div></section>
+<section><h2>📐 Ngữ pháp (Grammar)</h2><div class="gram"><h3>📐 Mệnh đề phân từ (V-ing / Having + V3)</h3><div class="f">V-ing..., S + V → hai hành động cùng chủ ngữ, xảy ra đồng thời hoặc nối tiếp</div><div class="f">Having + V3..., S + V → hành động thứ nhất hoàn tất trước hành động thứ hai</div><div class="f">Danh động từ hoàn thành: S + V + having + V3 (be accused of / admit / deny having done...)</div><ul><li>Hai mệnh đề phải có cùng chủ ngữ.</li></ul><div class="ex"><div class="en">Burning coal, factories release a lot of CO₂. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Burning coal, factories release a lot of CO₂.">🔊</button></div><div class="vi">🇻🇳 Đốt than, các nhà máy thải ra rất nhiều CO₂.</div></div><div class="ex"><div class="en">Having learned about climate change, we decided to cycle to school. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Having learned about climate change, we decided to cycle to school.">🔊</button></div><div class="vi">🇻🇳 Sau khi tìm hiểu về biến đổi khí hậu, chúng tôi quyết định đạp xe đến trường.</div></div><div class="ex"><div class="en">The company denied having polluted the river. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The company denied having polluted the river.">🔊</button></div><div class="vi">🇻🇳 Công ty phủ nhận việc đã làm ô nhiễm dòng sông.</div></div></div></section></div>
+<nav class="pn"><a href="46-khoang-cach-the-he.html">⬅️ Khoảng cách thế hệ</a><a href="48-di-san.html">Bảo tồn di sản ➡️</a></nav></main></body></html>

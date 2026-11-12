@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi" data-root="../"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Days, Months &amp; Time – Ngày, Tháng &amp; Giờ</title>
+<meta name="theme-color" content="#ab47bc">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="English Kids">
+<style>:root{--c:#ab47bc}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Segoe UI','Nunito',system-ui,Arial,sans-serif;background:#fffaf2;color:#333;overflow-x:hidden}
+header{padding:calc(24px + env(safe-area-inset-top)) 16px 22px;text-align:center;color:#fff;background:var(--c);border-radius:0 0 32px 32px;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+header .big{font-size:60px;line-height:1}
+header h1{margin:8px 0 4px;font-size:clamp(26px,6vw,34px)}
+header p{margin:0;font-size:17px;opacity:.95}
+.badge{display:inline-block;background:#fff;color:var(--c);font-weight:700;border-radius:20px;padding:3px 12px;font-size:14px;margin-top:8px}
+main{max-width:1150px;margin:0 auto;padding:20px 16px calc(60px + env(safe-area-inset-bottom))}
+h2{font-size:23px;margin:28px 0 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+h2 small{font-size:15px;font-weight:600;color:#888}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.btn{border:none;background:#fff;color:var(--c);font-weight:700;padding:8px 16px;border-radius:20px;cursor:pointer;font-size:15px;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,.12);font-family:inherit}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:16px}
+.card{background:#fff;border-radius:20px;padding:16px 12px 14px;text-align:center;border:3px solid var(--c);box-shadow:0 4px 10px rgba(0,0,0,.06);position:relative;transition:transform .15s}
+.card:hover{transform:translateY(-4px) rotate(-1deg)}
+.card .ico{font-size:52px;line-height:1.1}
+.card .w{font-size:21px;font-weight:800;color:var(--c);margin:6px 0 4px;overflow-wrap:anywhere}
+.card .ipa{font-family:'Lucida Sans Unicode','Arial Unicode MS',sans-serif;color:#555;font-size:15px;overflow-wrap:anywhere}
+.card .vn{color:#e65100;font-size:15px;margin-top:2px}
+.card .vn::before{content:'🗣️ '}
+.card .m{margin-top:8px;background:#f3f3f3;border-radius:12px;padding:6px;font-weight:700;font-size:16px}
+.say{position:absolute;top:8px;right:8px;border:none;background:none;font-size:20px;cursor:pointer;padding:4px}
+.hide .m{color:transparent;background:repeating-linear-gradient(45deg,#ddd,#ddd 6px,#eee 6px,#eee 12px)}
+.hide .card:hover .m,.hide .card.show .m{color:#333;background:#f3f3f3}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.cols>section>h2{margin-top:28px}
+.pat{background:#fff;border-left:8px solid var(--c);border-radius:16px;padding:14px 18px;margin-bottom:12px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.pat .en{font-size:18px;font-weight:700}
+.pat .en .q{color:var(--c)}
+.pat .vi{color:#666;margin-top:4px;font-style:italic}
+.pat .say,.gram .say{position:static;font-size:17px}
+.gram{background:#fff;border:3px solid var(--c);border-radius:20px;padding:16px 18px;margin-bottom:14px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.gram h3{margin:0 0 10px;color:var(--c);font-size:19px}
+.gram h3 a{color:inherit}
+.gram .tag{display:inline-block;font-size:13px;font-weight:700;background:var(--c);color:#fff;border-radius:10px;padding:2px 8px;margin-right:6px;vertical-align:middle}
+.f{font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;background:#fff6e0;border:1.5px dashed #f0c060;border-radius:10px;padding:7px 10px;margin:6px 0;font-size:15px;font-weight:600;overflow-wrap:anywhere}
+.gram ul{margin:8px 0;padding-left:20px;color:#555;line-height:1.55}
+.ex{border-top:1px dashed #ddd;padding:7px 0}
+.ex .en{font-weight:700}
+.ex .vi{color:#666;font-style:italic;font-size:15px}
+.legend{background:#fff;border:2px dashed var(--c);border-radius:16px;padding:10px 16px;font-size:15px}
+nav.pn{display:flex;justify-content:space-between;margin-top:30px;gap:10px}
+nav.pn a{background:var(--c);color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none;font-weight:700}
+.chips{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:5;background:#fffaf2;padding:10px 0;margin:0 -2px}
+.chip{border:2px solid #ff7aa2;background:#fff;color:#d6336c;border-radius:20px;padding:6px 13px;font-weight:700;cursor:pointer;font-size:15px;font-family:inherit}
+.chip.on{background:#ff7aa2;color:#fff}
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.topic{display:block;text-decoration:none;color:#fff;border-radius:24px;padding:18px;box-shadow:0 6px 14px rgba(0,0,0,.12);transition:transform .15s;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.topic:hover{transform:scale(1.04)}
+.topic .ico{font-size:48px}
+.topic .t{font-size:20px;font-weight:800;margin-top:6px}
+.topic .s{font-size:16px;opacity:.95}
+.topic .n{margin-top:10px;font-size:14px;background:rgba(255,255,255,.25);display:inline-block;padding:3px 10px;border-radius:12px}
+.special{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#7c4dff,#ff7aa2);color:#fff;text-decoration:none;border-radius:24px;padding:18px 22px;box-shadow:0 6px 14px rgba(0,0,0,.12)}
+.special .ico{font-size:46px}
+.special b{font-size:21px;display:block}
+.tips{background:#fff;border-radius:20px;padding:16px 22px;box-shadow:0 3px 8px rgba(0,0,0,.06);line-height:1.7}
+.install{display:none}
+.ioshint{display:none;background:#fff;color:#333;border-radius:16px;padding:10px 14px;margin:12px auto 0;max-width:420px;font-size:15px;text-shadow:none}
+[hidden]{display:none!important}
+@media (max-width:860px){.cols{grid-template-columns:1fr;gap:0}}
+@media (max-width:480px){.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:12px 6px 10px;border-radius:16px}.card .ico{font-size:40px}.card .w{font-size:17px}.card .ipa,.card .vn,.card .m{font-size:13px}.say{top:2px;right:2px;font-size:17px}.topics{grid-template-columns:1fr 1fr;gap:10px}.topic{padding:14px;border-radius:18px}.topic .ico{font-size:38px}.topic .t{font-size:16px}.topic .s{font-size:14px}.topic .n{font-size:12px}nav.pn a{padding:9px 12px;font-size:14px}}
+@media print{.say,.toolbar,nav.pn,.chips{display:none}header{border-radius:0}.card,.gram{break-inside:avoid}.cols{grid-template-columns:1fr}}
+</style><script>
+function say(t){if(!('speechSynthesis' in window))return alert('Trình duyệt không hỗ trợ đọc.');
+speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/→/g,'.').replace(/\//g,' or '));
+u.lang='en-GB';u.rate=0.8;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));if(v)u.voice=v;speechSynthesis.speak(u);}
+function toggleHide(b){document.body.classList.toggle('hide');b.textContent=document.body.classList.contains('hide')?'👁️ Hiện nghĩa':'🙈 Ẩn nghĩa (tự kiểm tra)';}
+document.addEventListener('click',ev=>{const c=ev.target.closest('.card');if(c&&!ev.target.closest('.say'))c.classList.toggle('show');});
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register(document.documentElement.dataset.root+'sw.js').catch(()=>{}));
+let deferredPrompt;
+addEventListener('beforeinstallprompt',ev=>{ev.preventDefault();deferredPrompt=ev;document.querySelectorAll('.install').forEach(b=>b.style.display='inline-block');});
+function installApp(){if(!deferredPrompt)return;deferredPrompt.prompt();deferredPrompt.userChoice.finally(()=>{deferredPrompt=null;document.querySelectorAll('.install').forEach(b=>b.style.display='none');});}
+addEventListener('DOMContentLoaded',()=>{const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const standalone=navigator.standalone||matchMedia('(display-mode: standalone)').matches;const h=document.querySelector('.ioshint');if(h&&ios&&!standalone)h.style.display='block';});
+function filterGrade(btn){document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===btn));const g=btn.dataset.g;
+document.querySelectorAll('[data-g]').forEach(el=>{if(el.classList.contains('chip'))return;el.hidden=g!=='all'&&!(' '+el.dataset.g+' ').includes(' '+g+' ');});
+document.querySelectorAll('[data-sec]').forEach(s=>{s.hidden=!s.querySelector('[data-g]:not([hidden])');});}
+</script></head>
+<body><header><div class="big">📅</div><h1>Days, Months &amp; Time</h1><p>Chủ đề 15: Ngày, Tháng &amp; Giờ</p>
+<span class="badge">📘 Lớp 3-4 · 24 từ · 5 mẫu câu · ngữ pháp</span>
+<div class="toolbar"><a class="btn" href="../index.html#tieu-hoc">🏠 Trang chủ</a>
+<a class="btn" href="../ngu-phap.html">📐 Ngữ pháp</a>
+<button class="btn" onclick="toggleHide(this)">🙈 Ẩn nghĩa (tự kiểm tra)</button>
+<button class="btn" onclick="window.print()">🖨️ In</button></div></header>
+<main><div class="legend">🔊 Bấm loa để nghe &nbsp;|&nbsp; <b>/IPA/</b> = phiên âm quốc tế &nbsp;|&nbsp; 🗣️ = phiên âm tiếng Việt (gần đúng) &nbsp;|&nbsp; ô xám = nghĩa</div>
+<h2>📖 Từ vựng (Vocabulary)</h2><div class="grid"><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Monday">🔊</button><div class="ico">1️⃣</div><div class="w">Monday</div><div class="ipa">/ˈmʌndeɪ/</div><div class="vn">măn-đây</div><div class="m">thứ Hai</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Tuesday">🔊</button><div class="ico">2️⃣</div><div class="w">Tuesday</div><div class="ipa">/ˈtjuːzdeɪ/</div><div class="vn">tiu-x-đây</div><div class="m">thứ Ba</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Wednesday">🔊</button><div class="ico">3️⃣</div><div class="w">Wednesday</div><div class="ipa">/ˈwenzdeɪ/</div><div class="vn">uen-x-đây</div><div class="m">thứ Tư</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Thursday">🔊</button><div class="ico">4️⃣</div><div class="w">Thursday</div><div class="ipa">/ˈθɜːzdeɪ/</div><div class="vn">thơ-x-đây</div><div class="m">thứ Năm</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Friday">🔊</button><div class="ico">5️⃣</div><div class="w">Friday</div><div class="ipa">/ˈfraɪdeɪ/</div><div class="vn">phrai-đây</div><div class="m">thứ Sáu</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Saturday">🔊</button><div class="ico">6️⃣</div><div class="w">Saturday</div><div class="ipa">/ˈsætədeɪ/</div><div class="vn">xé-tơ-đây</div><div class="m">thứ Bảy</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Sunday">🔊</button><div class="ico">☀️</div><div class="w">Sunday</div><div class="ipa">/ˈsʌndeɪ/</div><div class="vn">xăn-đây</div><div class="m">Chủ nhật</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="January">🔊</button><div class="ico">🎆</div><div class="w">January</div><div class="ipa">/ˈdʒænjuəri/</div><div class="vn">gien-niu-ơ-ri</div><div class="m">tháng Một</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="February">🔊</button><div class="ico">💝</div><div class="w">February</div><div class="ipa">/ˈfebruəri/</div><div class="vn">phép-ru-ơ-ri</div><div class="m">tháng Hai</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="March">🔊</button><div class="ico">🌱</div><div class="w">March</div><div class="ipa">/mɑːtʃ/</div><div class="vn">ma-ch</div><div class="m">tháng Ba</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="April">🔊</button><div class="ico">🌷</div><div class="w">April</div><div class="ipa">/ˈeɪprəl/</div><div class="vn">ây-prồ</div><div class="m">tháng Tư</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="May">🔊</button><div class="ico">🌼</div><div class="w">May</div><div class="ipa">/meɪ/</div><div class="vn">mây</div><div class="m">tháng Năm</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="June">🔊</button><div class="ico">🧒</div><div class="w">June</div><div class="ipa">/dʒuːn/</div><div class="vn">giun</div><div class="m">tháng Sáu</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="July">🔊</button><div class="ico">🏖️</div><div class="w">July</div><div class="ipa">/dʒuˈlaɪ/</div><div class="vn">giu-lai</div><div class="m">tháng Bảy</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="August">🔊</button><div class="ico">🌻</div><div class="w">August</div><div class="ipa">/ˈɔːɡəst/</div><div class="vn">o-gợt-x-t</div><div class="m">tháng Tám</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="September">🔊</button><div class="ico">🎒</div><div class="w">September</div><div class="ipa">/sepˈtembə/</div><div class="vn">xép-tem-bơ</div><div class="m">tháng Chín</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="October">🔊</button><div class="ico">🎃</div><div class="w">October</div><div class="ipa">/ɒkˈtəʊbə/</div><div class="vn">óc-tâu-bơ</div><div class="m">tháng Mười</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="November">🔊</button><div class="ico">🍁</div><div class="w">November</div><div class="ipa">/nəʊˈvembə/</div><div class="vn">nâu-vem-bơ</div><div class="m">tháng Mười một</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="December">🔊</button><div class="ico">🎄</div><div class="w">December</div><div class="ipa">/dɪˈsembə/</div><div class="vn">đi-xem-bơ</div><div class="m">tháng Mười hai</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="o&#x27;clock">🔊</button><div class="ico">🕐</div><div class="w">o&#x27;clock</div><div class="ipa">/əˈklɒk/</div><div class="vn">ơ-clóc</div><div class="m">giờ đúng</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="half past">🔊</button><div class="ico">🕧</div><div class="w">half past</div><div class="ipa">/hɑːf pɑːst/</div><div class="vn">háp pa-x-t</div><div class="m">… giờ rưỡi</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="morning / afternoon / evening">🔊</button><div class="ico">🌄</div><div class="w">morning / afternoon / evening</div><div class="ipa">/ˈmɔːnɪŋ/ /ˌɑːftəˈnuːn/ /ˈiːvnɪŋ/</div><div class="vn">mo-ninh / áp-tơ-nun / í-vơ-ninh</div><div class="m">sáng / chiều / tối</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="weekend">🔊</button><div class="ico">📆</div><div class="w">weekend</div><div class="ipa">/ˌwiːkˈend/</div><div class="vn">uých-ken-đ</div><div class="m">cuối tuần</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="birthday">🔊</button><div class="ico">🎂</div><div class="w">birthday</div><div class="ipa">/ˈbɜːθdeɪ/</div><div class="vn">bơ-th-đây</div><div class="m">sinh nhật</div></div></div>
+<div class="cols"><section><h2>💬 Mẫu câu (Sentence patterns)</h2><div class="pat"><div class="en"><span class="q">❓ What day is it today?</span><br>💬 It&#x27;s Monday. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="What day is it today? → It&#x27;s Monday.">🔊</button></div><div class="vi">🇻🇳 Hôm nay là thứ mấy? → Hôm nay là thứ Hai.</div></div><div class="pat"><div class="en"><span class="q">❓ What do you do on Saturdays?</span><br>💬 I visit my grandparents. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="What do you do on Saturdays? → I visit my grandparents.">🔊</button></div><div class="vi">🇻🇳 Bạn làm gì vào thứ Bảy? → Mình đi thăm ông bà.</div></div><div class="pat"><div class="en"><span class="q">❓ What&#x27;s the date today?</span><br>💬 It&#x27;s the fifth of October. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="What&#x27;s the date today? → It&#x27;s the fifth of October.">🔊</button></div><div class="vi">🇻🇳 Hôm nay là ngày bao nhiêu? → Hôm nay là ngày 5 tháng 10.</div></div><div class="pat"><div class="en"><span class="q">❓ When&#x27;s your birthday?</span><br>💬 It&#x27;s in May. / It&#x27;s on the 2nd of May. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="When&#x27;s your birthday? → It&#x27;s in May. / It&#x27;s on the 2nd of May.">🔊</button></div><div class="vi">🇻🇳 Sinh nhật bạn khi nào? → Vào tháng Năm. / Vào ngày 2 tháng Năm.</div></div><div class="pat"><div class="en"><span class="q">❓ What time is it?</span><br>💬 It&#x27;s seven o&#x27;clock. / It&#x27;s half past nine. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="What time is it? → It&#x27;s seven o&#x27;clock. / It&#x27;s half past nine.">🔊</button></div><div class="vi">🇻🇳 Mấy giờ rồi? → 7 giờ đúng. / 9 giờ rưỡi.</div></div></section>
+<section><h2>📐 Ngữ pháp (Grammar)</h2><div class="gram"><h3>📐 Giới từ thời gian: at / on / in</h3><div class="f">at + giờ: at 7 o&#x27;clock, at noon</div><div class="f">on + thứ / ngày: on Monday, on 2nd September</div><div class="f">in + tháng / năm / mùa / buổi: in May, in 2026, in the morning</div><ul><li>Hỏi giờ: What time is it? → It&#x27;s half past six. (6 giờ 30)</li></ul><div class="ex"><div class="en">I get up at six o&#x27;clock. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="I get up at six o&#x27;clock.">🔊</button></div><div class="vi">🇻🇳 Mình thức dậy lúc 6 giờ.</div></div><div class="ex"><div class="en">My birthday is on 5th May. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="My birthday is on 5th May.">🔊</button></div><div class="vi">🇻🇳 Sinh nhật mình vào ngày 5 tháng 5.</div></div><div class="ex"><div class="en">We have a holiday in June. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="We have a holiday in June.">🔊</button></div><div class="vi">🇻🇳 Chúng mình được nghỉ vào tháng Sáu.</div></div></div></section></div>
+<nav class="pn"><a href="14-thoi-tiet-mua.html">⬅️ Thời tiết &amp; Mùa</a><a href="16-so-thich-the-thao.html">Sở thích &amp; Thể thao ➡️</a></nav></main></body></html>
