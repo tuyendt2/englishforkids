@@ -1,16 +1,20 @@
 """Tạo web tĩnh (PWA cài được lên Android/iOS) từ dữ liệu.  Chạy:  python3 build.py
 
-Dữ liệu:  _data.py (Lớp 1-4) · _data_lop5_9.py · _data_lop10_12.py · _grammar.py
+Dữ liệu:  _data.py + _grammar.py (Lớp 1-4) · _data_lop05.py … _data_lop12.py (mỗi file có TOPICS và GRAMMAR)
 Kết quả:  index.html, ngu-phap.html, chu-de/*.html, manifest.webmanifest, sw.js, icons/
 """
-import hashlib, html, json, os, re, sys
+import hashlib, html, importlib, json, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from _data import TOPICS as T1
-from _data_lop5_9 import TOPICS as T2
-from _data_lop10_12 import TOPICS as T3
-from _grammar import GRAMMAR
+from _grammar import GRAMMAR as G1
 
-TOPICS = T1 + T2 + T3
+TOPICS, GRAMMAR = list(T1), dict(G1)
+for _g in range(5, 13):
+    _m = importlib.import_module(f"_data_lop{_g:02d}")
+    TOPICS += _m.TOPICS
+    GRAMMAR.update(_m.GRAMMAR)
+_slugs = [t[0] for t in TOPICS]
+assert len(_slugs) == len(set(_slugs)), "Trùng slug chủ đề"
 ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(ROOT, "chu-de")
 os.makedirs(OUT, exist_ok=True)
@@ -84,6 +88,9 @@ nav.pn a{background:var(--c);color:#fff;padding:10px 18px;border-radius:20px;tex
 .topic .t{font-size:20px;font-weight:800;margin-top:6px}
 .topic .s{font-size:16px;opacity:.95}
 .topic .n{margin-top:10px;font-size:14px;background:rgba(255,255,255,.25);display:inline-block;padding:3px 10px;border-radius:12px}
+section[id]{scroll-margin-top:190px}
+h3.sub{font-size:18px;margin:20px 0 10px;color:#555;border-left:5px solid #ff7aa2;padding-left:10px}
+h3.sub small{font-size:14px;font-weight:600;color:#999}
 .special{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#7c4dff,#ff7aa2);color:#fff;text-decoration:none;border-radius:24px;padding:18px 22px;box-shadow:0 6px 14px rgba(0,0,0,.12)}
 .special .ico{font-size:46px}
 .special b{font-size:21px;display:block}
@@ -207,6 +214,12 @@ for i, (slug, ico, en, vi, grade, color, words, pats) in enumerate(TOPICS):
         f.write(page(f"{en} – {vi}", color, body, root="../"))
     pages.append(f"chu-de/{slug}.html")
 
+# Xóa trang chủ đề cũ không còn trong dữ liệu (đổi tên / xóa chủ đề)
+for f in os.listdir(OUT):
+    if f.endswith(".html") and f"chu-de/{f}" not in pages:
+        os.remove(os.path.join(OUT, f))
+        print("🗑️  Đã xóa trang cũ:", f)
+
 # ───────────────────────── Bộ lọc lớp ─────────────────────────
 def chips():
     return ('<div class="chips"><button class="chip on" data-g="all" onclick="filterGrade(this)">Tất cả</button>'
@@ -214,16 +227,28 @@ def chips():
             + "</div>")
 
 # ───────────────────────── Trang chủ ─────────────────────────
+def subgroup(g):
+    """Nhóm con trong mỗi cấp: chủ đề dùng chung nhiều lớp (Lớp 1–4) hoặc từng lớp riêng."""
+    gs = grades(g)
+    return "Lớp 1 – 4 (dùng chung)" if len(gs) > 1 or gs[0] < 5 else f"Lớp {gs[0]}"
+
 sections = ""
 for key, name, rng, _ in LEVELS:
     items = [(i, t) for i, t in enumerate(TOPICS) if level_of(t[4])[0] == key]
-    tiles = "".join(
-        f'<a class="topic" data-g="{" ".join(map(str, grades(g)))}" style="background:{c}" href="chu-de/{s}.html"><div class="ico">{ic}</div>'
-        f'<div class="t">{i+1}. {e(en)}</div><div class="s">{e(vi)}</div>'
-        f'<div class="n">📘 {e(g)} · {len(parse(w,5))} từ</div></a>'
-        for i, (s, ic, en, vi, g, c, w, p) in items)
+    groups = {}
+    for i, t in items:
+        groups.setdefault(subgroup(t[4]), []).append((i, t))
+    body = ""
+    for gname, gitems in groups.items():
+        tiles = "".join(
+            f'<a class="topic" data-g="{" ".join(map(str, grades(g)))}" style="background:{c}" href="chu-de/{s}.html"><div class="ico">{ic}</div>'
+            f'<div class="t">{i+1}. {e(en)}</div><div class="s">{e(vi)}</div>'
+            f'<div class="n">📘 {e(g)} · {len(parse(w,5))} từ</div></a>'
+            for i, (s, ic, en, vi, g, c, w, p) in gitems)
+        gw = sum(len(parse(t[6], 5)) for _, t in gitems)
+        body += f'<div data-sec><h3 class="sub">{gname} <small>{len(gitems)} chủ đề · {gw} từ</small></h3><div class="topics">{tiles}</div></div>'
     nw = sum(len(parse(t[6], 5)) for _, t in items)
-    sections += f'<section data-sec id="{key}"><h2>{name} <small>{rng} · {len(items)} chủ đề · {nw} từ</small></h2><div class="topics">{tiles}</div></section>'
+    sections += f'<section data-sec id="{key}"><h2>{name} <small>{rng} · {len(items)} chủ đề · {nw} từ</small></h2>{body}</section>'
 
 index = f"""<header><div class="big">🎈📚🌈</div><h1>English for Kids</h1>
 <p>Từ vựng · Mẫu câu · Ngữ pháp tiếng Anh — Lớp 1 đến Lớp 12</p>

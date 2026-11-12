@@ -3,7 +3,8 @@
 Từ vựng · Mẫu câu · Ngữ pháp tiếng Anh từ **Lớp 1 đến Lớp 12** (bám theo chủ đề sách Global Success).
 Web tĩnh, cài được lên Android/iOS như một ứng dụng (PWA) và học được khi không có mạng.
 
-- 52 chủ đề · 882 từ vựng (IPA, nghĩa tiếng Việt, nút nghe đọc)
+- 108 chủ đề · 2.482 từ vựng (IPA, nghĩa tiếng Việt, nút nghe đọc)
+  - Lớp 1–4: 20 chủ đề dùng chung · Lớp 5: 10 · Lớp 6–9: 12 mỗi lớp · Lớp 10–12: 10 mỗi lớp (24 từ/chủ đề)
 - Mỗi chủ đề có mẫu câu hỏi – đáp và một bài ngữ pháp; trang `ngu-phap.html` tổng hợp toàn bộ
 - Lọc theo lớp, chế độ ẩn nghĩa để tự kiểm tra, in ra giấy
 
@@ -13,7 +14,8 @@ Mở trang qua **HTTPS** (ví dụ GitHub Pages):
 - **iPhone/iPad (Safari):** nút Chia sẻ ⬆️ → *Thêm vào MH chính*.
 
 ## Sửa nội dung
-Dữ liệu nằm trong `_data.py` (Lớp 1–4), `_data_lop5_9.py`, `_data_lop10_12.py` và `_grammar.py`.
+Dữ liệu Lớp 1–4 nằm trong `_data.py` (từ vựng, mẫu câu) và `_grammar.py` (ngữ pháp).
+Mỗi lớp từ 5 đến 12 có một file riêng `_data_lop05.py` … `_data_lop12.py`, chứa cả `TOPICS` và `GRAMMAR`.
 Sau khi sửa, chạy:
 
 ```bash

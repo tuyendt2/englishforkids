@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi" data-root="../"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ecotourism – Du lịch sinh thái</title>
+<meta name="theme-color" content="#2e7d32">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="English Kids">
+<style>:root{--c:#2e7d32}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Segoe UI','Nunito',system-ui,Arial,sans-serif;background:#fffaf2;color:#333;overflow-x:hidden}
+header{padding:calc(24px + env(safe-area-inset-top)) 16px 22px;text-align:center;color:#fff;background:var(--c);border-radius:0 0 32px 32px;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+header .big{font-size:60px;line-height:1}
+header h1{margin:8px 0 4px;font-size:clamp(26px,6vw,34px)}
+header p{margin:0;font-size:17px;opacity:.95}
+.badge{display:inline-block;background:#fff;color:var(--c);font-weight:700;border-radius:20px;padding:3px 12px;font-size:14px;margin-top:8px}
+main{max-width:1150px;margin:0 auto;padding:20px 16px calc(60px + env(safe-area-inset-bottom))}
+h2{font-size:23px;margin:28px 0 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+h2 small{font-size:15px;font-weight:600;color:#888}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.btn{border:none;background:#fff;color:var(--c);font-weight:700;padding:8px 16px;border-radius:20px;cursor:pointer;font-size:15px;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,.12);font-family:inherit}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:16px}
+.card{background:#fff;border-radius:20px;padding:16px 12px 14px;text-align:center;border:3px solid var(--c);box-shadow:0 4px 10px rgba(0,0,0,.06);position:relative;transition:transform .15s}
+.card:hover{transform:translateY(-4px) rotate(-1deg)}
+.card .ico{font-size:52px;line-height:1.1}
+.card .w{font-size:21px;font-weight:800;color:var(--c);margin:6px 0 4px;overflow-wrap:anywhere}
+.card .ipa{font-family:'Lucida Sans Unicode','Arial Unicode MS',sans-serif;color:#555;font-size:15px;overflow-wrap:anywhere}
+.card .vn{color:#e65100;font-size:15px;margin-top:2px}
+.card .vn::before{content:'🗣️ '}
+.card .m{margin-top:8px;background:#f3f3f3;border-radius:12px;padding:6px;font-weight:700;font-size:16px}
+.say{position:absolute;top:8px;right:8px;border:none;background:none;font-size:20px;cursor:pointer;padding:4px}
+.hide .m{color:transparent;background:repeating-linear-gradient(45deg,#ddd,#ddd 6px,#eee 6px,#eee 12px)}
+.hide .card:hover .m,.hide .card.show .m{color:#333;background:#f3f3f3}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.cols>section>h2{margin-top:28px}
+.pat{background:#fff;border-left:8px solid var(--c);border-radius:16px;padding:14px 18px;margin-bottom:12px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.pat .en{font-size:18px;font-weight:700}
+.pat .en .q{color:var(--c)}
+.pat .vi{color:#666;margin-top:4px;font-style:italic}
+.pat .say,.gram .say{position:static;font-size:17px}
+.gram{background:#fff;border:3px solid var(--c);border-radius:20px;padding:16px 18px;margin-bottom:14px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.gram h3{margin:0 0 10px;color:var(--c);font-size:19px}
+.gram h3 a{color:inherit}
+.gram .tag{display:inline-block;font-size:13px;font-weight:700;background:var(--c);color:#fff;border-radius:10px;padding:2px 8px;margin-right:6px;vertical-align:middle}
+.f{font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;background:#fff6e0;border:1.5px dashed #f0c060;border-radius:10px;padding:7px 10px;margin:6px 0;font-size:15px;font-weight:600;overflow-wrap:anywhere}
+.gram ul{margin:8px 0;padding-left:20px;color:#555;line-height:1.55}
+.ex{border-top:1px dashed #ddd;padding:7px 0}
+.ex .en{font-weight:700}
+.ex .vi{color:#666;font-style:italic;font-size:15px}
+.legend{background:#fff;border:2px dashed var(--c);border-radius:16px;padding:10px 16px;font-size:15px}
+nav.pn{display:flex;justify-content:space-between;margin-top:30px;gap:10px}
+nav.pn a{background:var(--c);color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none;font-weight:700}
+.chips{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:5;background:#fffaf2;padding:10px 0;margin:0 -2px}
+.chip{border:2px solid #ff7aa2;background:#fff;color:#d6336c;border-radius:20px;padding:6px 13px;font-weight:700;cursor:pointer;font-size:15px;font-family:inherit}
+.chip.on{background:#ff7aa2;color:#fff}
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.topic{display:block;text-decoration:none;color:#fff;border-radius:24px;padding:18px;box-shadow:0 6px 14px rgba(0,0,0,.12);transition:transform .15s;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.topic:hover{transform:scale(1.04)}
+.topic .ico{font-size:48px}
+.topic .t{font-size:20px;font-weight:800;margin-top:6px}
+.topic .s{font-size:16px;opacity:.95}
+.topic .n{margin-top:10px;font-size:14px;background:rgba(255,255,255,.25);display:inline-block;padding:3px 10px;border-radius:12px}
+section[id]{scroll-margin-top:190px}
+h3.sub{font-size:18px;margin:20px 0 10px;color:#555;border-left:5px solid #ff7aa2;padding-left:10px}
+h3.sub small{font-size:14px;font-weight:600;color:#999}
+.special{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#7c4dff,#ff7aa2);color:#fff;text-decoration:none;border-radius:24px;padding:18px 22px;box-shadow:0 6px 14px rgba(0,0,0,.12)}
+.special .ico{font-size:46px}
+.special b{font-size:21px;display:block}
+.tips{background:#fff;border-radius:20px;padding:16px 22px;box-shadow:0 3px 8px rgba(0,0,0,.06);line-height:1.7}
+.install{display:none}
+.ioshint{display:none;background:#fff;color:#333;border-radius:16px;padding:10px 14px;margin:12px auto 0;max-width:420px;font-size:15px;text-shadow:none}
+[hidden]{display:none!important}
+@media (max-width:860px){.cols{grid-template-columns:1fr;gap:0}}
+@media (max-width:480px){.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:12px 6px 10px;border-radius:16px}.card .ico{font-size:40px}.card .w{font-size:17px}.card .ipa,.card .vn,.card .m{font-size:13px}.say{top:2px;right:2px;font-size:17px}.topics{grid-template-columns:1fr 1fr;gap:10px}.topic{padding:14px;border-radius:18px}.topic .ico{font-size:38px}.topic .t{font-size:16px}.topic .s{font-size:14px}.topic .n{font-size:12px}nav.pn a{padding:9px 12px;font-size:14px}}
+@media print{.say,.toolbar,nav.pn,.chips{display:none}header{border-radius:0}.card,.gram{break-inside:avoid}.cols{grid-template-columns:1fr}}
+</style><script>
+function say(t){if(!('speechSynthesis' in window))return alert('Trình duyệt không hỗ trợ đọc.');
+speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/→/g,'.').replace(/\//g,' or '));
+u.lang='en-GB';u.rate=0.8;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));if(v)u.voice=v;speechSynthesis.speak(u);}
+function toggleHide(b){document.body.classList.toggle('hide');b.textContent=document.body.classList.contains('hide')?'👁️ Hiện nghĩa':'🙈 Ẩn nghĩa (tự kiểm tra)';}
+document.addEventListener('click',ev=>{const c=ev.target.closest('.card');if(c&&!ev.target.closest('.say'))c.classList.toggle('show');});
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register(document.documentElement.dataset.root+'sw.js').catch(()=>{}));
+let deferredPrompt;
+addEventListener('beforeinstallprompt',ev=>{ev.preventDefault();deferredPrompt=ev;document.querySelectorAll('.install').forEach(b=>b.style.display='inline-block');});
+function installApp(){if(!deferredPrompt)return;deferredPrompt.prompt();deferredPrompt.userChoice.finally(()=>{deferredPrompt=null;document.querySelectorAll('.install').forEach(b=>b.style.display='none');});}
+addEventListener('DOMContentLoaded',()=>{const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const standalone=navigator.standalone||matchMedia('(display-mode: standalone)').matches;const h=document.querySelector('.ioshint');if(h&&ios&&!standalone)h.style.display='block';});
+function filterGrade(btn){document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===btn));const g=btn.dataset.g;
+document.querySelectorAll('[data-g]').forEach(el=>{if(el.classList.contains('chip'))return;el.hidden=g!=='all'&&!(' '+el.dataset.g+' ').includes(' '+g+' ');});
+document.querySelectorAll('[data-sec]').forEach(s=>{s.hidden=!s.querySelector('[data-g]:not([hidden])');});}
+</script></head>
+<body><header><div class="big">🌿</div><h1>Ecotourism</h1><p>Chủ đề 82: Du lịch sinh thái</p>
+<span class="badge">📘 Lớp 10 · 24 từ · 5 mẫu câu · ngữ pháp</span>
+<div class="toolbar"><a class="btn" href="../index.html#thpt">🏠 Trang chủ</a>
+<a class="btn" href="../ngu-phap.html">📐 Ngữ pháp</a>
+<button class="btn" onclick="toggleHide(this)">🙈 Ẩn nghĩa (tự kiểm tra)</button>
+<button class="btn" onclick="window.print()">🖨️ In</button></div></header>
+<main><div class="legend">🔊 Bấm loa để nghe &nbsp;|&nbsp; <b>/IPA/</b> = phiên âm quốc tế &nbsp;|&nbsp; (n) danh từ · (v) động từ · (adj) tính từ &nbsp;|&nbsp; ô xám = nghĩa</div>
+<h2>📖 Từ vựng (Vocabulary)</h2><div class="grid"><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="ecotourism">🔊</button><div class="ico">🌿</div><div class="w">ecotourism</div><div class="ipa">/ˈiːkəʊtʊərɪzəm/</div><div class="m">(n) du lịch sinh thái</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="eco-friendly">🔊</button><div class="ico">🌱</div><div class="w">eco-friendly</div><div class="ipa">/ˌiːkəʊ ˈfrendli/</div><div class="m">(adj) thân thiện với môi trường</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="national park">🔊</button><div class="ico">🏞️</div><div class="w">national park</div><div class="ipa">/ˈnæʃnəl pɑːk/</div><div class="m">(n) vườn quốc gia</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="wildlife">🔊</button><div class="ico">🐒</div><div class="w">wildlife</div><div class="ipa">/ˈwaɪldlaɪf/</div><div class="m">(n) động vật hoang dã</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="natural habitat">🔊</button><div class="ico">🌳</div><div class="w">natural habitat</div><div class="ipa">/ˈnætʃrəl ˈhæbɪtæt/</div><div class="m">(n) môi trường sống tự nhiên</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="local community">🔊</button><div class="ico">🧑‍🌾</div><div class="w">local community</div><div class="ipa">/ˈləʊkl kəˈmjuːnəti/</div><div class="m">(n) cộng đồng địa phương</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="homestay">🔊</button><div class="ico">🏡</div><div class="w">homestay</div><div class="ipa">/ˈhəʊmsteɪ/</div><div class="m">(n) nhà dân cho khách lưu trú</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="kayaking">🔊</button><div class="ico">🚣</div><div class="w">kayaking</div><div class="ipa">/ˈkaɪækɪŋ/</div><div class="m">(n) chèo thuyền kayak</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="trekking">🔊</button><div class="ico">🥾</div><div class="w">trekking</div><div class="ipa">/ˈtrekɪŋ/</div><div class="m">(n) đi bộ đường dài</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="sustainable">🔊</button><div class="ico">♾️</div><div class="w">sustainable</div><div class="ipa">/səˈsteɪnəbl/</div><div class="m">(adj) bền vững</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="tour operator">🔊</button><div class="ico">🧭</div><div class="w">tour operator</div><div class="ipa">/tʊə ˈɒpəreɪtə/</div><div class="m">(n) công ty lữ hành</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="litter">🔊</button><div class="ico">🗑️</div><div class="w">litter</div><div class="ipa">/ˈlɪtə/</div><div class="m">(n/v) rác; xả rác</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="preserve">🔊</button><div class="ico">🛡️</div><div class="w">preserve</div><div class="ipa">/prɪˈzɜːv/</div><div class="m">(v) bảo tồn</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="footprint">🔊</button><div class="ico">👣</div><div class="w">footprint</div><div class="ipa">/ˈfʊtprɪnt/</div><div class="m">(n) dấu chân, tác động</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="educate">🔊</button><div class="ico">📖</div><div class="w">educate</div><div class="ipa">/ˈedʒukeɪt/</div><div class="m">(v) giáo dục</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="income">🔊</button><div class="ico">💵</div><div class="w">income</div><div class="ipa">/ˈɪnkʌm/</div><div class="m">(n) thu nhập</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="biodiversity">🔊</button><div class="ico">🦜</div><div class="w">biodiversity</div><div class="ipa">/ˌbaɪəʊdaɪˈvɜːsəti/</div><div class="m">(n) đa dạng sinh học</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="endangered">🔊</button><div class="ico">🐢</div><div class="w">endangered</div><div class="ipa">/ɪnˈdeɪndʒəd/</div><div class="m">(adj) có nguy cơ tuyệt chủng</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="scenery">🔊</button><div class="ico">🌄</div><div class="w">scenery</div><div class="ipa">/ˈsiːnəri/</div><div class="m">(n) phong cảnh</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="canoe">🔊</button><div class="ico">🛶</div><div class="w">canoe</div><div class="ipa">/kəˈnuː/</div><div class="m">(n) xuồng, thuyền độc mộc</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="camping">🔊</button><div class="ico">🏕️</div><div class="w">camping</div><div class="ipa">/ˈkæmpɪŋ/</div><div class="m">(n) cắm trại</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="guided tour">🔊</button><div class="ico">🧭</div><div class="w">guided tour</div><div class="ipa">/ˌɡaɪdɪd ˈtʊə/</div><div class="m">(n) chuyến tham quan có hướng dẫn</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="rainforest">🔊</button><div class="ico">🌴</div><div class="w">rainforest</div><div class="ipa">/ˈreɪnfɒrɪst/</div><div class="m">(n) rừng mưa nhiệt đới</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="responsible">🔊</button><div class="ico">🤲</div><div class="w">responsible</div><div class="ipa">/rɪˈspɒnsəbl/</div><div class="m">(adj) có trách nhiệm</div></div></div>
+<div class="cols"><section><h2>💬 Mẫu câu (Sentence patterns)</h2><div class="pat"><div class="en">If tourists don&#x27;t leave litter, the park will stay clean. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="If tourists don&#x27;t leave litter, the park will stay clean.">🔊</button></div><div class="vi">🇻🇳 Nếu du khách không xả rác, công viên sẽ luôn sạch sẽ.</div></div><div class="pat"><div class="en">If I were a tour operator, I would offer more eco-friendly tours. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="If I were a tour operator, I would offer more eco-friendly tours.">🔊</button></div><div class="vi">🇻🇳 Nếu mình là công ty lữ hành, mình sẽ mở thêm nhiều tour thân thiện môi trường.</div></div><div class="pat"><div class="en">Ecotourism brings income to local communities. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Ecotourism brings income to local communities.">🔊</button></div><div class="vi">🇻🇳 Du lịch sinh thái mang lại thu nhập cho cộng đồng địa phương.</div></div><div class="pat"><div class="en">Stay in a homestay to learn about local culture. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Stay in a homestay to learn about local culture.">🔊</button></div><div class="vi">🇻🇳 Hãy ở homestay để tìm hiểu văn hóa địa phương.</div></div><div class="pat"><div class="en">We must preserve the natural habitats of wildlife. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="We must preserve the natural habitats of wildlife.">🔊</button></div><div class="vi">🇻🇳 Chúng ta phải bảo tồn môi trường sống tự nhiên của động vật hoang dã.</div></div></section>
+<section><h2>📐 Ngữ pháp (Grammar)</h2><div class="gram"><h3>📐 Câu điều kiện loại 1 &amp; loại 2</h3><div class="f">Loại 1 (có thể xảy ra): If + S + V (hiện tại), S + will + V</div><div class="f">Loại 2 (không có thật ở hiện tại): If + S + V2/ed (were), S + would + V</div><ul><li>Ở loại 2, &quot;be&quot; dùng &quot;were&quot; cho tất cả các ngôi: If I were you...</li></ul><div class="ex"><div class="en">If we protect the forest, more animals will survive. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="If we protect the forest, more animals will survive.">🔊</button></div><div class="vi">🇻🇳 Nếu chúng ta bảo vệ rừng, nhiều động vật sẽ sống sót hơn.</div></div><div class="ex"><div class="en">If I had more money, I would travel to national parks. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="If I had more money, I would travel to national parks.">🔊</button></div><div class="vi">🇻🇳 Nếu tôi có nhiều tiền hơn, tôi sẽ đi du lịch các vườn quốc gia.</div></div><div class="ex"><div class="en">If I were you, I would stay in a homestay. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="If I were you, I would stay in a homestay.">🔊</button></div><div class="vi">🇻🇳 Nếu tôi là bạn, tôi sẽ ở homestay.</div></div></div></section></div>
+<nav class="pn"><a href="lop10-binh-dang-gioi.html">⬅️ Bình đẳng giới</a><a href="lop10-con-nguoi-moi-truong.html">Con người &amp; Môi trường ➡️</a></nav></main></body></html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi" data-root="../"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>City Life – Cuộc sống thành phố</title>
+<meta name="theme-color" content="#6d4c41">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="English Kids">
+<style>:root{--c:#6d4c41}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Segoe UI','Nunito',system-ui,Arial,sans-serif;background:#fffaf2;color:#333;overflow-x:hidden}
+header{padding:calc(24px + env(safe-area-inset-top)) 16px 22px;text-align:center;color:#fff;background:var(--c);border-radius:0 0 32px 32px;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+header .big{font-size:60px;line-height:1}
+header h1{margin:8px 0 4px;font-size:clamp(26px,6vw,34px)}
+header p{margin:0;font-size:17px;opacity:.95}
+.badge{display:inline-block;background:#fff;color:var(--c);font-weight:700;border-radius:20px;padding:3px 12px;font-size:14px;margin-top:8px}
+main{max-width:1150px;margin:0 auto;padding:20px 16px calc(60px + env(safe-area-inset-bottom))}
+h2{font-size:23px;margin:28px 0 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+h2 small{font-size:15px;font-weight:600;color:#888}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.btn{border:none;background:#fff;color:var(--c);font-weight:700;padding:8px 16px;border-radius:20px;cursor:pointer;font-size:15px;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,.12);font-family:inherit}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:16px}
+.card{background:#fff;border-radius:20px;padding:16px 12px 14px;text-align:center;border:3px solid var(--c);box-shadow:0 4px 10px rgba(0,0,0,.06);position:relative;transition:transform .15s}
+.card:hover{transform:translateY(-4px) rotate(-1deg)}
+.card .ico{font-size:52px;line-height:1.1}
+.card .w{font-size:21px;font-weight:800;color:var(--c);margin:6px 0 4px;overflow-wrap:anywhere}
+.card .ipa{font-family:'Lucida Sans Unicode','Arial Unicode MS',sans-serif;color:#555;font-size:15px;overflow-wrap:anywhere}
+.card .vn{color:#e65100;font-size:15px;margin-top:2px}
+.card .vn::before{content:'🗣️ '}
+.card .m{margin-top:8px;background:#f3f3f3;border-radius:12px;padding:6px;font-weight:700;font-size:16px}
+.say{position:absolute;top:8px;right:8px;border:none;background:none;font-size:20px;cursor:pointer;padding:4px}
+.hide .m{color:transparent;background:repeating-linear-gradient(45deg,#ddd,#ddd 6px,#eee 6px,#eee 12px)}
+.hide .card:hover .m,.hide .card.show .m{color:#333;background:#f3f3f3}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.cols>section>h2{margin-top:28px}
+.pat{background:#fff;border-left:8px solid var(--c);border-radius:16px;padding:14px 18px;margin-bottom:12px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.pat .en{font-size:18px;font-weight:700}
+.pat .en .q{color:var(--c)}
+.pat .vi{color:#666;margin-top:4px;font-style:italic}
+.pat .say,.gram .say{position:static;font-size:17px}
+.gram{background:#fff;border:3px solid var(--c);border-radius:20px;padding:16px 18px;margin-bottom:14px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.gram h3{margin:0 0 10px;color:var(--c);font-size:19px}
+.gram h3 a{color:inherit}
+.gram .tag{display:inline-block;font-size:13px;font-weight:700;background:var(--c);color:#fff;border-radius:10px;padding:2px 8px;margin-right:6px;vertical-align:middle}
+.f{font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;background:#fff6e0;border:1.5px dashed #f0c060;border-radius:10px;padding:7px 10px;margin:6px 0;font-size:15px;font-weight:600;overflow-wrap:anywhere}
+.gram ul{margin:8px 0;padding-left:20px;color:#555;line-height:1.55}
+.ex{border-top:1px dashed #ddd;padding:7px 0}
+.ex .en{font-weight:700}
+.ex .vi{color:#666;font-style:italic;font-size:15px}
+.legend{background:#fff;border:2px dashed var(--c);border-radius:16px;padding:10px 16px;font-size:15px}
+nav.pn{display:flex;justify-content:space-between;margin-top:30px;gap:10px}
+nav.pn a{background:var(--c);color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none;font-weight:700}
+.chips{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:5;background:#fffaf2;padding:10px 0;margin:0 -2px}
+.chip{border:2px solid #ff7aa2;background:#fff;color:#d6336c;border-radius:20px;padding:6px 13px;font-weight:700;cursor:pointer;font-size:15px;font-family:inherit}
+.chip.on{background:#ff7aa2;color:#fff}
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.topic{display:block;text-decoration:none;color:#fff;border-radius:24px;padding:18px;box-shadow:0 6px 14px rgba(0,0,0,.12);transition:transform .15s;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.topic:hover{transform:scale(1.04)}
+.topic .ico{font-size:48px}
+.topic .t{font-size:20px;font-weight:800;margin-top:6px}
+.topic .s{font-size:16px;opacity:.95}
+.topic .n{margin-top:10px;font-size:14px;background:rgba(255,255,255,.25);display:inline-block;padding:3px 10px;border-radius:12px}
+section[id]{scroll-margin-top:190px}
+h3.sub{font-size:18px;margin:20px 0 10px;color:#555;border-left:5px solid #ff7aa2;padding-left:10px}
+h3.sub small{font-size:14px;font-weight:600;color:#999}
+.special{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#7c4dff,#ff7aa2);color:#fff;text-decoration:none;border-radius:24px;padding:18px 22px;box-shadow:0 6px 14px rgba(0,0,0,.12)}
+.special .ico{font-size:46px}
+.special b{font-size:21px;display:block}
+.tips{background:#fff;border-radius:20px;padding:16px 22px;box-shadow:0 3px 8px rgba(0,0,0,.06);line-height:1.7}
+.install{display:none}
+.ioshint{display:none;background:#fff;color:#333;border-radius:16px;padding:10px 14px;margin:12px auto 0;max-width:420px;font-size:15px;text-shadow:none}
+[hidden]{display:none!important}
+@media (max-width:860px){.cols{grid-template-columns:1fr;gap:0}}
+@media (max-width:480px){.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:12px 6px 10px;border-radius:16px}.card .ico{font-size:40px}.card .w{font-size:17px}.card .ipa,.card .vn,.card .m{font-size:13px}.say{top:2px;right:2px;font-size:17px}.topics{grid-template-columns:1fr 1fr;gap:10px}.topic{padding:14px;border-radius:18px}.topic .ico{font-size:38px}.topic .t{font-size:16px}.topic .s{font-size:14px}.topic .n{font-size:12px}nav.pn a{padding:9px 12px;font-size:14px}}
+@media print{.say,.toolbar,nav.pn,.chips{display:none}header{border-radius:0}.card,.gram{break-inside:avoid}.cols{grid-template-columns:1fr}}
+</style><script>
+function say(t){if(!('speechSynthesis' in window))return alert('Trình duyệt không hỗ trợ đọc.');
+speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/→/g,'.').replace(/\//g,' or '));
+u.lang='en-GB';u.rate=0.8;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));if(v)u.voice=v;speechSynthesis.speak(u);}
+function toggleHide(b){document.body.classList.toggle('hide');b.textContent=document.body.classList.contains('hide')?'👁️ Hiện nghĩa':'🙈 Ẩn nghĩa (tự kiểm tra)';}
+document.addEventListener('click',ev=>{const c=ev.target.closest('.card');if(c&&!ev.target.closest('.say'))c.classList.toggle('show');});
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register(document.documentElement.dataset.root+'sw.js').catch(()=>{}));
+let deferredPrompt;
+addEventListener('beforeinstallprompt',ev=>{ev.preventDefault();deferredPrompt=ev;document.querySelectorAll('.install').forEach(b=>b.style.display='inline-block');});
+function installApp(){if(!deferredPrompt)return;deferredPrompt.prompt();deferredPrompt.userChoice.finally(()=>{deferredPrompt=null;document.querySelectorAll('.install').forEach(b=>b.style.display='none');});}
+addEventListener('DOMContentLoaded',()=>{const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const standalone=navigator.standalone||matchMedia('(display-mode: standalone)').matches;const h=document.querySelector('.ioshint');if(h&&ios&&!standalone)h.style.display='block';});
+function filterGrade(btn){document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===btn));const g=btn.dataset.g;
+document.querySelectorAll('[data-g]').forEach(el=>{if(el.classList.contains('chip'))return;el.hidden=g!=='all'&&!(' '+el.dataset.g+' ').includes(' '+g+' ');});
+document.querySelectorAll('[data-sec]').forEach(s=>{s.hidden=!s.querySelector('[data-g]:not([hidden])');});}
+</script></head>
+<body><header><div class="big">🌆</div><h1>City Life</h1><p>Chủ đề 67: Cuộc sống thành phố</p>
+<span class="badge">📘 Lớp 9 · 24 từ · 5 mẫu câu · ngữ pháp</span>
+<div class="toolbar"><a class="btn" href="../index.html#thcs">🏠 Trang chủ</a>
+<a class="btn" href="../ngu-phap.html">📐 Ngữ pháp</a>
+<button class="btn" onclick="toggleHide(this)">🙈 Ẩn nghĩa (tự kiểm tra)</button>
+<button class="btn" onclick="window.print()">🖨️ In</button></div></header>
+<main><div class="legend">🔊 Bấm loa để nghe &nbsp;|&nbsp; <b>/IPA/</b> = phiên âm quốc tế &nbsp;|&nbsp; (n) danh từ · (v) động từ · (adj) tính từ &nbsp;|&nbsp; ô xám = nghĩa</div>
+<h2>📖 Từ vựng (Vocabulary)</h2><div class="grid"><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="metropolitan">🔊</button><div class="ico">🏙️</div><div class="w">metropolitan</div><div class="ipa">/ˌmetrəˈpɒlɪtən/</div><div class="m">(adj) thuộc đô thị lớn</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="traffic jam">🔊</button><div class="ico">🚦</div><div class="w">traffic jam</div><div class="ipa">/ˈtræfɪk dʒæm/</div><div class="m">(n) tắc đường</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="public transport">🔊</button><div class="ico">🚇</div><div class="w">public transport</div><div class="ipa">/ˈpʌblɪk ˈtrænspɔːt/</div><div class="m">(n) giao thông công cộng</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="shopping mall">🔊</button><div class="ico">🏬</div><div class="w">shopping mall</div><div class="ipa">/ˈʃɒpɪŋ mɔːl/</div><div class="m">(n) trung tâm thương mại</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="cost of living">🔊</button><div class="ico">💸</div><div class="w">cost of living</div><div class="ipa">/kɒst əv ˈlɪvɪŋ/</div><div class="m">(n) chi phí sinh hoạt</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="nightlife">🔊</button><div class="ico">🌃</div><div class="w">nightlife</div><div class="ipa">/ˈnaɪtlaɪf/</div><div class="m">(n) cuộc sống về đêm</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="infrastructure">🔊</button><div class="ico">🏗️</div><div class="w">infrastructure</div><div class="ipa">/ˈɪnfrəstrʌktʃə/</div><div class="m">(n) cơ sở hạ tầng</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="air pollution">🔊</button><div class="ico">🌫️</div><div class="w">air pollution</div><div class="ipa">/eə pəˈluːʃn/</div><div class="m">(n) ô nhiễm không khí</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="resident">🔊</button><div class="ico">🧍</div><div class="w">resident</div><div class="ipa">/ˈrezɪdənt/</div><div class="m">(n) cư dân</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="skyscraper">🔊</button><div class="ico">🏢</div><div class="w">skyscraper</div><div class="ipa">/ˈskaɪskreɪpə/</div><div class="m">(n) nhà chọc trời</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="construction site">🔊</button><div class="ico">🚧</div><div class="w">construction site</div><div class="ipa">/kənˈstrʌkʃn saɪt/</div><div class="m">(n) công trường</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="entertainment">🔊</button><div class="ico">🎡</div><div class="w">entertainment</div><div class="ipa">/ˌentəˈteɪnmənt/</div><div class="m">(n) sự giải trí</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="stressful">🔊</button><div class="ico">😫</div><div class="w">stressful</div><div class="ipa">/ˈstresfl/</div><div class="m">(adj) căng thẳng</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="get around">🔊</button><div class="ico">🧭</div><div class="w">get around</div><div class="ipa">/ɡet əˈraʊnd/</div><div class="m">(v) đi lại</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="grow up">🔊</button><div class="ico">🌱</div><div class="w">grow up</div><div class="ipa">/ɡrəʊ ʌp/</div><div class="m">(v) lớn lên</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="look forward to">🔊</button><div class="ico">🔍</div><div class="w">look forward to</div><div class="ipa">/lʊk ˈfɔːwəd tuː/</div><div class="m">(v) mong chờ</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="urban">🔊</button><div class="ico">🏙️</div><div class="w">urban</div><div class="ipa">/ˈɜːbən/</div><div class="m">(adj) thuộc đô thị</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="downtown">🔊</button><div class="ico">🛍️</div><div class="w">downtown</div><div class="ipa">/ˌdaʊnˈtaʊn/</div><div class="m">(n) khu trung tâm</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="crime">🔊</button><div class="ico">🚨</div><div class="w">crime</div><div class="ipa">/kraɪm/</div><div class="m">(n) tội phạm</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="apartment">🔊</button><div class="ico">🏢</div><div class="w">apartment</div><div class="ipa">/əˈpɑːtmənt/</div><div class="m">(n) căn hộ</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="green space">🔊</button><div class="ico">🌳</div><div class="w">green space</div><div class="ipa">/ɡriːn speɪs/</div><div class="m">(n) không gian xanh</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="job opportunity">🔊</button><div class="ico">💼</div><div class="w">job opportunity</div><div class="ipa">/dʒɒb ˌɒpəˈtjuːnəti/</div><div class="m">(n) cơ hội việc làm</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="noise">🔊</button><div class="ico">🔇</div><div class="w">noise</div><div class="ipa">/nɔɪz/</div><div class="m">(n) tiếng ồn</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="cultural">🔊</button><div class="ico">🏛️</div><div class="w">cultural</div><div class="ipa">/ˈkʌltʃərəl/</div><div class="m">(adj) thuộc văn hóa</div></div></div>
+<div class="cols"><section><h2>💬 Mẫu câu (Sentence patterns)</h2><div class="pat"><div class="en">Cities are getting bigger and bigger. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Cities are getting bigger and bigger.">🔊</button></div><div class="vi">🇻🇳 Các thành phố ngày càng lớn hơn.</div></div><div class="pat"><div class="en">The more people move to the city, the more crowded it becomes. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The more people move to the city, the more crowded it becomes.">🔊</button></div><div class="vi">🇻🇳 Càng nhiều người chuyển đến thành phố, nó càng trở nên đông đúc.</div></div><div class="pat"><div class="en">It&#x27;s easy to get around by public transport here. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="It&#x27;s easy to get around by public transport here.">🔊</button></div><div class="vi">🇻🇳 Ở đây đi lại bằng phương tiện công cộng rất dễ.</div></div><div class="pat"><div class="en">Living in a big city can be stressful because of traffic jams. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Living in a big city can be stressful because of traffic jams.">🔊</button></div><div class="vi">🇻🇳 Sống ở thành phố lớn có thể căng thẳng vì tắc đường.</div></div><div class="pat"><div class="en">I grew up in a small town, but now I live in Ha Noi. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="I grew up in a small town, but now I live in Ha Noi.">🔊</button></div><div class="vi">🇻🇳 Mình lớn lên ở một thị trấn nhỏ, nhưng giờ mình sống ở Hà Nội.</div></div></section>
+<section><h2>📐 Ngữ pháp (Grammar)</h2><div class="gram"><h3>📐 So sánh kép &amp; cụm động từ (phrasal verbs)</h3><div class="f">adj-er and adj-er / more and more + adj → càng ngày càng</div><div class="f">The + so sánh hơn + S + V, the + so sánh hơn + S + V → càng... càng...</div><div class="f">Phrasal verb = động từ + giới từ/trạng từ, mang nghĩa mới: get around (đi lại), grow up (lớn lên), look forward to (mong chờ), turn down (từ chối).</div><div class="ex"><div class="en">The city is getting more and more crowded. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The city is getting more and more crowded.">🔊</button></div><div class="vi">🇻🇳 Thành phố ngày càng đông đúc.</div></div><div class="ex"><div class="en">The bigger the city is, the more expensive life becomes. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The bigger the city is, the more expensive life becomes.">🔊</button></div><div class="vi">🇻🇳 Thành phố càng lớn, cuộc sống càng đắt đỏ.</div></div><div class="ex"><div class="en">I&#x27;m looking forward to visiting Ho Chi Minh City. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="I&#x27;m looking forward to visiting Ho Chi Minh City.">🔊</button></div><div class="vi">🇻🇳 Tôi đang mong chờ được đến thăm TP. Hồ Chí Minh.</div></div></div></section></div>
+<nav class="pn"><a href="lop8-hanh-tinh-khac.html">⬅️ Sự sống trên hành tinh khác</a><a href="lop9-du-lich.html">Du lịch ➡️</a></nav></main></body></html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi" data-root="../"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>My New School – Trường mới của em</title>
+<meta name="theme-color" content="#1e88e5">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="English Kids">
+<style>:root{--c:#1e88e5}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Segoe UI','Nunito',system-ui,Arial,sans-serif;background:#fffaf2;color:#333;overflow-x:hidden}
+header{padding:calc(24px + env(safe-area-inset-top)) 16px 22px;text-align:center;color:#fff;background:var(--c);border-radius:0 0 32px 32px;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+header .big{font-size:60px;line-height:1}
+header h1{margin:8px 0 4px;font-size:clamp(26px,6vw,34px)}
+header p{margin:0;font-size:17px;opacity:.95}
+.badge{display:inline-block;background:#fff;color:var(--c);font-weight:700;border-radius:20px;padding:3px 12px;font-size:14px;margin-top:8px}
+main{max-width:1150px;margin:0 auto;padding:20px 16px calc(60px + env(safe-area-inset-bottom))}
+h2{font-size:23px;margin:28px 0 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+h2 small{font-size:15px;font-weight:600;color:#888}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.btn{border:none;background:#fff;color:var(--c);font-weight:700;padding:8px 16px;border-radius:20px;cursor:pointer;font-size:15px;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,.12);font-family:inherit}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:16px}
+.card{background:#fff;border-radius:20px;padding:16px 12px 14px;text-align:center;border:3px solid var(--c);box-shadow:0 4px 10px rgba(0,0,0,.06);position:relative;transition:transform .15s}
+.card:hover{transform:translateY(-4px) rotate(-1deg)}
+.card .ico{font-size:52px;line-height:1.1}
+.card .w{font-size:21px;font-weight:800;color:var(--c);margin:6px 0 4px;overflow-wrap:anywhere}
+.card .ipa{font-family:'Lucida Sans Unicode','Arial Unicode MS',sans-serif;color:#555;font-size:15px;overflow-wrap:anywhere}
+.card .vn{color:#e65100;font-size:15px;margin-top:2px}
+.card .vn::before{content:'🗣️ '}
+.card .m{margin-top:8px;background:#f3f3f3;border-radius:12px;padding:6px;font-weight:700;font-size:16px}
+.say{position:absolute;top:8px;right:8px;border:none;background:none;font-size:20px;cursor:pointer;padding:4px}
+.hide .m{color:transparent;background:repeating-linear-gradient(45deg,#ddd,#ddd 6px,#eee 6px,#eee 12px)}
+.hide .card:hover .m,.hide .card.show .m{color:#333;background:#f3f3f3}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.cols>section>h2{margin-top:28px}
+.pat{background:#fff;border-left:8px solid var(--c);border-radius:16px;padding:14px 18px;margin-bottom:12px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.pat .en{font-size:18px;font-weight:700}
+.pat .en .q{color:var(--c)}
+.pat .vi{color:#666;margin-top:4px;font-style:italic}
+.pat .say,.gram .say{position:static;font-size:17px}
+.gram{background:#fff;border:3px solid var(--c);border-radius:20px;padding:16px 18px;margin-bottom:14px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.gram h3{margin:0 0 10px;color:var(--c);font-size:19px}
+.gram h3 a{color:inherit}
+.gram .tag{display:inline-block;font-size:13px;font-weight:700;background:var(--c);color:#fff;border-radius:10px;padding:2px 8px;margin-right:6px;vertical-align:middle}
+.f{font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;background:#fff6e0;border:1.5px dashed #f0c060;border-radius:10px;padding:7px 10px;margin:6px 0;font-size:15px;font-weight:600;overflow-wrap:anywhere}
+.gram ul{margin:8px 0;padding-left:20px;color:#555;line-height:1.55}
+.ex{border-top:1px dashed #ddd;padding:7px 0}
+.ex .en{font-weight:700}
+.ex .vi{color:#666;font-style:italic;font-size:15px}
+.legend{background:#fff;border:2px dashed var(--c);border-radius:16px;padding:10px 16px;font-size:15px}
+nav.pn{display:flex;justify-content:space-between;margin-top:30px;gap:10px}
+nav.pn a{background:var(--c);color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none;font-weight:700}
+.chips{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:5;background:#fffaf2;padding:10px 0;margin:0 -2px}
+.chip{border:2px solid #ff7aa2;background:#fff;color:#d6336c;border-radius:20px;padding:6px 13px;font-weight:700;cursor:pointer;font-size:15px;font-family:inherit}
+.chip.on{background:#ff7aa2;color:#fff}
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.topic{display:block;text-decoration:none;color:#fff;border-radius:24px;padding:18px;box-shadow:0 6px 14px rgba(0,0,0,.12);transition:transform .15s;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.topic:hover{transform:scale(1.04)}
+.topic .ico{font-size:48px}
+.topic .t{font-size:20px;font-weight:800;margin-top:6px}
+.topic .s{font-size:16px;opacity:.95}
+.topic .n{margin-top:10px;font-size:14px;background:rgba(255,255,255,.25);display:inline-block;padding:3px 10px;border-radius:12px}
+section[id]{scroll-margin-top:190px}
+h3.sub{font-size:18px;margin:20px 0 10px;color:#555;border-left:5px solid #ff7aa2;padding-left:10px}
+h3.sub small{font-size:14px;font-weight:600;color:#999}
+.special{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#7c4dff,#ff7aa2);color:#fff;text-decoration:none;border-radius:24px;padding:18px 22px;box-shadow:0 6px 14px rgba(0,0,0,.12)}
+.special .ico{font-size:46px}
+.special b{font-size:21px;display:block}
+.tips{background:#fff;border-radius:20px;padding:16px 22px;box-shadow:0 3px 8px rgba(0,0,0,.06);line-height:1.7}
+.install{display:none}
+.ioshint{display:none;background:#fff;color:#333;border-radius:16px;padding:10px 14px;margin:12px auto 0;max-width:420px;font-size:15px;text-shadow:none}
+[hidden]{display:none!important}
+@media (max-width:860px){.cols{grid-template-columns:1fr;gap:0}}
+@media (max-width:480px){.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:12px 6px 10px;border-radius:16px}.card .ico{font-size:40px}.card .w{font-size:17px}.card .ipa,.card .vn,.card .m{font-size:13px}.say{top:2px;right:2px;font-size:17px}.topics{grid-template-columns:1fr 1fr;gap:10px}.topic{padding:14px;border-radius:18px}.topic .ico{font-size:38px}.topic .t{font-size:16px}.topic .s{font-size:14px}.topic .n{font-size:12px}nav.pn a{padding:9px 12px;font-size:14px}}
+@media print{.say,.toolbar,nav.pn,.chips{display:none}header{border-radius:0}.card,.gram{break-inside:avoid}.cols{grid-template-columns:1fr}}
+</style><script>
+function say(t){if(!('speechSynthesis' in window))return alert('Trình duyệt không hỗ trợ đọc.');
+speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/→/g,'.').replace(/\//g,' or '));
+u.lang='en-GB';u.rate=0.8;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));if(v)u.voice=v;speechSynthesis.speak(u);}
+function toggleHide(b){document.body.classList.toggle('hide');b.textContent=document.body.classList.contains('hide')?'👁️ Hiện nghĩa':'🙈 Ẩn nghĩa (tự kiểm tra)';}
+document.addEventListener('click',ev=>{const c=ev.target.closest('.card');if(c&&!ev.target.closest('.say'))c.classList.toggle('show');});
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register(document.documentElement.dataset.root+'sw.js').catch(()=>{}));
+let deferredPrompt;
+addEventListener('beforeinstallprompt',ev=>{ev.preventDefault();deferredPrompt=ev;document.querySelectorAll('.install').forEach(b=>b.style.display='inline-block');});
+function installApp(){if(!deferredPrompt)return;deferredPrompt.prompt();deferredPrompt.userChoice.finally(()=>{deferredPrompt=null;document.querySelectorAll('.install').forEach(b=>b.style.display='none');});}
+addEventListener('DOMContentLoaded',()=>{const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const standalone=navigator.standalone||matchMedia('(display-mode: standalone)').matches;const h=document.querySelector('.ioshint');if(h&&ios&&!standalone)h.style.display='block';});
+function filterGrade(btn){document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===btn));const g=btn.dataset.g;
+document.querySelectorAll('[data-g]').forEach(el=>{if(el.classList.contains('chip'))return;el.hidden=g!=='all'&&!(' '+el.dataset.g+' ').includes(' '+g+' ');});
+document.querySelectorAll('[data-sec]').forEach(s=>{s.hidden=!s.querySelector('[data-g]:not([hidden])');});}
+</script></head>
+<body><header><div class="big">🎒</div><h1>My New School</h1><p>Chủ đề 35: Trường mới của em</p>
+<span class="badge">📘 Lớp 6 · 24 từ · 5 mẫu câu · ngữ pháp</span>
+<div class="toolbar"><a class="btn" href="../index.html#thcs">🏠 Trang chủ</a>
+<a class="btn" href="../ngu-phap.html">📐 Ngữ pháp</a>
+<button class="btn" onclick="toggleHide(this)">🙈 Ẩn nghĩa (tự kiểm tra)</button>
+<button class="btn" onclick="window.print()">🖨️ In</button></div></header>
+<main><div class="legend">🔊 Bấm loa để nghe &nbsp;|&nbsp; <b>/IPA/</b> = phiên âm quốc tế &nbsp;|&nbsp; (n) danh từ · (v) động từ · (adj) tính từ &nbsp;|&nbsp; ô xám = nghĩa</div>
+<h2>📖 Từ vựng (Vocabulary)</h2><div class="grid"><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="boarding school">🔊</button><div class="ico">🛏️</div><div class="w">boarding school</div><div class="ipa">/ˈbɔːdɪŋ skuːl/</div><div class="m">(n) trường nội trú</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="international school">🔊</button><div class="ico">🌐</div><div class="w">international school</div><div class="ipa">/ˌɪntəˈnæʃnəl skuːl/</div><div class="m">(n) trường quốc tế</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="secondary school">🔊</button><div class="ico">🏫</div><div class="w">secondary school</div><div class="ipa">/ˈsekəndri skuːl/</div><div class="m">(n) trường trung học cơ sở</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="uniform">🔊</button><div class="ico">👔</div><div class="w">uniform</div><div class="ipa">/ˈjuːnɪfɔːm/</div><div class="m">(n) đồng phục</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="calculator">🔊</button><div class="ico">🧮</div><div class="w">calculator</div><div class="ipa">/ˈkælkjuleɪtə/</div><div class="m">(n) máy tính bỏ túi</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="compass">🔊</button><div class="ico">🧭</div><div class="w">compass</div><div class="ipa">/ˈkʌmpəs/</div><div class="m">(n) com-pa</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="textbook">🔊</button><div class="ico">📗</div><div class="w">textbook</div><div class="ipa">/ˈtekstbʊk/</div><div class="m">(n) sách giáo khoa</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="maths">🔊</button><div class="ico">🔢</div><div class="w">maths</div><div class="ipa">/mæθs/</div><div class="m">(n) môn Toán</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="science">🔊</button><div class="ico">🧬</div><div class="w">science</div><div class="ipa">/ˈsaɪəns/</div><div class="m">(n) môn Khoa học tự nhiên</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="geography">🔊</button><div class="ico">🌍</div><div class="w">geography</div><div class="ipa">/dʒiˈɒɡrəfi/</div><div class="m">(n) môn Địa lý</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="history">🔊</button><div class="ico">📜</div><div class="w">history</div><div class="ipa">/ˈhɪstri/</div><div class="m">(n) môn Lịch sử</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="physics">🔊</button><div class="ico">🧲</div><div class="w">physics</div><div class="ipa">/ˈfɪzɪks/</div><div class="m">(n) môn Vật lý</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="art">🔊</button><div class="ico">🎨</div><div class="w">art</div><div class="ipa">/ɑːt/</div><div class="m">(n) môn Mỹ thuật</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="music">🔊</button><div class="ico">🎵</div><div class="w">music</div><div class="ipa">/ˈmjuːzɪk/</div><div class="m">(n) môn Âm nhạc</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="PE">🔊</button><div class="ico">🏃</div><div class="w">PE</div><div class="ipa">/ˌpiː ˈiː/</div><div class="m">(n) môn Giáo dục thể chất</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="IT">🔊</button><div class="ico">💻</div><div class="w">IT</div><div class="ipa">/ˌaɪ ˈtiː/</div><div class="m">(n) môn Tin học</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="form teacher">🔊</button><div class="ico">🧑‍🏫</div><div class="w">form teacher</div><div class="ipa">/fɔːm ˈtiːtʃə/</div><div class="m">(n) giáo viên chủ nhiệm</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="timetable">🔊</button><div class="ico">📅</div><div class="w">timetable</div><div class="ipa">/ˈtaɪmteɪbl/</div><div class="m">(n) thời khóa biểu</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="club">🔊</button><div class="ico">🏸</div><div class="w">club</div><div class="ipa">/klʌb/</div><div class="m">(n) câu lạc bộ</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="homework">🔊</button><div class="ico">📝</div><div class="w">homework</div><div class="ipa">/ˈhəʊmwɜːk/</div><div class="m">(n) bài tập về nhà</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="share">🔊</button><div class="ico">🤝</div><div class="w">share</div><div class="ipa">/ʃeə/</div><div class="m">(v) chia sẻ</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="smart">🔊</button><div class="ico">😎</div><div class="w">smart</div><div class="ipa">/smɑːt/</div><div class="m">(adj) gọn gàng, bảnh bao; thông minh</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="nervous">🔊</button><div class="ico">😰</div><div class="w">nervous</div><div class="ipa">/ˈnɜːvəs/</div><div class="m">(adj) hồi hộp, lo lắng</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="excited">🔊</button><div class="ico">😃</div><div class="w">excited</div><div class="ipa">/ɪkˈsaɪtɪd/</div><div class="m">(adj) hào hứng</div></div></div>
+<div class="cols"><section><h2>💬 Mẫu câu (Sentence patterns)</h2><div class="pat"><div class="en"><span class="q">❓ What subjects do you have today?</span><br>💬 I have maths, science and English. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="What subjects do you have today? → I have maths, science and English.">🔊</button></div><div class="vi">🇻🇳 Hôm nay bạn có môn gì? → Mình có Toán, Khoa học và Tiếng Anh.</div></div><div class="pat"><div class="en"><span class="q">❓ Who is your form teacher?</span><br>💬 Ms Hoa is. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Who is your form teacher? → Ms Hoa is.">🔊</button></div><div class="vi">🇻🇳 Giáo viên chủ nhiệm của bạn là ai? → Cô Hoa.</div></div><div class="pat"><div class="en">I usually walk to school, but today I&#x27;m going by bus. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="I usually walk to school, but today I&#x27;m going by bus.">🔊</button></div><div class="vi">🇻🇳 Mình thường đi bộ đến trường, nhưng hôm nay mình đi xe buýt.</div></div><div class="pat"><div class="en">We wear uniforms on Mondays. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="We wear uniforms on Mondays.">🔊</button></div><div class="vi">🇻🇳 Chúng mình mặc đồng phục vào thứ Hai.</div></div><div class="pat"><div class="en">I&#x27;m a bit nervous, but very excited about my new school. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="I&#x27;m a bit nervous, but very excited about my new school.">🔊</button></div><div class="vi">🇻🇳 Mình hơi hồi hộp nhưng rất háo hức với trường mới.</div></div></section>
+<section><h2>📐 Ngữ pháp (Grammar)</h2><div class="gram"><h3>📐 Hiện tại đơn &amp; hiện tại tiếp diễn (cơ bản)</h3><div class="f">Hiện tại đơn: S + V(s/es) → thói quen, việc lặp lại (every day, usually, on Mondays)</div><div class="f">Hiện tại tiếp diễn: S + am/is/are + V-ing → việc đang xảy ra (now, at the moment, today, Look!)</div><ul><li>Câu hỏi HTĐ: Do/Does + S + V? · HTTD: Am/Is/Are + S + V-ing?</li></ul><div class="ex"><div class="en">We have English four times a week. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="We have English four times a week.">🔊</button></div><div class="vi">🇻🇳 Chúng tôi học tiếng Anh bốn buổi một tuần.</div></div><div class="ex"><div class="en">Look! The students are playing in the schoolyard. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Look! The students are playing in the schoolyard.">🔊</button></div><div class="vi">🇻🇳 Nhìn kìa! Học sinh đang chơi ở sân trường.</div></div><div class="ex"><div class="en">Does she ride her bike to school? → Yes, she does. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Does she ride her bike to school? → Yes, she does.">🔊</button></div><div class="vi">🇻🇳 Bạn ấy có đạp xe đến trường không? → Có.</div></div></div></section></div>
+<nav class="pn"><a href="lop6-the-gioi-xanh.html">⬅️ Thế giới xanh hơn</a><a href="lop6-ngoi-nha.html">Ngôi nhà của em ➡️</a></nav></main></body></html>

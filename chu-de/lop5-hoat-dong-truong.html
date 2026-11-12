@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi" data-root="../"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>School Activities &amp; Classroom – Hoạt động ở trường &amp; lớp học</title>
+<meta name="theme-color" content="#26a69a">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="English Kids">
+<style>:root{--c:#26a69a}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Segoe UI','Nunito',system-ui,Arial,sans-serif;background:#fffaf2;color:#333;overflow-x:hidden}
+header{padding:calc(24px + env(safe-area-inset-top)) 16px 22px;text-align:center;color:#fff;background:var(--c);border-radius:0 0 32px 32px;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+header .big{font-size:60px;line-height:1}
+header h1{margin:8px 0 4px;font-size:clamp(26px,6vw,34px)}
+header p{margin:0;font-size:17px;opacity:.95}
+.badge{display:inline-block;background:#fff;color:var(--c);font-weight:700;border-radius:20px;padding:3px 12px;font-size:14px;margin-top:8px}
+main{max-width:1150px;margin:0 auto;padding:20px 16px calc(60px + env(safe-area-inset-bottom))}
+h2{font-size:23px;margin:28px 0 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+h2 small{font-size:15px;font-weight:600;color:#888}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.btn{border:none;background:#fff;color:var(--c);font-weight:700;padding:8px 16px;border-radius:20px;cursor:pointer;font-size:15px;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,.12);font-family:inherit}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:16px}
+.card{background:#fff;border-radius:20px;padding:16px 12px 14px;text-align:center;border:3px solid var(--c);box-shadow:0 4px 10px rgba(0,0,0,.06);position:relative;transition:transform .15s}
+.card:hover{transform:translateY(-4px) rotate(-1deg)}
+.card .ico{font-size:52px;line-height:1.1}
+.card .w{font-size:21px;font-weight:800;color:var(--c);margin:6px 0 4px;overflow-wrap:anywhere}
+.card .ipa{font-family:'Lucida Sans Unicode','Arial Unicode MS',sans-serif;color:#555;font-size:15px;overflow-wrap:anywhere}
+.card .vn{color:#e65100;font-size:15px;margin-top:2px}
+.card .vn::before{content:'🗣️ '}
+.card .m{margin-top:8px;background:#f3f3f3;border-radius:12px;padding:6px;font-weight:700;font-size:16px}
+.say{position:absolute;top:8px;right:8px;border:none;background:none;font-size:20px;cursor:pointer;padding:4px}
+.hide .m{color:transparent;background:repeating-linear-gradient(45deg,#ddd,#ddd 6px,#eee 6px,#eee 12px)}
+.hide .card:hover .m,.hide .card.show .m{color:#333;background:#f3f3f3}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.cols>section>h2{margin-top:28px}
+.pat{background:#fff;border-left:8px solid var(--c);border-radius:16px;padding:14px 18px;margin-bottom:12px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.pat .en{font-size:18px;font-weight:700}
+.pat .en .q{color:var(--c)}
+.pat .vi{color:#666;margin-top:4px;font-style:italic}
+.pat .say,.gram .say{position:static;font-size:17px}
+.gram{background:#fff;border:3px solid var(--c);border-radius:20px;padding:16px 18px;margin-bottom:14px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.gram h3{margin:0 0 10px;color:var(--c);font-size:19px}
+.gram h3 a{color:inherit}
+.gram .tag{display:inline-block;font-size:13px;font-weight:700;background:var(--c);color:#fff;border-radius:10px;padding:2px 8px;margin-right:6px;vertical-align:middle}
+.f{font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;background:#fff6e0;border:1.5px dashed #f0c060;border-radius:10px;padding:7px 10px;margin:6px 0;font-size:15px;font-weight:600;overflow-wrap:anywhere}
+.gram ul{margin:8px 0;padding-left:20px;color:#555;line-height:1.55}
+.ex{border-top:1px dashed #ddd;padding:7px 0}
+.ex .en{font-weight:700}
+.ex .vi{color:#666;font-style:italic;font-size:15px}
+.legend{background:#fff;border:2px dashed var(--c);border-radius:16px;padding:10px 16px;font-size:15px}
+nav.pn{display:flex;justify-content:space-between;margin-top:30px;gap:10px}
+nav.pn a{background:var(--c);color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none;font-weight:700}
+.chips{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:5;background:#fffaf2;padding:10px 0;margin:0 -2px}
+.chip{border:2px solid #ff7aa2;background:#fff;color:#d6336c;border-radius:20px;padding:6px 13px;font-weight:700;cursor:pointer;font-size:15px;font-family:inherit}
+.chip.on{background:#ff7aa2;color:#fff}
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.topic{display:block;text-decoration:none;color:#fff;border-radius:24px;padding:18px;box-shadow:0 6px 14px rgba(0,0,0,.12);transition:transform .15s;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.topic:hover{transform:scale(1.04)}
+.topic .ico{font-size:48px}
+.topic .t{font-size:20px;font-weight:800;margin-top:6px}
+.topic .s{font-size:16px;opacity:.95}
+.topic .n{margin-top:10px;font-size:14px;background:rgba(255,255,255,.25);display:inline-block;padding:3px 10px;border-radius:12px}
+section[id]{scroll-margin-top:190px}
+h3.sub{font-size:18px;margin:20px 0 10px;color:#555;border-left:5px solid #ff7aa2;padding-left:10px}
+h3.sub small{font-size:14px;font-weight:600;color:#999}
+.special{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#7c4dff,#ff7aa2);color:#fff;text-decoration:none;border-radius:24px;padding:18px 22px;box-shadow:0 6px 14px rgba(0,0,0,.12)}
+.special .ico{font-size:46px}
+.special b{font-size:21px;display:block}
+.tips{background:#fff;border-radius:20px;padding:16px 22px;box-shadow:0 3px 8px rgba(0,0,0,.06);line-height:1.7}
+.install{display:none}
+.ioshint{display:none;background:#fff;color:#333;border-radius:16px;padding:10px 14px;margin:12px auto 0;max-width:420px;font-size:15px;text-shadow:none}
+[hidden]{display:none!important}
+@media (max-width:860px){.cols{grid-template-columns:1fr;gap:0}}
+@media (max-width:480px){.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:12px 6px 10px;border-radius:16px}.card .ico{font-size:40px}.card .w{font-size:17px}.card .ipa,.card .vn,.card .m{font-size:13px}.say{top:2px;right:2px;font-size:17px}.topics{grid-template-columns:1fr 1fr;gap:10px}.topic{padding:14px;border-radius:18px}.topic .ico{font-size:38px}.topic .t{font-size:16px}.topic .s{font-size:14px}.topic .n{font-size:12px}nav.pn a{padding:9px 12px;font-size:14px}}
+@media print{.say,.toolbar,nav.pn,.chips{display:none}header{border-radius:0}.card,.gram{break-inside:avoid}.cols{grid-template-columns:1fr}}
+</style><script>
+function say(t){if(!('speechSynthesis' in window))return alert('Trình duyệt không hỗ trợ đọc.');
+speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/→/g,'.').replace(/\//g,' or '));
+u.lang='en-GB';u.rate=0.8;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));if(v)u.voice=v;speechSynthesis.speak(u);}
+function toggleHide(b){document.body.classList.toggle('hide');b.textContent=document.body.classList.contains('hide')?'👁️ Hiện nghĩa':'🙈 Ẩn nghĩa (tự kiểm tra)';}
+document.addEventListener('click',ev=>{const c=ev.target.closest('.card');if(c&&!ev.target.closest('.say'))c.classList.toggle('show');});
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register(document.documentElement.dataset.root+'sw.js').catch(()=>{}));
+let deferredPrompt;
+addEventListener('beforeinstallprompt',ev=>{ev.preventDefault();deferredPrompt=ev;document.querySelectorAll('.install').forEach(b=>b.style.display='inline-block');});
+function installApp(){if(!deferredPrompt)return;deferredPrompt.prompt();deferredPrompt.userChoice.finally(()=>{deferredPrompt=null;document.querySelectorAll('.install').forEach(b=>b.style.display='none');});}
+addEventListener('DOMContentLoaded',()=>{const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const standalone=navigator.standalone||matchMedia('(display-mode: standalone)').matches;const h=document.querySelector('.ioshint');if(h&&ios&&!standalone)h.style.display='block';});
+function filterGrade(btn){document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===btn));const g=btn.dataset.g;
+document.querySelectorAll('[data-g]').forEach(el=>{if(el.classList.contains('chip'))return;el.hidden=g!=='all'&&!(' '+el.dataset.g+' ').includes(' '+g+' ');});
+document.querySelectorAll('[data-sec]').forEach(s=>{s.hidden=!s.querySelector('[data-g]:not([hidden])');});}
+</script></head>
+<body><header><div class="big">🏫</div><h1>School Activities &amp; Classroom</h1><p>Chủ đề 27: Hoạt động ở trường &amp; lớp học</p>
+<span class="badge">📘 Lớp 5 · 24 từ · 5 mẫu câu · ngữ pháp</span>
+<div class="toolbar"><a class="btn" href="../index.html#tieu-hoc">🏠 Trang chủ</a>
+<a class="btn" href="../ngu-phap.html">📐 Ngữ pháp</a>
+<button class="btn" onclick="toggleHide(this)">🙈 Ẩn nghĩa (tự kiểm tra)</button>
+<button class="btn" onclick="window.print()">🖨️ In</button></div></header>
+<main><div class="legend">🔊 Bấm loa để nghe &nbsp;|&nbsp; <b>/IPA/</b> = phiên âm quốc tế &nbsp;|&nbsp; 🗣️ = phiên âm tiếng Việt (gần đúng) &nbsp;|&nbsp; ô xám = nghĩa</div>
+<h2>📖 Từ vựng (Vocabulary)</h2><div class="grid"><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="read books">🔊</button><div class="ico">📚</div><div class="w">read books</div><div class="ipa">/riːd bʊks/</div><div class="vn">rít búcx</div><div class="m">đọc sách</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="solve maths problems">🔊</button><div class="ico">➗</div><div class="w">solve maths problems</div><div class="ipa">/sɒlv mæθs ˈprɒbləmz/</div><div class="vn">xolv methx pró-blầmz</div><div class="m">giải toán</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="do experiments">🔊</button><div class="ico">🧪</div><div class="w">do experiments</div><div class="ipa">/duː ɪkˈsperɪmənts/</div><div class="vn">đu ích-x-pe-ri-mầntx</div><div class="m">làm thí nghiệm</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="act">🔊</button><div class="ico">🎭</div><div class="w">act</div><div class="ipa">/ækt/</div><div class="vn">éc-t</div><div class="m">diễn kịch</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="contest">🔊</button><div class="ico">🏆</div><div class="w">contest</div><div class="ipa">/ˈkɒntest/</div><div class="vn">con-tét-x-t</div><div class="m">cuộc thi</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="work in groups">🔊</button><div class="ico">👥</div><div class="w">work in groups</div><div class="ipa">/wɜːk ɪn ɡruːps/</div><div class="vn">guơc in grup-x</div><div class="m">làm việc nhóm</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="put up your hand">🔊</button><div class="ico">🙋</div><div class="w">put up your hand</div><div class="ipa">/pʊt ʌp jɔː hænd/</div><div class="vn">pút ắp dio hen-đ</div><div class="m">giơ tay</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="speak">🔊</button><div class="ico">🗣️</div><div class="w">speak</div><div class="ipa">/spiːk/</div><div class="vn">xpíc</div><div class="m">nói</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="listen">🔊</button><div class="ico">👂</div><div class="w">listen</div><div class="ipa">/ˈlɪsn/</div><div class="vn">lít-xần</div><div class="m">nghe</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="take notes">🔊</button><div class="ico">📝</div><div class="w">take notes</div><div class="ipa">/teɪk nəʊts/</div><div class="vn">tây-k nâutx</div><div class="m">ghi chép</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="project">🔊</button><div class="ico">📋</div><div class="w">project</div><div class="ipa">/ˈprɒdʒekt/</div><div class="vn">pro-giéc-t</div><div class="m">dự án</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="computer room">🔊</button><div class="ico">🖥️</div><div class="w">computer room</div><div class="ipa">/kəmˈpjuːtə ruːm/</div><div class="vn">cầm-piu-tơ rum</div><div class="m">phòng máy tính</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="science lab">🔊</button><div class="ico">🔬</div><div class="w">science lab</div><div class="ipa">/ˈsaɪəns læb/</div><div class="vn">xai-ần-x leb</div><div class="m">phòng thí nghiệm</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="art room">🔊</button><div class="ico">🎨</div><div class="w">art room</div><div class="ipa">/ɑːt ruːm/</div><div class="vn">a-t rum</div><div class="m">phòng mỹ thuật</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="break time">🔊</button><div class="ico">🔔</div><div class="w">break time</div><div class="ipa">/ˈbreɪk taɪm/</div><div class="vn">brây-k tai-m</div><div class="m">giờ ra chơi</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="stand up">🔊</button><div class="ico">🧍</div><div class="w">stand up</div><div class="ipa">/stænd ʌp/</div><div class="vn">xten-đ ắp</div><div class="m">đứng lên</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="sit down">🔊</button><div class="ico">🪑</div><div class="w">sit down</div><div class="ipa">/sɪt daʊn/</div><div class="vn">xít đao-n</div><div class="m">ngồi xuống</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="open your book">🔊</button><div class="ico">📖</div><div class="w">open your book</div><div class="ipa">/ˈəʊpən jɔː bʊk/</div><div class="vn">âu-pần dio búc</div><div class="m">mở sách ra</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="close your book">🔊</button><div class="ico">📕</div><div class="w">close your book</div><div class="ipa">/kləʊz jɔː bʊk/</div><div class="vn">clâu-z dio búc</div><div class="m">gấp sách lại</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="come in">🔊</button><div class="ico">🚪</div><div class="w">come in</div><div class="ipa">/kʌm ɪn/</div><div class="vn">căm in</div><div class="m">đi vào</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="go out">🔊</button><div class="ico">🚶</div><div class="w">go out</div><div class="ipa">/ɡəʊ aʊt/</div><div class="vn">gâu ao-t</div><div class="m">đi ra ngoài</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="classmate">🔊</button><div class="ico">🧑‍🤝‍🧑</div><div class="w">classmate</div><div class="ipa">/ˈklɑːsmeɪt/</div><div class="vn">cla-x-mây-t</div><div class="m">bạn cùng lớp</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="borrow">🔊</button><div class="ico">🤝</div><div class="w">borrow</div><div class="ipa">/ˈbɒrəʊ/</div><div class="vn">bo-râu</div><div class="m">mượn</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="favourite">🔊</button><div class="ico">❤️</div><div class="w">favourite</div><div class="ipa">/ˈfeɪvərɪt/</div><div class="vn">phây-vơ-rít</div><div class="m">yêu thích</div></div></div>
+<div class="cols"><section><h2>💬 Mẫu câu (Sentence patterns)</h2><div class="pat"><div class="en"><span class="q">❓ May I come in?</span><br>💬 Yes, you can. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="May I come in? → Yes, you can.">🔊</button></div><div class="vi">🇻🇳 Em vào lớp được không ạ? → Được, em vào đi.</div></div><div class="pat"><div class="en"><span class="q">❓ Can I borrow your ruler?</span><br>💬 Sure. Here you are. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Can I borrow your ruler? → Sure. Here you are.">🔊</button></div><div class="vi">🇻🇳 Mình mượn thước của bạn được không? → Được. Đây này.</div></div><div class="pat"><div class="en"><span class="q">❓ May I go out?</span><br>💬 Sorry, you can&#x27;t. Please wait. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="May I go out? → Sorry, you can&#x27;t. Please wait.">🔊</button></div><div class="vi">🇻🇳 Em ra ngoài được không ạ? → Không được. Em đợi chút nhé.</div></div><div class="pat"><div class="en"><span class="q">❓ What&#x27;s your favourite school activity?</span><br>💬 I like doing experiments. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="What&#x27;s your favourite school activity? → I like doing experiments.">🔊</button></div><div class="vi">🇻🇳 Hoạt động ở trường bạn thích nhất là gì? → Mình thích làm thí nghiệm.</div></div><div class="pat"><div class="en"><span class="q">❓ Where is the science lab?</span><br>💬 It&#x27;s on the second floor. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Where is the science lab? → It&#x27;s on the second floor.">🔊</button></div><div class="vi">🇻🇳 Phòng thí nghiệm ở đâu? → Ở tầng hai.</div></div></section>
+<section><h2>📐 Ngữ pháp (Grammar)</h2><div class="gram"><h3>📐 Can I...? / May I...? (xin phép)</h3><div class="f">May I + V...? → lịch sự, thường dùng với thầy cô, người lớn</div><div class="f">Can I + V...? → thân mật hơn, dùng với bạn bè</div><div class="f">Đồng ý: Yes, you can. / Sure. / Of course.</div><div class="f">Từ chối: Sorry, you can&#x27;t. / No, you can&#x27;t.</div><ul><li>Sau can / may luôn dùng động từ nguyên thể.</li></ul><div class="ex"><div class="en">May I open the window? <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="May I open the window?">🔊</button></div><div class="vi">🇻🇳 Em mở cửa sổ được không ạ?</div></div><div class="ex"><div class="en">Can I use your pencil? → Sure. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Can I use your pencil? → Sure.">🔊</button></div><div class="vi">🇻🇳 Mình dùng bút chì của bạn được không? → Được chứ.</div></div><div class="ex"><div class="en">Can I sit here? → Sorry, you can&#x27;t. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Can I sit here? → Sorry, you can&#x27;t.">🔊</button></div><div class="vi">🇻🇳 Mình ngồi đây được không? → Xin lỗi, không được.</div></div></div></section></div>
+<nav class="pn"><a href="lop5-nghe-tuong-lai.html">⬅️ Nghề nghiệp mơ ước</a><a href="lop5-ngoai-troi.html">Hoạt động ngoài trời ➡️</a></nav></main></body></html>
