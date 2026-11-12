@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi" data-root="../"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Trạng từ – Luyện thi TOEIC</title>
+<meta name="theme-color" content="#00897b">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="English Kids">
+<style>:root{--c:#00897b}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Segoe UI','Nunito',system-ui,Arial,sans-serif;background:#fffaf2;color:#333;overflow-x:hidden}
+header{padding:calc(24px + env(safe-area-inset-top)) 16px 22px;text-align:center;color:#fff;background:var(--c);border-radius:0 0 32px 32px;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+header .big{font-size:60px;line-height:1}
+header h1{margin:8px 0 4px;font-size:clamp(26px,6vw,34px)}
+header p{margin:0;font-size:17px;opacity:.95}
+.badge{display:inline-block;background:#fff;color:var(--c);font-weight:700;border-radius:20px;padding:3px 12px;font-size:14px;margin-top:8px}
+main{max-width:1150px;margin:0 auto;padding:20px 16px calc(60px + env(safe-area-inset-bottom))}
+h2{font-size:23px;margin:28px 0 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+h2 small{font-size:15px;font-weight:600;color:#888}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.btn{border:none;background:#fff;color:var(--c);font-weight:700;padding:8px 16px;border-radius:20px;cursor:pointer;font-size:15px;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,.12);font-family:inherit}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:16px}
+.card{background:#fff;border-radius:20px;padding:16px 12px 14px;text-align:center;border:3px solid var(--c);box-shadow:0 4px 10px rgba(0,0,0,.06);position:relative;transition:transform .15s}
+.card:hover{transform:translateY(-4px) rotate(-1deg)}
+.card .ico{font-size:52px;line-height:1.1}
+.card .w{font-size:21px;font-weight:800;color:var(--c);margin:6px 0 4px;overflow-wrap:anywhere}
+.card .ipa{font-family:'Lucida Sans Unicode','Arial Unicode MS',sans-serif;color:#555;font-size:15px;overflow-wrap:anywhere}
+.card .vn{color:#e65100;font-size:15px;margin-top:2px}
+.card .vn::before{content:'🗣️ '}
+.card .m{margin-top:8px;background:#f3f3f3;border-radius:12px;padding:6px;font-weight:700;font-size:16px}
+.say{position:absolute;top:8px;right:8px;border:none;background:none;font-size:20px;cursor:pointer;padding:4px}
+.hide .m{color:transparent;background:repeating-linear-gradient(45deg,#ddd,#ddd 6px,#eee 6px,#eee 12px)}
+.hide .card:hover .m,.hide .card.show .m{color:#333;background:#f3f3f3}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.cols>section>h2{margin-top:28px}
+.pat{background:#fff;border-left:8px solid var(--c);border-radius:16px;padding:14px 18px;margin-bottom:12px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.pat .en{font-size:18px;font-weight:700}
+.pat .en .q{color:var(--c)}
+.pat .vi{color:#666;margin-top:4px;font-style:italic}
+.pat .say,.gram .say{position:static;font-size:17px}
+.gram{background:#fff;border:3px solid var(--c);border-radius:20px;padding:16px 18px;margin-bottom:14px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.gram h3{margin:0 0 10px;color:var(--c);font-size:19px}
+.gram h3 a{color:inherit}
+.gram .tag{display:inline-block;font-size:13px;font-weight:700;background:var(--c);color:#fff;border-radius:10px;padding:2px 8px;margin-right:6px;vertical-align:middle}
+.f{font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;background:#fff6e0;border:1.5px dashed #f0c060;border-radius:10px;padding:7px 10px;margin:6px 0;font-size:15px;font-weight:600;overflow-wrap:anywhere}
+.gram ul{margin:8px 0;padding-left:20px;color:#555;line-height:1.55}
+.ex{border-top:1px dashed #ddd;padding:7px 0}
+.ex .en{font-weight:700}
+.ex .vi{color:#666;font-style:italic;font-size:15px}
+.legend{background:#fff;border:2px dashed var(--c);border-radius:16px;padding:10px 16px;font-size:15px}
+nav.pn{display:flex;justify-content:space-between;margin-top:30px;gap:10px}
+nav.pn a{background:var(--c);color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none;font-weight:700}
+.chips{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:5;background:#fffaf2;padding:10px 0;margin:0 -2px}
+.chip{border:2px solid #ff7aa2;background:#fff;color:#d6336c;border-radius:20px;padding:6px 13px;font-weight:700;cursor:pointer;font-size:15px;font-family:inherit}
+.chip.on{background:#ff7aa2;color:#fff}
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.topic{display:block;text-decoration:none;color:#fff;border-radius:24px;padding:18px;box-shadow:0 6px 14px rgba(0,0,0,.12);transition:transform .15s;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.topic:hover{transform:scale(1.04)}
+.topic .ico{font-size:48px}
+.topic .t{font-size:20px;font-weight:800;margin-top:6px}
+.topic .s{font-size:16px;opacity:.95}
+.topic .n{margin-top:10px;font-size:14px;background:rgba(255,255,255,.25);display:inline-block;padding:3px 10px;border-radius:12px}
+section[id]{scroll-margin-top:130px}
+h3.sub{font-size:18px;margin:20px 0 10px;color:#555;border-left:5px solid #ff7aa2;padding-left:10px}
+h3.sub small{font-size:14px;font-weight:600;color:#999}
+.special{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#7c4dff,#ff7aa2);color:#fff;text-decoration:none;border-radius:24px;padding:18px 22px;box-shadow:0 6px 14px rgba(0,0,0,.12)}
+.special .ico{font-size:46px}
+.special b{font-size:21px;display:block}
+.tips{background:#fff;border-radius:20px;padding:16px 22px;box-shadow:0 3px 8px rgba(0,0,0,.06);line-height:1.7}
+.install{display:none}
+.ioshint{display:none;background:#fff;color:#333;border-radius:16px;padding:10px 14px;margin:12px auto 0;max-width:420px;font-size:15px;text-shadow:none}
+[hidden]{display:none!important}
+.toeic{background:linear-gradient(135deg,#1565c0,#00acc1)}
+.theory{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px;align-items:start}
+.famwrap{overflow-x:auto;background:#fff;border-radius:16px;box-shadow:0 3px 8px rgba(0,0,0,.06)}
+.fam{width:100%;border-collapse:collapse;font-size:15px}
+.fam th{background:var(--c);color:#fff;text-align:left;padding:9px 12px;position:sticky;top:0}
+.fam td{padding:7px 12px;border-top:1px solid #eee;white-space:nowrap}
+.fam tr:nth-child(even) td{background:#fafafa}
+.scorebar{position:sticky;top:0;z-index:5;background:#fffaf2;padding:10px 0;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.scorebar .score{font-weight:800;font-size:17px;flex:1;min-width:200px}
+.scorebar .btn{border:2px solid var(--c)}
+.q{background:#fff;border-radius:16px;padding:14px 16px;margin-bottom:12px;box-shadow:0 3px 8px rgba(0,0,0,.05);border-left:7px solid #ddd}
+.q.qok{border-left-color:#2e7d32}.q.qno{border-left-color:#c62828}
+.qt{font-size:17px;line-height:1.5}
+.blank{display:inline-block;min-width:70px;border-bottom:2px solid var(--c)}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.opts button{text-align:left;border:2px solid #ddd;background:#fafafa;border-radius:12px;padding:9px 12px;font:inherit;font-size:16px;cursor:pointer;color:#333}
+.opts button:hover{border-color:var(--c)}
+.q.done .opts button{cursor:default}
+.opts button.right{background:#e8f5e9;border-color:#2e7d32;color:#1b5e20;font-weight:700}
+.opts button.wrong{background:#ffebee;border-color:#c62828;color:#b71c1c;text-decoration:line-through}
+.why{margin-top:10px;background:#fff6e0;border-radius:10px;padding:8px 12px;font-size:15px;line-height:1.5}
+.why .say{position:static;font-size:16px}
+.why a{color:inherit}
+.best{margin-left:6px}.best:empty{display:none}
+.theory .f{font-family:inherit;font-weight:700}
+@media (max-width:860px){.cols{grid-template-columns:1fr;gap:0}}
+@media (max-width:480px){.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.chips::-webkit-scrollbar{display:none}.chip{flex:0 0 auto}section[id]{scroll-margin-top:70px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:12px 6px 10px;border-radius:16px}.card .ico{font-size:40px}.card .w{font-size:17px}.card .ipa,.card .vn,.card .m{font-size:13px}.say{top:2px;right:2px;font-size:17px}.topics{grid-template-columns:1fr 1fr;gap:10px}.topic{padding:14px;border-radius:18px}.topic .ico{font-size:38px}.topic .t{font-size:16px}.topic .s{font-size:14px}.topic .n{font-size:12px}nav.pn a{padding:9px 12px;font-size:14px}.opts{grid-template-columns:1fr}.theory{grid-template-columns:1fr}.qt{font-size:16px}}
+@media print{.say,.toolbar,nav.pn,.chips,.scorebar .btn{display:none}.why{display:block!important}.q{break-inside:avoid}header{border-radius:0}.card,.gram{break-inside:avoid}.cols{grid-template-columns:1fr}}
+</style><script>
+function say(t){if(!('speechSynthesis' in window))return alert('Trình duyệt không hỗ trợ đọc.');
+speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/→/g,'.').replace(/\//g,' or '));
+u.lang='en-GB';u.rate=0.8;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));if(v)u.voice=v;speechSynthesis.speak(u);}
+function toggleHide(b){document.body.classList.toggle('hide');b.textContent=document.body.classList.contains('hide')?'👁️ Hiện nghĩa':'🙈 Ẩn nghĩa (tự kiểm tra)';}
+document.addEventListener('click',ev=>{const c=ev.target.closest('.card');if(c&&!ev.target.closest('.say'))c.classList.toggle('show');});
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register(document.documentElement.dataset.root+'sw.js').catch(()=>{}));
+let deferredPrompt;
+addEventListener('beforeinstallprompt',ev=>{ev.preventDefault();deferredPrompt=ev;document.querySelectorAll('.install').forEach(b=>b.style.display='inline-block');});
+function installApp(){if(!deferredPrompt)return;deferredPrompt.prompt();deferredPrompt.userChoice.finally(()=>{deferredPrompt=null;document.querySelectorAll('.install').forEach(b=>b.style.display='none');});}
+addEventListener('DOMContentLoaded',()=>{const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const standalone=navigator.standalone||matchMedia('(display-mode: standalone)').matches;const h=document.querySelector('.ioshint');if(h&&ios&&!standalone)h.style.display='block';});
+function filterGrade(btn){document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===btn));const g=btn.dataset.g;
+document.querySelectorAll('[data-g]').forEach(el=>{if(el.classList.contains('chip'))return;el.hidden=g!=='all'&&!(' '+el.dataset.g+' ').includes(' '+g+' ');});
+document.querySelectorAll('[data-sec]').forEach(s=>{s.hidden=!s.querySelector('[data-g]:not([hidden])');});}
+function store(k,v){try{if(v===undefined)return +localStorage.getItem('toeic:'+k)||0;localStorage.setItem('toeic:'+k,v);}catch(e){return 0;}}
+function pick(b){const q=b.closest('.q');if(q.classList.contains('done'))return;const ok=!!b.dataset.ok;
+q.classList.add('done',ok?'qok':'qno');b.classList.add(ok?'right':'wrong');q.querySelector('[data-ok]').classList.add('right');
+q.querySelector('.why').hidden=false;score(q.closest('.quiz'));}
+function score(z){const n=z.querySelectorAll('.q').length,d=z.querySelectorAll('.q.done').length,r=z.querySelectorAll('.q.qok').length;
+let t='✅ Đúng '+r+'/'+n+' · đã làm '+d+'/'+n;
+if(n&&d===n){if(r>store(z.dataset.key))store(z.dataset.key,r);
+t+=' — '+(r>=n*.8?'🎉 Xuất sắc!':r>=n*.5?'👍 Khá tốt, xem lại câu sai nhé.':'💪 Đọc lại lý thuyết rồi làm lại nhé.');}
+const best=store(z.dataset.key);if(best)t+=' · 🏆 Cao nhất: '+best+'/'+n;z.querySelector('.score').textContent=t;}
+function resetQuiz(b){const z=b.closest('.quiz');z.querySelectorAll('.q').forEach(q=>{q.classList.remove('done','qok','qno');
+q.querySelector('.why').hidden=true;q.querySelectorAll('.opts button').forEach(o=>o.classList.remove('right','wrong'));});score(z);z.scrollIntoView({behavior:'smooth'});}
+function showAll(b){b.closest('.quiz').querySelectorAll('.q:not(.done)').forEach(q=>{q.classList.add('done');q.querySelector('[data-ok]').classList.add('right');q.querySelector('.why').hidden=false;});}
+addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.quiz').forEach(score);
+document.querySelectorAll('[data-best]').forEach(el=>{const b=store(el.dataset.best);if(b)el.textContent='🏆 '+b+'/'+el.dataset.n;});});
+</script></head>
+<body><header><div class="big">🚀</div><h1>Adverbs</h1><p>Luyện thi TOEIC · Bài 4: Trạng từ</p>
+<span class="badge">🎯 Lý thuyết + 15 câu luyện tập kiểu Part 5</span>
+<div class="toolbar"><a class="btn" href="../toeic.html">🎯 Mục lục TOEIC</a><a class="btn" href="../index.html">🏠 Trang chủ</a>
+<a class="btn" href="#bai-tap">✍️ Làm bài tập</a><button class="btn" onclick="window.print()">🖨️ In</button></div></header>
+<main><h2>📚 Lý thuyết</h2><div class="theory"><div class="gram"><h3>📌 Cách nhận biết trạng từ</h3><div class="f">Tính từ + -ly → trạng từ: quick → quickly · careful → carefully</div><ul><li>-ble → -bly: possible → possibly · -y → -ily: easy → easily · -ic → -ically: automatic → automatically</li><li>Không có -ly: fast, hard, late, early, well (good → well), soon, already, still, yet</li></ul></div><div class="gram"><h3>📌 Vị trí của trạng từ</h3><div class="f">S + ___ + V · V + O + ___</div><div class="f">have/has + ___ + V3 · be + ___ + V-ing/V3</div><div class="f">___ + tính từ / trạng từ khác</div><div class="f">___, S + V (đứng đầu câu, bổ nghĩa cho cả câu)</div><ul><li>Câu đã đủ thành phần (S + V + O) → chỗ trống còn lại thường là trạng từ</li></ul><div class="ex"><div class="en">The price has recently increased. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The price has recently increased.">🔊</button></div><div class="vi">🇻🇳 Giá gần đây đã tăng.</div></div><div class="ex"><div class="en">The report was carefully reviewed. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The report was carefully reviewed.">🔊</button></div><div class="vi">🇻🇳 Bản báo cáo đã được xem xét kỹ lưỡng.</div></div><div class="ex"><div class="en">Unfortunately, the flight was cancelled. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Unfortunately, the flight was cancelled.">🔊</button></div><div class="vi">🇻🇳 Thật không may, chuyến bay đã bị hủy.</div></div></div><div class="gram"><h3>📌 Trạng từ dễ nhầm</h3><div class="f">hard (chăm chỉ) ≠ hardly (hầu như không)</div><div class="f">late (muộn) ≠ lately (gần đây) · high (cao) ≠ highly (rất, cực kỳ)</div><div class="f">near (gần) ≠ nearly (gần như) · close (gần) ≠ closely (chặt chẽ)</div><ul><li>Cụm hay gặp: highly recommended, highly qualified, closely monitor, nearly finished</li><li>shortly = sắp, ngay sau đây · approximately = khoảng · immediately = ngay lập tức</li></ul></div><div class="gram"><h3>📌 Trạng từ chỉ thời gian hay gặp</h3><div class="f">already (đã… rồi) · yet (chưa — câu phủ định/câu hỏi) · still (vẫn)</div><div class="f">soon / shortly (sắp) · recently / lately (gần đây — thường với hiện tại hoàn thành)</div><div class="ex"><div class="en">The order has already been shipped. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The order has already been shipped.">🔊</button></div><div class="vi">🇻🇳 Đơn hàng đã được gửi đi rồi.</div></div><div class="ex"><div class="en">The results are not available yet. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The results are not available yet.">🔊</button></div><div class="vi">🇻🇳 Kết quả vẫn chưa có.</div></div></div></div>
+
+<section id="bai-tap"><h2>✍️ Bài tập <small>Chọn đáp án đúng nhất (A), (B), (C) hoặc (D)</small></h2>
+<div class="quiz" data-key="toeic-trang-tu"><div class="scorebar"><span class="score"></span><button class="btn" onclick="showAll(this)">👀 Xem đáp án</button><button class="btn" onclick="resetQuiz(this)">🔄 Làm lại</button></div><div class="q"><div class="qt"><b>1.</b> The project was <span class="blank"></span> completed ahead of schedule.</div><div class="opts"><button onclick="pick(this)">(A) successful</button><button onclick="pick(this)">(B) success</button><button onclick="pick(this)">(C) succeed</button><button onclick="pick(this)" data-ok=1>(D) successfully</button></div><div class="why" hidden>✅ <b>(D) successfully</b> — &quot;be + trạng từ + V3&quot; → successfully. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The project was successfully completed ahead of schedule.">🔊</button></div></div><div class="q"><div class="qt"><b>2.</b> Please read the contract <span class="blank"></span> before signing it.</div><div class="opts"><button onclick="pick(this)">(A) careful</button><button onclick="pick(this)" data-ok=1>(B) carefully</button><button onclick="pick(this)">(C) cared</button><button onclick="pick(this)">(D) care</button></div><div class="why" hidden>✅ <b>(B) carefully</b> — Câu đã đủ &quot;read the contract&quot; → cần trạng từ bổ nghĩa cho động từ → carefully. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Please read the contract carefully before signing it.">🔊</button></div></div><div class="q"><div class="qt"><b>3.</b> Sales have <span class="blank"></span> increased this year.</div><div class="opts"><button onclick="pick(this)">(A) steadied</button><button onclick="pick(this)" data-ok=1>(B) steadily</button><button onclick="pick(this)">(C) steadiness</button><button onclick="pick(this)">(D) steady</button></div><div class="why" hidden>✅ <b>(B) steadily</b> — &quot;have + trạng từ + V3&quot; → steadily (đều đặn). <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Sales have steadily increased this year.">🔊</button></div></div><div class="q"><div class="qt"><b>4.</b> The museum is <span class="blank"></span> located near the subway station.</div><div class="opts"><button onclick="pick(this)">(A) conveniences</button><button onclick="pick(this)">(B) convenient</button><button onclick="pick(this)" data-ok=1>(C) conveniently</button><button onclick="pick(this)">(D) convenience</button></div><div class="why" hidden>✅ <b>(C) conveniently</b> — &quot;be + trạng từ + V3 (located)&quot; → conveniently. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The museum is conveniently located near the subway station.">🔊</button></div></div><div class="q"><div class="qt"><b>5.</b> Mr. Ruiz is a <span class="blank"></span> qualified engineer.</div><div class="opts"><button onclick="pick(this)">(A) height</button><button onclick="pick(this)" data-ok=1>(B) highly</button><button onclick="pick(this)">(C) higher</button><button onclick="pick(this)">(D) high</button></div><div class="why" hidden>✅ <b>(B) highly</b> — Trạng từ bổ nghĩa cho tính từ &quot;qualified&quot; → highly qualified (rất có năng lực). <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Mr. Ruiz is a highly qualified engineer.">🔊</button></div></div><div class="q"><div class="qt"><b>6.</b> <span class="blank"></span>, the shipment arrived damaged.</div><div class="opts"><button onclick="pick(this)">(A) Unfortunate</button><button onclick="pick(this)">(B) Fortune</button><button onclick="pick(this)" data-ok=1>(C) Unfortunately</button><button onclick="pick(this)">(D) Misfortune</button></div><div class="why" hidden>✅ <b>(C) Unfortunately</b> — Đầu câu, trước dấu phẩy, bổ nghĩa cho cả câu → trạng từ Unfortunately. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Unfortunately, the shipment arrived damaged.">🔊</button></div></div><div class="q"><div class="qt"><b>7.</b> The renovation is <span class="blank"></span> finished; only the painting remains.</div><div class="opts"><button onclick="pick(this)">(A) nearest</button><button onclick="pick(this)">(B) nearby</button><button onclick="pick(this)" data-ok=1>(C) nearly</button><button onclick="pick(this)">(D) near</button></div><div class="why" hidden>✅ <b>(C) nearly</b> — &quot;nearly&quot; = gần như; chỉ còn sơn nữa là xong. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The renovation is nearly finished; only the painting remains.">🔊</button></div></div><div class="q"><div class="qt"><b>8.</b> We will respond to your inquiry <span class="blank"></span>.</div><div class="opts"><button onclick="pick(this)">(A) shortage</button><button onclick="pick(this)">(B) short</button><button onclick="pick(this)" data-ok=1>(C) shortly</button><button onclick="pick(this)">(D) shorten</button></div><div class="why" hidden>✅ <b>(C) shortly</b> — Câu đã đủ thành phần → trạng từ shortly (sớm, ngay sau đây). <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="We will respond to your inquiry shortly.">🔊</button></div></div><div class="q"><div class="qt"><b>9.</b> Our team has worked very <span class="blank"></span> on this campaign.</div><div class="opts"><button onclick="pick(this)">(A) hardness</button><button onclick="pick(this)">(B) hardly</button><button onclick="pick(this)" data-ok=1>(C) hard</button><button onclick="pick(this)">(D) harden</button></div><div class="why" hidden>✅ <b>(C) hard</b> — &quot;work hard&quot; = làm việc chăm chỉ; hardly nghĩa là &quot;hầu như không&quot;. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Our team has worked very hard on this campaign.">🔊</button></div></div><div class="q"><div class="qt"><b>10.</b> The new manager has not arrived <span class="blank"></span>.</div><div class="opts"><button onclick="pick(this)">(A) already</button><button onclick="pick(this)" data-ok=1>(B) yet</button><button onclick="pick(this)">(C) soon</button><button onclick="pick(this)">(D) still</button></div><div class="why" hidden>✅ <b>(B) yet</b> — Câu phủ định thì hiện tại hoàn thành, cuối câu → yet. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The new manager has not arrived yet.">🔊</button></div></div><div class="q"><div class="qt"><b>11.</b> The software <span class="blank"></span> saves your files every ten minutes.</div><div class="opts"><button onclick="pick(this)" data-ok=1>(A) automatically</button><button onclick="pick(this)">(B) automation</button><button onclick="pick(this)">(C) automatic</button><button onclick="pick(this)">(D) automate</button></div><div class="why" hidden>✅ <b>(A) automatically</b> — Giữa chủ ngữ và động từ &quot;saves&quot; → trạng từ automatically. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The software automatically saves your files every ten minutes.">🔊</button></div></div><div class="q"><div class="qt"><b>12.</b> Prices vary <span class="blank"></span> depending on the season.</div><div class="opts"><button onclick="pick(this)" data-ok=1>(A) considerably</button><button onclick="pick(this)">(B) considerable</button><button onclick="pick(this)">(C) consider</button><button onclick="pick(this)">(D) consideration</button></div><div class="why" hidden>✅ <b>(A) considerably</b> — Bổ nghĩa cho động từ &quot;vary&quot; → trạng từ considerably (đáng kể). <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Prices vary considerably depending on the season.">🔊</button></div></div><div class="q"><div class="qt"><b>13.</b> The event attracted <span class="blank"></span> 500 visitors.</div><div class="opts"><button onclick="pick(this)">(A) approximation</button><button onclick="pick(this)">(B) approximated</button><button onclick="pick(this)">(C) approximate</button><button onclick="pick(this)" data-ok=1>(D) approximately</button></div><div class="why" hidden>✅ <b>(D) approximately</b> — Trước con số dùng trạng từ approximately (khoảng). <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The event attracted approximately 500 visitors.">🔊</button></div></div><div class="q"><div class="qt"><b>14.</b> The supervisor will <span class="blank"></span> monitor the new employees.</div><div class="opts"><button onclick="pick(this)">(A) closure</button><button onclick="pick(this)">(B) close</button><button onclick="pick(this)">(C) closed</button><button onclick="pick(this)" data-ok=1>(D) closely</button></div><div class="why" hidden>✅ <b>(D) closely</b> — &quot;closely monitor&quot; = giám sát chặt chẽ; trạng từ đứng giữa will và động từ. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The supervisor will closely monitor the new employees.">🔊</button></div></div><div class="q"><div class="qt"><b>15.</b> The new printer works <span class="blank"></span> faster than the old one.</div><div class="opts"><button onclick="pick(this)">(A) most</button><button onclick="pick(this)">(B) many</button><button onclick="pick(this)">(C) very</button><button onclick="pick(this)" data-ok=1>(D) much</button></div><div class="why" hidden>✅ <b>(D) much</b> — Bổ nghĩa cho so sánh hơn dùng much/far/even, không dùng very. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The new printer works much faster than the old one.">🔊</button></div></div></div></section>
+<nav class="pn"><a href="toeic-tinh-tu.html">⬅️ Tính từ</a><a href="toeic-gioi-tu.html">Giới từ ➡️</a></nav></main></body></html>

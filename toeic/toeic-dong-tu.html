@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi" data-root="../"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Động từ – Luyện thi TOEIC</title>
+<meta name="theme-color" content="#e53935">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="English Kids">
+<style>:root{--c:#e53935}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Segoe UI','Nunito',system-ui,Arial,sans-serif;background:#fffaf2;color:#333;overflow-x:hidden}
+header{padding:calc(24px + env(safe-area-inset-top)) 16px 22px;text-align:center;color:#fff;background:var(--c);border-radius:0 0 32px 32px;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+header .big{font-size:60px;line-height:1}
+header h1{margin:8px 0 4px;font-size:clamp(26px,6vw,34px)}
+header p{margin:0;font-size:17px;opacity:.95}
+.badge{display:inline-block;background:#fff;color:var(--c);font-weight:700;border-radius:20px;padding:3px 12px;font-size:14px;margin-top:8px}
+main{max-width:1150px;margin:0 auto;padding:20px 16px calc(60px + env(safe-area-inset-bottom))}
+h2{font-size:23px;margin:28px 0 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+h2 small{font-size:15px;font-weight:600;color:#888}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.btn{border:none;background:#fff;color:var(--c);font-weight:700;padding:8px 16px;border-radius:20px;cursor:pointer;font-size:15px;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,.12);font-family:inherit}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:16px}
+.card{background:#fff;border-radius:20px;padding:16px 12px 14px;text-align:center;border:3px solid var(--c);box-shadow:0 4px 10px rgba(0,0,0,.06);position:relative;transition:transform .15s}
+.card:hover{transform:translateY(-4px) rotate(-1deg)}
+.card .ico{font-size:52px;line-height:1.1}
+.card .w{font-size:21px;font-weight:800;color:var(--c);margin:6px 0 4px;overflow-wrap:anywhere}
+.card .ipa{font-family:'Lucida Sans Unicode','Arial Unicode MS',sans-serif;color:#555;font-size:15px;overflow-wrap:anywhere}
+.card .vn{color:#e65100;font-size:15px;margin-top:2px}
+.card .vn::before{content:'🗣️ '}
+.card .m{margin-top:8px;background:#f3f3f3;border-radius:12px;padding:6px;font-weight:700;font-size:16px}
+.say{position:absolute;top:8px;right:8px;border:none;background:none;font-size:20px;cursor:pointer;padding:4px}
+.hide .m{color:transparent;background:repeating-linear-gradient(45deg,#ddd,#ddd 6px,#eee 6px,#eee 12px)}
+.hide .card:hover .m,.hide .card.show .m{color:#333;background:#f3f3f3}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.cols>section>h2{margin-top:28px}
+.pat{background:#fff;border-left:8px solid var(--c);border-radius:16px;padding:14px 18px;margin-bottom:12px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.pat .en{font-size:18px;font-weight:700}
+.pat .en .q{color:var(--c)}
+.pat .vi{color:#666;margin-top:4px;font-style:italic}
+.pat .say,.gram .say{position:static;font-size:17px}
+.gram{background:#fff;border:3px solid var(--c);border-radius:20px;padding:16px 18px;margin-bottom:14px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.gram h3{margin:0 0 10px;color:var(--c);font-size:19px}
+.gram h3 a{color:inherit}
+.gram .tag{display:inline-block;font-size:13px;font-weight:700;background:var(--c);color:#fff;border-radius:10px;padding:2px 8px;margin-right:6px;vertical-align:middle}
+.f{font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;background:#fff6e0;border:1.5px dashed #f0c060;border-radius:10px;padding:7px 10px;margin:6px 0;font-size:15px;font-weight:600;overflow-wrap:anywhere}
+.gram ul{margin:8px 0;padding-left:20px;color:#555;line-height:1.55}
+.ex{border-top:1px dashed #ddd;padding:7px 0}
+.ex .en{font-weight:700}
+.ex .vi{color:#666;font-style:italic;font-size:15px}
+.legend{background:#fff;border:2px dashed var(--c);border-radius:16px;padding:10px 16px;font-size:15px}
+nav.pn{display:flex;justify-content:space-between;margin-top:30px;gap:10px}
+nav.pn a{background:var(--c);color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none;font-weight:700}
+.chips{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:5;background:#fffaf2;padding:10px 0;margin:0 -2px}
+.chip{border:2px solid #ff7aa2;background:#fff;color:#d6336c;border-radius:20px;padding:6px 13px;font-weight:700;cursor:pointer;font-size:15px;font-family:inherit}
+.chip.on{background:#ff7aa2;color:#fff}
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.topic{display:block;text-decoration:none;color:#fff;border-radius:24px;padding:18px;box-shadow:0 6px 14px rgba(0,0,0,.12);transition:transform .15s;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.topic:hover{transform:scale(1.04)}
+.topic .ico{font-size:48px}
+.topic .t{font-size:20px;font-weight:800;margin-top:6px}
+.topic .s{font-size:16px;opacity:.95}
+.topic .n{margin-top:10px;font-size:14px;background:rgba(255,255,255,.25);display:inline-block;padding:3px 10px;border-radius:12px}
+section[id]{scroll-margin-top:130px}
+h3.sub{font-size:18px;margin:20px 0 10px;color:#555;border-left:5px solid #ff7aa2;padding-left:10px}
+h3.sub small{font-size:14px;font-weight:600;color:#999}
+.special{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#7c4dff,#ff7aa2);color:#fff;text-decoration:none;border-radius:24px;padding:18px 22px;box-shadow:0 6px 14px rgba(0,0,0,.12)}
+.special .ico{font-size:46px}
+.special b{font-size:21px;display:block}
+.tips{background:#fff;border-radius:20px;padding:16px 22px;box-shadow:0 3px 8px rgba(0,0,0,.06);line-height:1.7}
+.install{display:none}
+.ioshint{display:none;background:#fff;color:#333;border-radius:16px;padding:10px 14px;margin:12px auto 0;max-width:420px;font-size:15px;text-shadow:none}
+[hidden]{display:none!important}
+.toeic{background:linear-gradient(135deg,#1565c0,#00acc1)}
+.theory{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px;align-items:start}
+.famwrap{overflow-x:auto;background:#fff;border-radius:16px;box-shadow:0 3px 8px rgba(0,0,0,.06)}
+.fam{width:100%;border-collapse:collapse;font-size:15px}
+.fam th{background:var(--c);color:#fff;text-align:left;padding:9px 12px;position:sticky;top:0}
+.fam td{padding:7px 12px;border-top:1px solid #eee;white-space:nowrap}
+.fam tr:nth-child(even) td{background:#fafafa}
+.scorebar{position:sticky;top:0;z-index:5;background:#fffaf2;padding:10px 0;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.scorebar .score{font-weight:800;font-size:17px;flex:1;min-width:200px}
+.scorebar .btn{border:2px solid var(--c)}
+.q{background:#fff;border-radius:16px;padding:14px 16px;margin-bottom:12px;box-shadow:0 3px 8px rgba(0,0,0,.05);border-left:7px solid #ddd}
+.q.qok{border-left-color:#2e7d32}.q.qno{border-left-color:#c62828}
+.qt{font-size:17px;line-height:1.5}
+.blank{display:inline-block;min-width:70px;border-bottom:2px solid var(--c)}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.opts button{text-align:left;border:2px solid #ddd;background:#fafafa;border-radius:12px;padding:9px 12px;font:inherit;font-size:16px;cursor:pointer;color:#333}
+.opts button:hover{border-color:var(--c)}
+.q.done .opts button{cursor:default}
+.opts button.right{background:#e8f5e9;border-color:#2e7d32;color:#1b5e20;font-weight:700}
+.opts button.wrong{background:#ffebee;border-color:#c62828;color:#b71c1c;text-decoration:line-through}
+.why{margin-top:10px;background:#fff6e0;border-radius:10px;padding:8px 12px;font-size:15px;line-height:1.5}
+.why .say{position:static;font-size:16px}
+.why a{color:inherit}
+.best{margin-left:6px}.best:empty{display:none}
+.theory .f{font-family:inherit;font-weight:700}
+@media (max-width:860px){.cols{grid-template-columns:1fr;gap:0}}
+@media (max-width:480px){.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.chips::-webkit-scrollbar{display:none}.chip{flex:0 0 auto}section[id]{scroll-margin-top:70px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:12px 6px 10px;border-radius:16px}.card .ico{font-size:40px}.card .w{font-size:17px}.card .ipa,.card .vn,.card .m{font-size:13px}.say{top:2px;right:2px;font-size:17px}.topics{grid-template-columns:1fr 1fr;gap:10px}.topic{padding:14px;border-radius:18px}.topic .ico{font-size:38px}.topic .t{font-size:16px}.topic .s{font-size:14px}.topic .n{font-size:12px}nav.pn a{padding:9px 12px;font-size:14px}.opts{grid-template-columns:1fr}.theory{grid-template-columns:1fr}.qt{font-size:16px}}
+@media print{.say,.toolbar,nav.pn,.chips,.scorebar .btn{display:none}.why{display:block!important}.q{break-inside:avoid}header{border-radius:0}.card,.gram{break-inside:avoid}.cols{grid-template-columns:1fr}}
+</style><script>
+function say(t){if(!('speechSynthesis' in window))return alert('Trình duyệt không hỗ trợ đọc.');
+speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/→/g,'.').replace(/\//g,' or '));
+u.lang='en-GB';u.rate=0.8;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));if(v)u.voice=v;speechSynthesis.speak(u);}
+function toggleHide(b){document.body.classList.toggle('hide');b.textContent=document.body.classList.contains('hide')?'👁️ Hiện nghĩa':'🙈 Ẩn nghĩa (tự kiểm tra)';}
+document.addEventListener('click',ev=>{const c=ev.target.closest('.card');if(c&&!ev.target.closest('.say'))c.classList.toggle('show');});
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register(document.documentElement.dataset.root+'sw.js').catch(()=>{}));
+let deferredPrompt;
+addEventListener('beforeinstallprompt',ev=>{ev.preventDefault();deferredPrompt=ev;document.querySelectorAll('.install').forEach(b=>b.style.display='inline-block');});
+function installApp(){if(!deferredPrompt)return;deferredPrompt.prompt();deferredPrompt.userChoice.finally(()=>{deferredPrompt=null;document.querySelectorAll('.install').forEach(b=>b.style.display='none');});}
+addEventListener('DOMContentLoaded',()=>{const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const standalone=navigator.standalone||matchMedia('(display-mode: standalone)').matches;const h=document.querySelector('.ioshint');if(h&&ios&&!standalone)h.style.display='block';});
+function filterGrade(btn){document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===btn));const g=btn.dataset.g;
+document.querySelectorAll('[data-g]').forEach(el=>{if(el.classList.contains('chip'))return;el.hidden=g!=='all'&&!(' '+el.dataset.g+' ').includes(' '+g+' ');});
+document.querySelectorAll('[data-sec]').forEach(s=>{s.hidden=!s.querySelector('[data-g]:not([hidden])');});}
+function store(k,v){try{if(v===undefined)return +localStorage.getItem('toeic:'+k)||0;localStorage.setItem('toeic:'+k,v);}catch(e){return 0;}}
+function pick(b){const q=b.closest('.q');if(q.classList.contains('done'))return;const ok=!!b.dataset.ok;
+q.classList.add('done',ok?'qok':'qno');b.classList.add(ok?'right':'wrong');q.querySelector('[data-ok]').classList.add('right');
+q.querySelector('.why').hidden=false;score(q.closest('.quiz'));}
+function score(z){const n=z.querySelectorAll('.q').length,d=z.querySelectorAll('.q.done').length,r=z.querySelectorAll('.q.qok').length;
+let t='✅ Đúng '+r+'/'+n+' · đã làm '+d+'/'+n;
+if(n&&d===n){if(r>store(z.dataset.key))store(z.dataset.key,r);
+t+=' — '+(r>=n*.8?'🎉 Xuất sắc!':r>=n*.5?'👍 Khá tốt, xem lại câu sai nhé.':'💪 Đọc lại lý thuyết rồi làm lại nhé.');}
+const best=store(z.dataset.key);if(best)t+=' · 🏆 Cao nhất: '+best+'/'+n;z.querySelector('.score').textContent=t;}
+function resetQuiz(b){const z=b.closest('.quiz');z.querySelectorAll('.q').forEach(q=>{q.classList.remove('done','qok','qno');
+q.querySelector('.why').hidden=true;q.querySelectorAll('.opts button').forEach(o=>o.classList.remove('right','wrong'));});score(z);z.scrollIntoView({behavior:'smooth'});}
+function showAll(b){b.closest('.quiz').querySelectorAll('.q:not(.done)').forEach(q=>{q.classList.add('done');q.querySelector('[data-ok]').classList.add('right');q.querySelector('.why').hidden=false;});}
+addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.quiz').forEach(score);
+document.querySelectorAll('[data-best]').forEach(el=>{const b=store(el.dataset.best);if(b)el.textContent='🏆 '+b+'/'+el.dataset.n;});});
+</script></head>
+<body><header><div class="big">⚡</div><h1>Verbs</h1><p>Luyện thi TOEIC · Bài 2: Động từ</p>
+<span class="badge">🎯 Lý thuyết + 15 câu luyện tập kiểu Part 5</span>
+<div class="toolbar"><a class="btn" href="../toeic.html">🎯 Mục lục TOEIC</a><a class="btn" href="../index.html">🏠 Trang chủ</a>
+<a class="btn" href="#bai-tap">✍️ Làm bài tập</a><button class="btn" onclick="window.print()">🖨️ In</button></div></header>
+<main><h2>📚 Lý thuyết</h2><div class="theory"><div class="gram"><h3>📌 Dấu hiệu nhận biết động từ</h3><div class="f">-ize/-ise · -ify · -en · -ate · tiền tố en- / re-</div><ul><li>-ize: organize, prioritize, finalize, minimize · -ify: notify, verify, clarify, simplify</li><li>-en: strengthen, widen, shorten, broaden · -ate: activate, evaluate, demonstrate, facilitate</li><li>en-: ensure, enable, enlarge · re-: renew, reschedule, reconsider</li></ul><div class="ex"><div class="en">We need to finalize the schedule today. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="We need to finalize the schedule today.">🔊</button></div><div class="vi">🇻🇳 Chúng ta cần chốt lịch trình trong hôm nay.</div></div></div><div class="gram"><h3>📌 Vị trí động từ</h3><div class="f">S + ___ (+ O) — mỗi mệnh đề phải có một động từ chính được chia thì</div><div class="f">will · can · must · should · may + V nguyên mẫu</div><div class="f">to + V nguyên mẫu · Please + V nguyên mẫu (câu mệnh lệnh)</div><ul><li>Câu mệnh lệnh trong email/thông báo: Please contact…, Kindly note…</li><li>help + (to) V: This will help (to) reduce costs.</li></ul><div class="ex"><div class="en">Please contact us if you have any questions. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Please contact us if you have any questions.">🔊</button></div><div class="vi">🇻🇳 Vui lòng liên hệ với chúng tôi nếu bạn có thắc mắc.</div></div></div><div class="gram"><h3>📌 Hòa hợp chủ ngữ – động từ</h3><div class="f">Chủ ngữ số ít / không đếm được + V-s/es · Chủ ngữ số nhiều + V</div><ul><li>&quot;The list of items ___&quot; → chủ ngữ chính là &quot;list&quot; (số ít) → is</li><li>each / every / everyone / the number of + động từ số ít</li><li>a number of + danh từ số nhiều + động từ số nhiều</li></ul><div class="ex"><div class="en">The list of new products is on the website. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The list of new products is on the website.">🔊</button></div><div class="vi">🇻🇳 Danh sách sản phẩm mới có trên trang web.</div></div></div><div class="gram"><h3>📌 Câu giả định với &quot;that&quot;</h3><div class="f">suggest · recommend · request · require · insist + that + S + V nguyên mẫu</div><div class="f">It is essential / important / necessary + that + S + V nguyên mẫu</div><ul><li>Không chia động từ theo chủ ngữ: that every employee attend (không phải attends)</li></ul><div class="ex"><div class="en">The manager requested that every employee attend the meeting. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The manager requested that every employee attend the meeting.">🔊</button></div><div class="vi">🇻🇳 Quản lý yêu cầu mọi nhân viên tham dự cuộc họp.</div></div></div></div>
+
+<section id="bai-tap"><h2>✍️ Bài tập <small>Chọn đáp án đúng nhất (A), (B), (C) hoặc (D)</small></h2>
+<div class="quiz" data-key="toeic-dong-tu"><div class="scorebar"><span class="score"></span><button class="btn" onclick="showAll(this)">👀 Xem đáp án</button><button class="btn" onclick="resetQuiz(this)">🔄 Làm lại</button></div><div class="q"><div class="qt"><b>1.</b> The new software will <span class="blank"></span> the payroll process.</div><div class="opts"><button onclick="pick(this)">(A) simple</button><button onclick="pick(this)" data-ok=1>(B) simplify</button><button onclick="pick(this)">(C) simplicity</button><button onclick="pick(this)">(D) simply</button></div><div class="why" hidden>✅ <b>(B) simplify</b> — Sau &quot;will&quot; cần động từ nguyên mẫu → simplify (đơn giản hóa). <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The new software will simplify the payroll process.">🔊</button></div></div><div class="q"><div class="qt"><b>2.</b> Please <span class="blank"></span> the attached form and return it by Friday.</div><div class="opts"><button onclick="pick(this)">(A) completed</button><button onclick="pick(this)">(B) completion</button><button onclick="pick(this)" data-ok=1>(C) complete</button><button onclick="pick(this)">(D) completely</button></div><div class="why" hidden>✅ <b>(C) complete</b> — Câu mệnh lệnh &quot;Please + V nguyên mẫu&quot; → complete. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Please complete the attached form and return it by Friday.">🔊</button></div></div><div class="q"><div class="qt"><b>3.</b> Our team <span class="blank"></span> customer complaints every morning.</div><div class="opts"><button onclick="pick(this)">(A) review</button><button onclick="pick(this)">(B) to review</button><button onclick="pick(this)" data-ok=1>(C) reviews</button><button onclick="pick(this)">(D) reviewing</button></div><div class="why" hidden>✅ <b>(C) reviews</b> — &quot;Our team&quot; là chủ ngữ số ít, &quot;every morning&quot; → hiện tại đơn → reviews. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Our team reviews customer complaints every morning.">🔊</button></div></div><div class="q"><div class="qt"><b>4.</b> The list of approved vendors <span class="blank"></span> updated every month.</div><div class="opts"><button onclick="pick(this)" data-ok=1>(A) is</button><button onclick="pick(this)">(B) being</button><button onclick="pick(this)">(C) be</button><button onclick="pick(this)">(D) are</button></div><div class="why" hidden>✅ <b>(A) is</b> — Chủ ngữ chính là &quot;The list&quot; (số ít), không phải &quot;vendors&quot; → is. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The list of approved vendors is updated every month.">🔊</button></div></div><div class="q"><div class="qt"><b>5.</b> We must <span class="blank"></span> that all products meet safety standards.</div><div class="opts"><button onclick="pick(this)">(A) surely</button><button onclick="pick(this)">(B) sure</button><button onclick="pick(this)">(C) assurance</button><button onclick="pick(this)" data-ok=1>(D) ensure</button></div><div class="why" hidden>✅ <b>(D) ensure</b> — Sau &quot;must&quot; cần động từ nguyên mẫu → ensure (đảm bảo). <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="We must ensure that all products meet safety standards.">🔊</button></div></div><div class="q"><div class="qt"><b>6.</b> The director suggested that the meeting <span class="blank"></span> postponed.</div><div class="opts"><button onclick="pick(this)" data-ok=1>(A) be</button><button onclick="pick(this)">(B) being</button><button onclick="pick(this)">(C) was</button><button onclick="pick(this)">(D) is</button></div><div class="why" hidden>✅ <b>(A) be</b> — &quot;Suggest that + S + V nguyên mẫu&quot; (câu giả định) → be postponed. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The director suggested that the meeting be postponed.">🔊</button></div></div><div class="q"><div class="qt"><b>7.</b> Management will <span class="blank"></span> the proposal before making a decision.</div><div class="opts"><button onclick="pick(this)">(A) evaluative</button><button onclick="pick(this)" data-ok=1>(B) evaluate</button><button onclick="pick(this)">(C) evaluation</button><button onclick="pick(this)">(D) evaluator</button></div><div class="why" hidden>✅ <b>(B) evaluate</b> — Sau &quot;will&quot; cần động từ nguyên mẫu → evaluate (đánh giá). <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Management will evaluate the proposal before making a decision.">🔊</button></div></div><div class="q"><div class="qt"><b>8.</b> Each of the applicants <span class="blank"></span> an interview next week.</div><div class="opts"><button onclick="pick(this)" data-ok=1>(A) has</button><button onclick="pick(this)">(B) having</button><button onclick="pick(this)">(C) have</button><button onclick="pick(this)">(D) to have</button></div><div class="why" hidden>✅ <b>(A) has</b> — &quot;Each of + danh từ số nhiều&quot; đi với động từ số ít → has. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Each of the applicants has an interview next week.">🔊</button></div></div><div class="q"><div class="qt"><b>9.</b> These measures will help <span class="blank"></span> energy costs.</div><div class="opts"><button onclick="pick(this)">(A) reduced</button><button onclick="pick(this)">(B) reductive</button><button onclick="pick(this)">(C) reduction</button><button onclick="pick(this)" data-ok=1>(D) reduce</button></div><div class="why" hidden>✅ <b>(D) reduce</b> — &quot;help + V nguyên mẫu&quot; → reduce. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="These measures will help reduce energy costs.">🔊</button></div></div><div class="q"><div class="qt"><b>10.</b> The equipment in the lab <span class="blank"></span> checked regularly.</div><div class="opts"><button onclick="pick(this)">(A) are</button><button onclick="pick(this)">(B) have</button><button onclick="pick(this)">(C) be</button><button onclick="pick(this)" data-ok=1>(D) is</button></div><div class="why" hidden>✅ <b>(D) is</b> — &quot;Equipment&quot; không đếm được → động từ số ít is. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The equipment in the lab is checked regularly.">🔊</button></div></div><div class="q"><div class="qt"><b>11.</b> The city plans to <span class="blank"></span> the main road to reduce traffic.</div><div class="opts"><button onclick="pick(this)">(A) widely</button><button onclick="pick(this)" data-ok=1>(B) widen</button><button onclick="pick(this)">(C) wide</button><button onclick="pick(this)">(D) width</button></div><div class="why" hidden>✅ <b>(B) widen</b> — Sau &quot;to&quot; cần động từ nguyên mẫu; widen = mở rộng (đuôi -en). <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The city plans to widen the main road to reduce traffic.">🔊</button></div></div><div class="q"><div class="qt"><b>12.</b> It is essential that every visitor <span class="blank"></span> in at the front desk.</div><div class="opts"><button onclick="pick(this)">(A) signing</button><button onclick="pick(this)" data-ok=1>(B) sign</button><button onclick="pick(this)">(C) signs</button><button onclick="pick(this)">(D) signed</button></div><div class="why" hidden>✅ <b>(B) sign</b> — &quot;It is essential that + S + V nguyên mẫu&quot; → sign. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="It is essential that every visitor sign in at the front desk.">🔊</button></div></div><div class="q"><div class="qt"><b>13.</b> Ms. Lee <span class="blank"></span> the clients about the schedule change yesterday.</div><div class="opts"><button onclick="pick(this)">(A) notify</button><button onclick="pick(this)" data-ok=1>(B) notified</button><button onclick="pick(this)">(C) notifies</button><button onclick="pick(this)">(D) notification</button></div><div class="why" hidden>✅ <b>(B) notified</b> — &quot;yesterday&quot; → thì quá khứ đơn → notified. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Ms. Lee notified the clients about the schedule change yesterday.">🔊</button></div></div><div class="q"><div class="qt"><b>14.</b> A number of customers <span class="blank"></span> about the delay.</div><div class="opts"><button onclick="pick(this)">(A) complaining</button><button onclick="pick(this)">(B) has complained</button><button onclick="pick(this)" data-ok=1>(C) have complained</button><button onclick="pick(this)">(D) to complain</button></div><div class="why" hidden>✅ <b>(C) have complained</b> — &quot;A number of + danh từ số nhiều&quot; đi với động từ số nhiều → have complained. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="A number of customers have complained about the delay.">🔊</button></div></div><div class="q"><div class="qt"><b>15.</b> Kindly <span class="blank"></span> your reservation 24 hours in advance.</div><div class="opts"><button onclick="pick(this)">(A) confirmed</button><button onclick="pick(this)">(B) confirmation</button><button onclick="pick(this)" data-ok=1>(C) confirm</button><button onclick="pick(this)">(D) confirming</button></div><div class="why" hidden>✅ <b>(C) confirm</b> — &quot;Kindly&quot; giống &quot;Please&quot;, theo sau là động từ nguyên mẫu → confirm. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Kindly confirm your reservation 24 hours in advance.">🔊</button></div></div></div></section>
+<nav class="pn"><a href="toeic-danh-tu.html">⬅️ Danh từ</a><a href="toeic-tinh-tu.html">Tính từ ➡️</a></nav></main></body></html>

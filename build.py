@@ -1,7 +1,8 @@
 """Tạo web tĩnh (PWA cài được lên Android/iOS) từ dữ liệu.  Chạy:  python3 build.py
 
 Dữ liệu:  _data.py + _grammar.py (Lớp 1-4) · _data_lop05.py … _data_lop12.py (mỗi file có TOPICS và GRAMMAR)
-Kết quả:  index.html, ngu-phap.html, chu-de/*.html, manifest.webmanifest, sw.js, icons/
+TOEIC:    _toeic_tu_loai.py, _toeic_ngu_phap.py
+Kết quả:  index.html, ngu-phap.html, toeic.html, chu-de/*.html, toeic/*.html, manifest.webmanifest, sw.js, icons/
 """
 import hashlib, html, importlib, json, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -108,9 +109,34 @@ h3.sub small{font-size:14px;font-weight:600;color:#999}
 .install{display:none}
 .ioshint{display:none;background:#fff;color:#333;border-radius:16px;padding:10px 14px;margin:12px auto 0;max-width:420px;font-size:15px;text-shadow:none}
 [hidden]{display:none!important}
+.toeic{background:linear-gradient(135deg,#1565c0,#00acc1)}
+.theory{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px;align-items:start}
+.famwrap{overflow-x:auto;background:#fff;border-radius:16px;box-shadow:0 3px 8px rgba(0,0,0,.06)}
+.fam{width:100%;border-collapse:collapse;font-size:15px}
+.fam th{background:var(--c);color:#fff;text-align:left;padding:9px 12px;position:sticky;top:0}
+.fam td{padding:7px 12px;border-top:1px solid #eee;white-space:nowrap}
+.fam tr:nth-child(even) td{background:#fafafa}
+.scorebar{position:sticky;top:0;z-index:5;background:#fffaf2;padding:10px 0;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.scorebar .score{font-weight:800;font-size:17px;flex:1;min-width:200px}
+.scorebar .btn{border:2px solid var(--c)}
+.q{background:#fff;border-radius:16px;padding:14px 16px;margin-bottom:12px;box-shadow:0 3px 8px rgba(0,0,0,.05);border-left:7px solid #ddd}
+.q.qok{border-left-color:#2e7d32}.q.qno{border-left-color:#c62828}
+.qt{font-size:17px;line-height:1.5}
+.blank{display:inline-block;min-width:70px;border-bottom:2px solid var(--c)}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.opts button{text-align:left;border:2px solid #ddd;background:#fafafa;border-radius:12px;padding:9px 12px;font:inherit;font-size:16px;cursor:pointer;color:#333}
+.opts button:hover{border-color:var(--c)}
+.q.done .opts button{cursor:default}
+.opts button.right{background:#e8f5e9;border-color:#2e7d32;color:#1b5e20;font-weight:700}
+.opts button.wrong{background:#ffebee;border-color:#c62828;color:#b71c1c;text-decoration:line-through}
+.why{margin-top:10px;background:#fff6e0;border-radius:10px;padding:8px 12px;font-size:15px;line-height:1.5}
+.why .say{position:static;font-size:16px}
+.why a{color:inherit}
+.best{margin-left:6px}.best:empty{display:none}
+.theory .f{font-family:inherit;font-weight:700}
 @media (max-width:860px){.cols{grid-template-columns:1fr;gap:0}}
-@media (max-width:480px){.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.chips::-webkit-scrollbar{display:none}.chip{flex:0 0 auto}section[id]{scroll-margin-top:70px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:12px 6px 10px;border-radius:16px}.card .ico{font-size:40px}.card .w{font-size:17px}.card .ipa,.card .vn,.card .m{font-size:13px}.say{top:2px;right:2px;font-size:17px}.topics{grid-template-columns:1fr 1fr;gap:10px}.topic{padding:14px;border-radius:18px}.topic .ico{font-size:38px}.topic .t{font-size:16px}.topic .s{font-size:14px}.topic .n{font-size:12px}nav.pn a{padding:9px 12px;font-size:14px}}
-@media print{.say,.toolbar,nav.pn,.chips{display:none}header{border-radius:0}.card,.gram{break-inside:avoid}.cols{grid-template-columns:1fr}}
+@media (max-width:480px){.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.chips::-webkit-scrollbar{display:none}.chip{flex:0 0 auto}section[id]{scroll-margin-top:70px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:12px 6px 10px;border-radius:16px}.card .ico{font-size:40px}.card .w{font-size:17px}.card .ipa,.card .vn,.card .m{font-size:13px}.say{top:2px;right:2px;font-size:17px}.topics{grid-template-columns:1fr 1fr;gap:10px}.topic{padding:14px;border-radius:18px}.topic .ico{font-size:38px}.topic .t{font-size:16px}.topic .s{font-size:14px}.topic .n{font-size:12px}nav.pn a{padding:9px 12px;font-size:14px}.opts{grid-template-columns:1fr}.theory{grid-template-columns:1fr}.qt{font-size:16px}}
+@media print{.say,.toolbar,nav.pn,.chips,.scorebar .btn{display:none}.why{display:block!important}.q{break-inside:avoid}header{border-radius:0}.card,.gram{break-inside:avoid}.cols{grid-template-columns:1fr}}
 """
 
 JS = """
@@ -128,6 +154,20 @@ const standalone=navigator.standalone||matchMedia('(display-mode: standalone)').
 function filterGrade(btn){document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===btn));const g=btn.dataset.g;
 document.querySelectorAll('[data-g]').forEach(el=>{if(el.classList.contains('chip'))return;el.hidden=g!=='all'&&!(' '+el.dataset.g+' ').includes(' '+g+' ');});
 document.querySelectorAll('[data-sec]').forEach(s=>{s.hidden=!s.querySelector('[data-g]:not([hidden])');});}
+function store(k,v){try{if(v===undefined)return +localStorage.getItem('toeic:'+k)||0;localStorage.setItem('toeic:'+k,v);}catch(e){return 0;}}
+function pick(b){const q=b.closest('.q');if(q.classList.contains('done'))return;const ok=!!b.dataset.ok;
+q.classList.add('done',ok?'qok':'qno');b.classList.add(ok?'right':'wrong');q.querySelector('[data-ok]').classList.add('right');
+q.querySelector('.why').hidden=false;score(q.closest('.quiz'));}
+function score(z){const n=z.querySelectorAll('.q').length,d=z.querySelectorAll('.q.done').length,r=z.querySelectorAll('.q.qok').length;
+let t='✅ Đúng '+r+'/'+n+' · đã làm '+d+'/'+n;
+if(n&&d===n){if(r>store(z.dataset.key))store(z.dataset.key,r);
+t+=' — '+(r>=n*.8?'🎉 Xuất sắc!':r>=n*.5?'👍 Khá tốt, xem lại câu sai nhé.':'💪 Đọc lại lý thuyết rồi làm lại nhé.');}
+const best=store(z.dataset.key);if(best)t+=' · 🏆 Cao nhất: '+best+'/'+n;z.querySelector('.score').textContent=t;}
+function resetQuiz(b){const z=b.closest('.quiz');z.querySelectorAll('.q').forEach(q=>{q.classList.remove('done','qok','qno');
+q.querySelector('.why').hidden=true;q.querySelectorAll('.opts button').forEach(o=>o.classList.remove('right','wrong'));});score(z);z.scrollIntoView({behavior:'smooth'});}
+function showAll(b){b.closest('.quiz').querySelectorAll('.q:not(.done)').forEach(q=>{q.classList.add('done');q.querySelector('[data-ok]').classList.add('right');q.querySelector('.why').hidden=false;});}
+addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.quiz').forEach(score);
+document.querySelectorAll('[data-best]').forEach(el=>{const b=store(el.dataset.best);if(b)el.textContent='🏆 '+b+'/'+el.dataset.n;});});
 """
 
 def page(title, color, body, root=""):
@@ -152,14 +192,14 @@ def parse(block, n):
 def say_btn(text):
     return f'<button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="{e(text)}">🔊</button>'
 
-def grammar_html(slug, link=None, tag=None):
-    """Chuyển khối ngữ pháp thành HTML. link/tag dùng cho trang tổng hợp."""
+def grammar_html(slug, link=None, tag=None, text=None, icon="📐 "):
+    """Chuyển khối ngữ pháp thành HTML. link/tag dùng cho trang tổng hợp; text dùng cho bài TOEIC."""
     out, cur = [], None
     def close():
         if cur is not None:
             notes = f"<ul>{''.join(cur['notes'])}</ul>" if cur["notes"] else ""
             out.append(f'<div class="gram"><h3>{cur["h"]}</h3>{"".join(cur["f"])}{notes}{"".join(cur["ex"])}</div>')
-    for line in GRAMMAR.get(slug, "").strip().splitlines():
+    for line in (text if text is not None else GRAMMAR.get(slug, "")).strip().splitlines():
         line = line.strip()
         if not line:
             continue
@@ -170,7 +210,7 @@ def grammar_html(slug, link=None, tag=None):
                 title = f'<a href="{link}">{title}</a>'
             if tag:
                 title = f'<span class="tag">{e(tag)}</span>{title}'
-            cur = {"h": "📐 " + title if not tag else title, "f": [], "notes": [], "ex": []}
+            cur = {"h": icon + title if not tag else title, "f": [], "notes": [], "ex": []}
         elif cur is None:
             continue
         elif line.startswith("= "):
@@ -266,11 +306,13 @@ index = f"""<header><div class="big">🎈📚🌈</div><h1>English for Kids</h1>
 <p>Từ vựng · Mẫu câu · Ngữ pháp tiếng Anh — Lớp 1 đến Lớp 12, Sinh viên &amp; Người lớn (C1 → Native)</p>
 <span class="badge">⭐ {len(TOPICS)} chủ đề · {total} từ vựng · {len(GRAMMAR)} bài ngữ pháp</span>
 <div class="toolbar"><button class="btn install" onclick="installApp()">📲 Cài ứng dụng</button>
-<a class="btn" href="ngu-phap.html">📐 Tổng hợp ngữ pháp</a></div>
+<a class="btn" href="ngu-phap.html">📐 Tổng hợp ngữ pháp</a>
+<a class="btn" href="toeic.html">🎯 Luyện thi TOEIC</a></div>
 <div class="ioshint">📲 <b>Cài lên iPhone/iPad:</b> mở bằng Safari → bấm nút <b>Chia sẻ</b> (⬆️) → chọn <b>“Thêm vào MH chính”</b>.</div>
 </header>
 <main>{chips()}
 <a class="special" href="ngu-phap.html"><div class="ico">📐</div><div><b>Tổng hợp ngữ pháp</b>Công thức, cách dùng và ví dụ cho từng lớp — học xong từ vựng thì ôn ngữ pháp nhé!</div></a>
+<a class="special toeic" href="toeic.html" style="margin-top:14px"><div class="ico">🎯</div><div><b>Luyện thi TOEIC</b>Danh từ, động từ, tính từ, trạng từ, giới từ… lý thuyết + bài tập trắc nghiệm kiểu Part 5 có chấm điểm và giải thích.</div></a>
 {sections}
 <h2>💡 Cách học hiệu quả</h2><div class="tips">
 1️⃣ Mỗi ngày học <b>5–7 từ mới</b>: nhìn hình 👀 → bấm 🔊 nghe → đọc to 3 lần 🗣️.<br>
@@ -294,10 +336,130 @@ for key, name, rng, _ in LEVELS:
     gsec += f'<section data-sec id="{key}"><h2>{name} <small>{rng} · {len(items)} bài</small></h2>{blocks}</section>'
 gpage = f"""<header><div class="big">📐</div><h1>Tổng hợp ngữ pháp</h1>
 <p>English Grammar — Lớp 1 đến Lớp 12 · C1 → Native</p><span class="badge">📘 {len(GRAMMAR)} bài · mỗi bài gắn với một chủ đề từ vựng</span>
-<div class="toolbar"><a class="btn" href="index.html">🏠 Trang chủ</a><button class="btn" onclick="window.print()">🖨️ In</button></div></header>
+<div class="toolbar"><a class="btn" href="index.html">🏠 Trang chủ</a><a class="btn" href="toeic.html">🎯 Luyện thi TOEIC</a><button class="btn" onclick="window.print()">🖨️ In</button></div></header>
 <main>{chips()}{gsec}</main>"""
 with open(os.path.join(ROOT, "ngu-phap.html"), "w", encoding="utf-8") as f:
     f.write(page("Ngữ pháp – English for Kids", "#7c4dff", gpage))
+
+# ───────────────────────── Luyện thi TOEIC ─────────────────────────
+import random
+import _toeic_tu_loai, _toeic_ngu_phap
+TOEIC_GROUPS = [(m.GROUP, m.LESSONS) for m in (_toeic_tu_loai, _toeic_ngu_phap)]
+TOEIC = [L for _, ls in TOEIC_GROUPS for L in ls]
+TOEIC_OUT = os.path.join(ROOT, "toeic")
+os.makedirs(TOEIC_OUT, exist_ok=True)
+TEST_N = 30
+
+def parse_quiz(L):
+    """Trả về list (câu hỏi, [4 đáp án đã xáo], vị trí đúng, giải thích). Kiểm tra định dạng."""
+    out = []
+    for line in L["quiz"].strip().splitlines():
+        f = [x.strip() for x in line.split("|")]
+        assert len(f) == 6, f"{L['slug']}: sai định dạng câu hỏi: {line}"
+        q, right, *wrong, why = f
+        assert q.count("___") == 1, f"{L['slug']}: câu hỏi phải có đúng một ___: {q}"
+        assert len({right, *wrong}) == 4, f"{L['slug']}: đáp án trùng nhau: {line}"
+        opts = [right] + wrong
+        random.Random(hashlib.md5(q.encode()).hexdigest()).shuffle(opts)
+        out.append((q, opts, opts.index(right), why))
+    return out
+
+def blank(q):
+    return e(q).replace("___", '<span class="blank"></span>')
+
+def q_html(n, q, opts, a, why, link=""):
+    btns = "".join(f'<button onclick="pick(this)"{" data-ok=1" if k == a else ""}>({"ABCD"[k]}) {e(o)}</button>'
+                   for k, o in enumerate(opts))
+    return (f'<div class="q"><div class="qt"><b>{n}.</b> {blank(q)}</div><div class="opts">{btns}</div>'
+            f'<div class="why" hidden>✅ <b>({"ABCD"[a]}) {e(opts[a])}</b> — {e(why)} {say_btn(q.replace("___", opts[a]))}{link}</div></div>')
+
+def scorebar(extra=""):
+    return (f'<div class="scorebar"><span class="score"></span>{extra}'
+            '<button class="btn" onclick="showAll(this)">👀 Xem đáp án</button>'
+            '<button class="btn" onclick="resetQuiz(this)">🔄 Làm lại</button></div>')
+
+total_q, bank = 0, []
+for i, L in enumerate(TOEIC):
+    qs = parse_quiz(L)
+    total_q += len(qs)
+    for q, opts, a, why in qs:
+        bank.append({"q": blank(q), "o": [e(o) for o in opts], "a": a, "w": e(why),
+                     "s": e(q.replace("___", opts[a])), "l": e(L["vi"]), "u": L["slug"]})
+    fam = ""
+    if L.get("families"):
+        rows = "".join("<tr>" + "".join(f"<td>{e(c)}</td>" for c in r) + "</tr>" for r in parse(L["families"], 4))
+        fam = (f'<h2>🌳 Bảng họ từ <small>{len(parse(L["families"], 4))} họ từ hay gặp</small></h2><div class="famwrap"><table class="fam">'
+               f'<tr><th>Danh từ (n)</th><th>Động từ (v)</th><th>Tính từ (adj)</th><th>Trạng từ (adv)</th></tr>{rows}</table></div>')
+    quiz = "".join(q_html(n + 1, *x) for n, x in enumerate(qs))
+    prev = f'<a href="{TOEIC[i-1]["slug"]}.html">⬅️ {e(TOEIC[i-1]["vi"])}</a>' if i else '<a href="../toeic.html">⬅️ Mục lục TOEIC</a>'
+    nxt = f'<a href="{TOEIC[i+1]["slug"]}.html">{e(TOEIC[i+1]["vi"])} ➡️</a>' if i + 1 < len(TOEIC) else '<a href="de-tong-hop.html">📝 Đề tổng hợp ➡️</a>'
+    body = f"""<header><div class="big">{L["ico"]}</div><h1>{e(L["en"])}</h1><p>Luyện thi TOEIC · Bài {i+1}: {e(L["vi"])}</p>
+<span class="badge">🎯 Lý thuyết + {len(qs)} câu luyện tập kiểu Part 5</span>
+<div class="toolbar"><a class="btn" href="../toeic.html">🎯 Mục lục TOEIC</a><a class="btn" href="../index.html">🏠 Trang chủ</a>
+<a class="btn" href="#bai-tap">✍️ Làm bài tập</a><button class="btn" onclick="window.print()">🖨️ In</button></div></header>
+<main><h2>📚 Lý thuyết</h2><div class="theory">{grammar_html(None, text=L["theory"], icon="📌 ")}</div>
+{fam}
+<section id="bai-tap"><h2>✍️ Bài tập <small>Chọn đáp án đúng nhất (A), (B), (C) hoặc (D)</small></h2>
+<div class="quiz" data-key="{L["slug"]}">{scorebar()}{quiz}</div></section>
+<nav class="pn">{prev}{nxt}</nav></main>"""
+    with open(os.path.join(TOEIC_OUT, L["slug"] + ".html"), "w", encoding="utf-8") as f:
+        f.write(page(f"{L['vi']} – Luyện thi TOEIC", L["color"], body, root="../"))
+    pages.append(f"toeic/{L['slug']}.html")
+
+# Đề tổng hợp: chọn ngẫu nhiên TEST_N câu từ toàn bộ ngân hàng mỗi lần làm
+TEST_JS = """const BANK=%s,N=%d;let t0=0;
+function newTest(){const a=BANK.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]];}
+document.getElementById('qs').innerHTML=a.slice(0,N).map((x,i)=>'<div class="q"><div class="qt"><b>'+(i+1)+'.</b> '+x.q+'</div><div class="opts">'
++x.o.map((o,k)=>'<button onclick="pick(this)"'+(k===x.a?' data-ok=1':'')+'>('+'ABCD'[k]+') '+o+'</button>').join('')
++'</div><div class="why" hidden>✅ <b>('+'ABCD'[x.a]+') '+x.o[x.a]+'</b> — '+x.w+' <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="'+x.s+'">🔊</button>'
++'<br>📚 Ôn lại: <a href="'+x.u+'.html">'+x.l+'</a></div></div>').join('');
+score(document.querySelector('.quiz'));t0=Date.now();scrollTo({top:0,behavior:'smooth'});}
+setInterval(()=>{const z=document.querySelector('.quiz');if(!t0||z.querySelectorAll('.q.done').length===N)return;
+const s=Math.floor((Date.now()-t0)/1000);document.getElementById('timer').textContent='⏱️ '+String(s/60|0).padStart(2,'0')+':'+String(s%%60).padStart(2,'0');},1000);
+addEventListener('DOMContentLoaded',newTest);""" % (json.dumps(bank, ensure_ascii=False), TEST_N)
+body = f"""<header><div class="big">📝</div><h1>TOEIC Part 5 – Đề tổng hợp</h1>
+<p>{TEST_N} câu ngẫu nhiên từ ngân hàng {total_q} câu · mỗi lần bấm “Đề mới” là một đề khác</p>
+<span class="badge">⏱️ Thi thật: khoảng 10–12 phút cho 30 câu Part 5</span>
+<div class="toolbar"><a class="btn" href="../toeic.html">🎯 Mục lục TOEIC</a><a class="btn" href="../index.html">🏠 Trang chủ</a></div></header>
+<main><div class="quiz" data-key="de-tong-hop">{scorebar('<b id="timer">⏱️ 00:00</b><button class="btn" onclick="newTest()">🔀 Đề mới</button>')}<div id="qs"></div></div>
+<nav class="pn"><a href="{TOEIC[-1]["slug"]}.html">⬅️ {e(TOEIC[-1]["vi"])}</a><a href="../toeic.html">🎯 Mục lục TOEIC</a></nav></main>
+<script>{TEST_JS}</script>"""
+with open(os.path.join(TOEIC_OUT, "de-tong-hop.html"), "w", encoding="utf-8") as f:
+    f.write(page("Đề tổng hợp – Luyện thi TOEIC", "#1565c0", body, root="../"))
+pages.append("toeic/de-tong-hop.html")
+
+for f in os.listdir(TOEIC_OUT):
+    if f.endswith(".html") and f"toeic/{f}" not in pages:
+        os.remove(os.path.join(TOEIC_OUT, f))
+        print("🗑️  Đã xóa trang cũ:", f)
+
+# Mục lục TOEIC
+tsec, n = "", 0
+for gname, ls in TOEIC_GROUPS:
+    tiles = ""
+    for L in ls:
+        n += 1
+        k = len(L["quiz"].strip().splitlines())
+        tiles += (f'<a class="topic" style="background:{L["color"]}" href="toeic/{L["slug"]}.html"><div class="ico">{L["ico"]}</div>'
+                  f'<div class="t">{n}. {e(L["vi"])}</div><div class="s">{e(L["en"])}</div>'
+                  f'<div class="n">✍️ {k} câu</div><span class="n best" data-best="{L["slug"]}" data-n="{k}"></span></a>')
+    tsec += f'<section><h2>{gname} <small>{len(ls)} bài</small></h2><div class="topics">{tiles}</div></section>'
+tpage = f"""<header><div class="big">🎯</div><h1>Luyện thi TOEIC</h1>
+<p>Từ loại · Ngữ pháp trọng tâm · Bài tập trắc nghiệm kiểu Part 5 có giải thích</p>
+<span class="badge">📘 {len(TOEIC)} bài · {total_q} câu luyện tập · đề tổng hợp ngẫu nhiên</span>
+<div class="toolbar"><a class="btn" href="index.html">🏠 Trang chủ</a><a class="btn" href="toeic/de-tong-hop.html">📝 Làm đề tổng hợp</a></div></header>
+<main><a class="special toeic" href="toeic/de-tong-hop.html"><div class="ico">📝</div><div><b>Đề tổng hợp {TEST_N} câu</b>Trộn ngẫu nhiên từ tất cả các bài, có bấm giờ — làm sau khi đã học xong các bài bên dưới.</div></a>
+{tsec}
+<h2>💡 Mẹo làm Part 5 (Incomplete Sentences)</h2><div class="tips">
+1️⃣ <b>Nhìn đáp án trước</b>: 4 đáp án cùng gốc khác đuôi (decide / decision / decisive / decisively) → câu hỏi <b>từ loại</b>, chỉ cần xem từ đứng trước và sau chỗ trống.<br>
+2️⃣ Đáp án là các thì / dạng của cùng một động từ → tìm <b>trạng từ thời gian</b>, chủ ngữ số ít/số nhiều, có tân ngữ hay không (chủ động / bị động).<br>
+3️⃣ Đáp án là because / because of / although / despite → xem sau chỗ trống là <b>mệnh đề</b> (liên từ) hay <b>danh từ</b> (giới từ).<br>
+4️⃣ Câu từ loại làm trong <b>10–15 giây</b>; câu cần dịch nghĩa để sau. Không bỏ trống câu nào — TOEIC không trừ điểm câu sai.<br>
+5️⃣ Mỗi ngày làm 1 bài, chép lại câu sai vào sổ. Điểm cao nhất của từng bài được lưu trên máy của bạn 🏆.
+</div></main>"""
+with open(os.path.join(ROOT, "toeic.html"), "w", encoding="utf-8") as f:
+    f.write(page("Luyện thi TOEIC – English for Kids", "#1565c0", tpage))
+pages.append("toeic.html")
 
 # ───────────────────────── Icon ─────────────────────────
 ICONS = os.path.join(ROOT, "icons")
@@ -387,4 +549,4 @@ self.addEventListener('fetch', e => {{
 with open(os.path.join(ROOT, "sw.js"), "w", encoding="utf-8") as f:
     f.write(SW)
 
-print(f"OK: {len(TOPICS)} chủ đề, {total} từ, {len(GRAMMAR)} bài ngữ pháp, {len(precache)} file được cache offline")
+print(f"OK: {len(TOPICS)} chủ đề, {total} từ, {len(GRAMMAR)} bài ngữ pháp, TOEIC {len(TOEIC)} bài / {total_q} câu, {len(precache)} file được cache offline")

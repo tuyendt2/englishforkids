@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi" data-root=""><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Luyện thi TOEIC – English for Kids</title>
+<meta name="theme-color" content="#1565c0">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="English Kids">
+<style>:root{--c:#1565c0}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Segoe UI','Nunito',system-ui,Arial,sans-serif;background:#fffaf2;color:#333;overflow-x:hidden}
+header{padding:calc(24px + env(safe-area-inset-top)) 16px 22px;text-align:center;color:#fff;background:var(--c);border-radius:0 0 32px 32px;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+header .big{font-size:60px;line-height:1}
+header h1{margin:8px 0 4px;font-size:clamp(26px,6vw,34px)}
+header p{margin:0;font-size:17px;opacity:.95}
+.badge{display:inline-block;background:#fff;color:var(--c);font-weight:700;border-radius:20px;padding:3px 12px;font-size:14px;margin-top:8px}
+main{max-width:1150px;margin:0 auto;padding:20px 16px calc(60px + env(safe-area-inset-bottom))}
+h2{font-size:23px;margin:28px 0 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+h2 small{font-size:15px;font-weight:600;color:#888}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.btn{border:none;background:#fff;color:var(--c);font-weight:700;padding:8px 16px;border-radius:20px;cursor:pointer;font-size:15px;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,.12);font-family:inherit}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:16px}
+.card{background:#fff;border-radius:20px;padding:16px 12px 14px;text-align:center;border:3px solid var(--c);box-shadow:0 4px 10px rgba(0,0,0,.06);position:relative;transition:transform .15s}
+.card:hover{transform:translateY(-4px) rotate(-1deg)}
+.card .ico{font-size:52px;line-height:1.1}
+.card .w{font-size:21px;font-weight:800;color:var(--c);margin:6px 0 4px;overflow-wrap:anywhere}
+.card .ipa{font-family:'Lucida Sans Unicode','Arial Unicode MS',sans-serif;color:#555;font-size:15px;overflow-wrap:anywhere}
+.card .vn{color:#e65100;font-size:15px;margin-top:2px}
+.card .vn::before{content:'🗣️ '}
+.card .m{margin-top:8px;background:#f3f3f3;border-radius:12px;padding:6px;font-weight:700;font-size:16px}
+.say{position:absolute;top:8px;right:8px;border:none;background:none;font-size:20px;cursor:pointer;padding:4px}
+.hide .m{color:transparent;background:repeating-linear-gradient(45deg,#ddd,#ddd 6px,#eee 6px,#eee 12px)}
+.hide .card:hover .m,.hide .card.show .m{color:#333;background:#f3f3f3}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.cols>section>h2{margin-top:28px}
+.pat{background:#fff;border-left:8px solid var(--c);border-radius:16px;padding:14px 18px;margin-bottom:12px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.pat .en{font-size:18px;font-weight:700}
+.pat .en .q{color:var(--c)}
+.pat .vi{color:#666;margin-top:4px;font-style:italic}
+.pat .say,.gram .say{position:static;font-size:17px}
+.gram{background:#fff;border:3px solid var(--c);border-radius:20px;padding:16px 18px;margin-bottom:14px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.gram h3{margin:0 0 10px;color:var(--c);font-size:19px}
+.gram h3 a{color:inherit}
+.gram .tag{display:inline-block;font-size:13px;font-weight:700;background:var(--c);color:#fff;border-radius:10px;padding:2px 8px;margin-right:6px;vertical-align:middle}
+.f{font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;background:#fff6e0;border:1.5px dashed #f0c060;border-radius:10px;padding:7px 10px;margin:6px 0;font-size:15px;font-weight:600;overflow-wrap:anywhere}
+.gram ul{margin:8px 0;padding-left:20px;color:#555;line-height:1.55}
+.ex{border-top:1px dashed #ddd;padding:7px 0}
+.ex .en{font-weight:700}
+.ex .vi{color:#666;font-style:italic;font-size:15px}
+.legend{background:#fff;border:2px dashed var(--c);border-radius:16px;padding:10px 16px;font-size:15px}
+nav.pn{display:flex;justify-content:space-between;margin-top:30px;gap:10px}
+nav.pn a{background:var(--c);color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none;font-weight:700}
+.chips{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:5;background:#fffaf2;padding:10px 0;margin:0 -2px}
+.chip{border:2px solid #ff7aa2;background:#fff;color:#d6336c;border-radius:20px;padding:6px 13px;font-weight:700;cursor:pointer;font-size:15px;font-family:inherit}
+.chip.on{background:#ff7aa2;color:#fff}
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.topic{display:block;text-decoration:none;color:#fff;border-radius:24px;padding:18px;box-shadow:0 6px 14px rgba(0,0,0,.12);transition:transform .15s;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.topic:hover{transform:scale(1.04)}
+.topic .ico{font-size:48px}
+.topic .t{font-size:20px;font-weight:800;margin-top:6px}
+.topic .s{font-size:16px;opacity:.95}
+.topic .n{margin-top:10px;font-size:14px;background:rgba(255,255,255,.25);display:inline-block;padding:3px 10px;border-radius:12px}
+section[id]{scroll-margin-top:130px}
+h3.sub{font-size:18px;margin:20px 0 10px;color:#555;border-left:5px solid #ff7aa2;padding-left:10px}
+h3.sub small{font-size:14px;font-weight:600;color:#999}
+.special{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#7c4dff,#ff7aa2);color:#fff;text-decoration:none;border-radius:24px;padding:18px 22px;box-shadow:0 6px 14px rgba(0,0,0,.12)}
+.special .ico{font-size:46px}
+.special b{font-size:21px;display:block}
+.tips{background:#fff;border-radius:20px;padding:16px 22px;box-shadow:0 3px 8px rgba(0,0,0,.06);line-height:1.7}
+.install{display:none}
+.ioshint{display:none;background:#fff;color:#333;border-radius:16px;padding:10px 14px;margin:12px auto 0;max-width:420px;font-size:15px;text-shadow:none}
+[hidden]{display:none!important}
+.toeic{background:linear-gradient(135deg,#1565c0,#00acc1)}
+.theory{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px;align-items:start}
+.famwrap{overflow-x:auto;background:#fff;border-radius:16px;box-shadow:0 3px 8px rgba(0,0,0,.06)}
+.fam{width:100%;border-collapse:collapse;font-size:15px}
+.fam th{background:var(--c);color:#fff;text-align:left;padding:9px 12px;position:sticky;top:0}
+.fam td{padding:7px 12px;border-top:1px solid #eee;white-space:nowrap}
+.fam tr:nth-child(even) td{background:#fafafa}
+.scorebar{position:sticky;top:0;z-index:5;background:#fffaf2;padding:10px 0;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.scorebar .score{font-weight:800;font-size:17px;flex:1;min-width:200px}
+.scorebar .btn{border:2px solid var(--c)}
+.q{background:#fff;border-radius:16px;padding:14px 16px;margin-bottom:12px;box-shadow:0 3px 8px rgba(0,0,0,.05);border-left:7px solid #ddd}
+.q.qok{border-left-color:#2e7d32}.q.qno{border-left-color:#c62828}
+.qt{font-size:17px;line-height:1.5}
+.blank{display:inline-block;min-width:70px;border-bottom:2px solid var(--c)}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.opts button{text-align:left;border:2px solid #ddd;background:#fafafa;border-radius:12px;padding:9px 12px;font:inherit;font-size:16px;cursor:pointer;color:#333}
+.opts button:hover{border-color:var(--c)}
+.q.done .opts button{cursor:default}
+.opts button.right{background:#e8f5e9;border-color:#2e7d32;color:#1b5e20;font-weight:700}
+.opts button.wrong{background:#ffebee;border-color:#c62828;color:#b71c1c;text-decoration:line-through}
+.why{margin-top:10px;background:#fff6e0;border-radius:10px;padding:8px 12px;font-size:15px;line-height:1.5}
+.why .say{position:static;font-size:16px}
+.why a{color:inherit}
+.best{margin-left:6px}.best:empty{display:none}
+.theory .f{font-family:inherit;font-weight:700}
+@media (max-width:860px){.cols{grid-template-columns:1fr;gap:0}}
+@media (max-width:480px){.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.chips::-webkit-scrollbar{display:none}.chip{flex:0 0 auto}section[id]{scroll-margin-top:70px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:12px 6px 10px;border-radius:16px}.card .ico{font-size:40px}.card .w{font-size:17px}.card .ipa,.card .vn,.card .m{font-size:13px}.say{top:2px;right:2px;font-size:17px}.topics{grid-template-columns:1fr 1fr;gap:10px}.topic{padding:14px;border-radius:18px}.topic .ico{font-size:38px}.topic .t{font-size:16px}.topic .s{font-size:14px}.topic .n{font-size:12px}nav.pn a{padding:9px 12px;font-size:14px}.opts{grid-template-columns:1fr}.theory{grid-template-columns:1fr}.qt{font-size:16px}}
+@media print{.say,.toolbar,nav.pn,.chips,.scorebar .btn{display:none}.why{display:block!important}.q{break-inside:avoid}header{border-radius:0}.card,.gram{break-inside:avoid}.cols{grid-template-columns:1fr}}
+</style><script>
+function say(t){if(!('speechSynthesis' in window))return alert('Trình duyệt không hỗ trợ đọc.');
+speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/→/g,'.').replace(/\//g,' or '));
+u.lang='en-GB';u.rate=0.8;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));if(v)u.voice=v;speechSynthesis.speak(u);}
+function toggleHide(b){document.body.classList.toggle('hide');b.textContent=document.body.classList.contains('hide')?'👁️ Hiện nghĩa':'🙈 Ẩn nghĩa (tự kiểm tra)';}
+document.addEventListener('click',ev=>{const c=ev.target.closest('.card');if(c&&!ev.target.closest('.say'))c.classList.toggle('show');});
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register(document.documentElement.dataset.root+'sw.js').catch(()=>{}));
+let deferredPrompt;
+addEventListener('beforeinstallprompt',ev=>{ev.preventDefault();deferredPrompt=ev;document.querySelectorAll('.install').forEach(b=>b.style.display='inline-block');});
+function installApp(){if(!deferredPrompt)return;deferredPrompt.prompt();deferredPrompt.userChoice.finally(()=>{deferredPrompt=null;document.querySelectorAll('.install').forEach(b=>b.style.display='none');});}
+addEventListener('DOMContentLoaded',()=>{const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const standalone=navigator.standalone||matchMedia('(display-mode: standalone)').matches;const h=document.querySelector('.ioshint');if(h&&ios&&!standalone)h.style.display='block';});
+function filterGrade(btn){document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===btn));const g=btn.dataset.g;
+document.querySelectorAll('[data-g]').forEach(el=>{if(el.classList.contains('chip'))return;el.hidden=g!=='all'&&!(' '+el.dataset.g+' ').includes(' '+g+' ');});
+document.querySelectorAll('[data-sec]').forEach(s=>{s.hidden=!s.querySelector('[data-g]:not([hidden])');});}
+function store(k,v){try{if(v===undefined)return +localStorage.getItem('toeic:'+k)||0;localStorage.setItem('toeic:'+k,v);}catch(e){return 0;}}
+function pick(b){const q=b.closest('.q');if(q.classList.contains('done'))return;const ok=!!b.dataset.ok;
+q.classList.add('done',ok?'qok':'qno');b.classList.add(ok?'right':'wrong');q.querySelector('[data-ok]').classList.add('right');
+q.querySelector('.why').hidden=false;score(q.closest('.quiz'));}
+function score(z){const n=z.querySelectorAll('.q').length,d=z.querySelectorAll('.q.done').length,r=z.querySelectorAll('.q.qok').length;
+let t='✅ Đúng '+r+'/'+n+' · đã làm '+d+'/'+n;
+if(n&&d===n){if(r>store(z.dataset.key))store(z.dataset.key,r);
+t+=' — '+(r>=n*.8?'🎉 Xuất sắc!':r>=n*.5?'👍 Khá tốt, xem lại câu sai nhé.':'💪 Đọc lại lý thuyết rồi làm lại nhé.');}
+const best=store(z.dataset.key);if(best)t+=' · 🏆 Cao nhất: '+best+'/'+n;z.querySelector('.score').textContent=t;}
+function resetQuiz(b){const z=b.closest('.quiz');z.querySelectorAll('.q').forEach(q=>{q.classList.remove('done','qok','qno');
+q.querySelector('.why').hidden=true;q.querySelectorAll('.opts button').forEach(o=>o.classList.remove('right','wrong'));});score(z);z.scrollIntoView({behavior:'smooth'});}
+function showAll(b){b.closest('.quiz').querySelectorAll('.q:not(.done)').forEach(q=>{q.classList.add('done');q.querySelector('[data-ok]').classList.add('right');q.querySelector('.why').hidden=false;});}
+addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.quiz').forEach(score);
+document.querySelectorAll('[data-best]').forEach(el=>{const b=store(el.dataset.best);if(b)el.textContent='🏆 '+b+'/'+el.dataset.n;});});
+</script></head>
+<body><header><div class="big">🎯</div><h1>Luyện thi TOEIC</h1>
+<p>Từ loại · Ngữ pháp trọng tâm · Bài tập trắc nghiệm kiểu Part 5 có giải thích</p>
+<span class="badge">📘 16 bài · 241 câu luyện tập · đề tổng hợp ngẫu nhiên</span>
+<div class="toolbar"><a class="btn" href="index.html">🏠 Trang chủ</a><a class="btn" href="toeic/de-tong-hop.html">📝 Làm đề tổng hợp</a></div></header>
+<main><a class="special toeic" href="toeic/de-tong-hop.html"><div class="ico">📝</div><div><b>Đề tổng hợp 30 câu</b>Trộn ngẫu nhiên từ tất cả các bài, có bấm giờ — làm sau khi đã học xong các bài bên dưới.</div></a>
+<section><h2>🔤 Từ loại (Parts of speech) <small>8 bài</small></h2><div class="topics"><a class="topic" style="background:#1e88e5" href="toeic/toeic-danh-tu.html"><div class="ico">🏷️</div><div class="t">1. Danh từ</div><div class="s">Nouns</div><div class="n">✍️ 15 câu</div><span class="n best" data-best="toeic-danh-tu" data-n="15"></span></a><a class="topic" style="background:#e53935" href="toeic/toeic-dong-tu.html"><div class="ico">⚡</div><div class="t">2. Động từ</div><div class="s">Verbs</div><div class="n">✍️ 15 câu</div><span class="n best" data-best="toeic-dong-tu" data-n="15"></span></a><a class="topic" style="background:#8e24aa" href="toeic/toeic-tinh-tu.html"><div class="ico">🎨</div><div class="t">3. Tính từ</div><div class="s">Adjectives</div><div class="n">✍️ 15 câu</div><span class="n best" data-best="toeic-tinh-tu" data-n="15"></span></a><a class="topic" style="background:#00897b" href="toeic/toeic-trang-tu.html"><div class="ico">🚀</div><div class="t">4. Trạng từ</div><div class="s">Adverbs</div><div class="n">✍️ 15 câu</div><span class="n best" data-best="toeic-trang-tu" data-n="15"></span></a><a class="topic" style="background:#f4511e" href="toeic/toeic-gioi-tu.html"><div class="ico">📍</div><div class="t">5. Giới từ</div><div class="s">Prepositions</div><div class="n">✍️ 15 câu</div><span class="n best" data-best="toeic-gioi-tu" data-n="15"></span></a><a class="topic" style="background:#6d4c41" href="toeic/toeic-lien-tu.html"><div class="ico">🔗</div><div class="t">6. Liên từ &amp; Từ nối</div><div class="s">Conjunctions &amp; Linking words</div><div class="n">✍️ 15 câu</div><span class="n best" data-best="toeic-lien-tu" data-n="15"></span></a><a class="topic" style="background:#3949ab" href="toeic/toeic-dai-tu.html"><div class="ico">👥</div><div class="t">7. Đại từ</div><div class="s">Pronouns</div><div class="n">✍️ 15 câu</div><span class="n best" data-best="toeic-dai-tu" data-n="15"></span></a><a class="topic" style="background:#43a047" href="toeic/toeic-ho-tu.html"><div class="ico">🌳</div><div class="t">8. Họ từ – chọn đúng từ loại</div><div class="s">Word families</div><div class="n">✍️ 16 câu</div><span class="n best" data-best="toeic-ho-tu" data-n="16"></span></a></div></section><section><h2>⚙️ Ngữ pháp trọng tâm <small>8 bài</small></h2><div class="topics"><a class="topic" style="background:#d81b60" href="toeic/toeic-thi.html"><div class="ico">⏰</div><div class="t">9. Thì động từ</div><div class="s">Verb tenses</div><div class="n">✍️ 15 câu</div><span class="n best" data-best="toeic-thi" data-n="15"></span></a><a class="topic" style="background:#5e35b1" href="toeic/toeic-bi-dong.html"><div class="ico">🔄</div><div class="t">10. Câu bị động</div><div class="s">Passive voice</div><div class="n">✍️ 15 câu</div><span class="n best" data-best="toeic-bi-dong" data-n="15"></span></a><a class="topic" style="background:#00acc1" href="toeic/toeic-to-v-ving.html"><div class="ico">🎯</div><div class="t">11. To V hay V-ing</div><div class="s">Infinitives &amp; Gerunds</div><div class="n">✍️ 15 câu</div><span class="n best" data-best="toeic-to-v-ving" data-n="15"></span></a><a class="topic" style="background:#7cb342" href="toeic/toeic-menh-de-quan-he.html"><div class="ico">🧩</div><div class="t">12. Mệnh đề quan hệ</div><div class="s">Relative clauses</div><div class="n">✍️ 15 câu</div><span class="n best" data-best="toeic-menh-de-quan-he" data-n="15"></span></a><a class="topic" style="background:#fb8c00" href="toeic/toeic-so-sanh.html"><div class="ico">⚖️</div><div class="t">13. So sánh</div><div class="s">Comparisons</div><div class="n">✍️ 15 câu</div><span class="n best" data-best="toeic-so-sanh" data-n="15"></span></a><a class="topic" style="background:#546e7a" href="toeic/toeic-luong-tu.html"><div class="ico">🔢</div><div class="t">14. Lượng từ &amp; Hòa hợp</div><div class="s">Quantifiers &amp; Agreement</div><div class="n">✍️ 15 câu</div><span class="n best" data-best="toeic-luong-tu" data-n="15"></span></a><a class="topic" style="background:#c0ca33" href="toeic/toeic-dieu-kien.html"><div class="ico">🔀</div><div class="t">15. Câu điều kiện &amp; Đảo ngữ</div><div class="s">Conditionals &amp; Inversion</div><div class="n">✍️ 15 câu</div><span class="n best" data-best="toeic-dieu-kien" data-n="15"></span></a><a class="topic" style="background:#ec407a" href="toeic/toeic-tu-de-nham.html"><div class="ico">🤔</div><div class="t">16. Từ dễ nhầm &amp; Kết hợp từ</div><div class="s">Confusing words &amp; Collocations</div><div class="n">✍️ 15 câu</div><span class="n best" data-best="toeic-tu-de-nham" data-n="15"></span></a></div></section>
+<h2>💡 Mẹo làm Part 5 (Incomplete Sentences)</h2><div class="tips">
+1️⃣ <b>Nhìn đáp án trước</b>: 4 đáp án cùng gốc khác đuôi (decide / decision / decisive / decisively) → câu hỏi <b>từ loại</b>, chỉ cần xem từ đứng trước và sau chỗ trống.<br>
+2️⃣ Đáp án là các thì / dạng của cùng một động từ → tìm <b>trạng từ thời gian</b>, chủ ngữ số ít/số nhiều, có tân ngữ hay không (chủ động / bị động).<br>
+3️⃣ Đáp án là because / because of / although / despite → xem sau chỗ trống là <b>mệnh đề</b> (liên từ) hay <b>danh từ</b> (giới từ).<br>
+4️⃣ Câu từ loại làm trong <b>10–15 giây</b>; câu cần dịch nghĩa để sau. Không bỏ trống câu nào — TOEIC không trừ điểm câu sai.<br>
+5️⃣ Mỗi ngày làm 1 bài, chép lại câu sai vào sổ. Điểm cao nhất của từng bài được lưu trên máy của bạn 🏆.
+</div></main></body></html>
