@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="vi" data-root="" data-page="Nhật ký học – Góc phụ huynh"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nhật ký học – Góc phụ huynh</title>
+<meta name="theme-color" content="#ff8f00">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="English Kids">
+<style>:root{--c:#ff8f00}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Segoe UI','Nunito',system-ui,Arial,sans-serif;background:#fffaf2;color:#333;overflow-x:hidden}
+header{padding:calc(24px + env(safe-area-inset-top)) 16px 22px;text-align:center;color:#fff;background:var(--c);border-radius:0 0 32px 32px;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+header .big{font-size:60px;line-height:1}
+header h1{margin:8px 0 4px;font-size:clamp(26px,6vw,34px)}
+header p{margin:0;font-size:17px;opacity:.95}
+.badge{display:inline-block;background:#fff;color:var(--c);font-weight:700;border-radius:20px;padding:3px 12px;font-size:14px;margin-top:8px}
+main{max-width:1150px;margin:0 auto;padding:20px 16px calc(80px + env(safe-area-inset-bottom))}
+h2{font-size:23px;margin:28px 0 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+h2 small{font-size:15px;font-weight:600;color:#888}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.btn{border:none;background:#fff;color:var(--c);font-weight:700;padding:8px 16px;border-radius:20px;cursor:pointer;font-size:15px;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,.12);font-family:inherit}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:16px}
+.card{background:#fff;border-radius:20px;padding:16px 12px 14px;text-align:center;border:3px solid var(--c);box-shadow:0 4px 10px rgba(0,0,0,.06);position:relative;transition:transform .15s}
+.card:hover{transform:translateY(-4px) rotate(-1deg)}
+.card .ico{font-size:52px;line-height:1.1}
+.card .w{font-size:21px;font-weight:800;color:var(--c);margin:6px 0 4px;overflow-wrap:anywhere}
+.card .ipa{font-family:'Lucida Sans Unicode','Arial Unicode MS',sans-serif;color:#555;font-size:15px;overflow-wrap:anywhere}
+.card .vn{color:#e65100;font-size:15px;margin-top:2px}
+.card .vn::before{content:'🗣️ '}
+.card .m{margin-top:8px;background:#f3f3f3;border-radius:12px;padding:6px;font-weight:700;font-size:16px}
+.say{position:absolute;top:8px;right:8px;border:none;background:none;font-size:20px;cursor:pointer;padding:4px}
+.hide .m{color:transparent;background:repeating-linear-gradient(45deg,#ddd,#ddd 6px,#eee 6px,#eee 12px)}
+.hide .card:hover .m,.hide .card.show .m{color:#333;background:#f3f3f3}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.cols>section>h2{margin-top:28px}
+.pat{background:#fff;border-left:8px solid var(--c);border-radius:16px;padding:14px 18px;margin-bottom:12px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.pat .en{font-size:18px;font-weight:700}
+.pat .en .q{color:var(--c)}
+.pat .vi{color:#666;margin-top:4px;font-style:italic}
+.pat .say,.gram .say{position:static;font-size:17px}
+.gram{background:#fff;border:3px solid var(--c);border-radius:20px;padding:16px 18px;margin-bottom:14px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.gram h3{margin:0 0 10px;color:var(--c);font-size:19px}
+.gram h3 a{color:inherit}
+.gram .tag{display:inline-block;font-size:13px;font-weight:700;background:var(--c);color:#fff;border-radius:10px;padding:2px 8px;margin-right:6px;vertical-align:middle}
+.f{font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;background:#fff6e0;border:1.5px dashed #f0c060;border-radius:10px;padding:7px 10px;margin:6px 0;font-size:15px;font-weight:600;overflow-wrap:anywhere}
+.gram ul{margin:8px 0;padding-left:20px;color:#555;line-height:1.55}
+.ex{border-top:1px dashed #ddd;padding:7px 0}
+.ex .en{font-weight:700}
+.ex .vi{color:#666;font-style:italic;font-size:15px}
+.legend{background:#fff;border:2px dashed var(--c);border-radius:16px;padding:10px 16px;font-size:15px}
+nav.pn{display:flex;justify-content:space-between;margin-top:30px;gap:10px}
+nav.pn a{background:var(--c);color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none;font-weight:700}
+.chips{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:5;background:#fffaf2;padding:10px 0;margin:0 -2px}
+.chip{border:2px solid #ff7aa2;background:#fff;color:#d6336c;border-radius:20px;padding:6px 13px;font-weight:700;cursor:pointer;font-size:15px;font-family:inherit}
+.chip.on{background:#ff7aa2;color:#fff}
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.topic{display:block;text-decoration:none;color:#fff;border-radius:24px;padding:18px;box-shadow:0 6px 14px rgba(0,0,0,.12);transition:transform .15s;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.topic:hover{transform:scale(1.04)}
+.topic .ico{font-size:48px}
+.topic .t{font-size:20px;font-weight:800;margin-top:6px}
+.topic .s{font-size:16px;opacity:.95}
+.topic .n{margin-top:10px;font-size:14px;background:rgba(255,255,255,.25);display:inline-block;padding:3px 10px;border-radius:12px}
+section[id]{scroll-margin-top:130px}
+h3.sub{font-size:18px;margin:20px 0 10px;color:#555;border-left:5px solid #ff7aa2;padding-left:10px}
+h3.sub small{font-size:14px;font-weight:600;color:#999}
+.special{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#7c4dff,#ff7aa2);color:#fff;text-decoration:none;border-radius:24px;padding:18px 22px;box-shadow:0 6px 14px rgba(0,0,0,.12)}
+.special .ico{font-size:46px}
+.special b{font-size:21px;display:block}
+.tips{background:#fff;border-radius:20px;padding:16px 22px;box-shadow:0 3px 8px rgba(0,0,0,.06);line-height:1.7}
+.install{display:none}
+.ioshint{display:none;background:#fff;color:#333;border-radius:16px;padding:10px 14px;margin:12px auto 0;max-width:420px;font-size:15px;text-shadow:none}
+[hidden]{display:none!important}
+.pill{position:fixed;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:20;background:linear-gradient(90deg,#ffd54f var(--p,0%),#fff var(--p,0%));color:#333;border:2px solid #ffb300;border-radius:22px;padding:7px 14px;font-weight:800;font-size:15px;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.18)}
+.pill.met{background:#43a047;color:#fff;border-color:#2e7d32}
+.toast{position:fixed;left:50%;top:calc(16px + env(safe-area-inset-top));transform:translateX(-50%);background:#2e7d32;color:#fff;padding:12px 20px;border-radius:16px;font-weight:700;z-index:30;box-shadow:0 6px 18px rgba(0,0,0,.25);max-width:90vw;text-align:center}
+.remind{background:#fff3e0;border:2px solid #ffb300;border-radius:16px;padding:12px 16px;margin-bottom:14px;line-height:1.55;font-size:16px}
+.parent{background:linear-gradient(135deg,#ff8f00,#ff7aa2)}
+.toeic{background:linear-gradient(135deg,#1565c0,#00acc1)}
+.theory{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px;align-items:start}
+.famwrap{overflow-x:auto;background:#fff;border-radius:16px;box-shadow:0 3px 8px rgba(0,0,0,.06)}
+.fam{width:100%;border-collapse:collapse;font-size:15px}
+.fam th{background:var(--c);color:#fff;text-align:left;padding:9px 12px;position:sticky;top:0}
+.fam td{padding:7px 12px;border-top:1px solid #eee;white-space:nowrap}
+.fam tr:nth-child(even) td{background:#fafafa}
+.scorebar{position:sticky;top:0;z-index:5;background:#fffaf2;padding:10px 0;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.scorebar .score{font-weight:800;font-size:17px;flex:1;min-width:200px}
+.scorebar .btn{border:2px solid var(--c)}
+.q{background:#fff;border-radius:16px;padding:14px 16px;margin-bottom:12px;box-shadow:0 3px 8px rgba(0,0,0,.05);border-left:7px solid #ddd}
+.q.qok{border-left-color:#2e7d32}.q.qno{border-left-color:#c62828}
+.qt{font-size:17px;line-height:1.5}
+.blank{display:inline-block;min-width:70px;border-bottom:2px solid var(--c)}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.opts button{text-align:left;border:2px solid #ddd;background:#fafafa;border-radius:12px;padding:9px 12px;font:inherit;font-size:16px;cursor:pointer;color:#333}
+.opts button:hover{border-color:var(--c)}
+.q.done .opts button{cursor:default}
+.opts button.right{background:#e8f5e9;border-color:#2e7d32;color:#1b5e20;font-weight:700}
+.opts button.wrong{background:#ffebee;border-color:#c62828;color:#b71c1c;text-decoration:line-through}
+.why{margin-top:10px;background:#fff6e0;border-radius:10px;padding:8px 12px;font-size:15px;line-height:1.5}
+.why .say{position:static;font-size:16px}
+.why a{color:inherit}
+.best{margin-left:6px}.best:empty{display:none}
+.theory .f{font-family:inherit;font-weight:700}
+@media (max-width:860px){.cols{grid-template-columns:1fr;gap:0}}
+@media (max-width:480px){.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.chips::-webkit-scrollbar{display:none}.chip{flex:0 0 auto}section[id]{scroll-margin-top:70px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:12px 6px 10px;border-radius:16px}.card .ico{font-size:40px}.card .w{font-size:17px}.card .ipa,.card .vn,.card .m{font-size:13px}.say{top:2px;right:2px;font-size:17px}.topics{grid-template-columns:1fr 1fr;gap:10px}.topic{padding:14px;border-radius:18px}.topic .ico{font-size:38px}.topic .t{font-size:16px}.topic .s{font-size:14px}.topic .n{font-size:12px}nav.pn a{padding:9px 12px;font-size:14px}.opts{grid-template-columns:1fr}.theory{grid-template-columns:1fr}.qt{font-size:16px}}
+@media print{.pill,.toast,.say,.toolbar,nav.pn,.chips,.scorebar .btn{display:none}.why{display:block!important}.q{break-inside:avoid}header{border-radius:0}.card,.gram{break-inside:avoid}.cols{grid-template-columns:1fr}}
+</style><script>
+function say(t){if(!('speechSynthesis' in window))return alert('Trình duyệt không hỗ trợ đọc.');
+speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/→/g,'.').replace(/\//g,' or '));
+u.lang='en-GB';u.rate=0.8;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));if(v)u.voice=v;speechSynthesis.speak(u);}
+function toggleHide(b){document.body.classList.toggle('hide');b.textContent=document.body.classList.contains('hide')?'👁️ Hiện nghĩa':'🙈 Ẩn nghĩa (tự kiểm tra)';}
+document.addEventListener('click',ev=>{const c=ev.target.closest('.card');if(c&&!ev.target.closest('.say'))c.classList.toggle('show');});
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register(document.documentElement.dataset.root+'sw.js').catch(()=>{}));
+let deferredPrompt;
+addEventListener('beforeinstallprompt',ev=>{ev.preventDefault();deferredPrompt=ev;document.querySelectorAll('.install').forEach(b=>b.style.display='inline-block');});
+function installApp(){if(!deferredPrompt)return;deferredPrompt.prompt();deferredPrompt.userChoice.finally(()=>{deferredPrompt=null;document.querySelectorAll('.install').forEach(b=>b.style.display='none');});}
+addEventListener('DOMContentLoaded',()=>{const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const standalone=navigator.standalone||matchMedia('(display-mode: standalone)').matches;const h=document.querySelector('.ioshint');if(h&&ios&&!standalone)h.style.display='block';});
+function filterGrade(btn){document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===btn));const g=btn.dataset.g;
+document.querySelectorAll('[data-g]').forEach(el=>{if(el.classList.contains('chip'))return;el.hidden=g!=='all'&&!(' '+el.dataset.g+' ').includes(' '+g+' ');});
+document.querySelectorAll('[data-sec]').forEach(s=>{s.hidden=!s.querySelector('[data-g]:not([hidden])');});}
+function store(k,v){try{if(v===undefined)return +localStorage.getItem('toeic:'+k)||0;localStorage.setItem('toeic:'+k,v);}catch(e){return 0;}}
+function pick(b){const q=b.closest('.q');if(q.classList.contains('done'))return;const ok=!!b.dataset.ok;
+q.classList.add('done',ok?'qok':'qno');b.classList.add(ok?'right':'wrong');q.querySelector('[data-ok]').classList.add('right');
+q.querySelector('.why').hidden=false;score(q.closest('.quiz'));}
+function score(z){const n=z.querySelectorAll('.q').length,d=z.querySelectorAll('.q.done').length,r=z.querySelectorAll('.q.qok').length;
+let t='✅ Đúng '+r+'/'+n+' · đã làm '+d+'/'+n;
+if(n&&d===n){if(!z.dataset.rec){z.dataset.rec=1;logQuiz(r,n);}if(r>store(z.dataset.key))store(z.dataset.key,r);
+t+=' — '+(r>=n*.8?'🎉 Xuất sắc!':r>=n*.5?'👍 Khá tốt, xem lại câu sai nhé.':'💪 Đọc lại lý thuyết rồi làm lại nhé.');}
+const best=store(z.dataset.key);if(best)t+=' · 🏆 Cao nhất: '+best+'/'+n;z.querySelector('.score').textContent=t;}
+function resetQuiz(b){const z=b.closest('.quiz');delete z.dataset.rec;z.querySelectorAll('.q').forEach(q=>{q.classList.remove('done','qok','qno');
+q.querySelector('.why').hidden=true;q.querySelectorAll('.opts button').forEach(o=>o.classList.remove('right','wrong'));});score(z);z.scrollIntoView({behavior:'smooth'});}
+function showAll(b){b.closest('.quiz').querySelectorAll('.q:not(.done)').forEach(q=>{q.classList.add('done');q.querySelector('[data-ok]').classList.add('right');q.querySelector('.why').hidden=false;});}
+const LOG='efk:log',CFG='efk:cfg',IDLE=180000;
+function ld(k,d){try{return JSON.parse(localStorage.getItem(k))||d;}catch(e){return d;}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+function cfg(){return Object.assign({goal:30,name:'',msg:'',pin:''},ld(CFG,{}));}
+function dkey(d){d=d||new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function dayRec(log,d){return log[d]||(log[d]={s:0,p:{},q:[]});}
+function esc(t){return String(t).replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';');}
+let lastAct=Date.now();
+['pointerdown','keydown','scroll','touchstart','wheel'].forEach(t=>addEventListener(t,()=>{lastAct=Date.now();},{passive:true}));
+setInterval(()=>{if(document.hidden||Date.now()-lastAct>IDLE||location.pathname.endsWith('phu-huynh.html'))return;const log=ld(LOG,{}),r=dayRec(log,dkey()),pg=document.documentElement.dataset.page,b=r.s;
+r.s+=5;r.p[pg]=(r.p[pg]||0)+5;sv(LOG,log);studyUI(r.s,b);},5000);
+function studyUI(s,before){const el=document.getElementById('studyPill');if(!el)return;const c=cfg(),g=c.goal*60;
+el.textContent=(s>=g?'✅ ':'⏱️ ')+Math.floor(s/60)+'/'+c.goal+' phút';el.style.setProperty('--p',Math.min(100,s/g*100)+'%');el.classList.toggle('met',s>=g);
+if(before!==undefined&&before<g&&s>=g)toast('🎉 Giỏi quá! Hôm nay đã học đủ '+c.goal+' phút!');}
+function toast(t){const d=document.createElement('div');d.className='toast';d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),5000);}
+function logQuiz(r,n){const log=ld(LOG,{});dayRec(log,dkey()).q.push([document.documentElement.dataset.page,r,n]);sv(LOG,log);}
+addEventListener('DOMContentLoaded',()=>{const a=document.createElement('a');a.id='studyPill';a.className='pill';
+a.href=document.documentElement.dataset.root+'phu-huynh.html';a.title='Thời gian học hôm nay — bấm để xem nhật ký học';document.body.appendChild(a);
+const s=(ld(LOG,{})[dkey()]||{s:0}).s;studyUI(s);const b=document.getElementById('remind');
+if(b){const c=cfg(),left=c.goal-Math.floor(s/60);if(left>0){b.hidden=false;b.innerHTML='📢 '+(c.msg?'<b>Lời nhắc của bố mẹ:</b> '+esc(c.msg)+'<br>':'')
++'Hôm nay '+(c.name?esc(c.name)+' ':'')+'còn <b>'+left+' phút</b> nữa là đủ mục tiêu '+c.goal+' phút. Cố lên! 💪';}}});
+addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.quiz').forEach(score);
+document.querySelectorAll('[data-best]').forEach(el=>{const b=store(el.dataset.best);if(b)el.textContent='🏆 '+b+'/'+el.dataset.n;});});
+</script></head>
+<body><header><div class="big">👨‍👩‍👧</div><h1>Nhật ký học <span id="who"></span></h1>
+<p>Mỗi ngày học ít nhất 30 phút — bố mẹ xem lịch sử, đặt lời nhắc và nhận báo cáo</p>
+<div class="toolbar"><a class="btn" href="index.html">🏠 Trang chủ</a><a class="btn" href="#sharebox">📤 Gửi báo cáo</a><a class="btn" href="#settings">⚙️ Cài đặt</a></div></header>
+<main><div id="rbanner" class="rbanner" hidden></div><div id="warn" class="remind" hidden></div>
+<div class="cards" id="stats"></div>
+<h2>📅 Lịch học 30 ngày qua</h2><div class="cal" id="cal"></div>
+<div class="legend2"><span><i style="background:#43a047"></i>Đạt mục tiêu</span><span><i style="background:#ffca28"></i>Có học, chưa đủ</span><span><i style="background:#ffcdd2"></i>Không học</span><span>Bấm vào một ngày để xem chi tiết</span></div>
+<div id="oneday" hidden style="margin-top:12px"></div>
+<h2>📋 Chi tiết 14 ngày gần nhất</h2><div id="days"></div>
+<section id="sharebox"><h2>📤 Gửi báo cáo cho bố mẹ</h2><div class="panel">
+Bấm nút dưới đây để gửi nhật ký học qua <b>Zalo, Messenger, tin nhắn…</b> Bố mẹ mở đường link sẽ thấy lịch học và chi tiết từng ngày, không cần cài đặt hay đăng nhập.
+<br><button class="btn solid" onclick="shareReport()">📤 Gửi báo cáo</button>
+<textarea id="shareout" rows="6" hidden readonly style="margin-top:10px"></textarea></div></section>
+<section id="settings"><h2>⚙️ Cài đặt dành cho bố mẹ</h2><div class="panel" id="settings-body"></div>
+<p class="note">ℹ️ Thời gian chỉ được tính khi ứng dụng đang mở trên màn hình và con có thao tác (bấm, cuộn, nghe…). Nếu không thao tác quá 3 phút thì dừng tính giờ.
+Lịch sử được lưu ngay trên máy con học; nếu xóa dữ liệu trình duyệt hoặc đổi máy thì lịch sử sẽ mất.</p></section>
+</main><style>
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.stat{background:#fff;border-radius:18px;padding:14px 16px;box-shadow:0 3px 8px rgba(0,0,0,.06);text-align:center}
+.stat b{display:block;font-size:30px;color:var(--c)}
+.stat span{color:#666;font-size:15px}
+.bar{height:10px;background:#eee;border-radius:6px;overflow:hidden;margin-top:8px}
+.bar i{display:block;height:100%;background:var(--c)}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;background:#fff;border-radius:18px;padding:12px;box-shadow:0 3px 8px rgba(0,0,0,.06)}
+.cal .h{text-align:center;font-weight:700;color:#888;font-size:13px}
+.cal button{border:none;border-radius:10px;padding:6px 2px;font:inherit;font-size:12px;cursor:pointer;background:#eee;color:#555;min-height:46px;line-height:1.25}
+.cal button b{display:block;font-size:15px}
+.cal button.ok{background:#43a047;color:#fff}.cal button.part{background:#ffca28}.cal button.no{background:#ffcdd2;color:#b71c1c}
+.cal button.today{outline:3px solid var(--c);outline-offset:1px}
+.cal span.f{visibility:hidden}
+.legend2{display:flex;gap:14px;flex-wrap:wrap;font-size:14px;color:#555;margin-top:8px}
+.legend2 i{display:inline-block;width:14px;height:14px;border-radius:4px;vertical-align:-2px;margin-right:4px}
+.day{background:#fff;border-radius:16px;padding:12px 16px;margin-bottom:10px;box-shadow:0 3px 8px rgba(0,0,0,.05);border-left:7px solid #ddd}
+.day.ok{border-left-color:#43a047}.day.part{border-left-color:#ffca28}.day.no{border-left-color:#e53935}
+.day .top{display:flex;justify-content:space-between;gap:8px;font-weight:800;flex-wrap:wrap}
+.day ul{margin:6px 0 0;padding-left:20px;color:#555;font-size:15px;line-height:1.55}
+.panel{background:#fff;border-radius:18px;padding:16px 18px;box-shadow:0 3px 8px rgba(0,0,0,.06);line-height:1.6}
+.panel label{display:block;font-weight:700;margin-top:10px}
+.panel input,.panel select,.panel textarea{width:100%;font:inherit;font-size:16px;padding:9px 12px;border:2px solid #ddd;border-radius:12px;margin-top:4px;background:#fff}
+.panel .btn{border:2px solid var(--c);margin-top:12px;margin-right:6px}
+.panel .btn.solid{background:var(--c);color:#fff}
+.note{color:#777;font-size:14px}
+.rbanner{background:#e3f2fd;border:2px solid #1e88e5;border-radius:16px;padding:12px 16px;margin-bottom:14px}
+</style><script>
+const DOW=['CN','T2','T3','T4','T5','T6','T7'];
+let DATA,CF,REP=null,TODAY;
+function hsh(s){let h=7;for(const c of String(s))h=(h*31+c.charCodeAt(0))>>>0;return 'h'+h;}
+function parseKey(k){const [y,m,d]=k.split('-').map(Number);return new Date(y,m-1,d);}
+function lastDays(n){const out=[],t=parseKey(TODAY);for(let i=n-1;i>=0;i--){const d=new Date(t);d.setDate(t.getDate()-i);out.push(dkey(d));}return out;}
+function mins(k){return Math.floor(((DATA[k]||{}).s||0)/60);}
+function cls(k){const m=mins(k);return m>=CF.goal?'ok':m>0?'part':'no';}
+function lbl(k){const d=parseKey(k);return DOW[d.getDay()]+' '+d.getDate()+'/'+(d.getMonth()+1);}
+function streak(){let n=0;const days=lastDays(400).reverse();for(let i=0;i<days.length;i++){if(mins(days[i])>=CF.goal)n++;else if(i>0)break;}return n;}
+function topPages(k,n){const p=(DATA[k]||{}).p||{};return Object.entries(p).sort((a,b)=>b[1]-a[1]).slice(0,n);}
+const b64e=u=>{let s='';u.forEach(c=>s+=String.fromCharCode(c));return btoa(s).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');};
+const b64d=t=>Uint8Array.from(atob(t.replace(/-/g,'+').replace(/_/g,'/')),c=>c.charCodeAt(0));
+async function pipe(u,S){return new Uint8Array(await new Response(new Blob([u]).stream().pipeThrough(new S('deflate-raw'))).arrayBuffer());}
+async function pack(o){const u=new TextEncoder().encode(JSON.stringify(o));
+if(window.CompressionStream){try{return 'z'+b64e(await pipe(u,CompressionStream));}catch(e){}}return 'j'+b64e(u);}
+async function unpack(t){let u=b64d(t.slice(1));if(t[0]==='z')u=await pipe(u,DecompressionStream);return JSON.parse(new TextDecoder().decode(u));}
+async function load(){REP=null;const m=location.hash.match(/^#r=(.+)$/);
+if(m){try{const o=await unpack(m[1]);REP=o;DATA=o.d;CF={goal:o.g,name:o.n};TODAY=dkey(new Date(o.t));return;}
+catch(e){alert('Link báo cáo bị lỗi hoặc bị cắt mất. Hãy nhờ con gửi lại.');}}
+DATA=ld(LOG,{});CF=cfg();TODAY=dkey();}
+async function render(){await load();const who=CF.name||'con';const g=CF.goal;
+document.getElementById('who').textContent=CF.name?'của '+CF.name:'';
+document.getElementById('rbanner').hidden=!REP;
+if(REP)document.getElementById('rbanner').innerHTML='📩 Đây là <b>báo cáo '+esc(who)+' gửi lúc '+new Date(REP.t).toLocaleString('vi-VN')+'</b>. Số liệu tính đến lúc gửi. <a href="#" onclick="location.hash=\'\';return false">Xem nhật ký trên máy này</a>';
+['sharebox','settings'].forEach(id=>document.getElementById(id).hidden=!!REP);
+const t=mins(TODAY),d7=lastDays(7),d30=lastDays(30);
+const met7=d7.filter(k=>mins(k)>=g).length,sum7=d7.reduce((a,k)=>a+mins(k),0),miss=d7.filter(k=>k!==TODAY&&mins(k)===0).length;
+document.getElementById('stats').innerHTML=
+'<div class="stat"><b>'+t+'/'+g+'′</b><span>'+(REP?'Ngày gửi báo cáo':'Hôm nay')+(t>=g?' ✅':' ⏳')+'</span><div class="bar"><i style="width:'+Math.min(100,t/g*100)+'%"></i></div></div>'
++'<div class="stat"><b>🔥 '+streak()+'</b><span>ngày liên tiếp đạt mục tiêu</span></div>'
++'<div class="stat"><b>'+met7+'/7</b><span>ngày đạt trong 7 ngày qua</span></div>'
++'<div class="stat"><b>'+sum7+'′</b><span>tổng thời gian 7 ngày · TB '+Math.round(sum7/7)+'′/ngày</span></div>';
+const w=document.getElementById('warn');
+w.hidden=!(t<g||miss);w.innerHTML='⚠️ '+(t<g?(REP?'Ngày gửi':'Hôm nay')+' '+esc(who)+' mới học <b>'+t+'/'+g+' phút</b>. ':'')+(miss?'Có <b>'+miss+' ngày</b> trong tuần qua không học. ':'')+(REP?'':'Bố mẹ có thể đặt lời nhắc ở phần ⚙️ Cài đặt bên dưới.');
+// Lịch 5 tuần, bắt đầu từ thứ Hai
+const start=parseKey(d30[0]);start.setDate(start.getDate()-((start.getDay()+6)%7));
+let cal=['T2','T3','T4','T5','T6','T7','CN'].map(x=>'<div class="h">'+x+'</div>').join(''),d=new Date(start);
+while(dkey(d)<=TODAY){const k=dkey(d),m=mins(k);
+cal+='<button class="'+cls(k)+(k===TODAY?' today':'')+'" onclick="showDay(\''+k+'\')"><b>'+d.getDate()+'</b>'+(m?m+'′':'–')+'</button>';d.setDate(d.getDate()+1);}
+document.getElementById('cal').innerHTML=cal;
+document.getElementById('days').innerHTML=lastDays(14).reverse().map(dayHTML).join('');
+if(!REP)settingsUI();}
+function dayHTML(k){const r=DATA[k]||{s:0,p:{},q:[]},m=mins(k),c=cls(k);
+const pages=topPages(k,6).map(([p,s])=>esc(p.split(' – ')[0])+' <span class="note">('+Math.max(1,Math.round(s/60))+'′)</span>').join(' · ');
+const qz=(r.q||[]).map(q=>'📝 '+esc(q[0].split(' – ')[0])+': <b>'+q[1]+'/'+q[2]+'</b>').join(' · ');
+return '<div class="day '+c+'" id="d-'+k+'"><div class="top"><span>'+lbl(k)+(k===TODAY?' (hôm nay)':'')+'</span><span>'+(c==='ok'?'✅ ':c==='part'?'⏳ ':'❌ ')+(m?m+' phút':'Không học')+'</span></div>'
++(pages||qz?'<ul>'+(pages?'<li>📖 '+pages+'</li>':'')+(qz?'<li>'+qz+'</li>':'')+'</ul>':'')+'</div>';}
+function showDay(k){const el=document.getElementById('d-'+k);if(el){el.scrollIntoView({behavior:'smooth',block:'center'});return;}
+const box=document.getElementById('oneday');box.innerHTML=dayHTML(k);box.hidden=false;box.scrollIntoView({behavior:'smooth',block:'center'});}
+// Báo cáo gửi phụ huynh
+async function report(){const days={};lastDays(30).forEach(k=>{const r=DATA[k];if(!r||!r.s)return;
+days[k]={s:r.s,p:Object.fromEntries(topPages(k,4).map(([p,s])=>[p.split(' – ')[0],s])),q:(r.q||[]).slice(-8).map(q=>[q[0].split(' – ')[0],q[1],q[2]])};});
+const o={n:CF.name,g:CF.goal,t:Date.now(),d:days};
+const url=location.href.split('#')[0]+'#r='+(await pack(o)),g=CF.goal,d7=lastDays(7);
+const text='📊 Nhật ký học tiếng Anh'+(CF.name?' của '+CF.name:'')+' (7 ngày qua)\n'
++'Mục tiêu: '+g+' phút/ngày · Đạt '+d7.filter(k=>mins(k)>=g).length+'/7 ngày · 🔥 '+streak()+' ngày liên tiếp\n'
++d7.slice().reverse().map(k=>(mins(k)>=g?'✅ ':mins(k)?'⏳ ':'❌ ')+lbl(k)+': '+mins(k)+' phút').join('\n');
+return {url,text};}
+async function shareReport(){const r=await report();const box=document.getElementById('shareout');
+if(navigator.share){try{await navigator.share({title:'Nhật ký học tiếng Anh',text:r.text+'\n\nXem chi tiết:',url:r.url});return;}catch(e){if(e.name==='AbortError')return;}}
+box.value=r.text+'\n\nXem chi tiết: '+r.url;box.hidden=false;box.select();
+try{await navigator.clipboard.writeText(box.value);toast('📋 Đã sao chép báo cáo — dán vào Zalo/Messenger để gửi bố mẹ');}catch(e){}}
+// Cài đặt có mã PIN
+let unlocked=false;
+function settingsUI(){const c=cfg(),box=document.getElementById('settings-body');
+if(c.pin&&!unlocked){box.innerHTML='<p>🔒 Phần này dành cho bố mẹ. Nhập mã PIN để thay đổi mục tiêu, lời nhắc hoặc xóa lịch sử.</p>'
++'<label>Mã PIN<input id="pin" type="password" inputmode="numeric" maxlength="8" autocomplete="off"></label><button class="btn solid" onclick="unlock()">🔓 Mở khóa</button>';return;}
+box.innerHTML=(c.pin?'':'<p class="note">👋 Lần đầu sử dụng: bố mẹ hãy đặt <b>mã PIN</b> để con không tự đổi mục tiêu hay xóa lịch sử.</p>')
++'<label>Tên của con<input id="s-name" maxlength="30" value="'+esc(c.name)+'" placeholder="Ví dụ: Bin"></label>'
++'<label>Mục tiêu mỗi ngày<select id="s-goal">'+[15,20,30,45,60,90].map(m=>'<option value="'+m+'"'+(m===c.goal?' selected':'')+'>'+m+' phút</option>').join('')+'</select></label>'
++'<label>Lời nhắc hiện trên trang chủ của con<textarea id="s-msg" rows="2" maxlength="200" placeholder="Ví dụ: Con nhớ học đủ 30 phút trước khi xem TV nhé! ❤️">'+esc(c.msg)+'</textarea></label>'
++'<label>'+(c.pin?'Đổi mã PIN (để trống nếu giữ nguyên)':'Đặt mã PIN (4–8 số)')+'<input id="s-pin" type="password" inputmode="numeric" maxlength="8" autocomplete="new-password"></label>'
++'<button class="btn solid" onclick="saveSettings()">💾 Lưu cài đặt</button>'+(c.pin?'<button class="btn" onclick="lock()">🔒 Khóa lại</button>':'')
++'<button class="btn" onclick="clearLog()">🗑️ Xóa lịch sử học</button>';}
+function unlock(){if(hsh(document.getElementById('pin').value)===cfg().pin){unlocked=true;settingsUI();}else toast('❌ Mã PIN không đúng');}
+function lock(){unlocked=false;settingsUI();}
+function saveSettings(){const c=cfg(),pin=document.getElementById('s-pin').value.trim();
+if(pin&&!/^\d{4,8}$/.test(pin))return toast('Mã PIN phải gồm 4–8 chữ số');
+if(!c.pin&&!pin)return toast('Bố mẹ hãy đặt mã PIN trước khi lưu');
+c.name=document.getElementById('s-name').value.trim();c.goal=+document.getElementById('s-goal').value;c.msg=document.getElementById('s-msg').value.trim();
+if(pin)c.pin=hsh(pin);sv(CFG,c);unlocked=false;toast('✅ Đã lưu cài đặt');render();studyUI((ld(LOG,{})[dkey()]||{s:0}).s);}
+function clearLog(){if(confirm('Xóa toàn bộ lịch sử học trên máy này? Không thể hoàn tác.')){sv(LOG,{});toast('Đã xóa lịch sử');render();}}
+addEventListener('DOMContentLoaded',render);addEventListener('hashchange',render);
+</script></body></html>

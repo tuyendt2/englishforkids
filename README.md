@@ -8,6 +8,7 @@ Web tĩnh, cài được lên Android/iOS như một ứng dụng (PWA) và họ
   - Sinh viên & Người lớn: C1, C2, Fluent, Native — 10 chủ đề mỗi trình độ (24 từ/chủ đề), gồm từ học thuật, thành ngữ, cụm động từ, tiếng lóng
 - Mỗi chủ đề có mẫu câu hỏi – đáp và một bài ngữ pháp; trang `ngu-phap.html` tổng hợp toàn bộ
 - **🎯 Luyện thi TOEIC** (`toeic.html`): 16 bài — từ loại (danh từ, động từ, tính từ, trạng từ, giới từ, liên từ, đại từ, họ từ) và ngữ pháp trọng tâm (thì, bị động, to V/V-ing, mệnh đề quan hệ, so sánh, lượng từ, câu điều kiện & đảo ngữ, từ dễ nhầm). Mỗi bài có lý thuyết + 15 câu trắc nghiệm kiểu Part 5 chấm điểm, giải thích tiếng Việt; thêm đề tổng hợp 30 câu ngẫu nhiên có bấm giờ (241 câu trong ngân hàng)
+- **👨‍👩‍👧 Nhật ký học & Góc phụ huynh** (`phu-huynh.html`): tự tính thời gian học mỗi ngày (chỉ khi app đang mở và có thao tác; dừng sau 3 phút không thao tác), mục tiêu mặc định 30 phút, đồng hồ ⏱️ ở góc màn hình, lịch 30 ngày, chi tiết bài đã học và điểm bài tập. Bố mẹ đặt mã PIN, đổi mục tiêu, viết lời nhắc hiện trên trang chủ; con bấm “Gửi báo cáo” để gửi link nhật ký qua Zalo/Messenger (dữ liệu nén trong link, không cần máy chủ)
 - Lọc theo lớp, chế độ ẩn nghĩa để tự kiểm tra, in ra giấy
 
 ## Cài lên điện thoại
@@ -26,5 +27,5 @@ Sau khi sửa, chạy:
 python3 build.py
 ```
 
-Lệnh này tạo lại `index.html`, `ngu-phap.html`, `toeic.html`, `chu-de/*.html`, `toeic/*.html`, `manifest.webmanifest`, `sw.js` và `icons/`.
+Lệnh này tạo lại `index.html`, `ngu-phap.html`, `toeic.html`, `phu-huynh.html`, `chu-de/*.html`, `toeic/*.html`, `manifest.webmanifest`, `sw.js` và `icons/`.
 Không sửa tay các file HTML được sinh ra.

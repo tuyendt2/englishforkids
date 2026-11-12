@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi" data-root="../"><head><meta charset="utf-8">
+<html lang="vi" data-root="../" data-page="Places – Nơi chốn"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Places – Nơi chốn</title>
 <meta name="theme-color" content="#78909c">
@@ -19,7 +19,7 @@ header .big{font-size:60px;line-height:1}
 header h1{margin:8px 0 4px;font-size:clamp(26px,6vw,34px)}
 header p{margin:0;font-size:17px;opacity:.95}
 .badge{display:inline-block;background:#fff;color:var(--c);font-weight:700;border-radius:20px;padding:3px 12px;font-size:14px;margin-top:8px}
-main{max-width:1150px;margin:0 auto;padding:20px 16px calc(60px + env(safe-area-inset-bottom))}
+main{max-width:1150px;margin:0 auto;padding:20px 16px calc(80px + env(safe-area-inset-bottom))}
 h2{font-size:23px;margin:28px 0 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 h2 small{font-size:15px;font-weight:600;color:#888}
 .toolbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
@@ -75,6 +75,11 @@ h3.sub small{font-size:14px;font-weight:600;color:#999}
 .install{display:none}
 .ioshint{display:none;background:#fff;color:#333;border-radius:16px;padding:10px 14px;margin:12px auto 0;max-width:420px;font-size:15px;text-shadow:none}
 [hidden]{display:none!important}
+.pill{position:fixed;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:20;background:linear-gradient(90deg,#ffd54f var(--p,0%),#fff var(--p,0%));color:#333;border:2px solid #ffb300;border-radius:22px;padding:7px 14px;font-weight:800;font-size:15px;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,.18)}
+.pill.met{background:#43a047;color:#fff;border-color:#2e7d32}
+.toast{position:fixed;left:50%;top:calc(16px + env(safe-area-inset-top));transform:translateX(-50%);background:#2e7d32;color:#fff;padding:12px 20px;border-radius:16px;font-weight:700;z-index:30;box-shadow:0 6px 18px rgba(0,0,0,.25);max-width:90vw;text-align:center}
+.remind{background:#fff3e0;border:2px solid #ffb300;border-radius:16px;padding:12px 16px;margin-bottom:14px;line-height:1.55;font-size:16px}
+.parent{background:linear-gradient(135deg,#ff8f00,#ff7aa2)}
 .toeic{background:linear-gradient(135deg,#1565c0,#00acc1)}
 .theory{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px;align-items:start}
 .famwrap{overflow-x:auto;background:#fff;border-radius:16px;box-shadow:0 3px 8px rgba(0,0,0,.06)}
@@ -102,7 +107,7 @@ h3.sub small{font-size:14px;font-weight:600;color:#999}
 .theory .f{font-family:inherit;font-weight:700}
 @media (max-width:860px){.cols{grid-template-columns:1fr;gap:0}}
 @media (max-width:480px){.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.chips::-webkit-scrollbar{display:none}.chip{flex:0 0 auto}section[id]{scroll-margin-top:70px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:12px 6px 10px;border-radius:16px}.card .ico{font-size:40px}.card .w{font-size:17px}.card .ipa,.card .vn,.card .m{font-size:13px}.say{top:2px;right:2px;font-size:17px}.topics{grid-template-columns:1fr 1fr;gap:10px}.topic{padding:14px;border-radius:18px}.topic .ico{font-size:38px}.topic .t{font-size:16px}.topic .s{font-size:14px}.topic .n{font-size:12px}nav.pn a{padding:9px 12px;font-size:14px}.opts{grid-template-columns:1fr}.theory{grid-template-columns:1fr}.qt{font-size:16px}}
-@media print{.say,.toolbar,nav.pn,.chips,.scorebar .btn{display:none}.why{display:block!important}.q{break-inside:avoid}header{border-radius:0}.card,.gram{break-inside:avoid}.cols{grid-template-columns:1fr}}
+@media print{.pill,.toast,.say,.toolbar,nav.pn,.chips,.scorebar .btn{display:none}.why{display:block!important}.q{break-inside:avoid}header{border-radius:0}.card,.gram{break-inside:avoid}.cols{grid-template-columns:1fr}}
 </style><script>
 function say(t){if(!('speechSynthesis' in window))return alert('Trình duyệt không hỗ trợ đọc.');
 speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/→/g,'.').replace(/\//g,' or '));
@@ -124,12 +129,33 @@ q.classList.add('done',ok?'qok':'qno');b.classList.add(ok?'right':'wrong');q.que
 q.querySelector('.why').hidden=false;score(q.closest('.quiz'));}
 function score(z){const n=z.querySelectorAll('.q').length,d=z.querySelectorAll('.q.done').length,r=z.querySelectorAll('.q.qok').length;
 let t='✅ Đúng '+r+'/'+n+' · đã làm '+d+'/'+n;
-if(n&&d===n){if(r>store(z.dataset.key))store(z.dataset.key,r);
+if(n&&d===n){if(!z.dataset.rec){z.dataset.rec=1;logQuiz(r,n);}if(r>store(z.dataset.key))store(z.dataset.key,r);
 t+=' — '+(r>=n*.8?'🎉 Xuất sắc!':r>=n*.5?'👍 Khá tốt, xem lại câu sai nhé.':'💪 Đọc lại lý thuyết rồi làm lại nhé.');}
 const best=store(z.dataset.key);if(best)t+=' · 🏆 Cao nhất: '+best+'/'+n;z.querySelector('.score').textContent=t;}
-function resetQuiz(b){const z=b.closest('.quiz');z.querySelectorAll('.q').forEach(q=>{q.classList.remove('done','qok','qno');
+function resetQuiz(b){const z=b.closest('.quiz');delete z.dataset.rec;z.querySelectorAll('.q').forEach(q=>{q.classList.remove('done','qok','qno');
 q.querySelector('.why').hidden=true;q.querySelectorAll('.opts button').forEach(o=>o.classList.remove('right','wrong'));});score(z);z.scrollIntoView({behavior:'smooth'});}
 function showAll(b){b.closest('.quiz').querySelectorAll('.q:not(.done)').forEach(q=>{q.classList.add('done');q.querySelector('[data-ok]').classList.add('right');q.querySelector('.why').hidden=false;});}
+const LOG='efk:log',CFG='efk:cfg',IDLE=180000;
+function ld(k,d){try{return JSON.parse(localStorage.getItem(k))||d;}catch(e){return d;}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+function cfg(){return Object.assign({goal:30,name:'',msg:'',pin:''},ld(CFG,{}));}
+function dkey(d){d=d||new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function dayRec(log,d){return log[d]||(log[d]={s:0,p:{},q:[]});}
+function esc(t){return String(t).replace(/[&<>"']/g,c=>'&#'+c.charCodeAt(0)+';');}
+let lastAct=Date.now();
+['pointerdown','keydown','scroll','touchstart','wheel'].forEach(t=>addEventListener(t,()=>{lastAct=Date.now();},{passive:true}));
+setInterval(()=>{if(document.hidden||Date.now()-lastAct>IDLE||location.pathname.endsWith('phu-huynh.html'))return;const log=ld(LOG,{}),r=dayRec(log,dkey()),pg=document.documentElement.dataset.page,b=r.s;
+r.s+=5;r.p[pg]=(r.p[pg]||0)+5;sv(LOG,log);studyUI(r.s,b);},5000);
+function studyUI(s,before){const el=document.getElementById('studyPill');if(!el)return;const c=cfg(),g=c.goal*60;
+el.textContent=(s>=g?'✅ ':'⏱️ ')+Math.floor(s/60)+'/'+c.goal+' phút';el.style.setProperty('--p',Math.min(100,s/g*100)+'%');el.classList.toggle('met',s>=g);
+if(before!==undefined&&before<g&&s>=g)toast('🎉 Giỏi quá! Hôm nay đã học đủ '+c.goal+' phút!');}
+function toast(t){const d=document.createElement('div');d.className='toast';d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),5000);}
+function logQuiz(r,n){const log=ld(LOG,{});dayRec(log,dkey()).q.push([document.documentElement.dataset.page,r,n]);sv(LOG,log);}
+addEventListener('DOMContentLoaded',()=>{const a=document.createElement('a');a.id='studyPill';a.className='pill';
+a.href=document.documentElement.dataset.root+'phu-huynh.html';a.title='Thời gian học hôm nay — bấm để xem nhật ký học';document.body.appendChild(a);
+const s=(ld(LOG,{})[dkey()]||{s:0}).s;studyUI(s);const b=document.getElementById('remind');
+if(b){const c=cfg(),left=c.goal-Math.floor(s/60);if(left>0){b.hidden=false;b.innerHTML='📢 '+(c.msg?'<b>Lời nhắc của bố mẹ:</b> '+esc(c.msg)+'<br>':'')
++'Hôm nay '+(c.name?esc(c.name)+' ':'')+'còn <b>'+left+' phút</b> nữa là đủ mục tiêu '+c.goal+' phút. Cố lên! 💪';}}});
 addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.quiz').forEach(score);
 document.querySelectorAll('[data-best]').forEach(el=>{const b=store(el.dataset.best);if(b)el.textContent='🏆 '+b+'/'+el.dataset.n;});});
 </script></head>
