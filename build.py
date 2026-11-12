@@ -9,8 +9,9 @@ from _data import TOPICS as T1
 from _grammar import GRAMMAR as G1
 
 TOPICS, GRAMMAR = list(T1), dict(G1)
-for _g in range(5, 13):
-    _m = importlib.import_module(f"_data_lop{_g:02d}")
+_MODULES = [f"_data_lop{g:02d}" for g in range(5, 13)] + ["_data_c1", "_data_c2", "_data_fluent", "_data_native"]
+for _name in _MODULES:
+    _m = importlib.import_module(_name)
     TOPICS += _m.TOPICS
     GRAMMAR.update(_m.GRAMMAR)
 _slugs = [t[0] for t in TOPICS]
@@ -19,13 +20,22 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(ROOT, "chu-de")
 os.makedirs(OUT, exist_ok=True)
 e = html.escape
-APP_NAME, SHORT_NAME, THEME = "English for Kids – Lớp 1 đến 12", "English Kids", "#ff7aa2"
+APP_NAME, SHORT_NAME, THEME = "English for Kids – Lớp 1–12 & Người lớn", "English Kids", "#ff7aa2"
 
 LEVELS = [("tieu-hoc", "🎈 Tiểu học", "Lớp 1 – 5", range(1, 6)),
           ("thcs", "📗 Trung học cơ sở", "Lớp 6 – 9", range(6, 10)),
-          ("thpt", "🎓 Trung học phổ thông", "Lớp 10 – 12", range(10, 13))]
+          ("thpt", "🎓 Trung học phổ thông", "Lớp 10 – 12", range(10, 13)),
+          ("nguoi-lon", "🧑‍🎓 Sinh viên & Người lớn", "C1 · C2 · Fluent · Native", range(13, 17))]
+
+# Trình độ người lớn được mã hóa thành "lớp" 13–16 để dùng chung bộ lọc
+ADULT = {"C1": 13, "C2": 14, "Fluent": 15, "Native": 16}
+ADULT_NAME = {13: "C1 – Advanced (Nâng cao)", 14: "C2 – Proficiency (Thành thạo)",
+              15: "Fluent – Lưu loát", 16: "Native – Như người bản xứ"}
+CHIP_LABEL = {g: f"Lớp {g}" for g in range(1, 13)} | {v: k for k, v in ADULT.items()}
 
 def grades(g):
+    if g in ADULT:
+        return [ADULT[g]]
     n = [int(x) for x in re.findall(r"\d+", g)]
     return list(range(n[0], n[-1] + 1))
 
@@ -88,7 +98,7 @@ nav.pn a{background:var(--c);color:#fff;padding:10px 18px;border-radius:20px;tex
 .topic .t{font-size:20px;font-weight:800;margin-top:6px}
 .topic .s{font-size:16px;opacity:.95}
 .topic .n{margin-top:10px;font-size:14px;background:rgba(255,255,255,.25);display:inline-block;padding:3px 10px;border-radius:12px}
-section[id]{scroll-margin-top:190px}
+section[id]{scroll-margin-top:130px}
 h3.sub{font-size:18px;margin:20px 0 10px;color:#555;border-left:5px solid #ff7aa2;padding-left:10px}
 h3.sub small{font-size:14px;font-weight:600;color:#999}
 .special{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#7c4dff,#ff7aa2);color:#fff;text-decoration:none;border-radius:24px;padding:18px 22px;box-shadow:0 6px 14px rgba(0,0,0,.12)}
@@ -99,7 +109,7 @@ h3.sub small{font-size:14px;font-weight:600;color:#999}
 .ioshint{display:none;background:#fff;color:#333;border-radius:16px;padding:10px 14px;margin:12px auto 0;max-width:420px;font-size:15px;text-shadow:none}
 [hidden]{display:none!important}
 @media (max-width:860px){.cols{grid-template-columns:1fr;gap:0}}
-@media (max-width:480px){.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:12px 6px 10px;border-radius:16px}.card .ico{font-size:40px}.card .w{font-size:17px}.card .ipa,.card .vn,.card .m{font-size:13px}.say{top:2px;right:2px;font-size:17px}.topics{grid-template-columns:1fr 1fr;gap:10px}.topic{padding:14px;border-radius:18px}.topic .ico{font-size:38px}.topic .t{font-size:16px}.topic .s{font-size:14px}.topic .n{font-size:12px}nav.pn a{padding:9px 12px;font-size:14px}}
+@media (max-width:480px){.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.chips::-webkit-scrollbar{display:none}.chip{flex:0 0 auto}section[id]{scroll-margin-top:70px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:12px 6px 10px;border-radius:16px}.card .ico{font-size:40px}.card .w{font-size:17px}.card .ipa,.card .vn,.card .m{font-size:13px}.say{top:2px;right:2px;font-size:17px}.topics{grid-template-columns:1fr 1fr;gap:10px}.topic{padding:14px;border-radius:18px}.topic .ico{font-size:38px}.topic .t{font-size:16px}.topic .s{font-size:14px}.topic .n{font-size:12px}nav.pn a{padding:9px 12px;font-size:14px}}
 @media print{.say,.toolbar,nav.pn,.chips{display:none}header{border-radius:0}.card,.gram{break-inside:avoid}.cols{grid-template-columns:1fr}}
 """
 
@@ -200,12 +210,12 @@ for i, (slug, ico, en, vi, grade, color, words, pats) in enumerate(TOPICS):
     nxt = f'<a href="{TOPICS[i+1][0]}.html">{e(TOPICS[i+1][3])} ➡️</a>' if i + 1 < len(TOPICS) else '<span></span>'
     lvl = level_of(grade)
     body = f"""<header><div class="big">{ico}</div><h1>{e(en)}</h1><p>Chủ đề {i+1}: {e(vi)}</p>
-<span class="badge">📘 {e(grade)} · {len(ws)} từ · {len(ps)} mẫu câu · ngữ pháp</span>
+<span class="badge">📘 {e(grade if grade not in ADULT else "Trình độ " + grade)} · {len(ws)} từ · {len(ps)} mẫu câu · ngữ pháp</span>
 <div class="toolbar"><a class="btn" href="../index.html#{lvl[0]}">🏠 Trang chủ</a>
 <a class="btn" href="../ngu-phap.html">📐 Ngữ pháp</a>
 <button class="btn" onclick="toggleHide(this)">🙈 Ẩn nghĩa (tự kiểm tra)</button>
 <button class="btn" onclick="window.print()">🖨️ In</button></div></header>
-<main><div class="legend">🔊 Bấm loa để nghe &nbsp;|&nbsp; <b>/IPA/</b> = phiên âm quốc tế{' &nbsp;|&nbsp; 🗣️ = phiên âm tiếng Việt (gần đúng)' if has_vn else ' &nbsp;|&nbsp; (n) danh từ · (v) động từ · (adj) tính từ'} &nbsp;|&nbsp; ô xám = nghĩa</div>
+<main><div class="legend">🔊 Bấm loa để nghe &nbsp;|&nbsp; <b>/IPA/</b> = phiên âm quốc tế{' &nbsp;|&nbsp; 🗣️ = phiên âm tiếng Việt (gần đúng)' if has_vn else (' &nbsp;|&nbsp; (n) danh từ · (v) động từ · (adj) tính từ' + (' · (idiom) thành ngữ · (phr v) cụm động từ · (expr) cụm từ cố định · (collocation) kết hợp từ · (slang) tiếng lóng' if grade in ADULT else ''))} &nbsp;|&nbsp; ô xám = nghĩa</div>
 <h2>📖 Từ vựng (Vocabulary)</h2><div class="grid">{cards}</div>
 <div class="cols"><section><h2>💬 Mẫu câu (Sentence patterns)</h2>{pat_html}</section>
 <section><h2>📐 Ngữ pháp (Grammar)</h2>{gram or '<p>Đang cập nhật…</p>'}</section></div>
@@ -223,13 +233,15 @@ for f in os.listdir(OUT):
 # ───────────────────────── Bộ lọc lớp ─────────────────────────
 def chips():
     return ('<div class="chips"><button class="chip on" data-g="all" onclick="filterGrade(this)">Tất cả</button>'
-            + "".join(f'<button class="chip" data-g="{g}" onclick="filterGrade(this)">Lớp {g}</button>' for g in range(1, 13))
+            + "".join(f'<button class="chip" data-g="{g}" onclick="filterGrade(this)">{CHIP_LABEL[g]}</button>' for g in range(1, 17))
             + "</div>")
 
 # ───────────────────────── Trang chủ ─────────────────────────
 def subgroup(g):
     """Nhóm con trong mỗi cấp: chủ đề dùng chung nhiều lớp (Lớp 1–4) hoặc từng lớp riêng."""
     gs = grades(g)
+    if gs[0] in ADULT_NAME:
+        return ADULT_NAME[gs[0]]
     return "Lớp 1 – 4 (dùng chung)" if len(gs) > 1 or gs[0] < 5 else f"Lớp {gs[0]}"
 
 sections = ""
@@ -251,7 +263,7 @@ for key, name, rng, _ in LEVELS:
     sections += f'<section data-sec id="{key}"><h2>{name} <small>{rng} · {len(items)} chủ đề · {nw} từ</small></h2>{body}</section>'
 
 index = f"""<header><div class="big">🎈📚🌈</div><h1>English for Kids</h1>
-<p>Từ vựng · Mẫu câu · Ngữ pháp tiếng Anh — Lớp 1 đến Lớp 12</p>
+<p>Từ vựng · Mẫu câu · Ngữ pháp tiếng Anh — Lớp 1 đến Lớp 12, Sinh viên &amp; Người lớn (C1 → Native)</p>
 <span class="badge">⭐ {len(TOPICS)} chủ đề · {total} từ vựng · {len(GRAMMAR)} bài ngữ pháp</span>
 <div class="toolbar"><button class="btn install" onclick="installApp()">📲 Cài ứng dụng</button>
 <a class="btn" href="ngu-phap.html">📐 Tổng hợp ngữ pháp</a></div>
@@ -265,7 +277,8 @@ index = f"""<header><div class="big">🎈📚🌈</div><h1>English for Kids</h1>
 2️⃣ Đọc theo <b>phiên âm IPA</b>; phiên âm tiếng Việt (Tiểu học) chỉ để tham khảo cách đọc gần đúng.<br>
 3️⃣ Bấm <b>🙈 Ẩn nghĩa</b> để tự kiểm tra: nhìn từ đoán nghĩa, chạm vào thẻ để xem đáp án.<br>
 4️⃣ Học <b>mẫu câu</b> theo cặp hỏi ❓ – đáp 💬, rồi đọc phần <b>📐 ngữ pháp</b> bên cạnh để hiểu vì sao câu được viết như vậy.<br>
-5️⃣ Cài ứng dụng về điện thoại 📲 để học cả khi <b>không có mạng</b>. Cuối tuần ôn lại chủ đề cũ 🔁 — <i>Practice makes perfect!</i> 🏆
+5️⃣ Sinh viên &amp; người lớn: bắt đầu từ <b>C1/C2</b> để luyện tiếng Anh học thuật, công việc; học <b>Fluent/Native</b> để nói tự nhiên như người bản xứ.<br>
+6️⃣ Cài ứng dụng về điện thoại 📲 để học cả khi <b>không có mạng</b>. Cuối tuần ôn lại chủ đề cũ 🔁 — <i>Practice makes perfect!</i> 🏆
 </div></main>"""
 with open(os.path.join(ROOT, "index.html"), "w", encoding="utf-8") as f:
     f.write(page(APP_NAME, THEME, index))
@@ -280,7 +293,7 @@ for key, name, rng, _ in LEVELS:
         for i, t in items)
     gsec += f'<section data-sec id="{key}"><h2>{name} <small>{rng} · {len(items)} bài</small></h2>{blocks}</section>'
 gpage = f"""<header><div class="big">📐</div><h1>Tổng hợp ngữ pháp</h1>
-<p>English Grammar — Lớp 1 đến Lớp 12</p><span class="badge">📘 {len(GRAMMAR)} bài · mỗi bài gắn với một chủ đề từ vựng</span>
+<p>English Grammar — Lớp 1 đến Lớp 12 · C1 → Native</p><span class="badge">📘 {len(GRAMMAR)} bài · mỗi bài gắn với một chủ đề từ vựng</span>
 <div class="toolbar"><a class="btn" href="index.html">🏠 Trang chủ</a><button class="btn" onclick="window.print()">🖨️ In</button></div></header>
 <main>{chips()}{gsec}</main>"""
 with open(os.path.join(ROOT, "ngu-phap.html"), "w", encoding="utf-8") as f:
@@ -336,7 +349,7 @@ icon_files = sorted("icons/" + f for f in os.listdir(ICONS) if f.endswith(".png"
 # ───────────────────────── Manifest + Service worker ─────────────────────────
 manifest = {
     "name": APP_NAME, "short_name": SHORT_NAME, "lang": "vi",
-    "description": "Từ vựng, mẫu câu và ngữ pháp tiếng Anh từ Lớp 1 đến Lớp 12 — học cả khi không có mạng.",
+    "description": "Từ vựng, mẫu câu và ngữ pháp tiếng Anh từ Lớp 1 đến Lớp 12, cho sinh viên và người lớn trình độ C1 đến Native — học cả khi không có mạng.",
     "start_url": "./index.html", "scope": "./", "display": "standalone", "orientation": "any",
     "background_color": "#fffaf2", "theme_color": THEME,
     "icons": [

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi" data-root="../"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Workplace &amp; Leadership – Công việc &amp; Lãnh đạo</title>
+<meta name="theme-color" content="#37474f">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="English Kids">
+<style>:root{--c:#37474f}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Segoe UI','Nunito',system-ui,Arial,sans-serif;background:#fffaf2;color:#333;overflow-x:hidden}
+header{padding:calc(24px + env(safe-area-inset-top)) 16px 22px;text-align:center;color:#fff;background:var(--c);border-radius:0 0 32px 32px;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+header .big{font-size:60px;line-height:1}
+header h1{margin:8px 0 4px;font-size:clamp(26px,6vw,34px)}
+header p{margin:0;font-size:17px;opacity:.95}
+.badge{display:inline-block;background:#fff;color:var(--c);font-weight:700;border-radius:20px;padding:3px 12px;font-size:14px;margin-top:8px}
+main{max-width:1150px;margin:0 auto;padding:20px 16px calc(60px + env(safe-area-inset-bottom))}
+h2{font-size:23px;margin:28px 0 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+h2 small{font-size:15px;font-weight:600;color:#888}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.btn{border:none;background:#fff;color:var(--c);font-weight:700;padding:8px 16px;border-radius:20px;cursor:pointer;font-size:15px;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,.12);font-family:inherit}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:16px}
+.card{background:#fff;border-radius:20px;padding:16px 12px 14px;text-align:center;border:3px solid var(--c);box-shadow:0 4px 10px rgba(0,0,0,.06);position:relative;transition:transform .15s}
+.card:hover{transform:translateY(-4px) rotate(-1deg)}
+.card .ico{font-size:52px;line-height:1.1}
+.card .w{font-size:21px;font-weight:800;color:var(--c);margin:6px 0 4px;overflow-wrap:anywhere}
+.card .ipa{font-family:'Lucida Sans Unicode','Arial Unicode MS',sans-serif;color:#555;font-size:15px;overflow-wrap:anywhere}
+.card .vn{color:#e65100;font-size:15px;margin-top:2px}
+.card .vn::before{content:'🗣️ '}
+.card .m{margin-top:8px;background:#f3f3f3;border-radius:12px;padding:6px;font-weight:700;font-size:16px}
+.say{position:absolute;top:8px;right:8px;border:none;background:none;font-size:20px;cursor:pointer;padding:4px}
+.hide .m{color:transparent;background:repeating-linear-gradient(45deg,#ddd,#ddd 6px,#eee 6px,#eee 12px)}
+.hide .card:hover .m,.hide .card.show .m{color:#333;background:#f3f3f3}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.cols>section>h2{margin-top:28px}
+.pat{background:#fff;border-left:8px solid var(--c);border-radius:16px;padding:14px 18px;margin-bottom:12px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.pat .en{font-size:18px;font-weight:700}
+.pat .en .q{color:var(--c)}
+.pat .vi{color:#666;margin-top:4px;font-style:italic}
+.pat .say,.gram .say{position:static;font-size:17px}
+.gram{background:#fff;border:3px solid var(--c);border-radius:20px;padding:16px 18px;margin-bottom:14px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.gram h3{margin:0 0 10px;color:var(--c);font-size:19px}
+.gram h3 a{color:inherit}
+.gram .tag{display:inline-block;font-size:13px;font-weight:700;background:var(--c);color:#fff;border-radius:10px;padding:2px 8px;margin-right:6px;vertical-align:middle}
+.f{font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;background:#fff6e0;border:1.5px dashed #f0c060;border-radius:10px;padding:7px 10px;margin:6px 0;font-size:15px;font-weight:600;overflow-wrap:anywhere}
+.gram ul{margin:8px 0;padding-left:20px;color:#555;line-height:1.55}
+.ex{border-top:1px dashed #ddd;padding:7px 0}
+.ex .en{font-weight:700}
+.ex .vi{color:#666;font-style:italic;font-size:15px}
+.legend{background:#fff;border:2px dashed var(--c);border-radius:16px;padding:10px 16px;font-size:15px}
+nav.pn{display:flex;justify-content:space-between;margin-top:30px;gap:10px}
+nav.pn a{background:var(--c);color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none;font-weight:700}
+.chips{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:5;background:#fffaf2;padding:10px 0;margin:0 -2px}
+.chip{border:2px solid #ff7aa2;background:#fff;color:#d6336c;border-radius:20px;padding:6px 13px;font-weight:700;cursor:pointer;font-size:15px;font-family:inherit}
+.chip.on{background:#ff7aa2;color:#fff}
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.topic{display:block;text-decoration:none;color:#fff;border-radius:24px;padding:18px;box-shadow:0 6px 14px rgba(0,0,0,.12);transition:transform .15s;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.topic:hover{transform:scale(1.04)}
+.topic .ico{font-size:48px}
+.topic .t{font-size:20px;font-weight:800;margin-top:6px}
+.topic .s{font-size:16px;opacity:.95}
+.topic .n{margin-top:10px;font-size:14px;background:rgba(255,255,255,.25);display:inline-block;padding:3px 10px;border-radius:12px}
+section[id]{scroll-margin-top:130px}
+h3.sub{font-size:18px;margin:20px 0 10px;color:#555;border-left:5px solid #ff7aa2;padding-left:10px}
+h3.sub small{font-size:14px;font-weight:600;color:#999}
+.special{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#7c4dff,#ff7aa2);color:#fff;text-decoration:none;border-radius:24px;padding:18px 22px;box-shadow:0 6px 14px rgba(0,0,0,.12)}
+.special .ico{font-size:46px}
+.special b{font-size:21px;display:block}
+.tips{background:#fff;border-radius:20px;padding:16px 22px;box-shadow:0 3px 8px rgba(0,0,0,.06);line-height:1.7}
+.install{display:none}
+.ioshint{display:none;background:#fff;color:#333;border-radius:16px;padding:10px 14px;margin:12px auto 0;max-width:420px;font-size:15px;text-shadow:none}
+[hidden]{display:none!important}
+@media (max-width:860px){.cols{grid-template-columns:1fr;gap:0}}
+@media (max-width:480px){.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.chips::-webkit-scrollbar{display:none}.chip{flex:0 0 auto}section[id]{scroll-margin-top:70px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:12px 6px 10px;border-radius:16px}.card .ico{font-size:40px}.card .w{font-size:17px}.card .ipa,.card .vn,.card .m{font-size:13px}.say{top:2px;right:2px;font-size:17px}.topics{grid-template-columns:1fr 1fr;gap:10px}.topic{padding:14px;border-radius:18px}.topic .ico{font-size:38px}.topic .t{font-size:16px}.topic .s{font-size:14px}.topic .n{font-size:12px}nav.pn a{padding:9px 12px;font-size:14px}}
+@media print{.say,.toolbar,nav.pn,.chips{display:none}header{border-radius:0}.card,.gram{break-inside:avoid}.cols{grid-template-columns:1fr}}
+</style><script>
+function say(t){if(!('speechSynthesis' in window))return alert('Trình duyệt không hỗ trợ đọc.');
+speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/→/g,'.').replace(/\//g,' or '));
+u.lang='en-GB';u.rate=0.8;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));if(v)u.voice=v;speechSynthesis.speak(u);}
+function toggleHide(b){document.body.classList.toggle('hide');b.textContent=document.body.classList.contains('hide')?'👁️ Hiện nghĩa':'🙈 Ẩn nghĩa (tự kiểm tra)';}
+document.addEventListener('click',ev=>{const c=ev.target.closest('.card');if(c&&!ev.target.closest('.say'))c.classList.toggle('show');});
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register(document.documentElement.dataset.root+'sw.js').catch(()=>{}));
+let deferredPrompt;
+addEventListener('beforeinstallprompt',ev=>{ev.preventDefault();deferredPrompt=ev;document.querySelectorAll('.install').forEach(b=>b.style.display='inline-block');});
+function installApp(){if(!deferredPrompt)return;deferredPrompt.prompt();deferredPrompt.userChoice.finally(()=>{deferredPrompt=null;document.querySelectorAll('.install').forEach(b=>b.style.display='none');});}
+addEventListener('DOMContentLoaded',()=>{const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const standalone=navigator.standalone||matchMedia('(display-mode: standalone)').matches;const h=document.querySelector('.ioshint');if(h&&ios&&!standalone)h.style.display='block';});
+function filterGrade(btn){document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===btn));const g=btn.dataset.g;
+document.querySelectorAll('[data-g]').forEach(el=>{if(el.classList.contains('chip'))return;el.hidden=g!=='all'&&!(' '+el.dataset.g+' ').includes(' '+g+' ');});
+document.querySelectorAll('[data-sec]').forEach(s=>{s.hidden=!s.querySelector('[data-g]:not([hidden])');});}
+</script></head>
+<body><header><div class="big">💼</div><h1>Workplace &amp; Leadership</h1><p>Chủ đề 110: Công việc &amp; Lãnh đạo</p>
+<span class="badge">📘 Trình độ C1 · 24 từ · 5 mẫu câu · ngữ pháp</span>
+<div class="toolbar"><a class="btn" href="../index.html#nguoi-lon">🏠 Trang chủ</a>
+<a class="btn" href="../ngu-phap.html">📐 Ngữ pháp</a>
+<button class="btn" onclick="toggleHide(this)">🙈 Ẩn nghĩa (tự kiểm tra)</button>
+<button class="btn" onclick="window.print()">🖨️ In</button></div></header>
+<main><div class="legend">🔊 Bấm loa để nghe &nbsp;|&nbsp; <b>/IPA/</b> = phiên âm quốc tế &nbsp;|&nbsp; (n) danh từ · (v) động từ · (adj) tính từ · (idiom) thành ngữ · (phr v) cụm động từ · (expr) cụm từ cố định · (collocation) kết hợp từ · (slang) tiếng lóng &nbsp;|&nbsp; ô xám = nghĩa</div>
+<h2>📖 Từ vựng (Vocabulary)</h2><div class="grid"><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="stakeholder">🔊</button><div class="ico">🧑‍💼</div><div class="w">stakeholder</div><div class="ipa">/ˈsteɪkhəʊldə/</div><div class="m">(n) bên liên quan</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="KPI">🔊</button><div class="ico">🎯</div><div class="w">KPI</div><div class="ipa">/ˌkeɪ piː ˈaɪ/</div><div class="m">(n) chỉ số đánh giá hiệu quả</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="productivity">🔊</button><div class="ico">📈</div><div class="w">productivity</div><div class="ipa">/ˌprɒdʌkˈtɪvəti/</div><div class="m">(n) năng suất</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="delegate">🔊</button><div class="ico">🧭</div><div class="w">delegate</div><div class="ipa">/ˈdelɪɡeɪt/</div><div class="m">(v) giao việc, ủy quyền</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="feedback">🔊</button><div class="ico">🗣️</div><div class="w">feedback</div><div class="ipa">/ˈfiːdbæk/</div><div class="m">(n) phản hồi</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="negotiate">🔊</button><div class="ico">🤝</div><div class="w">negotiate</div><div class="ipa">/nɪˈɡəʊʃieɪt/</div><div class="m">(v) đàm phán</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="cross-functional">🔊</button><div class="ico">🧩</div><div class="w">cross-functional</div><div class="ipa">/ˌkrɒs ˈfʌŋkʃənl/</div><div class="m">(adj) liên phòng ban</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="burnout">🔊</button><div class="ico">🔥</div><div class="w">burnout</div><div class="ipa">/ˈbɜːnaʊt/</div><div class="m">(n) tình trạng kiệt sức</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="accountability">🔊</button><div class="ico">⚖️</div><div class="w">accountability</div><div class="ipa">/əˌkaʊntəˈbɪləti/</div><div class="m">(n) trách nhiệm giải trình</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="initiative">🔊</button><div class="ico">💡</div><div class="w">initiative</div><div class="ipa">/ɪˈnɪʃətɪv/</div><div class="m">(n) sáng kiến; sự chủ động</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="empower">🔊</button><div class="ico">🚀</div><div class="w">empower</div><div class="ipa">/ɪmˈpaʊə/</div><div class="m">(v) trao quyền</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="mentorship">🔊</button><div class="ico">🧑‍🏫</div><div class="w">mentorship</div><div class="ipa">/ˈmentɔːʃɪp/</div><div class="m">(n) sự cố vấn, kèm cặp</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="appraisal">🔊</button><div class="ico">📋</div><div class="w">appraisal</div><div class="ipa">/əˈpreɪzl/</div><div class="m">(n) đánh giá năng lực</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="incentive">🔊</button><div class="ico">🏆</div><div class="w">incentive</div><div class="ipa">/ɪnˈsentɪv/</div><div class="m">(n) khuyến khích, ưu đãi</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="restructure">🔊</button><div class="ico">🔄</div><div class="w">restructure</div><div class="ipa">/ˌriːˈstrʌktʃə/</div><div class="m">(v) tái cơ cấu</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="redundancy">🔊</button><div class="ico">📉</div><div class="w">redundancy</div><div class="ipa">/rɪˈdʌndənsi/</div><div class="m">(n) sự cắt giảm biên chế</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="decisive">🔊</button><div class="ico">🧠</div><div class="w">decisive</div><div class="ipa">/dɪˈsaɪsɪv/</div><div class="m">(adj) quyết đoán</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="collaborative">🔊</button><div class="ico">🤲</div><div class="w">collaborative</div><div class="ipa">/kəˈlæbərətɪv/</div><div class="m">(adj) mang tính hợp tác</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="pitch">🔊</button><div class="ico">🎙️</div><div class="w">pitch</div><div class="ipa">/pɪtʃ/</div><div class="m">(n/v) bài thuyết trình chào hàng; chào hàng</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="workload">🔊</button><div class="ico">🧾</div><div class="w">workload</div><div class="ipa">/ˈwɜːkləʊd/</div><div class="m">(n) khối lượng công việc</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="corporate culture">🔊</button><div class="ico">🏢</div><div class="w">corporate culture</div><div class="ipa">/ˈkɔːpərət ˈkʌltʃə/</div><div class="m">(n) văn hóa doanh nghiệp</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="climb the career ladder">🔊</button><div class="ico">🪜</div><div class="w">climb the career ladder</div><div class="ipa">/klaɪm ðə kəˈrɪə ˈlædə/</div><div class="m">(v) leo nấc thang sự nghiệp</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="prioritise">🔊</button><div class="ico">🎚️</div><div class="w">prioritise</div><div class="ipa">/praɪˈɒrətaɪz/</div><div class="m">(v) ưu tiên</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="deadline-driven">🔊</button><div class="ico">⏰</div><div class="w">deadline-driven</div><div class="ipa">/ˈdedlaɪn drɪvn/</div><div class="m">(adj) chạy theo hạn chót</div></div></div>
+<div class="cols"><section><h2>💬 Mẫu câu (Sentence patterns)</h2><div class="pat"><div class="en">Could you bring me up to speed on the project? <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Could you bring me up to speed on the project?">🔊</button></div><div class="vi">🇻🇳 Bạn có thể cập nhật cho tôi tình hình dự án không?</div></div><div class="pat"><div class="en">Let&#x27;s touch base next week to review progress. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Let&#x27;s touch base next week to review progress.">🔊</button></div><div class="vi">🇻🇳 Tuần sau chúng ta trao đổi lại để xem tiến độ nhé.</div></div><div class="pat"><div class="en">I&#x27;d appreciate it if you could take the lead on this. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="I&#x27;d appreciate it if you could take the lead on this.">🔊</button></div><div class="vi">🇻🇳 Tôi rất cảm kích nếu anh/chị có thể dẫn dắt việc này.</div></div><div class="pat"><div class="en">We need to strike a balance between quality and speed. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="We need to strike a balance between quality and speed.">🔊</button></div><div class="vi">🇻🇳 Chúng ta cần cân bằng giữa chất lượng và tốc độ.</div></div><div class="pat"><div class="en">If she had delegated more, she wouldn&#x27;t be so overworked now. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="If she had delegated more, she wouldn&#x27;t be so overworked now.">🔊</button></div><div class="vi">🇻🇳 Nếu cô ấy đã giao việc nhiều hơn, giờ cô ấy đã không quá tải như vậy.</div></div></section>
+<section><h2>📐 Ngữ pháp (Grammar)</h2><div class="gram"><h3>📐 Câu điều kiện hỗn hợp (mixed conditionals)</h3><div class="f">Quá khứ → hiện tại: If + S + had + V3, S + would / could + V (now)</div><div class="f">Hiện tại → quá khứ: If + S + V2 (were), S + would / could + have + V3</div><ul><li>Kiểu 1: điều kiện trái quá khứ, kết quả trái hiện tại. Kiểu 2: đặc điểm trái hiện tại (luôn đúng), kết quả trái quá khứ.</li><li>Dấu hiệu: now, today, still (kết quả hiện tại); yesterday, last year (điều kiện quá khứ).</li></ul><div class="ex"><div class="en">If I had accepted that job offer, I would be living in Singapore now. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="If I had accepted that job offer, I would be living in Singapore now.">🔊</button></div><div class="vi">🇻🇳 Nếu tôi đã nhận lời mời làm việc đó, giờ tôi đang sống ở Singapore.</div></div><div class="ex"><div class="en">If he were more organised, he wouldn&#x27;t have missed the deadline. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="If he were more organised, he wouldn&#x27;t have missed the deadline.">🔊</button></div><div class="vi">🇻🇳 Nếu anh ấy ngăn nắp hơn, anh ấy đã không lỡ hạn chót.</div></div><div class="ex"><div class="en">If we hadn&#x27;t restructured, the company wouldn&#x27;t exist today. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="If we hadn&#x27;t restructured, the company wouldn&#x27;t exist today.">🔊</button></div><div class="vi">🇻🇳 Nếu chúng tôi không tái cơ cấu, công ty đã không còn tồn tại đến hôm nay.</div></div></div></section></div>
+<nav class="pn"><a href="c1-hoc-thuat.html">⬅️ Đời sống học thuật &amp; Nghiên cứu</a><a href="c1-kinh-te.html">Kinh tế &amp; Tài chính ➡️</a></nav></main></body></html>

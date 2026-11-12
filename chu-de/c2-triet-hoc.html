@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi" data-root="../"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Philosophy &amp; Ethics – Triết học &amp; Đạo đức</title>
+<meta name="theme-color" content="#455a64">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="English Kids">
+<style>:root{--c:#455a64}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Segoe UI','Nunito',system-ui,Arial,sans-serif;background:#fffaf2;color:#333;overflow-x:hidden}
+header{padding:calc(24px + env(safe-area-inset-top)) 16px 22px;text-align:center;color:#fff;background:var(--c);border-radius:0 0 32px 32px;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+header .big{font-size:60px;line-height:1}
+header h1{margin:8px 0 4px;font-size:clamp(26px,6vw,34px)}
+header p{margin:0;font-size:17px;opacity:.95}
+.badge{display:inline-block;background:#fff;color:var(--c);font-weight:700;border-radius:20px;padding:3px 12px;font-size:14px;margin-top:8px}
+main{max-width:1150px;margin:0 auto;padding:20px 16px calc(60px + env(safe-area-inset-bottom))}
+h2{font-size:23px;margin:28px 0 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+h2 small{font-size:15px;font-weight:600;color:#888}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.btn{border:none;background:#fff;color:var(--c);font-weight:700;padding:8px 16px;border-radius:20px;cursor:pointer;font-size:15px;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,.12);font-family:inherit}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:16px}
+.card{background:#fff;border-radius:20px;padding:16px 12px 14px;text-align:center;border:3px solid var(--c);box-shadow:0 4px 10px rgba(0,0,0,.06);position:relative;transition:transform .15s}
+.card:hover{transform:translateY(-4px) rotate(-1deg)}
+.card .ico{font-size:52px;line-height:1.1}
+.card .w{font-size:21px;font-weight:800;color:var(--c);margin:6px 0 4px;overflow-wrap:anywhere}
+.card .ipa{font-family:'Lucida Sans Unicode','Arial Unicode MS',sans-serif;color:#555;font-size:15px;overflow-wrap:anywhere}
+.card .vn{color:#e65100;font-size:15px;margin-top:2px}
+.card .vn::before{content:'🗣️ '}
+.card .m{margin-top:8px;background:#f3f3f3;border-radius:12px;padding:6px;font-weight:700;font-size:16px}
+.say{position:absolute;top:8px;right:8px;border:none;background:none;font-size:20px;cursor:pointer;padding:4px}
+.hide .m{color:transparent;background:repeating-linear-gradient(45deg,#ddd,#ddd 6px,#eee 6px,#eee 12px)}
+.hide .card:hover .m,.hide .card.show .m{color:#333;background:#f3f3f3}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.cols>section>h2{margin-top:28px}
+.pat{background:#fff;border-left:8px solid var(--c);border-radius:16px;padding:14px 18px;margin-bottom:12px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.pat .en{font-size:18px;font-weight:700}
+.pat .en .q{color:var(--c)}
+.pat .vi{color:#666;margin-top:4px;font-style:italic}
+.pat .say,.gram .say{position:static;font-size:17px}
+.gram{background:#fff;border:3px solid var(--c);border-radius:20px;padding:16px 18px;margin-bottom:14px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.gram h3{margin:0 0 10px;color:var(--c);font-size:19px}
+.gram h3 a{color:inherit}
+.gram .tag{display:inline-block;font-size:13px;font-weight:700;background:var(--c);color:#fff;border-radius:10px;padding:2px 8px;margin-right:6px;vertical-align:middle}
+.f{font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;background:#fff6e0;border:1.5px dashed #f0c060;border-radius:10px;padding:7px 10px;margin:6px 0;font-size:15px;font-weight:600;overflow-wrap:anywhere}
+.gram ul{margin:8px 0;padding-left:20px;color:#555;line-height:1.55}
+.ex{border-top:1px dashed #ddd;padding:7px 0}
+.ex .en{font-weight:700}
+.ex .vi{color:#666;font-style:italic;font-size:15px}
+.legend{background:#fff;border:2px dashed var(--c);border-radius:16px;padding:10px 16px;font-size:15px}
+nav.pn{display:flex;justify-content:space-between;margin-top:30px;gap:10px}
+nav.pn a{background:var(--c);color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none;font-weight:700}
+.chips{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:5;background:#fffaf2;padding:10px 0;margin:0 -2px}
+.chip{border:2px solid #ff7aa2;background:#fff;color:#d6336c;border-radius:20px;padding:6px 13px;font-weight:700;cursor:pointer;font-size:15px;font-family:inherit}
+.chip.on{background:#ff7aa2;color:#fff}
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.topic{display:block;text-decoration:none;color:#fff;border-radius:24px;padding:18px;box-shadow:0 6px 14px rgba(0,0,0,.12);transition:transform .15s;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.topic:hover{transform:scale(1.04)}
+.topic .ico{font-size:48px}
+.topic .t{font-size:20px;font-weight:800;margin-top:6px}
+.topic .s{font-size:16px;opacity:.95}
+.topic .n{margin-top:10px;font-size:14px;background:rgba(255,255,255,.25);display:inline-block;padding:3px 10px;border-radius:12px}
+section[id]{scroll-margin-top:130px}
+h3.sub{font-size:18px;margin:20px 0 10px;color:#555;border-left:5px solid #ff7aa2;padding-left:10px}
+h3.sub small{font-size:14px;font-weight:600;color:#999}
+.special{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#7c4dff,#ff7aa2);color:#fff;text-decoration:none;border-radius:24px;padding:18px 22px;box-shadow:0 6px 14px rgba(0,0,0,.12)}
+.special .ico{font-size:46px}
+.special b{font-size:21px;display:block}
+.tips{background:#fff;border-radius:20px;padding:16px 22px;box-shadow:0 3px 8px rgba(0,0,0,.06);line-height:1.7}
+.install{display:none}
+.ioshint{display:none;background:#fff;color:#333;border-radius:16px;padding:10px 14px;margin:12px auto 0;max-width:420px;font-size:15px;text-shadow:none}
+[hidden]{display:none!important}
+@media (max-width:860px){.cols{grid-template-columns:1fr;gap:0}}
+@media (max-width:480px){.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.chips::-webkit-scrollbar{display:none}.chip{flex:0 0 auto}section[id]{scroll-margin-top:70px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:12px 6px 10px;border-radius:16px}.card .ico{font-size:40px}.card .w{font-size:17px}.card .ipa,.card .vn,.card .m{font-size:13px}.say{top:2px;right:2px;font-size:17px}.topics{grid-template-columns:1fr 1fr;gap:10px}.topic{padding:14px;border-radius:18px}.topic .ico{font-size:38px}.topic .t{font-size:16px}.topic .s{font-size:14px}.topic .n{font-size:12px}nav.pn a{padding:9px 12px;font-size:14px}}
+@media print{.say,.toolbar,nav.pn,.chips{display:none}header{border-radius:0}.card,.gram{break-inside:avoid}.cols{grid-template-columns:1fr}}
+</style><script>
+function say(t){if(!('speechSynthesis' in window))return alert('Trình duyệt không hỗ trợ đọc.');
+speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/→/g,'.').replace(/\//g,' or '));
+u.lang='en-GB';u.rate=0.8;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));if(v)u.voice=v;speechSynthesis.speak(u);}
+function toggleHide(b){document.body.classList.toggle('hide');b.textContent=document.body.classList.contains('hide')?'👁️ Hiện nghĩa':'🙈 Ẩn nghĩa (tự kiểm tra)';}
+document.addEventListener('click',ev=>{const c=ev.target.closest('.card');if(c&&!ev.target.closest('.say'))c.classList.toggle('show');});
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register(document.documentElement.dataset.root+'sw.js').catch(()=>{}));
+let deferredPrompt;
+addEventListener('beforeinstallprompt',ev=>{ev.preventDefault();deferredPrompt=ev;document.querySelectorAll('.install').forEach(b=>b.style.display='inline-block');});
+function installApp(){if(!deferredPrompt)return;deferredPrompt.prompt();deferredPrompt.userChoice.finally(()=>{deferredPrompt=null;document.querySelectorAll('.install').forEach(b=>b.style.display='none');});}
+addEventListener('DOMContentLoaded',()=>{const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const standalone=navigator.standalone||matchMedia('(display-mode: standalone)').matches;const h=document.querySelector('.ioshint');if(h&&ios&&!standalone)h.style.display='block';});
+function filterGrade(btn){document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===btn));const g=btn.dataset.g;
+document.querySelectorAll('[data-g]').forEach(el=>{if(el.classList.contains('chip'))return;el.hidden=g!=='all'&&!(' '+el.dataset.g+' ').includes(' '+g+' ');});
+document.querySelectorAll('[data-sec]').forEach(s=>{s.hidden=!s.querySelector('[data-g]:not([hidden])');});}
+</script></head>
+<body><header><div class="big">🤔</div><h1>Philosophy &amp; Ethics</h1><p>Chủ đề 120: Triết học &amp; Đạo đức</p>
+<span class="badge">📘 Trình độ C2 · 24 từ · 5 mẫu câu · ngữ pháp</span>
+<div class="toolbar"><a class="btn" href="../index.html#nguoi-lon">🏠 Trang chủ</a>
+<a class="btn" href="../ngu-phap.html">📐 Ngữ pháp</a>
+<button class="btn" onclick="toggleHide(this)">🙈 Ẩn nghĩa (tự kiểm tra)</button>
+<button class="btn" onclick="window.print()">🖨️ In</button></div></header>
+<main><div class="legend">🔊 Bấm loa để nghe &nbsp;|&nbsp; <b>/IPA/</b> = phiên âm quốc tế &nbsp;|&nbsp; (n) danh từ · (v) động từ · (adj) tính từ · (idiom) thành ngữ · (phr v) cụm động từ · (expr) cụm từ cố định · (collocation) kết hợp từ · (slang) tiếng lóng &nbsp;|&nbsp; ô xám = nghĩa</div>
+<h2>📖 Từ vựng (Vocabulary)</h2><div class="grid"><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="dilemma">🔊</button><div class="ico">🤔</div><div class="w">dilemma</div><div class="ipa">/dɪˈlemə/</div><div class="m">(n) tình thế tiến thoái lưỡng nan</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="moral">🔊</button><div class="ico">⚖️</div><div class="w">moral</div><div class="ipa">/ˈmɒrəl/</div><div class="m">(adj) thuộc đạo đức</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="ethical">🔊</button><div class="ico">🧭</div><div class="w">ethical</div><div class="ipa">/ˈeθɪkl/</div><div class="m">(adj) hợp đạo đức</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="paradox">🔊</button><div class="ico">🌀</div><div class="w">paradox</div><div class="ipa">/ˈpærədɒks/</div><div class="m">(n) nghịch lý</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="premise">🔊</button><div class="ico">💡</div><div class="w">premise</div><div class="ipa">/ˈpremɪs/</div><div class="m">(n) tiền đề</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="fallacy">🔊</button><div class="ico">🧩</div><div class="w">fallacy</div><div class="ipa">/ˈfæləsi/</div><div class="m">(n) ngụy biện</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="doctrine">🔊</button><div class="ico">📜</div><div class="w">doctrine</div><div class="ipa">/ˈdɒktrɪn/</div><div class="m">(n) học thuyết</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="consciousness">🔊</button><div class="ico">🧠</div><div class="w">consciousness</div><div class="ipa">/ˈkɒnʃəsnəs/</div><div class="m">(n) ý thức</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="free will">🔊</button><div class="ico">🎲</div><div class="w">free will</div><div class="ipa">/ˌfriː ˈwɪl/</div><div class="m">(n) ý chí tự do</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="determinism">🔊</button><div class="ico">🔗</div><div class="w">determinism</div><div class="ipa">/dɪˈtɜːmɪnɪzəm/</div><div class="m">(n) thuyết tất định</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="virtue">🔊</button><div class="ico">🙏</div><div class="w">virtue</div><div class="ipa">/ˈvɜːtʃuː/</div><div class="m">(n) đức hạnh</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="utilitarianism">🔊</button><div class="ico">📊</div><div class="w">utilitarianism</div><div class="ipa">/ˌjuːtɪlɪˈteəriənɪzəm/</div><div class="m">(n) chủ nghĩa vị lợi</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="ambiguity">🔊</button><div class="ico">🌫️</div><div class="w">ambiguity</div><div class="ipa">/ˌæmbɪˈɡjuːəti/</div><div class="m">(n) sự mơ hồ</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="scepticism">🔊</button><div class="ico">🔍</div><div class="w">scepticism</div><div class="ipa">/ˈskeptɪsɪzəm/</div><div class="m">(n) chủ nghĩa hoài nghi</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="absolute">🔊</button><div class="ico">🧱</div><div class="w">absolute</div><div class="ipa">/ˈæbsəluːt/</div><div class="m">(adj) tuyệt đối</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="relativism">🔊</button><div class="ico">🌈</div><div class="w">relativism</div><div class="ipa">/ˈrelətɪvɪzəm/</div><div class="m">(n) thuyết tương đối</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="existential">🔊</button><div class="ico">🪞</div><div class="w">existential</div><div class="ipa">/ˌeɡzɪˈstenʃl/</div><div class="m">(adj) thuộc hiện sinh</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="integrity">🔊</button><div class="ico">🎯</div><div class="w">integrity</div><div class="ipa">/ɪnˈteɡrəti/</div><div class="m">(n) sự chính trực</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="justify">🔊</button><div class="ico">🧑‍⚖️</div><div class="w">justify</div><div class="ipa">/ˈdʒʌstɪfaɪ/</div><div class="m">(v) biện minh</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="contend">🔊</button><div class="ico">🗣️</div><div class="w">contend</div><div class="ipa">/kənˈtend/</div><div class="m">(v) cho rằng, khẳng định</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="rational">🔊</button><div class="ico">🧮</div><div class="w">rational</div><div class="ipa">/ˈræʃnəl/</div><div class="m">(adj) hợp lý, lý tính</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="contemplate">🔊</button><div class="ico">💭</div><div class="w">contemplate</div><div class="ipa">/ˈkɒntəmpleɪt/</div><div class="m">(v) suy ngẫm</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="metaphysics">🔊</button><div class="ico">🌌</div><div class="w">metaphysics</div><div class="ipa">/ˌmetəˈfɪzɪks/</div><div class="m">(n) siêu hình học</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="reconcile">🔊</button><div class="ico">🔄</div><div class="w">reconcile</div><div class="ipa">/ˈrekənsaɪl/</div><div class="m">(v) dung hòa</div></div></div>
+<div class="cols"><section><h2>💬 Mẫu câu (Sentence patterns)</h2><div class="pat"><div class="en">So compelling was his argument that no one could refute it. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="So compelling was his argument that no one could refute it.">🔊</button></div><div class="vi">🇻🇳 Lập luận của ông ấy thuyết phục đến mức không ai bác bỏ được.</div></div><div class="pat"><div class="en">Such is the nature of moral dilemmas that there is rarely a right answer. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Such is the nature of moral dilemmas that there is rarely a right answer.">🔊</button></div><div class="vi">🇻🇳 Bản chất của các tình huống đạo đức là hiếm khi có câu trả lời đúng.</div></div><div class="pat"><div class="en">The argument rests on a false premise. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The argument rests on a false premise.">🔊</button></div><div class="vi">🇻🇳 Lập luận dựa trên một tiền đề sai.</div></div><div class="pat"><div class="en">Can we ever truly reconcile freedom with security? <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Can we ever truly reconcile freedom with security?">🔊</button></div><div class="vi">🇻🇳 Liệu chúng ta có bao giờ thực sự dung hòa được tự do và an ninh?</div></div><div class="pat"><div class="en">Some philosophers contend that free will is an illusion. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Some philosophers contend that free will is an illusion.">🔊</button></div><div class="vi">🇻🇳 Một số triết gia cho rằng ý chí tự do chỉ là ảo tưởng.</div></div></section>
+<section><h2>📐 Ngữ pháp (Grammar)</h2><div class="gram"><h3>📐 Đảo ngữ với So / Such &amp; đưa thành phần lên đầu câu (fronting)</h3><div class="f">So + adj / adv + be / trợ ĐT + S + that... → ... đến mức...</div><div class="f">Such + be + N + that... → ... đến mức...</div><div class="f">Fronting: đưa tân ngữ / bổ ngữ lên đầu để nhấn mạnh: This I cannot accept.</div><div class="f">Đảo ngữ sau trạng ngữ nơi chốn: On the hill stood an ancient temple. / Here comes the bus.</div><div class="ex"><div class="en">So profound was the book that it changed my outlook on life. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="So profound was the book that it changed my outlook on life.">🔊</button></div><div class="vi">🇻🇳 Cuốn sách sâu sắc đến mức đã thay đổi cách nhìn cuộc sống của tôi.</div></div><div class="ex"><div class="en">Such was her integrity that she refused the bribe. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Such was her integrity that she refused the bribe.">🔊</button></div><div class="vi">🇻🇳 Cô ấy chính trực đến mức đã từ chối khoản hối lộ.</div></div><div class="ex"><div class="en">That he was right, nobody could deny. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="That he was right, nobody could deny.">🔊</button></div><div class="vi">🇻🇳 Việc ông ấy đúng thì không ai phủ nhận được.</div></div></div></section></div>
+<nav class="pn"><a href="c2-luat-phap.html">⬅️ Luật pháp &amp; Công lý</a><a href="c2-khoa-hoc.html">Khoa học &amp; Khám phá ➡️</a></nav></main></body></html>

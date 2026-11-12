@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi" data-root="../"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Health &amp; Wellbeing – Sức khỏe &amp; An sinh</title>
+<meta name="theme-color" content="#00897b">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="English Kids">
+<style>:root{--c:#00897b}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Segoe UI','Nunito',system-ui,Arial,sans-serif;background:#fffaf2;color:#333;overflow-x:hidden}
+header{padding:calc(24px + env(safe-area-inset-top)) 16px 22px;text-align:center;color:#fff;background:var(--c);border-radius:0 0 32px 32px;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+header .big{font-size:60px;line-height:1}
+header h1{margin:8px 0 4px;font-size:clamp(26px,6vw,34px)}
+header p{margin:0;font-size:17px;opacity:.95}
+.badge{display:inline-block;background:#fff;color:var(--c);font-weight:700;border-radius:20px;padding:3px 12px;font-size:14px;margin-top:8px}
+main{max-width:1150px;margin:0 auto;padding:20px 16px calc(60px + env(safe-area-inset-bottom))}
+h2{font-size:23px;margin:28px 0 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+h2 small{font-size:15px;font-weight:600;color:#888}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.btn{border:none;background:#fff;color:var(--c);font-weight:700;padding:8px 16px;border-radius:20px;cursor:pointer;font-size:15px;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,.12);font-family:inherit}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:16px}
+.card{background:#fff;border-radius:20px;padding:16px 12px 14px;text-align:center;border:3px solid var(--c);box-shadow:0 4px 10px rgba(0,0,0,.06);position:relative;transition:transform .15s}
+.card:hover{transform:translateY(-4px) rotate(-1deg)}
+.card .ico{font-size:52px;line-height:1.1}
+.card .w{font-size:21px;font-weight:800;color:var(--c);margin:6px 0 4px;overflow-wrap:anywhere}
+.card .ipa{font-family:'Lucida Sans Unicode','Arial Unicode MS',sans-serif;color:#555;font-size:15px;overflow-wrap:anywhere}
+.card .vn{color:#e65100;font-size:15px;margin-top:2px}
+.card .vn::before{content:'🗣️ '}
+.card .m{margin-top:8px;background:#f3f3f3;border-radius:12px;padding:6px;font-weight:700;font-size:16px}
+.say{position:absolute;top:8px;right:8px;border:none;background:none;font-size:20px;cursor:pointer;padding:4px}
+.hide .m{color:transparent;background:repeating-linear-gradient(45deg,#ddd,#ddd 6px,#eee 6px,#eee 12px)}
+.hide .card:hover .m,.hide .card.show .m{color:#333;background:#f3f3f3}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.cols>section>h2{margin-top:28px}
+.pat{background:#fff;border-left:8px solid var(--c);border-radius:16px;padding:14px 18px;margin-bottom:12px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.pat .en{font-size:18px;font-weight:700}
+.pat .en .q{color:var(--c)}
+.pat .vi{color:#666;margin-top:4px;font-style:italic}
+.pat .say,.gram .say{position:static;font-size:17px}
+.gram{background:#fff;border:3px solid var(--c);border-radius:20px;padding:16px 18px;margin-bottom:14px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.gram h3{margin:0 0 10px;color:var(--c);font-size:19px}
+.gram h3 a{color:inherit}
+.gram .tag{display:inline-block;font-size:13px;font-weight:700;background:var(--c);color:#fff;border-radius:10px;padding:2px 8px;margin-right:6px;vertical-align:middle}
+.f{font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;background:#fff6e0;border:1.5px dashed #f0c060;border-radius:10px;padding:7px 10px;margin:6px 0;font-size:15px;font-weight:600;overflow-wrap:anywhere}
+.gram ul{margin:8px 0;padding-left:20px;color:#555;line-height:1.55}
+.ex{border-top:1px dashed #ddd;padding:7px 0}
+.ex .en{font-weight:700}
+.ex .vi{color:#666;font-style:italic;font-size:15px}
+.legend{background:#fff;border:2px dashed var(--c);border-radius:16px;padding:10px 16px;font-size:15px}
+nav.pn{display:flex;justify-content:space-between;margin-top:30px;gap:10px}
+nav.pn a{background:var(--c);color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none;font-weight:700}
+.chips{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:5;background:#fffaf2;padding:10px 0;margin:0 -2px}
+.chip{border:2px solid #ff7aa2;background:#fff;color:#d6336c;border-radius:20px;padding:6px 13px;font-weight:700;cursor:pointer;font-size:15px;font-family:inherit}
+.chip.on{background:#ff7aa2;color:#fff}
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.topic{display:block;text-decoration:none;color:#fff;border-radius:24px;padding:18px;box-shadow:0 6px 14px rgba(0,0,0,.12);transition:transform .15s;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.topic:hover{transform:scale(1.04)}
+.topic .ico{font-size:48px}
+.topic .t{font-size:20px;font-weight:800;margin-top:6px}
+.topic .s{font-size:16px;opacity:.95}
+.topic .n{margin-top:10px;font-size:14px;background:rgba(255,255,255,.25);display:inline-block;padding:3px 10px;border-radius:12px}
+section[id]{scroll-margin-top:130px}
+h3.sub{font-size:18px;margin:20px 0 10px;color:#555;border-left:5px solid #ff7aa2;padding-left:10px}
+h3.sub small{font-size:14px;font-weight:600;color:#999}
+.special{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#7c4dff,#ff7aa2);color:#fff;text-decoration:none;border-radius:24px;padding:18px 22px;box-shadow:0 6px 14px rgba(0,0,0,.12)}
+.special .ico{font-size:46px}
+.special b{font-size:21px;display:block}
+.tips{background:#fff;border-radius:20px;padding:16px 22px;box-shadow:0 3px 8px rgba(0,0,0,.06);line-height:1.7}
+.install{display:none}
+.ioshint{display:none;background:#fff;color:#333;border-radius:16px;padding:10px 14px;margin:12px auto 0;max-width:420px;font-size:15px;text-shadow:none}
+[hidden]{display:none!important}
+@media (max-width:860px){.cols{grid-template-columns:1fr;gap:0}}
+@media (max-width:480px){.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.chips::-webkit-scrollbar{display:none}.chip{flex:0 0 auto}section[id]{scroll-margin-top:70px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:12px 6px 10px;border-radius:16px}.card .ico{font-size:40px}.card .w{font-size:17px}.card .ipa,.card .vn,.card .m{font-size:13px}.say{top:2px;right:2px;font-size:17px}.topics{grid-template-columns:1fr 1fr;gap:10px}.topic{padding:14px;border-radius:18px}.topic .ico{font-size:38px}.topic .t{font-size:16px}.topic .s{font-size:14px}.topic .n{font-size:12px}nav.pn a{padding:9px 12px;font-size:14px}}
+@media print{.say,.toolbar,nav.pn,.chips{display:none}header{border-radius:0}.card,.gram{break-inside:avoid}.cols{grid-template-columns:1fr}}
+</style><script>
+function say(t){if(!('speechSynthesis' in window))return alert('Trình duyệt không hỗ trợ đọc.');
+speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/→/g,'.').replace(/\//g,' or '));
+u.lang='en-GB';u.rate=0.8;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));if(v)u.voice=v;speechSynthesis.speak(u);}
+function toggleHide(b){document.body.classList.toggle('hide');b.textContent=document.body.classList.contains('hide')?'👁️ Hiện nghĩa':'🙈 Ẩn nghĩa (tự kiểm tra)';}
+document.addEventListener('click',ev=>{const c=ev.target.closest('.card');if(c&&!ev.target.closest('.say'))c.classList.toggle('show');});
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register(document.documentElement.dataset.root+'sw.js').catch(()=>{}));
+let deferredPrompt;
+addEventListener('beforeinstallprompt',ev=>{ev.preventDefault();deferredPrompt=ev;document.querySelectorAll('.install').forEach(b=>b.style.display='inline-block');});
+function installApp(){if(!deferredPrompt)return;deferredPrompt.prompt();deferredPrompt.userChoice.finally(()=>{deferredPrompt=null;document.querySelectorAll('.install').forEach(b=>b.style.display='none');});}
+addEventListener('DOMContentLoaded',()=>{const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const standalone=navigator.standalone||matchMedia('(display-mode: standalone)').matches;const h=document.querySelector('.ioshint');if(h&&ios&&!standalone)h.style.display='block';});
+function filterGrade(btn){document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===btn));const g=btn.dataset.g;
+document.querySelectorAll('[data-g]').forEach(el=>{if(el.classList.contains('chip'))return;el.hidden=g!=='all'&&!(' '+el.dataset.g+' ').includes(' '+g+' ');});
+document.querySelectorAll('[data-sec]').forEach(s=>{s.hidden=!s.querySelector('[data-g]:not([hidden])');});}
+</script></head>
+<body><header><div class="big">🩺</div><h1>Health &amp; Wellbeing</h1><p>Chủ đề 113: Sức khỏe &amp; An sinh</p>
+<span class="badge">📘 Trình độ C1 · 24 từ · 5 mẫu câu · ngữ pháp</span>
+<div class="toolbar"><a class="btn" href="../index.html#nguoi-lon">🏠 Trang chủ</a>
+<a class="btn" href="../ngu-phap.html">📐 Ngữ pháp</a>
+<button class="btn" onclick="toggleHide(this)">🙈 Ẩn nghĩa (tự kiểm tra)</button>
+<button class="btn" onclick="window.print()">🖨️ In</button></div></header>
+<main><div class="legend">🔊 Bấm loa để nghe &nbsp;|&nbsp; <b>/IPA/</b> = phiên âm quốc tế &nbsp;|&nbsp; (n) danh từ · (v) động từ · (adj) tính từ · (idiom) thành ngữ · (phr v) cụm động từ · (expr) cụm từ cố định · (collocation) kết hợp từ · (slang) tiếng lóng &nbsp;|&nbsp; ô xám = nghĩa</div>
+<h2>📖 Từ vựng (Vocabulary)</h2><div class="grid"><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="wellbeing">🔊</button><div class="ico">🧘</div><div class="w">wellbeing</div><div class="ipa">/ˌwelˈbiːɪŋ/</div><div class="m">(n) sự an lạc, hạnh phúc</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="mental health">🔊</button><div class="ico">🧠</div><div class="w">mental health</div><div class="ipa">/ˈmentl helθ/</div><div class="m">(n) sức khỏe tinh thần</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="anxiety">🔊</button><div class="ico">😰</div><div class="w">anxiety</div><div class="ipa">/æŋˈzaɪəti/</div><div class="m">(n) chứng lo âu</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="depression">🔊</button><div class="ico">😔</div><div class="w">depression</div><div class="ipa">/dɪˈpreʃn/</div><div class="m">(n) trầm cảm</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="sedentary">🔊</button><div class="ico">🛋️</div><div class="w">sedentary</div><div class="ipa">/ˈsedntri/</div><div class="m">(adj) ít vận động</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="obesity">🔊</button><div class="ico">🍔</div><div class="w">obesity</div><div class="ipa">/əʊˈbiːsəti/</div><div class="m">(n) béo phì</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="immunisation">🔊</button><div class="ico">💉</div><div class="w">immunisation</div><div class="ipa">/ˌɪmjunaɪˈzeɪʃn/</div><div class="m">(n) tiêm chủng</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="pandemic">🔊</button><div class="ico">🦠</div><div class="w">pandemic</div><div class="ipa">/pænˈdemɪk/</div><div class="m">(n) đại dịch</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="diagnosis">🔊</button><div class="ico">🩺</div><div class="w">diagnosis</div><div class="ipa">/ˌdaɪəɡˈnəʊsɪs/</div><div class="m">(n) chẩn đoán</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="prescription">🔊</button><div class="ico">💊</div><div class="w">prescription</div><div class="ipa">/prɪˈskrɪpʃn/</div><div class="m">(n) đơn thuốc</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="side effect">🔊</button><div class="ico">🩹</div><div class="w">side effect</div><div class="ipa">/ˈsaɪd ɪfekt/</div><div class="m">(n) tác dụng phụ</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="chronic">🔊</button><div class="ico">⏳</div><div class="w">chronic</div><div class="ipa">/ˈkrɒnɪk/</div><div class="m">(adj) mãn tính</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="acute">🔊</button><div class="ico">⚡</div><div class="w">acute</div><div class="ipa">/əˈkjuːt/</div><div class="m">(adj) cấp tính</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="relapse">🔊</button><div class="ico">🔁</div><div class="w">relapse</div><div class="ipa">/rɪˈlæps/</div><div class="m">(n/v) sự tái phát; tái phát</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="preventive">🔊</button><div class="ico">🛡️</div><div class="w">preventive</div><div class="ipa">/prɪˈventɪv/</div><div class="m">(adj) phòng ngừa</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="nutrition">🔊</button><div class="ico">🥗</div><div class="w">nutrition</div><div class="ipa">/njuˈtrɪʃn/</div><div class="m">(n) dinh dưỡng</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="insomnia">🔊</button><div class="ico">💤</div><div class="w">insomnia</div><div class="ipa">/ɪnˈsɒmniə/</div><div class="m">(n) chứng mất ngủ</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="GP">🔊</button><div class="ico">🧑‍⚕️</div><div class="w">GP</div><div class="ipa">/ˌdʒiː ˈpiː/</div><div class="m">(n) bác sĩ đa khoa</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="outpatient">🔊</button><div class="ico">🏥</div><div class="w">outpatient</div><div class="ipa">/ˈaʊtpeɪʃnt/</div><div class="m">(n) bệnh nhân ngoại trú</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="symptom">🔊</button><div class="ico">🌡️</div><div class="w">symptom</div><div class="ipa">/ˈsɪmptəm/</div><div class="m">(n) triệu chứng</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="resilience">🔊</button><div class="ico">💪</div><div class="w">resilience</div><div class="ipa">/rɪˈzɪliəns/</div><div class="m">(n) khả năng phục hồi</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="holistic">🔊</button><div class="ico">🧩</div><div class="w">holistic</div><div class="ipa">/həʊˈlɪstɪk/</div><div class="m">(adj) toàn diện</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="alleviate">🔊</button><div class="ico">🌿</div><div class="w">alleviate</div><div class="ipa">/əˈliːvieɪt/</div><div class="m">(v) làm giảm nhẹ</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="recuperate">🔊</button><div class="ico">🛌</div><div class="w">recuperate</div><div class="ipa">/rɪˈkuːpəreɪt/</div><div class="m">(v) hồi phục</div></div></div>
+<div class="cols"><section><h2>💬 Mẫu câu (Sentence patterns)</h2><div class="pat"><div class="en">She must have been exhausted after working night shifts. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="She must have been exhausted after working night shifts.">🔊</button></div><div class="vi">🇻🇳 Hẳn là cô ấy đã kiệt sức sau những ca làm đêm.</div></div><div class="pat"><div class="en">He can&#x27;t have taken his medicine – his fever is still high. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="He can&#x27;t have taken his medicine – his fever is still high.">🔊</button></div><div class="vi">🇻🇳 Không thể nào anh ấy đã uống thuốc – anh ấy vẫn sốt cao.</div></div><div class="pat"><div class="en">Regular exercise can help alleviate symptoms of anxiety. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Regular exercise can help alleviate symptoms of anxiety.">🔊</button></div><div class="vi">🇻🇳 Tập thể dục đều đặn có thể giúp giảm triệu chứng lo âu.</div></div><div class="pat"><div class="en">Prevention is better than cure. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Prevention is better than cure.">🔊</button></div><div class="vi">🇻🇳 Phòng bệnh hơn chữa bệnh.</div></div><div class="pat"><div class="en">You should take some time off to recuperate. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="You should take some time off to recuperate.">🔊</button></div><div class="vi">🇻🇳 Bạn nên nghỉ một thời gian để hồi phục.</div></div></section>
+<section><h2>📐 Ngữ pháp (Grammar)</h2><div class="gram"><h3>📐 Modal suy đoán về quá khứ</h3><div class="f">must have + V3 → chắc hẳn đã (gần như chắc chắn)</div><div class="f">can&#x27;t / couldn&#x27;t have + V3 → không thể nào đã</div><div class="f">may / might / could have + V3 → có lẽ đã (không chắc)</div><div class="f">should have + V3 → lẽ ra nên (nhưng đã không)</div><ul><li>Dùng để suy luận về sự việc đã xảy ra dựa trên bằng chứng hiện có.</li></ul><div class="ex"><div class="en">He must have caught the flu from his colleague. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="He must have caught the flu from his colleague.">🔊</button></div><div class="vi">🇻🇳 Chắc hẳn anh ấy bị lây cúm từ đồng nghiệp.</div></div><div class="ex"><div class="en">She can&#x27;t have slept well – she looks exhausted. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="She can&#x27;t have slept well – she looks exhausted.">🔊</button></div><div class="vi">🇻🇳 Cô ấy không thể nào ngủ ngon được – trông cô ấy kiệt sức.</div></div><div class="ex"><div class="en">The symptoms might have been caused by stress. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The symptoms might have been caused by stress.">🔊</button></div><div class="vi">🇻🇳 Các triệu chứng có lẽ do căng thẳng gây ra.</div></div></div></section></div>
+<nav class="pn"><a href="c1-cong-nghe.html">⬅️ Công nghệ &amp; Đổi mới</a><a href="c1-moi-truong.html">Môi trường &amp; Phát triển bền vững ➡️</a></nav></main></body></html>

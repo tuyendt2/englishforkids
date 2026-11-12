@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi" data-root="../"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Medicine &amp; Bioethics – Y học &amp; Đạo đức sinh học</title>
+<meta name="theme-color" content="#00796b">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="English Kids">
+<style>:root{--c:#00796b}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Segoe UI','Nunito',system-ui,Arial,sans-serif;background:#fffaf2;color:#333;overflow-x:hidden}
+header{padding:calc(24px + env(safe-area-inset-top)) 16px 22px;text-align:center;color:#fff;background:var(--c);border-radius:0 0 32px 32px;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+header .big{font-size:60px;line-height:1}
+header h1{margin:8px 0 4px;font-size:clamp(26px,6vw,34px)}
+header p{margin:0;font-size:17px;opacity:.95}
+.badge{display:inline-block;background:#fff;color:var(--c);font-weight:700;border-radius:20px;padding:3px 12px;font-size:14px;margin-top:8px}
+main{max-width:1150px;margin:0 auto;padding:20px 16px calc(60px + env(safe-area-inset-bottom))}
+h2{font-size:23px;margin:28px 0 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+h2 small{font-size:15px;font-weight:600;color:#888}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.btn{border:none;background:#fff;color:var(--c);font-weight:700;padding:8px 16px;border-radius:20px;cursor:pointer;font-size:15px;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,.12);font-family:inherit}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:16px}
+.card{background:#fff;border-radius:20px;padding:16px 12px 14px;text-align:center;border:3px solid var(--c);box-shadow:0 4px 10px rgba(0,0,0,.06);position:relative;transition:transform .15s}
+.card:hover{transform:translateY(-4px) rotate(-1deg)}
+.card .ico{font-size:52px;line-height:1.1}
+.card .w{font-size:21px;font-weight:800;color:var(--c);margin:6px 0 4px;overflow-wrap:anywhere}
+.card .ipa{font-family:'Lucida Sans Unicode','Arial Unicode MS',sans-serif;color:#555;font-size:15px;overflow-wrap:anywhere}
+.card .vn{color:#e65100;font-size:15px;margin-top:2px}
+.card .vn::before{content:'🗣️ '}
+.card .m{margin-top:8px;background:#f3f3f3;border-radius:12px;padding:6px;font-weight:700;font-size:16px}
+.say{position:absolute;top:8px;right:8px;border:none;background:none;font-size:20px;cursor:pointer;padding:4px}
+.hide .m{color:transparent;background:repeating-linear-gradient(45deg,#ddd,#ddd 6px,#eee 6px,#eee 12px)}
+.hide .card:hover .m,.hide .card.show .m{color:#333;background:#f3f3f3}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.cols>section>h2{margin-top:28px}
+.pat{background:#fff;border-left:8px solid var(--c);border-radius:16px;padding:14px 18px;margin-bottom:12px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.pat .en{font-size:18px;font-weight:700}
+.pat .en .q{color:var(--c)}
+.pat .vi{color:#666;margin-top:4px;font-style:italic}
+.pat .say,.gram .say{position:static;font-size:17px}
+.gram{background:#fff;border:3px solid var(--c);border-radius:20px;padding:16px 18px;margin-bottom:14px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.gram h3{margin:0 0 10px;color:var(--c);font-size:19px}
+.gram h3 a{color:inherit}
+.gram .tag{display:inline-block;font-size:13px;font-weight:700;background:var(--c);color:#fff;border-radius:10px;padding:2px 8px;margin-right:6px;vertical-align:middle}
+.f{font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;background:#fff6e0;border:1.5px dashed #f0c060;border-radius:10px;padding:7px 10px;margin:6px 0;font-size:15px;font-weight:600;overflow-wrap:anywhere}
+.gram ul{margin:8px 0;padding-left:20px;color:#555;line-height:1.55}
+.ex{border-top:1px dashed #ddd;padding:7px 0}
+.ex .en{font-weight:700}
+.ex .vi{color:#666;font-style:italic;font-size:15px}
+.legend{background:#fff;border:2px dashed var(--c);border-radius:16px;padding:10px 16px;font-size:15px}
+nav.pn{display:flex;justify-content:space-between;margin-top:30px;gap:10px}
+nav.pn a{background:var(--c);color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none;font-weight:700}
+.chips{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:5;background:#fffaf2;padding:10px 0;margin:0 -2px}
+.chip{border:2px solid #ff7aa2;background:#fff;color:#d6336c;border-radius:20px;padding:6px 13px;font-weight:700;cursor:pointer;font-size:15px;font-family:inherit}
+.chip.on{background:#ff7aa2;color:#fff}
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.topic{display:block;text-decoration:none;color:#fff;border-radius:24px;padding:18px;box-shadow:0 6px 14px rgba(0,0,0,.12);transition:transform .15s;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.topic:hover{transform:scale(1.04)}
+.topic .ico{font-size:48px}
+.topic .t{font-size:20px;font-weight:800;margin-top:6px}
+.topic .s{font-size:16px;opacity:.95}
+.topic .n{margin-top:10px;font-size:14px;background:rgba(255,255,255,.25);display:inline-block;padding:3px 10px;border-radius:12px}
+section[id]{scroll-margin-top:130px}
+h3.sub{font-size:18px;margin:20px 0 10px;color:#555;border-left:5px solid #ff7aa2;padding-left:10px}
+h3.sub small{font-size:14px;font-weight:600;color:#999}
+.special{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#7c4dff,#ff7aa2);color:#fff;text-decoration:none;border-radius:24px;padding:18px 22px;box-shadow:0 6px 14px rgba(0,0,0,.12)}
+.special .ico{font-size:46px}
+.special b{font-size:21px;display:block}
+.tips{background:#fff;border-radius:20px;padding:16px 22px;box-shadow:0 3px 8px rgba(0,0,0,.06);line-height:1.7}
+.install{display:none}
+.ioshint{display:none;background:#fff;color:#333;border-radius:16px;padding:10px 14px;margin:12px auto 0;max-width:420px;font-size:15px;text-shadow:none}
+[hidden]{display:none!important}
+@media (max-width:860px){.cols{grid-template-columns:1fr;gap:0}}
+@media (max-width:480px){.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.chips::-webkit-scrollbar{display:none}.chip{flex:0 0 auto}section[id]{scroll-margin-top:70px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:12px 6px 10px;border-radius:16px}.card .ico{font-size:40px}.card .w{font-size:17px}.card .ipa,.card .vn,.card .m{font-size:13px}.say{top:2px;right:2px;font-size:17px}.topics{grid-template-columns:1fr 1fr;gap:10px}.topic{padding:14px;border-radius:18px}.topic .ico{font-size:38px}.topic .t{font-size:16px}.topic .s{font-size:14px}.topic .n{font-size:12px}nav.pn a{padding:9px 12px;font-size:14px}}
+@media print{.say,.toolbar,nav.pn,.chips{display:none}header{border-radius:0}.card,.gram{break-inside:avoid}.cols{grid-template-columns:1fr}}
+</style><script>
+function say(t){if(!('speechSynthesis' in window))return alert('Trình duyệt không hỗ trợ đọc.');
+speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/→/g,'.').replace(/\//g,' or '));
+u.lang='en-GB';u.rate=0.8;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));if(v)u.voice=v;speechSynthesis.speak(u);}
+function toggleHide(b){document.body.classList.toggle('hide');b.textContent=document.body.classList.contains('hide')?'👁️ Hiện nghĩa':'🙈 Ẩn nghĩa (tự kiểm tra)';}
+document.addEventListener('click',ev=>{const c=ev.target.closest('.card');if(c&&!ev.target.closest('.say'))c.classList.toggle('show');});
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register(document.documentElement.dataset.root+'sw.js').catch(()=>{}));
+let deferredPrompt;
+addEventListener('beforeinstallprompt',ev=>{ev.preventDefault();deferredPrompt=ev;document.querySelectorAll('.install').forEach(b=>b.style.display='inline-block');});
+function installApp(){if(!deferredPrompt)return;deferredPrompt.prompt();deferredPrompt.userChoice.finally(()=>{deferredPrompt=null;document.querySelectorAll('.install').forEach(b=>b.style.display='none');});}
+addEventListener('DOMContentLoaded',()=>{const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const standalone=navigator.standalone||matchMedia('(display-mode: standalone)').matches;const h=document.querySelector('.ioshint');if(h&&ios&&!standalone)h.style.display='block';});
+function filterGrade(btn){document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===btn));const g=btn.dataset.g;
+document.querySelectorAll('[data-g]').forEach(el=>{if(el.classList.contains('chip'))return;el.hidden=g!=='all'&&!(' '+el.dataset.g+' ').includes(' '+g+' ');});
+document.querySelectorAll('[data-sec]').forEach(s=>{s.hidden=!s.querySelector('[data-g]:not([hidden])');});}
+</script></head>
+<body><header><div class="big">🧬</div><h1>Medicine &amp; Bioethics</h1><p>Chủ đề 126: Y học &amp; Đạo đức sinh học</p>
+<span class="badge">📘 Trình độ C2 · 24 từ · 5 mẫu câu · ngữ pháp</span>
+<div class="toolbar"><a class="btn" href="../index.html#nguoi-lon">🏠 Trang chủ</a>
+<a class="btn" href="../ngu-phap.html">📐 Ngữ pháp</a>
+<button class="btn" onclick="toggleHide(this)">🙈 Ẩn nghĩa (tự kiểm tra)</button>
+<button class="btn" onclick="window.print()">🖨️ In</button></div></header>
+<main><div class="legend">🔊 Bấm loa để nghe &nbsp;|&nbsp; <b>/IPA/</b> = phiên âm quốc tế &nbsp;|&nbsp; (n) danh từ · (v) động từ · (adj) tính từ · (idiom) thành ngữ · (phr v) cụm động từ · (expr) cụm từ cố định · (collocation) kết hợp từ · (slang) tiếng lóng &nbsp;|&nbsp; ô xám = nghĩa</div>
+<h2>📖 Từ vựng (Vocabulary)</h2><div class="grid"><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="bioethics">🔊</button><div class="ico">🧬</div><div class="w">bioethics</div><div class="ipa">/ˌbaɪəʊˈeθɪks/</div><div class="m">(n) đạo đức sinh học</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="clinical trial">🔊</button><div class="ico">💉</div><div class="w">clinical trial</div><div class="ipa">/ˌklɪnɪkl ˈtraɪəl/</div><div class="m">(n) thử nghiệm lâm sàng</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="placebo">🔊</button><div class="ico">💊</div><div class="w">placebo</div><div class="ipa">/pləˈsiːbəʊ/</div><div class="m">(n) giả dược</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="informed consent">🔊</button><div class="ico">📝</div><div class="w">informed consent</div><div class="ipa">/ɪnˌfɔːmd kənˈsent/</div><div class="m">(n) sự đồng ý sau khi được thông tin đầy đủ</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="organ donation">🔊</button><div class="ico">🫀</div><div class="w">organ donation</div><div class="ipa">/ˈɔːɡən dəʊˌneɪʃn/</div><div class="m">(n) hiến tạng</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="stem cell">🔊</button><div class="ico">🧫</div><div class="w">stem cell</div><div class="ipa">/ˈstem sel/</div><div class="m">(n) tế bào gốc</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="euthanasia">🔊</button><div class="ico">🕯️</div><div class="w">euthanasia</div><div class="ipa">/ˌjuːθəˈneɪziə/</div><div class="m">(n) an tử</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="terminal illness">🔊</button><div class="ico">🛏️</div><div class="w">terminal illness</div><div class="ipa">/ˌtɜːmɪnl ˈɪlnəs/</div><div class="m">(n) bệnh nan y giai đoạn cuối</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="prognosis">🔊</button><div class="ico">🩺</div><div class="w">prognosis</div><div class="ipa">/prɒɡˈnəʊsɪs/</div><div class="m">(n) tiên lượng</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="antibiotic resistance">🔊</button><div class="ico">🦠</div><div class="w">antibiotic resistance</div><div class="ipa">/ˌæntibaɪˌɒtɪk rɪˈzɪstəns/</div><div class="m">(n) kháng kháng sinh</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="epidemiology">🔊</button><div class="ico">📈</div><div class="w">epidemiology</div><div class="ipa">/ˌepɪˌdiːmiˈɒlədʒi/</div><div class="m">(n) dịch tễ học</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="cloning">🔊</button><div class="ico">🐑</div><div class="w">cloning</div><div class="ipa">/ˈkləʊnɪŋ/</div><div class="m">(n) nhân bản vô tính</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="patient confidentiality">🔊</button><div class="ico">🔐</div><div class="w">patient confidentiality</div><div class="ipa">/ˌpeɪʃnt ˌkɒnfɪˌdenʃiˈæləti/</div><div class="m">(n) bảo mật thông tin bệnh nhân</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="malpractice">🔊</button><div class="ico">⚖️</div><div class="w">malpractice</div><div class="ipa">/ˌmælˈpræktɪs/</div><div class="m">(n) sơ suất nghề nghiệp</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="life expectancy">🔊</button><div class="ico">⏳</div><div class="w">life expectancy</div><div class="ipa">/ˈlaɪf ɪkˌspektənsi/</div><div class="m">(n) tuổi thọ trung bình</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="palliative care">🔊</button><div class="ico">🤲</div><div class="w">palliative care</div><div class="ipa">/ˈpæliətɪv keə/</div><div class="m">(n) chăm sóc giảm nhẹ</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="intensive care">🔊</button><div class="ico">🏥</div><div class="w">intensive care</div><div class="ipa">/ɪnˌtensɪv ˈkeə/</div><div class="m">(n) chăm sóc tích cực (ICU)</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="healthcare provider">🔊</button><div class="ico">🧑‍⚕️</div><div class="w">healthcare provider</div><div class="ipa">/ˈhelθkeə prəˌvaɪdə/</div><div class="m">(n) cơ sở/người cung cấp dịch vụ y tế</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="mortality rate">🔊</button><div class="ico">📊</div><div class="w">mortality rate</div><div class="ipa">/mɔːˈtæləti reɪt/</div><div class="m">(n) tỷ lệ tử vong</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="hereditary">🔊</button><div class="ico">👪</div><div class="w">hereditary</div><div class="ipa">/həˈredɪtri/</div><div class="m">(adj) di truyền</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="non-invasive">🔊</button><div class="ico">🩻</div><div class="w">non-invasive</div><div class="ipa">/ˌnɒn ɪnˈveɪsɪv/</div><div class="m">(adj) không xâm lấn</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="contraindication">🔊</button><div class="ico">⚠️</div><div class="w">contraindication</div><div class="ipa">/ˌkɒntrəˌɪndɪˈkeɪʃn/</div><div class="m">(n) chống chỉ định</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="dosage">🔊</button><div class="ico">🧮</div><div class="w">dosage</div><div class="ipa">/ˈdəʊsɪdʒ/</div><div class="m">(n) liều lượng</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="outbreak">🔊</button><div class="ico">🌡️</div><div class="w">outbreak</div><div class="ipa">/ˈaʊtbreɪk/</div><div class="m">(n) sự bùng phát (dịch)</div></div></div>
+<div class="cols"><section><h2>💬 Mẫu câu (Sentence patterns)</h2><div class="pat"><div class="en">The vast majority of patients responded well to the treatment. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The vast majority of patients responded well to the treatment.">🔊</button></div><div class="vi">🇻🇳 Đại đa số bệnh nhân đáp ứng tốt với điều trị.</div></div><div class="pat"><div class="en">Hardly any side effects were reported. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Hardly any side effects were reported.">🔊</button></div><div class="vi">🇻🇳 Hầu như không có tác dụng phụ nào được báo cáo.</div></div><div class="pat"><div class="en">Only a fraction of the funding goes to rare diseases. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Only a fraction of the funding goes to rare diseases.">🔊</button></div><div class="vi">🇻🇳 Chỉ một phần nhỏ kinh phí dành cho các bệnh hiếm.</div></div><div class="pat"><div class="en">Informed consent must be obtained before any procedure. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Informed consent must be obtained before any procedure.">🔊</button></div><div class="vi">🇻🇳 Phải có sự đồng ý của bệnh nhân trước bất kỳ thủ thuật nào.</div></div><div class="pat"><div class="en">The prognosis is better than we initially feared. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The prognosis is better than we initially feared.">🔊</button></div><div class="vi">🇻🇳 Tiên lượng khả quan hơn chúng tôi lo ngại ban đầu.</div></div></section>
+<section><h2>📐 Ngữ pháp (Grammar)</h2><div class="gram"><h3>📐 Lượng từ &amp; từ hạn định: sắc thái nâng cao</h3><div class="f">few / little (rất ít, gần như không – tiêu cực) ↔ a few / a little (một vài, một ít – tích cực)</div><div class="f">hardly any / scarcely any / next to no + N → hầu như không có</div><div class="f">the vast majority of / a significant proportion of / a fraction of / a handful of + N</div><div class="f">the whole + N số ít (the whole day) ↔ all + the + N (all the patients)</div><ul><li>&quot;The majority of + N số nhiều&quot; → động từ số nhiều; &quot;the number of&quot; → động từ số ít.</li></ul><div class="ex"><div class="en">Few patients were aware of the risks. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Few patients were aware of the risks.">🔊</button></div><div class="vi">🇻🇳 Rất ít bệnh nhân biết về các rủi ro.</div></div><div class="ex"><div class="en">A handful of hospitals offer this treatment. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="A handful of hospitals offer this treatment.">🔊</button></div><div class="vi">🇻🇳 Chỉ một số ít bệnh viện cung cấp phương pháp điều trị này.</div></div><div class="ex"><div class="en">There is next to no evidence that the supplement works. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="There is next to no evidence that the supplement works.">🔊</button></div><div class="vi">🇻🇳 Gần như không có bằng chứng nào cho thấy thực phẩm bổ sung này có tác dụng.</div></div></div></section></div>
+<nav class="pn"><a href="c2-kinh-doanh.html">⬅️ Chiến lược kinh doanh &amp; Đàm phán</a><a href="c2-do-thi.html">Đô thị &amp; Kiến trúc ➡️</a></nav></main></body></html>

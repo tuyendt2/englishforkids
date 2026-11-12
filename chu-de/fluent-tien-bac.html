@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi" data-root="../"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Money Talk – Chuyện tiền bạc</title>
+<meta name="theme-color" content="#2e7d32">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="English Kids">
+<style>:root{--c:#2e7d32}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Segoe UI','Nunito',system-ui,Arial,sans-serif;background:#fffaf2;color:#333;overflow-x:hidden}
+header{padding:calc(24px + env(safe-area-inset-top)) 16px 22px;text-align:center;color:#fff;background:var(--c);border-radius:0 0 32px 32px;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+header .big{font-size:60px;line-height:1}
+header h1{margin:8px 0 4px;font-size:clamp(26px,6vw,34px)}
+header p{margin:0;font-size:17px;opacity:.95}
+.badge{display:inline-block;background:#fff;color:var(--c);font-weight:700;border-radius:20px;padding:3px 12px;font-size:14px;margin-top:8px}
+main{max-width:1150px;margin:0 auto;padding:20px 16px calc(60px + env(safe-area-inset-bottom))}
+h2{font-size:23px;margin:28px 0 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+h2 small{font-size:15px;font-weight:600;color:#888}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.btn{border:none;background:#fff;color:var(--c);font-weight:700;padding:8px 16px;border-radius:20px;cursor:pointer;font-size:15px;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,.12);font-family:inherit}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:16px}
+.card{background:#fff;border-radius:20px;padding:16px 12px 14px;text-align:center;border:3px solid var(--c);box-shadow:0 4px 10px rgba(0,0,0,.06);position:relative;transition:transform .15s}
+.card:hover{transform:translateY(-4px) rotate(-1deg)}
+.card .ico{font-size:52px;line-height:1.1}
+.card .w{font-size:21px;font-weight:800;color:var(--c);margin:6px 0 4px;overflow-wrap:anywhere}
+.card .ipa{font-family:'Lucida Sans Unicode','Arial Unicode MS',sans-serif;color:#555;font-size:15px;overflow-wrap:anywhere}
+.card .vn{color:#e65100;font-size:15px;margin-top:2px}
+.card .vn::before{content:'🗣️ '}
+.card .m{margin-top:8px;background:#f3f3f3;border-radius:12px;padding:6px;font-weight:700;font-size:16px}
+.say{position:absolute;top:8px;right:8px;border:none;background:none;font-size:20px;cursor:pointer;padding:4px}
+.hide .m{color:transparent;background:repeating-linear-gradient(45deg,#ddd,#ddd 6px,#eee 6px,#eee 12px)}
+.hide .card:hover .m,.hide .card.show .m{color:#333;background:#f3f3f3}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.cols>section>h2{margin-top:28px}
+.pat{background:#fff;border-left:8px solid var(--c);border-radius:16px;padding:14px 18px;margin-bottom:12px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.pat .en{font-size:18px;font-weight:700}
+.pat .en .q{color:var(--c)}
+.pat .vi{color:#666;margin-top:4px;font-style:italic}
+.pat .say,.gram .say{position:static;font-size:17px}
+.gram{background:#fff;border:3px solid var(--c);border-radius:20px;padding:16px 18px;margin-bottom:14px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.gram h3{margin:0 0 10px;color:var(--c);font-size:19px}
+.gram h3 a{color:inherit}
+.gram .tag{display:inline-block;font-size:13px;font-weight:700;background:var(--c);color:#fff;border-radius:10px;padding:2px 8px;margin-right:6px;vertical-align:middle}
+.f{font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;background:#fff6e0;border:1.5px dashed #f0c060;border-radius:10px;padding:7px 10px;margin:6px 0;font-size:15px;font-weight:600;overflow-wrap:anywhere}
+.gram ul{margin:8px 0;padding-left:20px;color:#555;line-height:1.55}
+.ex{border-top:1px dashed #ddd;padding:7px 0}
+.ex .en{font-weight:700}
+.ex .vi{color:#666;font-style:italic;font-size:15px}
+.legend{background:#fff;border:2px dashed var(--c);border-radius:16px;padding:10px 16px;font-size:15px}
+nav.pn{display:flex;justify-content:space-between;margin-top:30px;gap:10px}
+nav.pn a{background:var(--c);color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none;font-weight:700}
+.chips{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:5;background:#fffaf2;padding:10px 0;margin:0 -2px}
+.chip{border:2px solid #ff7aa2;background:#fff;color:#d6336c;border-radius:20px;padding:6px 13px;font-weight:700;cursor:pointer;font-size:15px;font-family:inherit}
+.chip.on{background:#ff7aa2;color:#fff}
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.topic{display:block;text-decoration:none;color:#fff;border-radius:24px;padding:18px;box-shadow:0 6px 14px rgba(0,0,0,.12);transition:transform .15s;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.topic:hover{transform:scale(1.04)}
+.topic .ico{font-size:48px}
+.topic .t{font-size:20px;font-weight:800;margin-top:6px}
+.topic .s{font-size:16px;opacity:.95}
+.topic .n{margin-top:10px;font-size:14px;background:rgba(255,255,255,.25);display:inline-block;padding:3px 10px;border-radius:12px}
+section[id]{scroll-margin-top:130px}
+h3.sub{font-size:18px;margin:20px 0 10px;color:#555;border-left:5px solid #ff7aa2;padding-left:10px}
+h3.sub small{font-size:14px;font-weight:600;color:#999}
+.special{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#7c4dff,#ff7aa2);color:#fff;text-decoration:none;border-radius:24px;padding:18px 22px;box-shadow:0 6px 14px rgba(0,0,0,.12)}
+.special .ico{font-size:46px}
+.special b{font-size:21px;display:block}
+.tips{background:#fff;border-radius:20px;padding:16px 22px;box-shadow:0 3px 8px rgba(0,0,0,.06);line-height:1.7}
+.install{display:none}
+.ioshint{display:none;background:#fff;color:#333;border-radius:16px;padding:10px 14px;margin:12px auto 0;max-width:420px;font-size:15px;text-shadow:none}
+[hidden]{display:none!important}
+@media (max-width:860px){.cols{grid-template-columns:1fr;gap:0}}
+@media (max-width:480px){.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.chips::-webkit-scrollbar{display:none}.chip{flex:0 0 auto}section[id]{scroll-margin-top:70px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:12px 6px 10px;border-radius:16px}.card .ico{font-size:40px}.card .w{font-size:17px}.card .ipa,.card .vn,.card .m{font-size:13px}.say{top:2px;right:2px;font-size:17px}.topics{grid-template-columns:1fr 1fr;gap:10px}.topic{padding:14px;border-radius:18px}.topic .ico{font-size:38px}.topic .t{font-size:16px}.topic .s{font-size:14px}.topic .n{font-size:12px}nav.pn a{padding:9px 12px;font-size:14px}}
+@media print{.say,.toolbar,nav.pn,.chips{display:none}header{border-radius:0}.card,.gram{break-inside:avoid}.cols{grid-template-columns:1fr}}
+</style><script>
+function say(t){if(!('speechSynthesis' in window))return alert('Trình duyệt không hỗ trợ đọc.');
+speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/→/g,'.').replace(/\//g,' or '));
+u.lang='en-GB';u.rate=0.8;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));if(v)u.voice=v;speechSynthesis.speak(u);}
+function toggleHide(b){document.body.classList.toggle('hide');b.textContent=document.body.classList.contains('hide')?'👁️ Hiện nghĩa':'🙈 Ẩn nghĩa (tự kiểm tra)';}
+document.addEventListener('click',ev=>{const c=ev.target.closest('.card');if(c&&!ev.target.closest('.say'))c.classList.toggle('show');});
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register(document.documentElement.dataset.root+'sw.js').catch(()=>{}));
+let deferredPrompt;
+addEventListener('beforeinstallprompt',ev=>{ev.preventDefault();deferredPrompt=ev;document.querySelectorAll('.install').forEach(b=>b.style.display='inline-block');});
+function installApp(){if(!deferredPrompt)return;deferredPrompt.prompt();deferredPrompt.userChoice.finally(()=>{deferredPrompt=null;document.querySelectorAll('.install').forEach(b=>b.style.display='none');});}
+addEventListener('DOMContentLoaded',()=>{const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const standalone=navigator.standalone||matchMedia('(display-mode: standalone)').matches;const h=document.querySelector('.ioshint');if(h&&ios&&!standalone)h.style.display='block';});
+function filterGrade(btn){document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===btn));const g=btn.dataset.g;
+document.querySelectorAll('[data-g]').forEach(el=>{if(el.classList.contains('chip'))return;el.hidden=g!=='all'&&!(' '+el.dataset.g+' ').includes(' '+g+' ');});
+document.querySelectorAll('[data-sec]').forEach(s=>{s.hidden=!s.querySelector('[data-g]:not([hidden])');});}
+</script></head>
+<body><header><div class="big">💸</div><h1>Money Talk</h1><p>Chủ đề 131: Chuyện tiền bạc</p>
+<span class="badge">📘 Trình độ Fluent · 24 từ · 5 mẫu câu · ngữ pháp</span>
+<div class="toolbar"><a class="btn" href="../index.html#nguoi-lon">🏠 Trang chủ</a>
+<a class="btn" href="../ngu-phap.html">📐 Ngữ pháp</a>
+<button class="btn" onclick="toggleHide(this)">🙈 Ẩn nghĩa (tự kiểm tra)</button>
+<button class="btn" onclick="window.print()">🖨️ In</button></div></header>
+<main><div class="legend">🔊 Bấm loa để nghe &nbsp;|&nbsp; <b>/IPA/</b> = phiên âm quốc tế &nbsp;|&nbsp; (n) danh từ · (v) động từ · (adj) tính từ · (idiom) thành ngữ · (phr v) cụm động từ · (expr) cụm từ cố định · (collocation) kết hợp từ · (slang) tiếng lóng &nbsp;|&nbsp; ô xám = nghĩa</div>
+<h2>📖 Từ vựng (Vocabulary)</h2><div class="grid"><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="cost an arm and a leg">🔊</button><div class="ico">💸</div><div class="w">cost an arm and a leg</div><div class="ipa">/ˌkɒst ən ˌɑːm ənd ə ˈleɡ/</div><div class="m">(idiom) đắt cắt cổ</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="a rip-off">🔊</button><div class="ico">🤑</div><div class="w">a rip-off</div><div class="ipa">/ə ˈrɪp ɒf/</div><div class="m">(n) vụ chặt chém, giá cắt cổ</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="a bargain">🔊</button><div class="ico">🛍️</div><div class="w">a bargain</div><div class="ipa">/ə ˈbɑːɡən/</div><div class="m">(n) món hời</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="break the bank">🔊</button><div class="ico">🏦</div><div class="w">break the bank</div><div class="ipa">/ˌbreɪk ðə ˈbæŋk/</div><div class="m">(idiom) tốn rất nhiều tiền</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="tight on money">🔊</button><div class="ico">🪙</div><div class="w">tight on money</div><div class="ipa">/ˌtaɪt ɒn ˈmʌni/</div><div class="m">(expr) eo hẹp tiền bạc</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="broke">🔊</button><div class="ico">📉</div><div class="w">broke</div><div class="ipa">/brəʊk/</div><div class="m">(adj) cháy túi, hết tiền</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="make ends meet">🔊</button><div class="ico">🍞</div><div class="w">make ends meet</div><div class="ipa">/ˌmeɪk ˌendz ˈmiːt/</div><div class="m">(idiom) xoay xở đủ sống</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="save up for">🔊</button><div class="ico">🐷</div><div class="w">save up for</div><div class="ipa">/ˌseɪv ˈʌp fɔː/</div><div class="m">(phr v) dành dụm để mua</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="split the bill">🔊</button><div class="ico">🧾</div><div class="w">split the bill</div><div class="ipa">/ˌsplɪt ðə ˈbɪl/</div><div class="m">(collocation) chia tiền</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="It&#x27;s on me.">🔊</button><div class="ico">🍽️</div><div class="w">It&#x27;s on me.</div><div class="ipa">/ɪts ˈɒn miː/</div><div class="m">(expr) Để tôi trả.</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="treat someone">🔊</button><div class="ico">🎁</div><div class="w">treat someone</div><div class="ipa">/ˈtriːt ˌsʌmwʌn/</div><div class="m">(v) đãi ai đó</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="max out a credit card">🔊</button><div class="ico">💳</div><div class="w">max out a credit card</div><div class="ipa">/ˌmæks aʊt ə ˈkredɪt kɑːd/</div><div class="m">(phr v) quẹt hết hạn mức thẻ</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="pay off a loan">🔊</button><div class="ico">✅</div><div class="w">pay off a loan</div><div class="ipa">/ˌpeɪ ɒf ə ˈləʊn/</div><div class="m">(phr v) trả hết khoản vay</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="penny-pinching">🔊</button><div class="ico">🤏</div><div class="w">penny-pinching</div><div class="ipa">/ˈpeni pɪntʃɪŋ/</div><div class="m">(adj) keo kiệt, chi li</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="splash out on">🔊</button><div class="ico">🎉</div><div class="w">splash out on</div><div class="ipa">/ˌsplæʃ ˈaʊt ɒn/</div><div class="m">(phr v) vung tiền mua</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="budget">🔊</button><div class="ico">📊</div><div class="w">budget</div><div class="ipa">/ˈbʌdʒɪt/</div><div class="m">(n/v) ngân sách; chi tiêu có kế hoạch</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="cash-strapped">🔊</button><div class="ico">💵</div><div class="w">cash-strapped</div><div class="ipa">/ˈkæʃ stræpt/</div><div class="m">(adj) kẹt tiền</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="nest egg">🔊</button><div class="ico">🥚</div><div class="w">nest egg</div><div class="ipa">/ˈnest eɡ/</div><div class="m">(n) khoản tiết kiệm phòng thân</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="value for money">🔊</button><div class="ico">⚖️</div><div class="w">value for money</div><div class="ipa">/ˌvæljuː fə ˈmʌni/</div><div class="m">(n) đáng đồng tiền</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="money down the drain">🔊</button><div class="ico">🚽</div><div class="w">money down the drain</div><div class="ipa">/ˌmʌni daʊn ðə ˈdreɪn/</div><div class="m">(idiom) tiền đổ sông đổ biển</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="live paycheck to paycheck">🔊</button><div class="ico">🔁</div><div class="w">live paycheck to paycheck</div><div class="ipa">/ˌlɪv ˌpeɪtʃek tə ˈpeɪtʃek/</div><div class="m">(idiom) làm tháng nào tiêu hết tháng đó</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="pay through the nose">🔊</button><div class="ico">👃</div><div class="w">pay through the nose</div><div class="ipa">/ˌpeɪ θruː ðə ˈnəʊz/</div><div class="m">(idiom) trả giá cắt cổ</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="chip in">🔊</button><div class="ico">🤝</div><div class="w">chip in</div><div class="ipa">/ˌtʃɪp ˈɪn/</div><div class="m">(phr v) góp tiền</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="in the red">🔊</button><div class="ico">🟥</div><div class="w">in the red</div><div class="ipa">/ɪn ðə ˈred/</div><div class="m">(idiom) bị lỗ, âm tiền</div></div></div>
+<div class="cols"><section><h2>💬 Mẫu câu (Sentence patterns)</h2><div class="pat"><div class="en">That phone costs an arm and a leg – I&#x27;d rather wait for a sale. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="That phone costs an arm and a leg – I&#x27;d rather wait for a sale.">🔊</button></div><div class="vi">🇻🇳 Cái điện thoại đó đắt cắt cổ – tôi thà đợi giảm giá còn hơn.</div></div><div class="pat"><div class="en"><span class="q">❓ Let&#x27;s split the bill.</span><br>💬 No, it&#x27;s on me this time. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Let&#x27;s split the bill. → No, it&#x27;s on me this time.">🔊</button></div><div class="vi">🇻🇳 Chia tiền nhé. → Không, lần này để tôi trả.</div></div><div class="pat"><div class="en">I&#x27;m a bit tight on money this month. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="I&#x27;m a bit tight on money this month.">🔊</button></div><div class="vi">🇻🇳 Tháng này tôi hơi eo hẹp.</div></div><div class="pat"><div class="en">We all chipped in to buy her a present. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="We all chipped in to buy her a present.">🔊</button></div><div class="vi">🇻🇳 Chúng tôi đã góp tiền mua quà cho cô ấy.</div></div><div class="pat"><div class="en">I&#x27;d prefer to save up rather than borrow. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="I&#x27;d prefer to save up rather than borrow.">🔊</button></div><div class="vi">🇻🇳 Tôi muốn dành dụm hơn là đi vay.</div></div></section>
+<section><h2>📐 Ngữ pháp (Grammar)</h2><div class="gram"><h3>📐 Diễn đạt sự ưa thích: would rather / would prefer</h3><div class="f">would rather + V (+ than + V) → thà... còn hơn</div><div class="f">would prefer + to V (+ rather than + V)</div><div class="f">would rather + S + V2 → muốn người khác làm gì</div><div class="f">prefer + V-ing / N + to + V-ing / N → thích (nói chung)</div><ul><li>Phủ định: I&#x27;d rather not... / I&#x27;d prefer not to...</li></ul><div class="ex"><div class="en">I&#x27;d rather cook at home than eat out every night. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="I&#x27;d rather cook at home than eat out every night.">🔊</button></div><div class="vi">🇻🇳 Tôi thà nấu ở nhà còn hơn tối nào cũng ăn ngoài.</div></div><div class="ex"><div class="en">I&#x27;d prefer not to talk about my salary. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="I&#x27;d prefer not to talk about my salary.">🔊</button></div><div class="vi">🇻🇳 Tôi không muốn nói về lương của mình.</div></div><div class="ex"><div class="en">I&#x27;d rather you didn&#x27;t lend him any more money. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="I&#x27;d rather you didn&#x27;t lend him any more money.">🔊</button></div><div class="vi">🇻🇳 Tôi mong bạn đừng cho anh ta mượn thêm tiền nữa.</div></div></div></section></div>
+<nav class="pn"><a href="fluent-cam-xuc.html">⬅️ Cảm xúc &amp; Tâm trạng</a><a href="fluent-cong-viec.html">Nói chuyện công việc ➡️</a></nav></main></body></html>

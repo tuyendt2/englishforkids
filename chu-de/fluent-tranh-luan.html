@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi" data-root="../"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Opinions &amp; Debate – Quan điểm &amp; Tranh luận</title>
+<meta name="theme-color" content="#6a1b9a">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="English Kids">
+<style>:root{--c:#6a1b9a}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Segoe UI','Nunito',system-ui,Arial,sans-serif;background:#fffaf2;color:#333;overflow-x:hidden}
+header{padding:calc(24px + env(safe-area-inset-top)) 16px 22px;text-align:center;color:#fff;background:var(--c);border-radius:0 0 32px 32px;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+header .big{font-size:60px;line-height:1}
+header h1{margin:8px 0 4px;font-size:clamp(26px,6vw,34px)}
+header p{margin:0;font-size:17px;opacity:.95}
+.badge{display:inline-block;background:#fff;color:var(--c);font-weight:700;border-radius:20px;padding:3px 12px;font-size:14px;margin-top:8px}
+main{max-width:1150px;margin:0 auto;padding:20px 16px calc(60px + env(safe-area-inset-bottom))}
+h2{font-size:23px;margin:28px 0 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+h2 small{font-size:15px;font-weight:600;color:#888}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.btn{border:none;background:#fff;color:var(--c);font-weight:700;padding:8px 16px;border-radius:20px;cursor:pointer;font-size:15px;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,.12);font-family:inherit}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:16px}
+.card{background:#fff;border-radius:20px;padding:16px 12px 14px;text-align:center;border:3px solid var(--c);box-shadow:0 4px 10px rgba(0,0,0,.06);position:relative;transition:transform .15s}
+.card:hover{transform:translateY(-4px) rotate(-1deg)}
+.card .ico{font-size:52px;line-height:1.1}
+.card .w{font-size:21px;font-weight:800;color:var(--c);margin:6px 0 4px;overflow-wrap:anywhere}
+.card .ipa{font-family:'Lucida Sans Unicode','Arial Unicode MS',sans-serif;color:#555;font-size:15px;overflow-wrap:anywhere}
+.card .vn{color:#e65100;font-size:15px;margin-top:2px}
+.card .vn::before{content:'🗣️ '}
+.card .m{margin-top:8px;background:#f3f3f3;border-radius:12px;padding:6px;font-weight:700;font-size:16px}
+.say{position:absolute;top:8px;right:8px;border:none;background:none;font-size:20px;cursor:pointer;padding:4px}
+.hide .m{color:transparent;background:repeating-linear-gradient(45deg,#ddd,#ddd 6px,#eee 6px,#eee 12px)}
+.hide .card:hover .m,.hide .card.show .m{color:#333;background:#f3f3f3}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.cols>section>h2{margin-top:28px}
+.pat{background:#fff;border-left:8px solid var(--c);border-radius:16px;padding:14px 18px;margin-bottom:12px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.pat .en{font-size:18px;font-weight:700}
+.pat .en .q{color:var(--c)}
+.pat .vi{color:#666;margin-top:4px;font-style:italic}
+.pat .say,.gram .say{position:static;font-size:17px}
+.gram{background:#fff;border:3px solid var(--c);border-radius:20px;padding:16px 18px;margin-bottom:14px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.gram h3{margin:0 0 10px;color:var(--c);font-size:19px}
+.gram h3 a{color:inherit}
+.gram .tag{display:inline-block;font-size:13px;font-weight:700;background:var(--c);color:#fff;border-radius:10px;padding:2px 8px;margin-right:6px;vertical-align:middle}
+.f{font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;background:#fff6e0;border:1.5px dashed #f0c060;border-radius:10px;padding:7px 10px;margin:6px 0;font-size:15px;font-weight:600;overflow-wrap:anywhere}
+.gram ul{margin:8px 0;padding-left:20px;color:#555;line-height:1.55}
+.ex{border-top:1px dashed #ddd;padding:7px 0}
+.ex .en{font-weight:700}
+.ex .vi{color:#666;font-style:italic;font-size:15px}
+.legend{background:#fff;border:2px dashed var(--c);border-radius:16px;padding:10px 16px;font-size:15px}
+nav.pn{display:flex;justify-content:space-between;margin-top:30px;gap:10px}
+nav.pn a{background:var(--c);color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none;font-weight:700}
+.chips{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:5;background:#fffaf2;padding:10px 0;margin:0 -2px}
+.chip{border:2px solid #ff7aa2;background:#fff;color:#d6336c;border-radius:20px;padding:6px 13px;font-weight:700;cursor:pointer;font-size:15px;font-family:inherit}
+.chip.on{background:#ff7aa2;color:#fff}
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.topic{display:block;text-decoration:none;color:#fff;border-radius:24px;padding:18px;box-shadow:0 6px 14px rgba(0,0,0,.12);transition:transform .15s;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.topic:hover{transform:scale(1.04)}
+.topic .ico{font-size:48px}
+.topic .t{font-size:20px;font-weight:800;margin-top:6px}
+.topic .s{font-size:16px;opacity:.95}
+.topic .n{margin-top:10px;font-size:14px;background:rgba(255,255,255,.25);display:inline-block;padding:3px 10px;border-radius:12px}
+section[id]{scroll-margin-top:130px}
+h3.sub{font-size:18px;margin:20px 0 10px;color:#555;border-left:5px solid #ff7aa2;padding-left:10px}
+h3.sub small{font-size:14px;font-weight:600;color:#999}
+.special{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#7c4dff,#ff7aa2);color:#fff;text-decoration:none;border-radius:24px;padding:18px 22px;box-shadow:0 6px 14px rgba(0,0,0,.12)}
+.special .ico{font-size:46px}
+.special b{font-size:21px;display:block}
+.tips{background:#fff;border-radius:20px;padding:16px 22px;box-shadow:0 3px 8px rgba(0,0,0,.06);line-height:1.7}
+.install{display:none}
+.ioshint{display:none;background:#fff;color:#333;border-radius:16px;padding:10px 14px;margin:12px auto 0;max-width:420px;font-size:15px;text-shadow:none}
+[hidden]{display:none!important}
+@media (max-width:860px){.cols{grid-template-columns:1fr;gap:0}}
+@media (max-width:480px){.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.chips::-webkit-scrollbar{display:none}.chip{flex:0 0 auto}section[id]{scroll-margin-top:70px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:12px 6px 10px;border-radius:16px}.card .ico{font-size:40px}.card .w{font-size:17px}.card .ipa,.card .vn,.card .m{font-size:13px}.say{top:2px;right:2px;font-size:17px}.topics{grid-template-columns:1fr 1fr;gap:10px}.topic{padding:14px;border-radius:18px}.topic .ico{font-size:38px}.topic .t{font-size:16px}.topic .s{font-size:14px}.topic .n{font-size:12px}nav.pn a{padding:9px 12px;font-size:14px}}
+@media print{.say,.toolbar,nav.pn,.chips{display:none}header{border-radius:0}.card,.gram{break-inside:avoid}.cols{grid-template-columns:1fr}}
+</style><script>
+function say(t){if(!('speechSynthesis' in window))return alert('Trình duyệt không hỗ trợ đọc.');
+speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/→/g,'.').replace(/\//g,' or '));
+u.lang='en-GB';u.rate=0.8;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));if(v)u.voice=v;speechSynthesis.speak(u);}
+function toggleHide(b){document.body.classList.toggle('hide');b.textContent=document.body.classList.contains('hide')?'👁️ Hiện nghĩa':'🙈 Ẩn nghĩa (tự kiểm tra)';}
+document.addEventListener('click',ev=>{const c=ev.target.closest('.card');if(c&&!ev.target.closest('.say'))c.classList.toggle('show');});
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register(document.documentElement.dataset.root+'sw.js').catch(()=>{}));
+let deferredPrompt;
+addEventListener('beforeinstallprompt',ev=>{ev.preventDefault();deferredPrompt=ev;document.querySelectorAll('.install').forEach(b=>b.style.display='inline-block');});
+function installApp(){if(!deferredPrompt)return;deferredPrompt.prompt();deferredPrompt.userChoice.finally(()=>{deferredPrompt=null;document.querySelectorAll('.install').forEach(b=>b.style.display='none');});}
+addEventListener('DOMContentLoaded',()=>{const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const standalone=navigator.standalone||matchMedia('(display-mode: standalone)').matches;const h=document.querySelector('.ioshint');if(h&&ios&&!standalone)h.style.display='block';});
+function filterGrade(btn){document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===btn));const g=btn.dataset.g;
+document.querySelectorAll('[data-g]').forEach(el=>{if(el.classList.contains('chip'))return;el.hidden=g!=='all'&&!(' '+el.dataset.g+' ').includes(' '+g+' ');});
+document.querySelectorAll('[data-sec]').forEach(s=>{s.hidden=!s.querySelector('[data-g]:not([hidden])');});}
+</script></head>
+<body><header><div class="big">🗣️</div><h1>Opinions &amp; Debate</h1><p>Chủ đề 137: Quan điểm &amp; Tranh luận</p>
+<span class="badge">📘 Trình độ Fluent · 24 từ · 5 mẫu câu · ngữ pháp</span>
+<div class="toolbar"><a class="btn" href="../index.html#nguoi-lon">🏠 Trang chủ</a>
+<a class="btn" href="../ngu-phap.html">📐 Ngữ pháp</a>
+<button class="btn" onclick="toggleHide(this)">🙈 Ẩn nghĩa (tự kiểm tra)</button>
+<button class="btn" onclick="window.print()">🖨️ In</button></div></header>
+<main><div class="legend">🔊 Bấm loa để nghe &nbsp;|&nbsp; <b>/IPA/</b> = phiên âm quốc tế &nbsp;|&nbsp; (n) danh từ · (v) động từ · (adj) tính từ · (idiom) thành ngữ · (phr v) cụm động từ · (expr) cụm từ cố định · (collocation) kết hợp từ · (slang) tiếng lóng &nbsp;|&nbsp; ô xám = nghĩa</div>
+<h2>📖 Từ vựng (Vocabulary)</h2><div class="grid"><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="if you ask me">🔊</button><div class="ico">🙋</div><div class="w">if you ask me</div><div class="ipa">/ɪf juː ˈɑːsk miː/</div><div class="m">(expr) theo tôi thì</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="the way I see it">🔊</button><div class="ico">👓</div><div class="w">the way I see it</div><div class="ipa">/ðə ˌweɪ aɪ ˈsiː ɪt/</div><div class="m">(expr) theo cách tôi nhìn nhận</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="I&#x27;m not so sure about that.">🔊</button><div class="ico">🤔</div><div class="w">I&#x27;m not so sure about that.</div><div class="ipa">/aɪm ˌnɒt səʊ ˈʃɔːr əˌbaʊt ðæt/</div><div class="m">(expr) Tôi không chắc lắm đâu.</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="You&#x27;ve got a point.">🔊</button><div class="ico">👍</div><div class="w">You&#x27;ve got a point.</div><div class="ipa">/juːv ˌɡɒt ə ˈpɔɪnt/</div><div class="m">(expr) Bạn nói cũng có lý.</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="I couldn&#x27;t agree more.">🔊</button><div class="ico">🙌</div><div class="w">I couldn&#x27;t agree more.</div><div class="ipa">/aɪ ˌkʊdnt əˈɡriː mɔː/</div><div class="m">(expr) Tôi hoàn toàn đồng ý.</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="I beg to differ.">🔊</button><div class="ico">🙅</div><div class="w">I beg to differ.</div><div class="ipa">/aɪ ˌbeɡ tə ˈdɪfə/</div><div class="m">(expr) Tôi xin phép không đồng ý.</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="play devil&#x27;s advocate">🔊</button><div class="ico">😈</div><div class="w">play devil&#x27;s advocate</div><div class="ipa">/ˌpleɪ ˌdevlz ˈædvəkət/</div><div class="m">(idiom) cố tình nói ngược để tranh luận</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="sit on the fence">🔊</button><div class="ico">🧱</div><div class="w">sit on the fence</div><div class="ipa">/ˌsɪt ɒn ðə ˈfens/</div><div class="m">(idiom) đứng giữa, không chọn phe</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="hit the nail on the head">🔊</button><div class="ico">🔨</div><div class="w">hit the nail on the head</div><div class="ipa">/ˌhɪt ðə ˌneɪl ɒn ðə ˈhed/</div><div class="m">(idiom) nói trúng vấn đề</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="beat around the bush">🔊</button><div class="ico">🌳</div><div class="w">beat around the bush</div><div class="ipa">/ˌbiːt əˌraʊnd ðə ˈbʊʃ/</div><div class="m">(idiom) vòng vo</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="on the other hand">🔊</button><div class="ico">🔄</div><div class="w">on the other hand</div><div class="ipa">/ɒn ði ˈʌðə hænd/</div><div class="m">(expr) mặt khác</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="That&#x27;s beside the point.">🔊</button><div class="ico">😶</div><div class="w">That&#x27;s beside the point.</div><div class="ipa">/ðæts bɪˌsaɪd ðə ˈpɔɪnt/</div><div class="m">(expr) Điều đó không liên quan.</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="fair point">🔊</button><div class="ico">🧩</div><div class="w">fair point</div><div class="ipa">/ˌfeə ˈpɔɪnt/</div><div class="m">(expr) ý hay, hợp lý</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="a heated debate">🔊</button><div class="ico">🔥</div><div class="w">a heated debate</div><div class="ipa">/ə ˌhiːtɪd dɪˈbeɪt/</div><div class="m">(collocation) cuộc tranh luận nảy lửa</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="agree to disagree">🔊</button><div class="ico">🤝</div><div class="w">agree to disagree</div><div class="ipa">/əˌɡriː tə ˌdɪsəˈɡriː/</div><div class="m">(idiom) chấp nhận bất đồng</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="jump to conclusions">🔊</button><div class="ico">🦘</div><div class="w">jump to conclusions</div><div class="ipa">/ˌdʒʌmp tə kənˈkluːʒnz/</div><div class="m">(idiom) vội kết luận</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="food for thought">🔊</button><div class="ico">💡</div><div class="w">food for thought</div><div class="ipa">/ˌfuːd fə ˈθɔːt/</div><div class="m">(idiom) điều đáng suy ngẫm</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="to some extent">🔊</button><div class="ico">📏</div><div class="w">to some extent</div><div class="ipa">/tə ˌsʌm ɪkˈstent/</div><div class="m">(expr) ở một mức độ nào đó</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Can I just jump in here?">🔊</button><div class="ico">✋</div><div class="w">Can I just jump in here?</div><div class="ipa">/kən aɪ ˌdʒʌst dʒʌmp ˈɪn hɪə/</div><div class="m">(expr) Cho tôi chen vào một chút?</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="As I was saying...">🔊</button><div class="ico">🎙️</div><div class="w">As I was saying...</div><div class="ipa">/əz aɪ wəz ˈseɪɪŋ/</div><div class="m">(expr) Như tôi đang nói...</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Where do you stand on...?">🔊</button><div class="ico">📍</div><div class="w">Where do you stand on...?</div><div class="ipa">/ˌweə də juː ˈstænd ɒn/</div><div class="m">(expr) Quan điểm của bạn về... là gì?</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Point taken.">🔊</button><div class="ico">🫡</div><div class="w">Point taken.</div><div class="ipa">/ˌpɔɪnt ˈteɪkən/</div><div class="m">(expr) Tôi hiểu ý bạn rồi.</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="go with the flow">🔊</button><div class="ico">🌊</div><div class="w">go with the flow</div><div class="ipa">/ˌɡəʊ wɪð ðə ˈfləʊ/</div><div class="m">(idiom) thuận theo số đông</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="a controversial issue">🔊</button><div class="ico">🧨</div><div class="w">a controversial issue</div><div class="ipa">/ə ˌkɒntrəˌvɜːʃl ˈɪʃuː/</div><div class="m">(collocation) vấn đề gây tranh cãi</div></div></div>
+<div class="cols"><section><h2>💬 Mẫu câu (Sentence patterns)</h2><div class="pat"><div class="en">If you ask me, remote work is here to stay. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="If you ask me, remote work is here to stay.">🔊</button></div><div class="vi">🇻🇳 Theo tôi thì làm việc từ xa sẽ còn tồn tại lâu dài.</div></div><div class="pat"><div class="en">You&#x27;ve got a point, but I&#x27;m not so sure about the cost. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="You&#x27;ve got a point, but I&#x27;m not so sure about the cost.">🔊</button></div><div class="vi">🇻🇳 Bạn nói có lý, nhưng tôi không chắc lắm về chi phí.</div></div><div class="pat"><div class="en">Just to play devil&#x27;s advocate – what if it doesn&#x27;t work? <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Just to play devil&#x27;s advocate – what if it doesn&#x27;t work?">🔊</button></div><div class="vi">🇻🇳 Thử nói ngược lại xem – nếu nó không hiệu quả thì sao?</div></div><div class="pat"><div class="en">Stop beating around the bush and tell me what you think. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Stop beating around the bush and tell me what you think.">🔊</button></div><div class="vi">🇻🇳 Đừng vòng vo nữa, nói cho tôi biết bạn nghĩ gì đi.</div></div><div class="pat"><div class="en">I guess we&#x27;ll have to agree to disagree. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="I guess we&#x27;ll have to agree to disagree.">🔊</button></div><div class="vi">🇻🇳 Tôi đoán chúng ta đành chấp nhận bất đồng vậy.</div></div></section>
+<section><h2>📐 Ngữ pháp (Grammar)</h2><div class="gram"><h3>📐 Nêu ý kiến, đồng ý &amp; phản đối lịch sự</h3><div class="f">Nêu ý kiến: I reckon / I&#x27;d say / It seems to me that / Personally, I think...</div><div class="f">Đồng ý: Absolutely. / I couldn&#x27;t agree more. / That&#x27;s exactly what I think.</div><div class="f">Đồng ý một phần: I see your point, but... / That&#x27;s true to some extent, however...</div><div class="f">Phản đối nhẹ: I&#x27;m not sure I agree. / I see it a bit differently. / Wouldn&#x27;t you say that...?</div><ul><li>Câu hỏi phủ định (Wouldn&#x27;t you agree...? Isn&#x27;t it true that...?) là cách phản biện mềm mỏng.</li></ul><div class="ex"><div class="en">I see your point, but I think it&#x27;s a bit more complicated than that. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="I see your point, but I think it&#x27;s a bit more complicated than that.">🔊</button></div><div class="vi">🇻🇳 Tôi hiểu ý bạn, nhưng tôi nghĩ vấn đề phức tạp hơn thế một chút.</div></div><div class="ex"><div class="en">Wouldn&#x27;t you say that education is the real issue here? <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Wouldn&#x27;t you say that education is the real issue here?">🔊</button></div><div class="vi">🇻🇳 Bạn không nghĩ rằng giáo dục mới là vấn đề thực sự ở đây sao?</div></div><div class="ex"><div class="en">Personally, I&#x27;d say the benefits outweigh the costs. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Personally, I&#x27;d say the benefits outweigh the costs.">🔊</button></div><div class="vi">🇻🇳 Cá nhân tôi cho rằng lợi ích lớn hơn chi phí.</div></div></div></section></div>
+<nav class="pn"><a href="fluent-du-lich.html">⬅️ Chuyện du lịch</a><a href="fluent-small-talk.html">Chuyện phiếm xã giao ➡️</a></nav></main></body></html>

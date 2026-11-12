@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi" data-root="../"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Success &amp; Failure – Thành công &amp; Thất bại</title>
+<meta name="theme-color" content="#f57c00">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="English Kids">
+<style>:root{--c:#f57c00}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Segoe UI','Nunito',system-ui,Arial,sans-serif;background:#fffaf2;color:#333;overflow-x:hidden}
+header{padding:calc(24px + env(safe-area-inset-top)) 16px 22px;text-align:center;color:#fff;background:var(--c);border-radius:0 0 32px 32px;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+header .big{font-size:60px;line-height:1}
+header h1{margin:8px 0 4px;font-size:clamp(26px,6vw,34px)}
+header p{margin:0;font-size:17px;opacity:.95}
+.badge{display:inline-block;background:#fff;color:var(--c);font-weight:700;border-radius:20px;padding:3px 12px;font-size:14px;margin-top:8px}
+main{max-width:1150px;margin:0 auto;padding:20px 16px calc(60px + env(safe-area-inset-bottom))}
+h2{font-size:23px;margin:28px 0 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+h2 small{font-size:15px;font-weight:600;color:#888}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.btn{border:none;background:#fff;color:var(--c);font-weight:700;padding:8px 16px;border-radius:20px;cursor:pointer;font-size:15px;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,.12);font-family:inherit}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:16px}
+.card{background:#fff;border-radius:20px;padding:16px 12px 14px;text-align:center;border:3px solid var(--c);box-shadow:0 4px 10px rgba(0,0,0,.06);position:relative;transition:transform .15s}
+.card:hover{transform:translateY(-4px) rotate(-1deg)}
+.card .ico{font-size:52px;line-height:1.1}
+.card .w{font-size:21px;font-weight:800;color:var(--c);margin:6px 0 4px;overflow-wrap:anywhere}
+.card .ipa{font-family:'Lucida Sans Unicode','Arial Unicode MS',sans-serif;color:#555;font-size:15px;overflow-wrap:anywhere}
+.card .vn{color:#e65100;font-size:15px;margin-top:2px}
+.card .vn::before{content:'🗣️ '}
+.card .m{margin-top:8px;background:#f3f3f3;border-radius:12px;padding:6px;font-weight:700;font-size:16px}
+.say{position:absolute;top:8px;right:8px;border:none;background:none;font-size:20px;cursor:pointer;padding:4px}
+.hide .m{color:transparent;background:repeating-linear-gradient(45deg,#ddd,#ddd 6px,#eee 6px,#eee 12px)}
+.hide .card:hover .m,.hide .card.show .m{color:#333;background:#f3f3f3}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.cols>section>h2{margin-top:28px}
+.pat{background:#fff;border-left:8px solid var(--c);border-radius:16px;padding:14px 18px;margin-bottom:12px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.pat .en{font-size:18px;font-weight:700}
+.pat .en .q{color:var(--c)}
+.pat .vi{color:#666;margin-top:4px;font-style:italic}
+.pat .say,.gram .say{position:static;font-size:17px}
+.gram{background:#fff;border:3px solid var(--c);border-radius:20px;padding:16px 18px;margin-bottom:14px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.gram h3{margin:0 0 10px;color:var(--c);font-size:19px}
+.gram h3 a{color:inherit}
+.gram .tag{display:inline-block;font-size:13px;font-weight:700;background:var(--c);color:#fff;border-radius:10px;padding:2px 8px;margin-right:6px;vertical-align:middle}
+.f{font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;background:#fff6e0;border:1.5px dashed #f0c060;border-radius:10px;padding:7px 10px;margin:6px 0;font-size:15px;font-weight:600;overflow-wrap:anywhere}
+.gram ul{margin:8px 0;padding-left:20px;color:#555;line-height:1.55}
+.ex{border-top:1px dashed #ddd;padding:7px 0}
+.ex .en{font-weight:700}
+.ex .vi{color:#666;font-style:italic;font-size:15px}
+.legend{background:#fff;border:2px dashed var(--c);border-radius:16px;padding:10px 16px;font-size:15px}
+nav.pn{display:flex;justify-content:space-between;margin-top:30px;gap:10px}
+nav.pn a{background:var(--c);color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none;font-weight:700}
+.chips{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:5;background:#fffaf2;padding:10px 0;margin:0 -2px}
+.chip{border:2px solid #ff7aa2;background:#fff;color:#d6336c;border-radius:20px;padding:6px 13px;font-weight:700;cursor:pointer;font-size:15px;font-family:inherit}
+.chip.on{background:#ff7aa2;color:#fff}
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.topic{display:block;text-decoration:none;color:#fff;border-radius:24px;padding:18px;box-shadow:0 6px 14px rgba(0,0,0,.12);transition:transform .15s;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.topic:hover{transform:scale(1.04)}
+.topic .ico{font-size:48px}
+.topic .t{font-size:20px;font-weight:800;margin-top:6px}
+.topic .s{font-size:16px;opacity:.95}
+.topic .n{margin-top:10px;font-size:14px;background:rgba(255,255,255,.25);display:inline-block;padding:3px 10px;border-radius:12px}
+section[id]{scroll-margin-top:130px}
+h3.sub{font-size:18px;margin:20px 0 10px;color:#555;border-left:5px solid #ff7aa2;padding-left:10px}
+h3.sub small{font-size:14px;font-weight:600;color:#999}
+.special{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#7c4dff,#ff7aa2);color:#fff;text-decoration:none;border-radius:24px;padding:18px 22px;box-shadow:0 6px 14px rgba(0,0,0,.12)}
+.special .ico{font-size:46px}
+.special b{font-size:21px;display:block}
+.tips{background:#fff;border-radius:20px;padding:16px 22px;box-shadow:0 3px 8px rgba(0,0,0,.06);line-height:1.7}
+.install{display:none}
+.ioshint{display:none;background:#fff;color:#333;border-radius:16px;padding:10px 14px;margin:12px auto 0;max-width:420px;font-size:15px;text-shadow:none}
+[hidden]{display:none!important}
+@media (max-width:860px){.cols{grid-template-columns:1fr;gap:0}}
+@media (max-width:480px){.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.chips::-webkit-scrollbar{display:none}.chip{flex:0 0 auto}section[id]{scroll-margin-top:70px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:12px 6px 10px;border-radius:16px}.card .ico{font-size:40px}.card .w{font-size:17px}.card .ipa,.card .vn,.card .m{font-size:13px}.say{top:2px;right:2px;font-size:17px}.topics{grid-template-columns:1fr 1fr;gap:10px}.topic{padding:14px;border-radius:18px}.topic .ico{font-size:38px}.topic .t{font-size:16px}.topic .s{font-size:14px}.topic .n{font-size:12px}nav.pn a{padding:9px 12px;font-size:14px}}
+@media print{.say,.toolbar,nav.pn,.chips{display:none}header{border-radius:0}.card,.gram{break-inside:avoid}.cols{grid-template-columns:1fr}}
+</style><script>
+function say(t){if(!('speechSynthesis' in window))return alert('Trình duyệt không hỗ trợ đọc.');
+speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/→/g,'.').replace(/\//g,' or '));
+u.lang='en-GB';u.rate=0.8;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));if(v)u.voice=v;speechSynthesis.speak(u);}
+function toggleHide(b){document.body.classList.toggle('hide');b.textContent=document.body.classList.contains('hide')?'👁️ Hiện nghĩa':'🙈 Ẩn nghĩa (tự kiểm tra)';}
+document.addEventListener('click',ev=>{const c=ev.target.closest('.card');if(c&&!ev.target.closest('.say'))c.classList.toggle('show');});
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register(document.documentElement.dataset.root+'sw.js').catch(()=>{}));
+let deferredPrompt;
+addEventListener('beforeinstallprompt',ev=>{ev.preventDefault();deferredPrompt=ev;document.querySelectorAll('.install').forEach(b=>b.style.display='inline-block');});
+function installApp(){if(!deferredPrompt)return;deferredPrompt.prompt();deferredPrompt.userChoice.finally(()=>{deferredPrompt=null;document.querySelectorAll('.install').forEach(b=>b.style.display='none');});}
+addEventListener('DOMContentLoaded',()=>{const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const standalone=navigator.standalone||matchMedia('(display-mode: standalone)').matches;const h=document.querySelector('.ioshint');if(h&&ios&&!standalone)h.style.display='block';});
+function filterGrade(btn){document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===btn));const g=btn.dataset.g;
+document.querySelectorAll('[data-g]').forEach(el=>{if(el.classList.contains('chip'))return;el.hidden=g!=='all'&&!(' '+el.dataset.g+' ').includes(' '+g+' ');});
+document.querySelectorAll('[data-sec]').forEach(s=>{s.hidden=!s.querySelector('[data-g]:not([hidden])');});}
+</script></head>
+<body><header><div class="big">🏆</div><h1>Success &amp; Failure</h1><p>Chủ đề 135: Thành công &amp; Thất bại</p>
+<span class="badge">📘 Trình độ Fluent · 24 từ · 5 mẫu câu · ngữ pháp</span>
+<div class="toolbar"><a class="btn" href="../index.html#nguoi-lon">🏠 Trang chủ</a>
+<a class="btn" href="../ngu-phap.html">📐 Ngữ pháp</a>
+<button class="btn" onclick="toggleHide(this)">🙈 Ẩn nghĩa (tự kiểm tra)</button>
+<button class="btn" onclick="window.print()">🖨️ In</button></div></header>
+<main><div class="legend">🔊 Bấm loa để nghe &nbsp;|&nbsp; <b>/IPA/</b> = phiên âm quốc tế &nbsp;|&nbsp; (n) danh từ · (v) động từ · (adj) tính từ · (idiom) thành ngữ · (phr v) cụm động từ · (expr) cụm từ cố định · (collocation) kết hợp từ · (slang) tiếng lóng &nbsp;|&nbsp; ô xám = nghĩa</div>
+<h2>📖 Từ vựng (Vocabulary)</h2><div class="grid"><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="pull it off">🔊</button><div class="ico">🏆</div><div class="w">pull it off</div><div class="ipa">/ˌpʊl ɪt ˈɒf/</div><div class="m">(phr v) làm được (việc khó)</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="nail it">🔊</button><div class="ico">🎯</div><div class="w">nail it</div><div class="ipa">/ˈneɪl ɪt/</div><div class="m">(expr) làm cực tốt</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="take off">🔊</button><div class="ico">🚀</div><div class="w">take off</div><div class="ipa">/ˌteɪk ˈɒf/</div><div class="m">(phr v) cất cánh, thành công nhanh</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="make it big">🔊</button><div class="ico">💰</div><div class="w">make it big</div><div class="ipa">/ˌmeɪk ɪt ˈbɪɡ/</div><div class="m">(idiom) thành công lớn</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="against all odds">🔊</button><div class="ico">🧗</div><div class="w">against all odds</div><div class="ipa">/əˌɡenst ˌɔːl ˈɒdz/</div><div class="m">(idiom) bất chấp mọi khó khăn</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="bounce back">🔊</button><div class="ico">🏀</div><div class="w">bounce back</div><div class="ipa">/ˌbaʊns ˈbæk/</div><div class="m">(phr v) phục hồi, vực dậy</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="back to square one">🔊</button><div class="ico">🔙</div><div class="w">back to square one</div><div class="ipa">/ˌbæk tə ˌskweə ˈwʌn/</div><div class="m">(idiom) quay lại vạch xuất phát</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="fall flat">🔊</button><div class="ico">💥</div><div class="w">fall flat</div><div class="ipa">/ˌfɔːl ˈflæt/</div><div class="m">(idiom) thất bại thảm hại</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="blow it">🔊</button><div class="ico">🤦</div><div class="w">blow it</div><div class="ipa">/ˈbləʊ ɪt/</div><div class="m">(expr) làm hỏng cơ hội</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="a dead end">🔊</button><div class="ico">🚧</div><div class="w">a dead end</div><div class="ipa">/ə ˌded ˈend/</div><div class="m">(n) ngõ cụt</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="hit or miss">🔊</button><div class="ico">🎲</div><div class="w">hit or miss</div><div class="ipa">/ˌhɪt ɔː ˈmɪs/</div><div class="m">(idiom) lúc được lúc không</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="come close">🔊</button><div class="ico">🥈</div><div class="w">come close</div><div class="ipa">/ˌkʌm ˈkləʊs/</div><div class="m">(expr) suýt được</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="give up">🔊</button><div class="ico">🏳️</div><div class="w">give up</div><div class="ipa">/ˌɡɪv ˈʌp/</div><div class="m">(phr v) bỏ cuộc</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="hang in there">🔊</button><div class="ico">💪</div><div class="w">hang in there</div><div class="ipa">/ˌhæŋ ɪn ˈðeə/</div><div class="m">(expr) cố lên, đừng bỏ cuộc</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="beginner&#x27;s luck">🔊</button><div class="ico">🍀</div><div class="w">beginner&#x27;s luck</div><div class="ipa">/bɪˌɡɪnəz ˈlʌk/</div><div class="m">(n) may mắn của người mới</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="on a roll">🔊</button><div class="ico">🔥</div><div class="w">on a roll</div><div class="ipa">/ɒn ə ˈrəʊl/</div><div class="m">(idiom) đang thắng liên tiếp</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="learn the hard way">🔊</button><div class="ico">🤕</div><div class="w">learn the hard way</div><div class="ipa">/ˌlɜːn ðə ˌhɑːd ˈweɪ/</div><div class="m">(idiom) học qua vấp ngã</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="get the hang of">🔊</button><div class="ico">🛠️</div><div class="w">get the hang of</div><div class="ipa">/ˌɡet ðə ˈhæŋ əv/</div><div class="m">(idiom) quen tay, nắm được cách</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="trial and error">🔊</button><div class="ico">🧪</div><div class="w">trial and error</div><div class="ipa">/ˌtraɪəl ənd ˈerə/</div><div class="m">(n) thử và sai</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="a breakthrough">🔊</button><div class="ico">🌟</div><div class="w">a breakthrough</div><div class="ipa">/ə ˈbreɪkθruː/</div><div class="m">(n) bước đột phá</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="ups and downs">🔊</button><div class="ico">🎢</div><div class="w">ups and downs</div><div class="ipa">/ˌʌps ən ˈdaʊnz/</div><div class="m">(n) thăng trầm</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="come out on top">🔊</button><div class="ico">🥇</div><div class="w">come out on top</div><div class="ipa">/ˌkʌm aʊt ɒn ˈtɒp/</div><div class="m">(idiom) giành chiến thắng</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="miss the boat">🔊</button><div class="ico">⛴️</div><div class="w">miss the boat</div><div class="ipa">/ˌmɪs ðə ˈbəʊt/</div><div class="m">(idiom) lỡ cơ hội</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="keep at it">🔊</button><div class="ico">🔨</div><div class="w">keep at it</div><div class="ipa">/ˌkiːp ˈæt ɪt/</div><div class="m">(expr) kiên trì làm tiếp</div></div></div>
+<div class="cols"><section><h2>💬 Mẫu câu (Sentence patterns)</h2><div class="pat"><div class="en">I can&#x27;t believe we actually pulled it off! <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="I can&#x27;t believe we actually pulled it off!">🔊</button></div><div class="vi">🇻🇳 Không thể tin là chúng ta đã thực sự làm được!</div></div><div class="pat"><div class="en">I should&#x27;ve applied earlier – now I&#x27;ve missed the boat. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="I should&#x27;ve applied earlier – now I&#x27;ve missed the boat.">🔊</button></div><div class="vi">🇻🇳 Lẽ ra tôi phải nộp đơn sớm hơn – giờ tôi lỡ cơ hội rồi.</div></div><div class="pat"><div class="en">You could&#x27;ve told me you needed help! <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="You could&#x27;ve told me you needed help!">🔊</button></div><div class="vi">🇻🇳 Lẽ ra bạn đã có thể nói với tôi là bạn cần giúp chứ!</div></div><div class="pat"><div class="en">Don&#x27;t give up – it takes a while to get the hang of it. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Don&#x27;t give up – it takes a while to get the hang of it.">🔊</button></div><div class="vi">🇻🇳 Đừng bỏ cuộc – phải mất một thời gian mới quen tay được.</div></div><div class="pat"><div class="en">Every business has its ups and downs. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Every business has its ups and downs.">🔊</button></div><div class="vi">🇻🇳 Kinh doanh nào cũng có thăng trầm.</div></div></section>
+<section><h2>📐 Ngữ pháp (Grammar)</h2><div class="gram"><h3>📐 Diễn đạt hối tiếc &amp; trách móc trong hội thoại</h3><div class="f">I should&#x27;ve / shouldn&#x27;t have + V3 → lẽ ra tôi nên / không nên (hối tiếc)</div><div class="f">You could&#x27;ve + V3! → lẽ ra bạn đã có thể (trách nhẹ)</div><div class="f">I wish I&#x27;d + V3 / If only I&#x27;d + V3 → ước gì tôi đã...</div><div class="f">might as well + V → thôi thì cứ... (vì không còn lựa chọn tốt hơn)</div><ul><li>Khi nói, &quot;should have / could have&quot; thường rút gọn thành &quot;should&#x27;ve&quot; /ˈʃʊdəv/, &quot;could&#x27;ve&quot; /ˈkʊdəv/.</li></ul><div class="ex"><div class="en">I should&#x27;ve listened to your advice. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="I should&#x27;ve listened to your advice.">🔊</button></div><div class="vi">🇻🇳 Lẽ ra tôi nên nghe lời khuyên của bạn.</div></div><div class="ex"><div class="en">You could&#x27;ve warned me about the traffic! <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="You could&#x27;ve warned me about the traffic!">🔊</button></div><div class="vi">🇻🇳 Lẽ ra bạn đã có thể báo trước cho tôi về vụ tắc đường chứ!</div></div><div class="ex"><div class="en">We&#x27;ve missed the last bus, so we might as well walk. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="We&#x27;ve missed the last bus, so we might as well walk.">🔊</button></div><div class="vi">🇻🇳 Lỡ chuyến xe buýt cuối rồi, thôi thì cứ đi bộ vậy.</div></div></div></section></div>
+<nav class="pn"><a href="fluent-ke-hoach.html">⬅️ Thời gian &amp; Kế hoạch</a><a href="fluent-du-lich.html">Chuyện du lịch ➡️</a></nav></main></body></html>

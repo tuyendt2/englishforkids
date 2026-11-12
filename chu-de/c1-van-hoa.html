@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi" data-root="../"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Culture &amp; the Arts – Văn hóa &amp; Nghệ thuật</title>
+<meta name="theme-color" content="#ad1457">
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="English Kids">
+<style>:root{--c:#ad1457}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:'Segoe UI','Nunito',system-ui,Arial,sans-serif;background:#fffaf2;color:#333;overflow-x:hidden}
+header{padding:calc(24px + env(safe-area-inset-top)) 16px 22px;text-align:center;color:#fff;background:var(--c);border-radius:0 0 32px 32px;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+header .big{font-size:60px;line-height:1}
+header h1{margin:8px 0 4px;font-size:clamp(26px,6vw,34px)}
+header p{margin:0;font-size:17px;opacity:.95}
+.badge{display:inline-block;background:#fff;color:var(--c);font-weight:700;border-radius:20px;padding:3px 12px;font-size:14px;margin-top:8px}
+main{max-width:1150px;margin:0 auto;padding:20px 16px calc(60px + env(safe-area-inset-bottom))}
+h2{font-size:23px;margin:28px 0 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+h2 small{font-size:15px;font-weight:600;color:#888}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.btn{border:none;background:#fff;color:var(--c);font-weight:700;padding:8px 16px;border-radius:20px;cursor:pointer;font-size:15px;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,.12);font-family:inherit}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:16px}
+.card{background:#fff;border-radius:20px;padding:16px 12px 14px;text-align:center;border:3px solid var(--c);box-shadow:0 4px 10px rgba(0,0,0,.06);position:relative;transition:transform .15s}
+.card:hover{transform:translateY(-4px) rotate(-1deg)}
+.card .ico{font-size:52px;line-height:1.1}
+.card .w{font-size:21px;font-weight:800;color:var(--c);margin:6px 0 4px;overflow-wrap:anywhere}
+.card .ipa{font-family:'Lucida Sans Unicode','Arial Unicode MS',sans-serif;color:#555;font-size:15px;overflow-wrap:anywhere}
+.card .vn{color:#e65100;font-size:15px;margin-top:2px}
+.card .vn::before{content:'🗣️ '}
+.card .m{margin-top:8px;background:#f3f3f3;border-radius:12px;padding:6px;font-weight:700;font-size:16px}
+.say{position:absolute;top:8px;right:8px;border:none;background:none;font-size:20px;cursor:pointer;padding:4px}
+.hide .m{color:transparent;background:repeating-linear-gradient(45deg,#ddd,#ddd 6px,#eee 6px,#eee 12px)}
+.hide .card:hover .m,.hide .card.show .m{color:#333;background:#f3f3f3}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.cols>section>h2{margin-top:28px}
+.pat{background:#fff;border-left:8px solid var(--c);border-radius:16px;padding:14px 18px;margin-bottom:12px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.pat .en{font-size:18px;font-weight:700}
+.pat .en .q{color:var(--c)}
+.pat .vi{color:#666;margin-top:4px;font-style:italic}
+.pat .say,.gram .say{position:static;font-size:17px}
+.gram{background:#fff;border:3px solid var(--c);border-radius:20px;padding:16px 18px;margin-bottom:14px;box-shadow:0 3px 8px rgba(0,0,0,.05)}
+.gram h3{margin:0 0 10px;color:var(--c);font-size:19px}
+.gram h3 a{color:inherit}
+.gram .tag{display:inline-block;font-size:13px;font-weight:700;background:var(--c);color:#fff;border-radius:10px;padding:2px 8px;margin-right:6px;vertical-align:middle}
+.f{font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;background:#fff6e0;border:1.5px dashed #f0c060;border-radius:10px;padding:7px 10px;margin:6px 0;font-size:15px;font-weight:600;overflow-wrap:anywhere}
+.gram ul{margin:8px 0;padding-left:20px;color:#555;line-height:1.55}
+.ex{border-top:1px dashed #ddd;padding:7px 0}
+.ex .en{font-weight:700}
+.ex .vi{color:#666;font-style:italic;font-size:15px}
+.legend{background:#fff;border:2px dashed var(--c);border-radius:16px;padding:10px 16px;font-size:15px}
+nav.pn{display:flex;justify-content:space-between;margin-top:30px;gap:10px}
+nav.pn a{background:var(--c);color:#fff;padding:10px 18px;border-radius:20px;text-decoration:none;font-weight:700}
+.chips{display:flex;gap:8px;flex-wrap:wrap;position:sticky;top:0;z-index:5;background:#fffaf2;padding:10px 0;margin:0 -2px}
+.chip{border:2px solid #ff7aa2;background:#fff;color:#d6336c;border-radius:20px;padding:6px 13px;font-weight:700;cursor:pointer;font-size:15px;font-family:inherit}
+.chip.on{background:#ff7aa2;color:#fff}
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.topic{display:block;text-decoration:none;color:#fff;border-radius:24px;padding:18px;box-shadow:0 6px 14px rgba(0,0,0,.12);transition:transform .15s;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.topic:hover{transform:scale(1.04)}
+.topic .ico{font-size:48px}
+.topic .t{font-size:20px;font-weight:800;margin-top:6px}
+.topic .s{font-size:16px;opacity:.95}
+.topic .n{margin-top:10px;font-size:14px;background:rgba(255,255,255,.25);display:inline-block;padding:3px 10px;border-radius:12px}
+section[id]{scroll-margin-top:130px}
+h3.sub{font-size:18px;margin:20px 0 10px;color:#555;border-left:5px solid #ff7aa2;padding-left:10px}
+h3.sub small{font-size:14px;font-weight:600;color:#999}
+.special{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#7c4dff,#ff7aa2);color:#fff;text-decoration:none;border-radius:24px;padding:18px 22px;box-shadow:0 6px 14px rgba(0,0,0,.12)}
+.special .ico{font-size:46px}
+.special b{font-size:21px;display:block}
+.tips{background:#fff;border-radius:20px;padding:16px 22px;box-shadow:0 3px 8px rgba(0,0,0,.06);line-height:1.7}
+.install{display:none}
+.ioshint{display:none;background:#fff;color:#333;border-radius:16px;padding:10px 14px;margin:12px auto 0;max-width:420px;font-size:15px;text-shadow:none}
+[hidden]{display:none!important}
+@media (max-width:860px){.cols{grid-template-columns:1fr;gap:0}}
+@media (max-width:480px){.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.chips::-webkit-scrollbar{display:none}.chip{flex:0 0 auto}section[id]{scroll-margin-top:70px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:12px 6px 10px;border-radius:16px}.card .ico{font-size:40px}.card .w{font-size:17px}.card .ipa,.card .vn,.card .m{font-size:13px}.say{top:2px;right:2px;font-size:17px}.topics{grid-template-columns:1fr 1fr;gap:10px}.topic{padding:14px;border-radius:18px}.topic .ico{font-size:38px}.topic .t{font-size:16px}.topic .s{font-size:14px}.topic .n{font-size:12px}nav.pn a{padding:9px 12px;font-size:14px}}
+@media print{.say,.toolbar,nav.pn,.chips{display:none}header{border-radius:0}.card,.gram{break-inside:avoid}.cols{grid-template-columns:1fr}}
+</style><script>
+function say(t){if(!('speechSynthesis' in window))return alert('Trình duyệt không hỗ trợ đọc.');
+speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/→/g,'.').replace(/\//g,' or '));
+u.lang='en-GB';u.rate=0.8;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));if(v)u.voice=v;speechSynthesis.speak(u);}
+function toggleHide(b){document.body.classList.toggle('hide');b.textContent=document.body.classList.contains('hide')?'👁️ Hiện nghĩa':'🙈 Ẩn nghĩa (tự kiểm tra)';}
+document.addEventListener('click',ev=>{const c=ev.target.closest('.card');if(c&&!ev.target.closest('.say'))c.classList.toggle('show');});
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register(document.documentElement.dataset.root+'sw.js').catch(()=>{}));
+let deferredPrompt;
+addEventListener('beforeinstallprompt',ev=>{ev.preventDefault();deferredPrompt=ev;document.querySelectorAll('.install').forEach(b=>b.style.display='inline-block');});
+function installApp(){if(!deferredPrompt)return;deferredPrompt.prompt();deferredPrompt.userChoice.finally(()=>{deferredPrompt=null;document.querySelectorAll('.install').forEach(b=>b.style.display='none');});}
+addEventListener('DOMContentLoaded',()=>{const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const standalone=navigator.standalone||matchMedia('(display-mode: standalone)').matches;const h=document.querySelector('.ioshint');if(h&&ios&&!standalone)h.style.display='block';});
+function filterGrade(btn){document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('on',c===btn));const g=btn.dataset.g;
+document.querySelectorAll('[data-g]').forEach(el=>{if(el.classList.contains('chip'))return;el.hidden=g!=='all'&&!(' '+el.dataset.g+' ').includes(' '+g+' ');});
+document.querySelectorAll('[data-sec]').forEach(s=>{s.hidden=!s.querySelector('[data-g]:not([hidden])');});}
+</script></head>
+<body><header><div class="big">🎭</div><h1>Culture &amp; the Arts</h1><p>Chủ đề 117: Văn hóa &amp; Nghệ thuật</p>
+<span class="badge">📘 Trình độ C1 · 24 từ · 5 mẫu câu · ngữ pháp</span>
+<div class="toolbar"><a class="btn" href="../index.html#nguoi-lon">🏠 Trang chủ</a>
+<a class="btn" href="../ngu-phap.html">📐 Ngữ pháp</a>
+<button class="btn" onclick="toggleHide(this)">🙈 Ẩn nghĩa (tự kiểm tra)</button>
+<button class="btn" onclick="window.print()">🖨️ In</button></div></header>
+<main><div class="legend">🔊 Bấm loa để nghe &nbsp;|&nbsp; <b>/IPA/</b> = phiên âm quốc tế &nbsp;|&nbsp; (n) danh từ · (v) động từ · (adj) tính từ · (idiom) thành ngữ · (phr v) cụm động từ · (expr) cụm từ cố định · (collocation) kết hợp từ · (slang) tiếng lóng &nbsp;|&nbsp; ô xám = nghĩa</div>
+<h2>📖 Từ vựng (Vocabulary)</h2><div class="grid"><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="performing arts">🔊</button><div class="ico">🎭</div><div class="w">performing arts</div><div class="ipa">/pəˈfɔːmɪŋ ɑːts/</div><div class="m">(n) nghệ thuật biểu diễn</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="installation">🔊</button><div class="ico">🖼️</div><div class="w">installation</div><div class="ipa">/ˌɪnstəˈleɪʃn/</div><div class="m">(n) tác phẩm sắp đặt</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="contemporary">🔊</button><div class="ico">🎨</div><div class="w">contemporary</div><div class="ipa">/kənˈtemprəri/</div><div class="m">(adj) đương đại</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="curator">🔊</button><div class="ico">🏛️</div><div class="w">curator</div><div class="ipa">/kjʊəˈreɪtə/</div><div class="m">(n) người phụ trách triển lãm, giám tuyển</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="cinematography">🔊</button><div class="ico">🎬</div><div class="w">cinematography</div><div class="ipa">/ˌsɪnəməˈtɒɡrəfi/</div><div class="m">(n) nghệ thuật quay phim</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="genre">🔊</button><div class="ico">📖</div><div class="w">genre</div><div class="ipa">/ˈʒɒnrə/</div><div class="m">(n) thể loại</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="masterpiece">🔊</button><div class="ico">🗿</div><div class="w">masterpiece</div><div class="ipa">/ˈmɑːstəpiːs/</div><div class="m">(n) kiệt tác</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="repertoire">🔊</button><div class="ico">🎼</div><div class="w">repertoire</div><div class="ipa">/ˈrepətwɑː/</div><div class="m">(n) tiết mục, vốn bài</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="acclaimed">🔊</button><div class="ico">👏</div><div class="w">acclaimed</div><div class="ipa">/əˈkleɪmd/</div><div class="m">(adj) được ca ngợi</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="pretentious">🔊</button><div class="ico">🤨</div><div class="w">pretentious</div><div class="ipa">/prɪˈtenʃəs/</div><div class="m">(adj) làm màu, kiểu cách</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="cultural heritage">🔊</button><div class="ico">🏯</div><div class="w">cultural heritage</div><div class="ipa">/ˈkʌltʃərəl ˈherɪtɪdʒ/</div><div class="m">(n) di sản văn hóa</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="cultural appropriation">🔊</button><div class="ico">🧩</div><div class="w">cultural appropriation</div><div class="ipa">/ˈkʌltʃərəl əˌprəʊpriˈeɪʃn/</div><div class="m">(n) chiếm dụng văn hóa</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="subculture">🔊</button><div class="ico">🎸</div><div class="w">subculture</div><div class="ipa">/ˈsʌbkʌltʃə/</div><div class="m">(n) tiểu văn hóa</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="aesthetic">🔊</button><div class="ico">🌸</div><div class="w">aesthetic</div><div class="ipa">/iːsˈθetɪk/</div><div class="m">(adj/n) thẩm mỹ</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="evocative">🔊</button><div class="ico">💭</div><div class="w">evocative</div><div class="ipa">/ɪˈvɒkətɪv/</div><div class="m">(adj) gợi cảm xúc</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="virtuoso">🔊</button><div class="ico">🎻</div><div class="w">virtuoso</div><div class="ipa">/ˌvɜːtʃuˈəʊsəʊ/</div><div class="m">(n) bậc thầy biểu diễn</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="premiere">🔊</button><div class="ico">🎟️</div><div class="w">premiere</div><div class="ipa">/ˈpremieə/</div><div class="m">(n) buổi công chiếu</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="medium">🔊</button><div class="ico">🖌️</div><div class="w">medium</div><div class="ipa">/ˈmiːdiəm/</div><div class="m">(n) chất liệu (nghệ thuật)</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="patron">🔊</button><div class="ico">💎</div><div class="w">patron</div><div class="ipa">/ˈpeɪtrən/</div><div class="m">(n) người bảo trợ</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="avant-garde">🔊</button><div class="ico">🌀</div><div class="w">avant-garde</div><div class="ipa">/ˌævɒŋ ˈɡɑːd/</div><div class="m">(adj) tiên phong</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="interpretation">🔊</button><div class="ico">🔍</div><div class="w">interpretation</div><div class="ipa">/ɪnˌtɜːprɪˈteɪʃn/</div><div class="m">(n) cách diễn giải</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="canon">🔊</button><div class="ico">📚</div><div class="w">canon</div><div class="ipa">/ˈkænən/</div><div class="m">(n) danh mục tác phẩm kinh điển</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="portray">🔊</button><div class="ico">🪞</div><div class="w">portray</div><div class="ipa">/pɔːˈtreɪ/</div><div class="m">(v) khắc họa</div></div><div class="card"><button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="resonate with">🔊</button><div class="ico">🌟</div><div class="w">resonate with</div><div class="ipa">/ˈrezəneɪt wɪð/</div><div class="m">(v) tạo được đồng cảm với</div></div></div>
+<div class="cols"><section><h2>💬 Mẫu câu (Sentence patterns)</h2><div class="pat"><div class="en">The exhibition, most of which consists of digital art, has been widely acclaimed. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The exhibition, most of which consists of digital art, has been widely acclaimed.">🔊</button></div><div class="vi">🇻🇳 Cuộc triển lãm, phần lớn là nghệ thuật số, được ca ngợi rộng rãi.</div></div><div class="pat"><div class="en">Her latest film really resonated with young audiences. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Her latest film really resonated with young audiences.">🔊</button></div><div class="vi">🇻🇳 Bộ phim mới nhất của cô ấy thực sự chạm đến khán giả trẻ.</div></div><div class="pat"><div class="en">The novel portrays life in post-war Ha Noi. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The novel portrays life in post-war Ha Noi.">🔊</button></div><div class="vi">🇻🇳 Cuốn tiểu thuyết khắc họa cuộc sống Hà Nội thời hậu chiến.</div></div><div class="pat"><div class="en">Art is always open to interpretation. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="Art is always open to interpretation.">🔊</button></div><div class="vi">🇻🇳 Nghệ thuật luôn mở cho nhiều cách diễn giải.</div></div><div class="pat"><div class="en">To be honest, I found the performance rather pretentious. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="To be honest, I found the performance rather pretentious.">🔊</button></div><div class="vi">🇻🇳 Thành thật mà nói, tôi thấy màn trình diễn hơi làm màu.</div></div></section>
+<section><h2>📐 Ngữ pháp (Grammar)</h2><div class="gram"><h3>📐 Mệnh đề quan hệ nâng cao</h3><div class="f">Lượng từ + of + whom / which: some of whom, most of which, none of which, both of whom</div><div class="f">Giới từ + which / whom (trang trọng): the gallery in which..., the artist to whom...</div><div class="f">whereby → nhờ đó, theo đó (= by which)</div><div class="f">, which + mệnh đề → bổ nghĩa cho cả mệnh đề phía trước</div><div class="f">in which case → trong trường hợp đó</div><div class="ex"><div class="en">The museum has 3,000 paintings, many of which have never been displayed. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The museum has 3,000 paintings, many of which have never been displayed.">🔊</button></div><div class="vi">🇻🇳 Bảo tàng có 3.000 bức tranh, nhiều bức chưa từng được trưng bày.</div></div><div class="ex"><div class="en">They introduced a scheme whereby young artists receive free studio space. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="They introduced a scheme whereby young artists receive free studio space.">🔊</button></div><div class="vi">🇻🇳 Họ đưa ra một chương trình theo đó các nghệ sĩ trẻ được cấp xưởng miễn phí.</div></div><div class="ex"><div class="en">The concert may be cancelled, in which case you&#x27;ll get a full refund. <button class="say" title="Nghe" onclick="say(this.dataset.t)" data-t="The concert may be cancelled, in which case you&#x27;ll get a full refund.">🔊</button></div><div class="vi">🇻🇳 Buổi hòa nhạc có thể bị hủy, trong trường hợp đó bạn sẽ được hoàn tiền đầy đủ.</div></div></div></section></div>
+<nav class="pn"><a href="c1-truyen-thong.html">⬅️ Truyền thông &amp; Thuyết phục</a><a href="c1-tam-ly.html">Tâm lý &amp; Các mối quan hệ ➡️</a></nav></main></body></html>

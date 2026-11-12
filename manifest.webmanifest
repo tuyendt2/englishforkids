@@ -1,8 +1,8 @@
 {
- "name": "English for Kids – Lớp 1 đến 12",
+ "name": "English for Kids – Lớp 1–12 & Người lớn",
  "short_name": "English Kids",
  "lang": "vi",
- "description": "Từ vựng, mẫu câu và ngữ pháp tiếng Anh từ Lớp 1 đến Lớp 12 — học cả khi không có mạng.",
+ "description": "Từ vựng, mẫu câu và ngữ pháp tiếng Anh từ Lớp 1 đến Lớp 12, cho sinh viên và người lớn trình độ C1 đến Native — học cả khi không có mạng.",
  "start_url": "./index.html",
  "scope": "./",
  "display": "standalone",
