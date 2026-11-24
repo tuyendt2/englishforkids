@@ -1,6 +1,7 @@
-# Luyện thi TOEIC — Nghe hiểu (Part 2, 3, 4) và Đọc hiểu (Part 6, 7)
+# Luyện thi TOEIC — Nghe hiểu (Part 1, 2, 3, 4) và Đọc hiểu (Part 6, 7)
 #
 # Bài nghe dùng giọng đọc có sẵn của trình duyệt (không cần file âm thanh).
+#   Part 1 (items): mỗi dòng  tên ảnh|đúng|sai|sai|sai|giải thích   (ảnh vẽ trong _toeic_part1_svg.py)
 #   Part 2 (items): mỗi dòng  câu hỏi|đáp án đúng|sai|sai|giải thích   (3 lựa chọn, chỉ nghe, không in ra)
 #   Part 3/4 (sets): script = các dòng "M: …" / "W: …" (M = giọng nam, W = giọng nữ)
 #                   quiz   = mỗi dòng  câu hỏi|đúng|sai|sai|sai|giải thích
@@ -9,10 +10,33 @@
 #   Part 7 (sets): text là bài đọc; quiz mỗi dòng  câu hỏi|đúng|sai|sai|sai|giải thích
 # Trong text, dòng trống = xuống đoạn; dòng bắt đầu bằng "### " = tiêu đề văn bản (khi có 2 văn bản).
 
-LISTEN_GROUP = "🎧 Nghe hiểu (Listening) – Part 2, 3, 4"
+LISTEN_GROUP = "🎧 Nghe hiểu (Listening) – Part 1, 2, 3, 4"
 READ_GROUP = "📖 Đọc hiểu (Reading) – Part 6, 7"
 
 LISTEN = [
+dict(slug="toeic-part-1", part=1, ico="🖼️", en="Part 1 – Photographs", vi="Mô tả tranh", color="#2e7d32",
+tips="""
+## Cách làm Part 1
+= Nhìn tranh trước khi nghe: ai, đang làm gì, ở đâu, đồ vật nào nổi bật
+- Tranh có người → chú ý động từ V-ing: typing, watering, shaking hands, pointing at…
+- Tranh không có người → đáp án hay dùng bị động: "Boxes have been stacked", "Cars are parked"; loại ngay câu nhắc tới người
+- Bẫy hay gặp: đúng đồ vật nhưng sai hành động (carrying a ladder ≠ standing on a ladder), hoặc từ phát âm gần giống
+- 4 câu (A)(B)(C)(D) chỉ được đọc một lần, không in ra — nghe xong câu nào loại ngay câu đó
+The man is typing on a laptop.|Người đàn ông đang gõ phím trên máy tính xách tay.
+""", items="""
+p1-laptop|The man is typing on a laptop.|The man is drinking from a mug.|The man is putting on his jacket.|The man is closing a window.|Tay anh ấy đặt trên bàn phím laptop → typing. Cốc và cửa sổ có trong tranh nhưng không ai đang dùng.
+p1-water|She's watering some plants.|She's planting a tree.|She's sweeping the path.|She's buying flowers at a market.|Cô ấy cầm bình tưới nước vào chậu cây → watering some plants.
+p1-handshake|They're shaking hands.|They're waving goodbye.|They're carrying a box together.|They're sitting across from each other.|Hai người đứng đối diện, nắm tay nhau → shaking hands.
+p1-warehouse|Boxes have been stacked on the shelves.|A worker is driving a forklift.|The shelves are being assembled.|Some boxes are being loaded onto a truck.|Tranh không có người → loại câu có người (worker) và câu bị động tiếp diễn "are being…" (cần người đang làm). Hộp đã được xếp lên kệ → have been stacked.
+p1-bench|A woman is reading on a bench.|A woman is painting a bench.|A woman is walking under a tree.|A woman is putting a book on a shelf.|Người phụ nữ ngồi trên ghế dài, cầm sách mở → reading on a bench.
+p1-ladder|A man is standing on a ladder.|A man is carrying a ladder.|A man is painting the wall.|A man is sitting on the floor.|Anh ấy đứng trên thang, với tay lên đèn → standing on a ladder. "Carrying a ladder" là bẫy: đúng đồ vật, sai hành động.
+p1-meeting|A man is pointing at a chart.|Some people are leaving the room.|A man is erasing the board.|The chairs are stacked in a corner.|Người đàn ông đứng chỉ tay vào biểu đồ trên bảng → pointing at a chart.
+p1-street|Some cars are parked along the street.|Cars are being washed.|People are crossing the street.|A bus is stopping at the station.|Không có người → loại câu có người. Xe đang đỗ dọc đường → are parked along the street.
+p1-chef|A cook is stirring a pot.|A cook is washing the dishes.|A cook is serving food to customers.|A cook is opening the refrigerator.|Đầu bếp cầm muôi khuấy nồi đang bốc hơi → stirring a pot.
+p1-phone|She's talking on the phone.|She's writing on a whiteboard.|She's handing over a key.|She's hanging up a picture.|Cô ấy áp điện thoại lên tai → talking on the phone.
+p1-bikes|Bicycles are lined up in a rack.|Someone is riding a bicycle.|A bicycle is being repaired.|The bicycles are lying on the grass.|Không có người; các xe đạp xếp thành hàng ở giá → are lined up in a rack.
+p1-cart|He's pushing a shopping cart.|He's stocking the shelves.|He's paying at the register.|He's carrying a basket.|Anh ấy hai tay đẩy xe đẩy hàng → pushing a shopping cart.
+"""),
 dict(slug="toeic-part-2", part=2, ico="💬", en="Part 2 – Question-Response", vi="Hỏi – Đáp", color="#00838f",
 tips="""
 ## Cách làm Part 2

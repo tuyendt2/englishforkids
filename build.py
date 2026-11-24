@@ -159,6 +159,7 @@ h3.sub small{font-size:14px;font-weight:600;color:#999}
 .passage h4{margin:12px 0 6px;color:var(--c)}
 .passage .blank{min-width:44px;text-align:center;font-weight:800;color:var(--c)}
 .opts.one{grid-template-columns:1fr}
+.p1img{display:block;width:100%;max-width:480px;height:auto;margin:10px auto 0;border-radius:14px;border:1px solid #e0e0e0}
 .hidopt .q:not(.done) .lt{display:none}
 @media (max-width:860px){.cols{grid-template-columns:1fr;gap:0}}
 @media (max-width:480px){.chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.chips::-webkit-scrollbar{display:none}.chip{flex:0 0 auto}section[id]{scroll-margin-top:70px}.grid{grid-template-columns:repeat(2,1fr);gap:10px}.card{padding:12px 6px 10px;border-radius:16px}.card .ico{font-size:40px}.card .w{font-size:17px}.card .ipa,.card .vn,.card .m{font-size:13px}.say{top:2px;right:2px;font-size:17px}.mic{top:2px;left:2px;font-size:17px}.topics{grid-template-columns:1fr 1fr;gap:10px}.topic{padding:14px;border-radius:18px}.topic .ico{font-size:38px}.topic .t{font-size:16px}.topic .s{font-size:14px}.topic .n{font-size:12px}nav.pn a{padding:9px 12px;font-size:14px}.opts{grid-template-columns:1fr}.theory{grid-template-columns:1fr}.qt{font-size:16px}}
@@ -617,9 +618,29 @@ def passage_html(text, offset):
     flush()
     return "".join(out)
 
+import _toeic_part1_svg
+IMG_OUT = os.path.join(TOEIC_OUT, "img")
+os.makedirs(IMG_OUT, exist_ok=True)
+for name, draw in _toeic_part1_svg.SCENES.items():
+    with open(os.path.join(IMG_OUT, name + ".svg"), "w", encoding="utf-8") as f:
+        f.write(draw())
+    pages.append(f"toeic/img/{name}.svg")
+
 def part_page(P, kind):
     n, html_sets = 0, []
-    if P["part"] == 2:
+    if P["part"] == 1:
+        qs = []
+        for k, (img, right, *wrong, why) in enumerate(quiz_rows(P["items"], 6)):
+            assert img in _toeic_part1_svg.SCENES, f"Chưa vẽ ảnh {img}"
+            n += 1
+            opts, a = shuffled(img, right, wrong)
+            lines = [["W" if k % 2 else "M", f"{'ABCD'[j]}. {o}"] for j, o in enumerate(opts)]
+            script = "<br>".join(f"({'ABCD'[j]}) {e(o)}" for j, o in enumerate(opts))
+            qs.append(f'<div class="q"><div class="qt"><b>{n}.</b> {play_btn(lines, "🔊 Nghe câu " + str(n))}</div>'
+                      f'<img class="p1img" src="img/{img}.svg" alt="Tranh câu {n}" loading="lazy" width="480" height="320">{opts_html(opts, a, hide=True)}'
+                      f'<div class="why" hidden>{script}<br>✅ <b>({"ABCD"[a]}) {e(right)}</b> — {e(why)} {say_btn(right)}</div></div>')
+        html_sets.append('<div class="hidopt">' + "".join(qs) + "</div>")
+    elif P["part"] == 2:
         qs = []
         for k, (q, right, w1, w2, why) in enumerate(quiz_rows(P["items"], 5)):
             n += 1
@@ -662,7 +683,8 @@ for kind, P in listen_read:
     P["n"] = n
     total_q += n
     note = ("🎧 Bấm <b>🔊 Nghe</b> để nghe (giọng đọc của trình duyệt, nghe được khi không có mạng nếu máy có sẵn giọng tiếng Anh). "
-            + ("Part 2 chỉ nghe, không in sẵn đáp án — đáp án và lời thoại hiện ra sau khi chọn." if P["part"] == 2
+            + ("Nhìn tranh, bấm nghe 4 câu mô tả rồi chọn câu đúng nhất. Đáp án không in sẵn — chọn xong mới hiện lời thoại." if P["part"] == 1
+               else "Part 2 chỉ nghe, không in sẵn đáp án — đáp án và lời thoại hiện ra sau khi chọn." if P["part"] == 2
                else "Đọc câu hỏi trước rồi mới nghe; bấm 📜 để xem lời thoại sau khi làm.")) if kind == "listen" else \
            "📖 Đọc văn bản rồi chọn đáp án đúng nhất. Làm xong, phần giải thích sẽ hiện ra dưới mỗi câu."
     body = f"""<header><div class="big">{P["ico"]}</div><h1>{e(P["en"])}</h1><p>Luyện thi TOEIC · {e(P["vi"])}</p>
@@ -677,6 +699,9 @@ for kind, P in listen_read:
         f.write(page(f"{P['en']} – Luyện thi TOEIC", P["color"], body, root="../"))
     pages.append(f"toeic/{P['slug']}.html")
 
+for f in os.listdir(IMG_OUT):
+    if f"toeic/img/{f}" not in pages:
+        os.remove(os.path.join(IMG_OUT, f))
 for f in os.listdir(TOEIC_OUT):
     if f.endswith(".html") and f"toeic/{f}" not in pages:
         os.remove(os.path.join(TOEIC_OUT, f))
@@ -710,7 +735,7 @@ tpage = f"""<header><div class="big">🎯</div><h1>Luyện thi TOEIC</h1>
 <div class="toolbar"><a class="btn" href="index.html">🏠 Trang chủ</a><a class="btn" href="on-tap.html#lv=17">🔁 Ôn từ vựng TOEIC</a><a class="btn" href="toeic/de-tong-hop.html">📝 Làm đề tổng hợp</a></div></header>
 <main><a class="special toeic" href="toeic/de-tong-hop.html"><div class="ico">📝</div><div><b>Đề tổng hợp {TEST_N} câu</b>Trộn ngẫu nhiên từ tất cả các bài, có bấm giờ — làm sau khi đã học xong các bài bên dưới.</div></a>
 {tsec}
-<p class="legend">ℹ️ Part 1 (mô tả tranh) cần ảnh chụp thật nên chưa có ở đây. Các bài nghe dùng giọng đọc của trình duyệt: giọng có thể khác giọng trong đề thi thật, nhưng đủ để luyện nghe ý chính và chi tiết.</p>
+<p class="legend">ℹ️ Tranh Part 1 là tranh vẽ minh họa (đề thi thật dùng ảnh chụp). Các bài nghe dùng giọng đọc của trình duyệt: giọng có thể khác giọng trong đề thi thật, nhưng đủ để luyện nghe ý chính và chi tiết.</p>
 <h2>💡 Mẹo làm Part 5 (Incomplete Sentences)</h2><div class="tips">
 1️⃣ <b>Nhìn đáp án trước</b>: 4 đáp án cùng gốc khác đuôi (decide / decision / decisive / decisively) → câu hỏi <b>từ loại</b>, chỉ cần xem từ đứng trước và sau chỗ trống.<br>
 2️⃣ Đáp án là các thì / dạng của cùng một động từ → tìm <b>trạng từ thời gian</b>, chủ ngữ số ít/số nhiều, có tân ngữ hay không (chủ động / bị động).<br>
@@ -905,6 +930,15 @@ REVIEW_CSS = """
 .tplist input{width:auto!important;margin:0!important}
 .times{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .hard li{margin:3px 0}
+.rvq .opts button.sel{border-color:var(--c);background:#e0f2f1;box-shadow:0 0 0 2px var(--c) inset}
+.rvq .btn.solid{background:var(--c);color:#fff;font-size:17px;padding:10px 26px}
+.rvq .btn:disabled{opacity:.45;cursor:default}
+.res{margin-top:12px;text-align:left}
+.ri{display:flex;gap:10px;align-items:flex-start;border-radius:14px;padding:9px 12px;margin-bottom:8px;border-left:6px solid}
+.ri.ok{background:#f1f8f1;border-color:#43a047}.ri.no{background:#fff3f3;border-color:#e53935}
+.ri .rn{font-size:20px}.ri .rb{flex:1;min-width:0;overflow-wrap:anywhere}.ri .rw{font-size:18px}
+.ri .say{position:static;font-size:18px;padding:0 2px}
+.res.only .ri.ok{display:none}
 """
 
 REVIEW_JS = r"""
@@ -938,7 +972,7 @@ const pool=wordsOf(ts);let list;
 if(kind==='hard'){list=pool.filter(x=>ST[x.id]&&ST[x.id].w>0).sort((a,b)=>ST[b.id].w-ST[a.id].w).slice(0,c.k);if(!list.length)return toast('Chưa có từ nào trả lời sai trong phạm vi này 👍');}
 else list=pickWords(pool,c.k);
 let ty=c.ty.filter(t=>t!=='s'||SRec);if(!ty.length)ty=['m'];
-SES={q:shuffle(list.slice()).map(x=>({x,ty:ty[Math.random()*ty.length|0]})),i:0,ok:0,n:list.length,bad:[],pool,first:{},tries:0};
+SES={q:shuffle(list.slice()).map(x=>({x,ty:ty[Math.random()*ty.length|0]})),i:0,ok:0,n:list.length,bad:[],res:[],pool,first:{},tries:0};
 document.getElementById('home').hidden=true;const se=document.getElementById('ses');se.hidden=false;ask();se.scrollIntoView({behavior:'smooth'});}
 function opts(x,field){const val=w=>field==='m'?clean(w[2]):w[0],right=val(x.w),seen=new Set([right]),out=[right];
 let src=x.t[5].filter(w=>w!==x.w);if(src.length<6)src=src.concat(SES.pool.map(p=>p.w));
@@ -955,16 +989,21 @@ el.innerHTML='<div class="rvq"><div class="meta"><span>'+(SES.i+1)+'/'+SES.q.len
 +'<div class="prog"><i style="width:'+(SES.i/SES.q.length*100)+'%"></i></div>'+top+body+'<div id="fb"></div></div>'
 +'<div class="row"><button class="btn" onclick="quit()">⏹️ Dừng ôn</button></div>';}
 function jsq(t){return esc(t).replace(/\\/g,'\\\\').replace(/&#39;/g,"\\'");}
-function optsHTML(o){SES.o=o;return '<div class="opts">'+o.map((x,k)=>'<button onclick="choose('+k+',this)">'+esc(x.v)+'</button>').join('')+'</div>';}
-function choose(k,b){if(SES.lock)return;const ok=SES.o[k].ok;b.classList.add(ok?'right':'wrong');
-document.querySelectorAll('.rvq .opts button').forEach((x,j)=>{if(SES.o[j].ok)x.classList.add('right');});answer(ok);}
+function optsHTML(o){SES.o=o;SES.sel=-1;return '<div class="opts">'+o.map((x,k)=>'<button onclick="choose('+k+')">'+esc(x.v)+'</button>').join('')+'</div>'
++'<div class="row"><button class="btn solid" id="ok" onclick="confirmSel()" disabled>Chọn ➡️</button></div>';}
+// Bấm đáp án chỉ là chọn tạm (đổi được); bấm "Chọn" mới chấm
+function choose(k){if(SES.lock)return;SES.sel=k;document.querySelectorAll('.rvq .opts button').forEach((x,j)=>x.classList.toggle('sel',j===k));document.getElementById('ok').disabled=false;}
+function confirmSel(){if(SES.lock||SES.sel<0)return;const k=SES.sel,ok=SES.o[k].ok,bs=document.querySelectorAll('.rvq .opts button');
+bs.forEach((x,j)=>{x.classList.remove('sel');if(SES.o[j].ok)x.classList.add('right');});if(!ok)bs[k].classList.add('wrong');
+const b=document.getElementById('ok');if(b)b.parentNode.remove();answer(ok,false,null,SES.o[k].v);}
 function speakTry(){if(SES.lock)return;const Q=SES.q[SES.i],b=document.getElementById('bm'),sm=document.getElementById('sm');b.classList.add('rec');sm.textContent='Đang nghe… hãy nói ngay';
 hear(Q.x.w[0],(r,err)=>{b.classList.remove('rec');if(SES.lock)return;
 if(!r){sm.textContent=micErr(err);if(err==='not-allowed'||err==='unsupported'||err==='network')setTimeout(()=>answer(false,true),1500);return;}
 if(r.score>=PASS)return answer(true,false,r.heard);SES.tries++;const left=3-SES.tries;
 if(left<=0)return answer(false,false,r.heard);sm.textContent='Máy nghe thành “'+r.heard+'” — thử lại · còn '+left+' lượt';});}
-function answer(ok,skip,heard){if(SES.lock)return;SES.lock=true;const Q=SES.q[SES.i],x=Q.x,[w,ipa,m,ic]=x.w;
-if(!skip){grade(x.id,ok);if(!(x.id in SES.first)){SES.first[x.id]=ok;if(ok)SES.ok++;else SES.bad.push(x);}
+function answer(ok,skip,heard,chosen){if(SES.lock)return;SES.lock=true;const Q=SES.q[SES.i],x=Q.x,[w,ipa,m,ic]=x.w;
+if(!skip){grade(x.id,ok);if(!(x.id in SES.first)){SES.first[x.id]=ok;if(ok)SES.ok++;else SES.bad.push(x);SES.res.push({x,ty:Q.ty,ok,your:chosen||heard||''});}
+else{const r=SES.res.find(r=>r.x.id===x.id);if(r)r.again=ok;}
 if(!ok&&!Q.again)SES.q.splice(Math.min(SES.i+4,SES.q.length),0,{x,ty:Q.ty==='s'?'m':Q.ty,again:true});}
 const s=ST[x.id]||{c:0};
 document.getElementById('fb').innerHTML='<div class="fb '+(ok?'ok':'no')+'">'+(ok?'✅ Đúng rồi!':skip?'⏭️ Bỏ qua câu nói':'❌ Chưa đúng — từ này sẽ được hỏi lại')
@@ -972,18 +1011,22 @@ document.getElementById('fb').innerHTML='<div class="fb '+(ok?'ok':'no')+'">'+(o
 +'<div class="w">'+ic+' '+esc(w)+' <button class="say" onclick="say(\''+jsq(w)+'\')">🔊</button></div><div class="ipa">'+esc(ipa)+'</div><div>'+esc(m)+'</div>'
 +(ok&&s.c>=3?'<div class="note">🌟 Đã đúng '+s.c+' ngày liên tiếp — từ này sẽ ít xuất hiện hơn</div>':ok&&s.c?'<div class="note">Đúng '+s.c+'/3 ngày liên tiếp</div>':'')
 +'</div><div class="row"><button class="btn solid" id="nx" onclick="next()">Tiếp ➡️</button></div>';
-say(w);const bt=document.getElementById('nx');bt.focus();if(ok)SES.auto=setTimeout(next,1800);}
+say(w);const bt=document.getElementById('nx');bt.focus();if(ok)SES.auto=setTimeout(next,3500);}
 function next(){clearTimeout(SES.auto);if(!SES.lock)return;SES.i++;if(SES.i<SES.q.length)ask();else finish(true);}
-addEventListener('keydown',ev=>{if(ev.key==='Enter'&&SES&&SES.lock&&document.getElementById('nx')){ev.preventDefault();next();}});
+addEventListener('keydown',ev=>{if(ev.key!=='Enter'||!SES)return;if(SES.lock&&document.getElementById('nx')){ev.preventDefault();next();}else if(!SES.lock&&SES.sel>=0){ev.preventDefault();confirmSel();}});
 function quit(){clearTimeout(SES.auto);if(Object.keys(SES.first).length&&confirm('Dừng ôn? Kết quả các từ đã làm vẫn được lưu, nhưng lượt này chưa được tính là một buổi ôn.'))finish(false);else if(!Object.keys(SES.first).length)home();}
 function finish(full){const n=Object.keys(SES.first).length,log=ld(LOG,{}),r=dayRec(log,dkey());
 if(n){(r.rv=r.rv||[]).push([nowM(),SES.ok,n,full&&n>0?1:0,scopeName(rvCfg())]);sv(LOG,log);}
 const sl=rvSlots(),left=sl.filter(s=>!s.done).length;
 document.getElementById('ses').innerHTML='<div class="rvq"><div class="ico2">'+(SES.ok>=n*.8?'🏆':SES.ok>=n*.5?'👍':'💪')+'</div><div class="big" style="font-size:30px">Đúng '+SES.ok+'/'+n+'</div>'
 +(full?'<p>'+(left?'Hôm nay còn <b>'+left+' buổi ôn</b> bắt buộc ('+sl.filter(s=>!s.done).map(s=>s.t).join(', ')+').':'🎉 Đã hoàn thành các buổi ôn hôm nay!')+'</p>':'<p>Đã dừng giữa chừng.</p>')
-+(SES.bad.length?'<div class="fb no" style="text-align:left"><b>Từ cần ôn thêm:</b><ul class="hard">'+SES.bad.map(x=>'<li>'+x.w[3]+' <b>'+esc(x.w[0])+'</b> — '+esc(x.w[2])+'</li>').join('')+'</ul></div>':'')
++'<div class="row">'+(SES.bad.length?'<button class="btn" onclick="filterRes(this)">❌ Chỉ xem câu sai ('+SES.bad.length+')</button>':'')+'</div>'
++'<div class="res">'+SES.res.map((r,i)=>{const [w,ipa,m,ic]=r.x.w,ty={m:'👀 Từ → nghĩa',r:'🇻🇳 Nghĩa → từ',l:'🔊 Nghe → nghĩa',s:'🎤 Nói'}[r.ty];
+return '<div class="ri '+(r.ok?'ok':'no')+'"><div class="rn">'+(r.ok?'✅':'❌')+'</div><div class="rb"><div class="rw">'+ic+' <b>'+esc(w)+'</b> <button class="say" onclick="say(\''+jsq(w)+'\')">🔊</button> <span class="ipa">'+esc(ipa)+'</span></div>'
++'<div>'+esc(m)+'</div><div class="note">'+(i+1)+'. '+ty+(r.ok?'':' · Bạn '+(r.ty==='s'?'nói':'chọn')+': <s>'+esc(r.your||'(bỏ qua)')+'</s>')+(r.again===true?' · làm lại: ✅':r.again===false?' · làm lại: ❌':'')+'</div></div></div>';}).join('')+'</div>'
 +'<div class="row"><button class="btn solid" onclick="start()">🔁 Ôn thêm lượt nữa</button><button class="btn" onclick="home()">🏠 Về trang ôn tập</button></div></div>';
-SES=null;rvCheck();if(full&&!left)toast('🎉 Giỏi quá! Đã hoàn thành các buổi ôn hôm nay');}
+SES=null;rvCheck();scrollTo({top:0,behavior:'smooth'});if(full&&!left)toast('🎉 Giỏi quá! Đã hoàn thành các buổi ôn hôm nay');}
+function filterRes(b){const r=document.querySelector('.res');r.classList.toggle('only');b.textContent=r.classList.contains('only')?'📋 Xem tất cả':'❌ Chỉ xem câu sai';}
 function home(){SES=null;document.getElementById('ses').hidden=true;document.getElementById('home').hidden=false;render();scrollTo({top:0});}
 // ── Trang chính ──
 function render(){const c=rvCfg(),set=!!ld(RVC,null);ST=ld(SRS,{});
